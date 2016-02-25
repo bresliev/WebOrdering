@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+   <definition name="base.definition"
+        template="/WEB-INF/jsp/layout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/jsp/header.jsp" />
+        <put-attribute name="menu_G4" value="/WEB-INF/jsp/search.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/jsp/menu.jsp" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="right" value="/WEB-INF/jsp/right.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/jsp/footer.jsp" />
+    </definition>
+
+    <definition name="fullPage.definition"
+        template="/WEB-INF/jsp/layoutFS.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="content" value="" />
+    </definition>
+ 
+    <definition name="naslovnaView" extends="base.definition">
+        <put-attribute name="title" value="WebOrdering - Naslovna" />
+        <put-attribute name="body" value="/WEB-INF/jsp/home.jsp" />
+    </definition>
+    <definition name="contactView" extends="base.definition">
+        <put-attribute name="title" value="WebOrdering - Kontakt" />
+        <put-attribute name="body" value="/WEB-INF/jsp/contact.jsp" />
+    </definition>
+    <definition name="supportView" extends="base.definition">
+        <put-attribute name="title" value="WebOrdering - Podrška" />
+        <put-attribute name="body" value="/WEB-INF/jsp/support.jsp" />
+    </definition>
+
+    <definition name="akcijaView" extends="base.definition">
+        <put-attribute name="title" value="WebOrdering - Grupe Proizvoda" />
+        <put-attribute name="body" value="/WEB-INF/jsp/prodGroups.jsp" />
+    </definition>
+
+    <definition name="downloadView" extends="base.definition">
+        <put-attribute name="title" value="WebOrdering - Download" />
+        <put-attribute name="body" value="/WEB-INF/jsp/download.jsp" />
+    </definition>
+
+    <definition name="opremaView" extends="base.definition">
+        <put-attribute name="title" value="WebOrdering - Oprema i Vozila" />
+        <put-attribute name="body" value="/WEB-INF/jsp/oprema.jsp" />
+    </definition>
+
+    <definition name="korpaView" extends="base.definition" preparer="">
+        <put-attribute name="title" value="WebOrdering - Korpa" />
+        <put-attribute name="body" value="/WEB-INF/jsp/basket.jsp" />
+    </definition>
+
+
+    <definition name="loginView" extends="fullPage.definition">
+        <put-attribute name="title" value="WebOrdering - Login" />
+        <put-attribute name="content" value="/WEB-INF/jsp/login.jsp" />
+    </definition>
+
+
+
+
+
+</tiles-definitions>

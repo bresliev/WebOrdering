@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="datumDo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String ("2010-01-01")]]></defaultValueExpression>
+	</parameter>
+	<parameter name="partner" class="java.lang.String">
+		<defaultValueExpression><![CDATA[new String ("229")]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select distinct  s.partija1, s.godpdok||' '||s.dokoz||' '||s.orgbrdok||'   '||s.dokbr racunbr,
+                     to_char(s.dokdat, 'dd.mm.yyyy') dokdat, to_char(nvl(s.valdat,s.dokdat), 'dd.mm.yyyy') valdat,  v.naziv_vd,
+                     decode(kod_aktiva_pasiva, 'A', 1, -1)*(nvl(iznosdug,0) - nvl(iznospot,0)) obaveza,
+                     case
+                     when decode(kod_aktiva_pasiva, 'A', 1, -1)*decode(s.iznosdug, null, -dug, dug) < 0 then 0
+                     when valdat < TO_DATE('$P!{datumDo}','yyyy-mm-dd')  then 0
+                     else decode(kod_aktiva_pasiva, 'A', 1, -1)*decode(s.iznosdug, null, -dug, dug) end as nedospelo,
+                     case
+                     when decode(kod_aktiva_pasiva, 'A', 1, -1)*decode(s.iznosdug, null, -dug, dug) < 0 then 0
+                     when valdat < TO_DATE('$P!{datumDo}','yyyy-mm-dd') then decode(kod_aktiva_pasiva, 'A', 1, -1)*decode(s.iznosdug, null, -dug, dug)
+                     else 0 end as dospelo,
+                     round(sysdate-valdat) kasnjenje, p.naziv
+from gk_stavka_naloga_k s, gk_konto k, gk_partija_naziv n, ocp_vrsta_dokumenta v, ocp_poslovni_partner p
+where s.kplbr='2040'
+and trunc(dokdat) between  trunc(TO_DATE('$P!{datumDo}','yyyy-mm-dd')-730, 'year') and TO_DATE('$P!{datumDo}','yyyy-mm-dd')
+and partija1 like  nvl('$P!{partner}','%')
+and s.kplbr = k.konto#
+and nvl(statuskd,'O') = 'O'
+and orgbr= 19
+and s.partija1=n.partija
+and k.vrsta_analitike#=n.vrsta_analitike#
+and v.id_vd = s.dokoz
+and partija1 = p.poslovni_partner#
+order by 9 desc, valdat, dokdat]]>
+	</queryString>
+	<field name="PARTIJA1" class="java.lang.String"/>
+	<field name="RACUNBR" class="java.lang.String"/>
+	<field name="DOKDAT" class="java.lang.String"/>
+	<field name="VALDAT" class="java.lang.String"/>
+	<field name="NAZIV_VD" class="java.lang.String"/>
+	<field name="OBAVEZA" class="java.math.BigDecimal"/>
+	<field name="NEDOSPELO" class="java.math.BigDecimal"/>
+	<field name="DOSPELO" class="java.math.BigDecimal"/>
+	<field name="KASNJENJE" class="java.math.BigDecimal"/>
+	<field name="NAZIV" class="java.lang.String"/>
+	<variable name="sumavrednost" class="java.math.BigDecimal" incrementType="Group" incrementGroup="KARTICA" calculation="Sum">
+		<variableExpression><![CDATA[$F{OBAVEZA}]]></variableExpression>
+	</variable>
+	<variable name="sumanedospelo" class="java.math.BigDecimal" incrementType="Group" incrementGroup="nedospelogr" calculation="Sum">
+		<variableExpression><![CDATA[$F{NEDOSPELO}]]></variableExpression>
+	</variable>
+	<variable name="sumadospelo" class="java.math.BigDecimal" incrementType="Group" incrementGroup="dospelogr" calculation="Sum">
+		<variableExpression><![CDATA[$F{DOSPELO}]]></variableExpression>
+	</variable>
+	<group name="KARTICA">
+		<groupExpression><![CDATA[$F{OBAVEZA}]]></groupExpression>
+		<groupHeader>
+			<band splitType="Stretch"/>
+		</groupHeader>
+		<groupFooter>
+			<band splitType="Stretch"/>
+		</groupFooter>
+	</group>
+	<group name="nedospelogr">
+		<groupExpression><![CDATA[$F{NEDOSPELO}]]></groupExpression>
+		<groupHeader>
+			<band splitType="Stretch"/>
+		</groupHeader>
+		<groupFooter>
+			<band splitType="Stretch"/>
+		</groupFooter>
+	</group>
+	<group name="dospelogr">
+		<groupExpression><![CDATA[$F{DOSPELO}]]></groupExpression>
+		<groupHeader>
+			<band splitType="Stretch"/>
+		</groupHeader>
+		<groupFooter>
+			<band splitType="Stretch"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="9" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="47" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText" x="8" y="4" width="378" height="31" forecolor="#666600"/>
+				<textElement>
+					<font fontName="Arial" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OBAVEZE KUPCA PREMA  VALUTI PLAĆANJA:]]></text>
+			</staticText>
+			<line>
+				<reportElement key="line" x="1" y="39" width="795" height="5" forecolor="#999900"/>
+				<graphicElement>
+					<pen lineWidth="2.5"/>
+				</graphicElement>
+			</line>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" x="386" y="4" width="409" height="26" forecolor="#666600"/>
+				<textElement>
+					<font fontName="Arial" size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{NAZIV}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement key="staticText" mode="Opaque" x="0" y="8" width="105" height="15" backcolor="#999900"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Račun Br.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" mode="Opaque" x="106" y="8" width="80" height="15" backcolor="#999900"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DatumDok]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" mode="Opaque" x="187" y="8" width="80" height="15" backcolor="#999900"/>
+				<textElement textAlignment="Center">
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<text><![CDATA[Valuta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" mode="Opaque" x="270" y="8" width="213" height="15" backcolor="#999900"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Opis]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" mode="Opaque" x="486" y="8" width="80" height="15" backcolor="#999900"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vrednost]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" mode="Opaque" x="567" y="8" width="80" height="15" backcolor="#999900"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nedospelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" mode="Opaque" x="648" y="8" width="80" height="15" backcolor="#999900"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dospelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" mode="Opaque" x="729" y="8" width="65" height="15" backcolor="#999900"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Kašnjenje]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" x="1" y="0" width="105" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{RACUNBR}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" x="108" y="0" width="80" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{DOKDAT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" x="188" y="0" width="80" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{VALDAT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" x="270" y="0" width="213" height="20" forecolor="#333333"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{NAZIV_VD}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="485" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{OBAVEZA}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="649" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{DOSPELO}]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="false">
+				<reportElement key="textField" x="568" y="0" width="80" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{NEDOSPELO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" x="729" y="0" width="65" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{KASNJENJE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="15" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="75" splitType="Stretch">
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" x="706" y="22" width="34" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText" x="681" y="22" width="24" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Str.]]></text>
+			</staticText>
+			<line>
+				<reportElement key="line" x="8" y="9" width="786" height="3" forecolor="#999900"/>
+			</line>
+			<textField pattern="dd/MM/yyyy HH.mm.ss" isBlankWhenNull="false">
+				<reportElement key="textField" x="696" y="49" width="100" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" isBlankWhenNull="false">
+				<reportElement key="textField" x="753" y="22" width="40" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText" x="744" y="22" width="5" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[/]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="61" splitType="Stretch">
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" x="487" y="36" width="80" height="20" forecolor="#FF0033"/>
+				<textElement textAlignment="Right">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{sumavrednost}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement key="staticText" x="430" y="36" width="42" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUMA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" x="511" y="16" width="58" height="20"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Vrednost]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" x="596" y="16" width="54" height="20"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Nedospelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="staticText" x="680" y="16" width="51" height="20"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Dospelo]]></text>
+			</staticText>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" x="570" y="36" width="80" height="20" forecolor="#FF0033"/>
+				<textElement textAlignment="Right">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{sumanedospelo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="false">
+				<reportElement key="textField" x="651" y="36" width="80" height="20" forecolor="#FF0033"/>
+				<textElement textAlignment="Right">
+					<font isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{sumadospelo}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement key="line" x="443" y="6" width="289" height="1" forecolor="#999900"/>
+			</line>
+			<line>
+				<reportElement key="line" x="443" y="34" width="285" height="1" forecolor="#999900"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

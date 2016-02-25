@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="wopdvfakturaNN" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#E6F3FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFF7FF"/>
+		</conditionalStyle>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 6">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8">
+		<box>
+			<pen lineWidth="1.0" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 8_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 8_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<style name="table 8_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#FFFFFF"/>
+			<bottomPen lineWidth="0.5" lineColor="#FFFFFF"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1">
+		<group name="group1"/>
+	</subDataset>
+	<subDataset name="generalinformation">
+		<parameter name="ojP" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[Select  Vrednost VrednostParametra
+from     Sys_Vrednosti_Par sv, Sys_Parametri sp
+where  sv.Organizaciona_Jedinica# = PKGB_OrgJed.Get_RootOj($P{ojP})
+and     sv.Skraceni_Naziv = sp.Skraceni_Naziv
+and     sp.Skraceni_Naziv_Zavisi_OD = 'PARSYS'
+order  by sv.Skraceni_Naziv]]>
+		</queryString>
+		<field name="VREDNOSTPARAMETRA" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="porezsumarno">
+		<parameter name="ojIN" class="java.lang.String">
+			<parameterDescription><![CDATA[]]></parameterDescription>
+			<defaultValueExpression><![CDATA["19"]]></defaultValueExpression>
+		</parameter>
+		<parameter name="godinaIN" class="java.lang.String">
+			<defaultValueExpression><![CDATA["2010"]]></defaultValueExpression>
+		</parameter>
+		<parameter name="iddokumentaIN" class="java.lang.String">
+			<parameterDescription><![CDATA[]]></parameterDescription>
+			<defaultValueExpression><![CDATA["51"]]></defaultValueExpression>
+		</parameter>
+		<parameter name="idvdIN" class="java.lang.String">
+			<defaultValueExpression><![CDATA["600"]]></defaultValueExpression>
+		</parameter>
+		<queryString>
+			<![CDATA[SELECT vs.opis||' :' opis, SFD.VREDNOST VREDNOST_suma
+FROM PROD_STAVKA_FIN_DOKUMENTA  SFD,ocp_vrsta_stavke vs
+WHERE to_char(sfd.id_vd) = to_char('$P!{idvdIN}')
+and to_char(sfd.organizaciona_jedinica#) = to_char('$P!{ojIN}')
+and to_char(sfd.godina) = to_char('$P!{godinaIN}')
+and to_char(sfd.id_fin_dokumenta) = to_char('$P!{iddokumentaIN}')
+and sfd.vrsta_stavke# in (select vrsta_stavke# from ocp_vrsta_stavke where tip in ( 'S', 'W'))
+and sfd.vrsta_stavke# = vs.vrsta_stavke#
+order by stampa_se]]>
+		</queryString>
+		<field name="OPIS" class="java.lang.String"/>
+		<field name="VREDNOST_SUMA" class="java.math.BigDecimal"/>
+	</subDataset>
+	<subDataset name="ponalogu">
+		<parameter name="idvdINN" class="java.lang.String">
+			<parameterDescription><![CDATA[]]></parameterDescription>
+		</parameter>
+		<parameter name="iddokumentaINN" class="java.lang.String"/>
+		<parameter name="ojINN" class="java.lang.String"/>
+		<parameter name="godinaINN" class="java.lang.String"/>
+		<queryString language="SQL">
+			<![CDATA[select * from prod_fakturisan_dokument
+where to_char(id_vd_f) = to_char('$P!{idvdINN}')
+and to_char(organizaciona_jedinica#) = to_char('$P!{ojINN}')
+and to_char(godina) = to_char('$P!{godinaINN}')
+and to_char(id_fin_dokumenta) = to_char('$P!{iddokumentaINN}')]]>
+		</queryString>
+		<field name="ID_DOKUMENTA" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="WoUser">
+		<parameter name="idvdINNN" class="java.lang.String">
+			<parameterDescription><![CDATA[]]></parameterDescription>
+		</parameter>
+		<parameter name="iddokumentaINNN" class="java.lang.String"/>
+		<parameter name="ojINNN" class="java.lang.String"/>
+		<parameter name="godinaINNN" class="java.lang.String"/>
+		<queryString>
+			<![CDATA[SELECT DISTINCT
+     Initcap(w.ime||' '||w.prezime) as neko,
+     max(to_char(r.datumivreme, 'dd.mm.rrrr, hh24:mi:ss')) as datum
+FROM
+     "PROD_FAKTURISAN_DOKUMENT" f INNER JOIN "UZ_DOKUMENT" u ON f."ID_VD" = u."ID_VD"
+     AND f."ID_DOKUMENTA" = u."ID_DOKUMENTA"
+     INNER JOIN "WO_REZERVACIJA" r ON u."SPOLJNI_BROJ_DOKUMENTA" = r."SESSIONID"
+     INNER JOIN "WO_USER" w ON r."USER_ID" = w."ID"
+WHERE to_char(f.id_vd_f) = to_char($P{idvdINNN})
+and to_char(f.organizaciona_jedinica#) = to_char($P{ojINNN})
+and to_char(f.godina) = to_char($P{godinaINNN})
+and to_char(f.id_fin_dokumenta) = to_char($P{iddokumentaINNN})
+group by Initcap(w.ime||' '||w.prezime)]]>
+		</queryString>
+		<field name="NEKO" class="java.lang.String"/>
+		<field name="DATUM" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="idvd" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="oj" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="godina" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="iddokumenta" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT od.naziv_vd, parm.naziv, parm.pib,parm.adresa, FD.ID_VD, FD.ORGANIZACIONA_JEDINICA#, FD.GODINA, FD.ID_FIN_DOKUMENTA, FD.ID_FIN_DOKUMENTA_PO, FD.BROJ_POSLEDNJE_STAVKE,
+FD.STATUS_DOK, FD.DATUM_FORMIRANJA, nvl(FD.DATUM_DPO,FD.DATUM_FORMIRANJA) datum_dpo,FD.RADNIK#, FD.POSLOVNI_PARTNER#_PL, FD.POSLOVNI_PARTNER#_PR, FD.BROJ_IZJAVE, FD.DATUM,
+FD.DATUM_IZJAVE, FD.ID_CENOVNIK_PP, FD.NACIN_OTPREME,  FD.NAPOMENA, FD.PROC_KASSA_SKONTO,FD.PROC_NATURALNI_RABAT, FD.RADNIK#_TP, id_valute,
+decode(datum_kursne_liste#, null, datum_formiranja, datum_kursne_liste#) datum_kursne_liste#, decode(vrsta_kursne_liste#,null, 1, vrsta_kursne_liste#) vrsta_kursne_liste#,
+FD.VREDNOST_ZA_UPLATU, ugovor_broj, pvd.clan_zakona, pvd.pdv, ino_dom, vrsta_fin_dok,datum_isporuke, p.naziv_proizvoda||' '||p.dodatni_naziv nazivproizvoda, fds.ID_JEDINICE_MERE,
+fds.ID_VD STAVKA_ID_VD, fds.JEDINICNA_CENA, fds.KOLICINA, fds.akciza, fds.ORGANIZACIONA_JEDINICA# STAVKA_OJ, fds.PROCENT_RABATA, fds.PROIZVOD#, fds.RB_STAVKE_FINDOK, fds.VREDNOST,
+fds.iznos_poreza,fds.procenat_poreza,fds.VREDNOST_RABATA,fds.vrsta_stavke# ,round(fds.otpremljena_vrednost,2) otp_vred,
+(round(fds.otpremljena_vrednost,2)+round(nvl(fds.akciza,0),2)) vred_sa_akc, (round(otpremljena_vrednost,2)+round(nvl(fds.akciza,0),2))/kolicina cena_sa_akc, jm.skracena_oznaka,
+(round(fds.vrednost,2)+round(nvl(fds.iznos_poreza,0),2)) vrednostzauplatustavka,
+PRIKAZ_SLOVIMA (FD.VREDNOST_ZA_UPLATU, id_valute) vrednosslovima, w.logo_path
+FROM ocp_vrsta_dokumenta od, prod_vrsta_dokumenta pvd, prod_FIN_DOKUMENT FD, prod_stavka_fin_dokumenta fds, ocp_proizvod p,
+     ocp_jedinica_mere jm, (select par.pib, par.poslovni_partner#, par.naziv, par.adresa||' '||m.naziv||' '||m.ptt_broj adresa
+							from ocp_poslovni_partner par, ocp_mesto m
+							where par.id_mesta = m.id_mesta) parm, wo_kompanija_korisnik w
+where to_char(od.id_vd) = to_char('$P!{idvd}')
+and pvd.id_vd = od.id_vd
+and pvd.id_vd = fd.id_vd
+and to_char(fd.organizaciona_jedinica#) = to_char('$P!{oj}')
+and to_char(fd.godina) = to_char('$P!{godina}')
+and to_char(fd.id_fin_dokumenta) = to_char('$P!{iddokumenta}')
+and fd.poslovni_partner# = parm.poslovni_partner#
+and fd.id_vd = fds.id_vd
+and fd.organizaciona_jedinica# = fds.organizaciona_jedinica#
+and fd.godina = fds.godina
+and fd.id_fin_dokumenta = fds.id_fin_dokumenta
+and fds.proizvod# = p.proizvod#
+and p.jedinica_mere# = jm.id_jedinice_mere
+and w.corresponding_oj = PKGB_OrgJed.Get_RootOj(fd.organizaciona_jedinica#)
+order by  fds.RB_STAVKE_FINDOK]]>
+	</queryString>
+	<field name="NAZIV_VD" class="java.lang.String"/>
+	<field name="NAZIV" class="java.lang.String"/>
+	<field name="PIB" class="java.lang.String"/>
+	<field name="ADRESA" class="java.lang.String"/>
+	<field name="ID_VD" class="java.math.BigDecimal"/>
+	<field name="ORGANIZACIONA_JEDINICA#" class="java.math.BigDecimal"/>
+	<field name="GODINA" class="java.math.BigDecimal"/>
+	<field name="ID_FIN_DOKUMENTA" class="java.math.BigDecimal"/>
+	<field name="ID_FIN_DOKUMENTA_PO" class="java.math.BigDecimal"/>
+	<field name="BROJ_POSLEDNJE_STAVKE" class="java.math.BigDecimal"/>
+	<field name="STATUS_DOK" class="java.lang.String"/>
+	<field name="DATUM_FORMIRANJA" class="java.sql.Timestamp"/>
+	<field name="DATUM_DPO" class="java.sql.Timestamp"/>
+	<field name="RADNIK#" class="java.math.BigDecimal"/>
+	<field name="POSLOVNI_PARTNER#_PL" class="java.math.BigDecimal"/>
+	<field name="POSLOVNI_PARTNER#_PR" class="java.math.BigDecimal"/>
+	<field name="BROJ_IZJAVE" class="java.lang.String"/>
+	<field name="DATUM" class="java.sql.Timestamp"/>
+	<field name="DATUM_IZJAVE" class="java.sql.Timestamp"/>
+	<field name="ID_CENOVNIK_PP" class="java.math.BigDecimal"/>
+	<field name="NACIN_OTPREME" class="java.lang.String"/>
+	<field name="NAPOMENA" class="java.lang.String"/>
+	<field name="PROC_KASSA_SKONTO" class="java.math.BigDecimal"/>
+	<field name="PROC_NATURALNI_RABAT" class="java.math.BigDecimal"/>
+	<field name="RADNIK#_TP" class="java.math.BigDecimal"/>
+	<field name="ID_VALUTE" class="java.math.BigDecimal"/>
+	<field name="DATUM_KURSNE_LISTE#" class="java.sql.Timestamp"/>
+	<field name="VRSTA_KURSNE_LISTE#" class="java.math.BigDecimal"/>
+	<field name="VREDNOST_ZA_UPLATU" class="java.math.BigDecimal"/>
+	<field name="UGOVOR_BROJ" class="java.lang.String"/>
+	<field name="CLAN_ZAKONA" class="java.lang.String"/>
+	<field name="PDV" class="java.lang.String"/>
+	<field name="INO_DOM" class="java.lang.String"/>
+	<field name="VRSTA_FIN_DOK" class="java.lang.String"/>
+	<field name="DATUM_ISPORUKE" class="java.sql.Timestamp"/>
+	<field name="NAZIVPROIZVODA" class="java.lang.String"/>
+	<field name="ID_JEDINICE_MERE" class="java.math.BigDecimal"/>
+	<field name="STAVKA_ID_VD" class="java.math.BigDecimal"/>
+	<field name="JEDINICNA_CENA" class="java.math.BigDecimal"/>
+	<field name="KOLICINA" class="java.math.BigDecimal"/>
+	<field name="AKCIZA" class="java.math.BigDecimal"/>
+	<field name="STAVKA_OJ" class="java.math.BigDecimal"/>
+	<field name="PROCENT_RABATA" class="java.math.BigDecimal"/>
+	<field name="PROIZVOD#" class="java.math.BigDecimal"/>
+	<field name="RB_STAVKE_FINDOK" class="java.math.BigDecimal"/>
+	<field name="VREDNOST" class="java.math.BigDecimal"/>
+	<field name="IZNOS_POREZA" class="java.math.BigDecimal"/>
+	<field name="PROCENAT_POREZA" class="java.math.BigDecimal"/>
+	<field name="VREDNOST_RABATA" class="java.math.BigDecimal"/>
+	<field name="VRSTA_STAVKE#" class="java.math.BigDecimal"/>
+	<field name="OTP_VRED" class="java.math.BigDecimal"/>
+	<field name="VRED_SA_AKC" class="java.math.BigDecimal"/>
+	<field name="CENA_SA_AKC" class="java.math.BigDecimal"/>
+	<field name="SKRACENA_OZNAKA" class="java.lang.String"/>
+	<field name="VREDNOSTZAUPLATUSTAVKA" class="java.math.BigDecimal"/>
+	<field name="VREDNOSSLOVIMA" class="java.lang.String"/>
+	<field name="LOGO_PATH" class="java.lang.String"/>
+	<variable name="sumbrutovred" class="java.math.BigDecimal" incrementType="Group" incrementGroup="groupbrutovred" calculation="Sum">
+		<variableExpression><![CDATA[$F{VRED_SA_AKC}]]></variableExpression>
+	</variable>
+	<variable name="sumvrednost" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{VREDNOST}]]></variableExpression>
+	</variable>
+	<variable name="sumaporeza" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{IZNOS_POREZA}]]></variableExpression>
+	</variable>
+	<group name="groupbrutovred">
+		<groupExpression><![CDATA[$F{VRED_SA_AKC}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="119" splitType="Stretch">
+			<image>
+				<reportElement x="9" y="0" width="164" height="70"/>
+				<imageExpression class="java.lang.String"><![CDATA[$F{LOGO_PATH}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="326" y="31" width="107" height="21"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="14" isBold="true" pdfEncoding="Cp1250"/>
+				</textElement>
+				<text><![CDATA[PREDRAČUN BR.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="468" y="32" width="54" height="21"/>
+				<textElement>
+					<font fontName="Calibri" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{ID_FIN_DOKUMENTA}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd.MM.yyyy">
+				<reportElement x="444" y="55" width="79" height="15"/>
+				<textElement>
+					<font fontName="Calibri" size="9"/>
+				</textElement>
+				<textFieldExpression class="java.sql.Timestamp"><![CDATA[$F{DATUM_FORMIRANJA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="327" y="55" width="113" height="15"/>
+				<textElement textAlignment="Right">
+					<font fontName="Calibri" size="9" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Datum izdavanja predračuna:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="434" y="32" width="26" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="Calibri" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{ID_VD}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="460" y="32" width="5" height="20"/>
+				<textElement>
+					<font fontName="Calibri" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table 9" x="9" y="72" width="162" height="18"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="generalinformation">
+						<datasetParameter name="ojP">
+							<datasetParameterExpression><![CDATA[$P{oj}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="156">
+						<jr:detailCell height="16" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement x="0" y="0" width="156" height="15"/>
+								<textElement>
+									<font pdfEncoding="Cp1250"/>
+								</textElement>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{VREDNOSTPARAMETRA}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="52" splitType="Stretch">
+			<textField>
+				<reportElement x="422" y="12" width="119" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{PIB}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="290" y="9" width="68" height="18"/>
+				<textElement>
+					<font fontName="Calibri" size="11" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{POSLOVNI_PARTNER#_PL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="9" y="7" width="206" height="22"/>
+				<textElement>
+					<font fontName="Calibri" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{NAZIV}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="8" y="29" width="220" height="15"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{ADRESA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="248" y="10" width="36" height="16"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fis. No.:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="397" y="11" width="20" height="16"/>
+				<textElement>
+					<font fontName="Calibri" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PIB:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="44" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="1" y="23" width="17" height="15" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rb.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="22" y="23" width="149" height="15" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Proizvod]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="173" y="23" width="22" height="15" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[JM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="196" y="23" width="53" height="15" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Količina]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="250" y="23" width="46" height="15" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cena]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="297" y="23" width="52" height="15" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bruto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="350" y="23" width="20" height="15" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[R]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="428" y="23" width="16" height="15" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PDV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="445" y="23" width="54" height="15" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Iznos PDV]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="500" y="23" width="52" height="15" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Za uplatu]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="371" y="23" width="56" height="15" backcolor="#FFFFFF"/>
+				<textElement textAlignment="Center">
+					<font fontName="Calibri" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PDV Osnov]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="17" width="550" height="1"/>
+			</line>
+			<line>
+				<reportElement x="3" y="41" width="550" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="0" width="19" height="20"/>
+				<textElement>
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{RB_STAVKE_FINDOK}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="21" y="0" width="34" height="20"/>
+				<textElement>
+					<font size="9" isBold="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{PROIZVOD#}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="172" y="0" width="23" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{SKRACENA_OZNAKA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="195" y="0" width="56" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{KOLICINA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="251" y="0" width="45" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{JEDINICNA_CENA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="297" y="0" width="53" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{VRED_SA_AKC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="351" y="0" width="19" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{PROCENT_RABATA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="371" y="0" width="56" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{VREDNOST}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="427" y="0" width="18" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{PROCENAT_POREZA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="445" y="0" width="54" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{IZNOS_POREZA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="499" y="0" width="54" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{VREDNOSTZAUPLATUSTAVKA}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="53" y="0" width="119" height="20"/>
+				<textElement textAlignment="Justified">
+					<font size="9" isBold="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{NAZIVPROIZVODA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="342" splitType="Stretch">
+			<componentElement>
+				<reportElement key="table 5" style="table 5" x="248" y="9" width="300" height="25"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="porezsumarno">
+						<datasetParameter name="ojIN">
+							<datasetParameterExpression><![CDATA[$P{oj}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="godinaIN">
+							<datasetParameterExpression><![CDATA[$P{godina}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="iddokumentaIN">
+							<datasetParameterExpression><![CDATA[$P{iddokumenta}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="idvdIN">
+							<datasetParameterExpression><![CDATA[$P{idvd}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="190">
+						<jr:detailCell style="table 5_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement mode="Transparent" x="3" y="0" width="150" height="20" forecolor="#000000" backcolor="#3399FF"/>
+								<textElement textAlignment="Right">
+									<font fontName="Calibri" size="9" isBold="true" pdfEncoding="Cp1250"/>
+								</textElement>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{OPIS}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100">
+						<jr:detailCell style="table 5_TD" height="20" rowSpan="1">
+							<textField isStretchWithOverflow="true">
+								<reportElement x="9" y="0" width="90" height="20" backcolor="#333333"/>
+								<textElement textAlignment="Right">
+									<font pdfEncoding="Cp1250"/>
+								</textElement>
+								<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{VREDNOST_SUMA}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<line>
+				<reportElement x="236" y="106" width="310" height="1"/>
+				<graphicElement>
+					<pen lineWidth="1.25"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="437" y="115" width="100" height="20" forecolor="#330000"/>
+				<textElement textAlignment="Right">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{VREDNOST_ZA_UPLATU}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="349" y="115" width="81" height="20" backcolor="#FFFFFF"/>
+				<textElement>
+					<font fontName="Calibri" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ZA UPLATU:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="21" y="142" width="47" height="20"/>
+				<textElement>
+					<font fontName="Calibri" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Slovima:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="67" y="143" width="282" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{VREDNOSSLOVIMA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="170" width="549" height="115"/>
+				<textElement>
+					<font pdfEncoding="Cp1250"/>
+				</textElement>
+				<text><![CDATA[Napomena:
+Cene su u evrima.
+Važnost ponude tri dana, devizni iznos obračunati po srednjem kursu NBS na datum uplate.
+Napomena o poreskom oslobođenju:Nema.
+Prodaja na osnovu valutne klauzule u smislu odredaba č..2st.1.tačka 24 i čl.34.3.Zak.0.0dev.posl.(Sl.gl.RS.br.62/2006,31/2011,119/2011)
+Prilikom plaćanja obavezno naznačiti broj predračuna i šifru.
+Prilikom preuzimanja robe molimo kupce da prekontrolišu istu, jer naknadne reklamacije na primamo.
+Sve primedbe i sugestije poslati na e-mail: primedbe.sugestije@darex.rs
+
+U slučaju spora nadležan je Privredni Sud u Beogradu.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="3" width="550" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="22" y="314" width="44" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="Calibri" size="12" isBold="true" pdfEncoding="Cp1250"/>
+				</textElement>
+				<text><![CDATA[Naručio:]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table 9" x="74" y="314" width="360" height="25"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="WoUser">
+						<datasetParameter name="idvdINNN">
+							<datasetParameterExpression><![CDATA[$P{idvd}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="iddokumentaINNN">
+							<datasetParameterExpression><![CDATA[$P{iddokumenta}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="ojINNN">
+							<datasetParameterExpression><![CDATA[$P{oj}]]></datasetParameterExpression>
+						</datasetParameter>
+						<datasetParameter name="godinaINNN">
+							<datasetParameterExpression><![CDATA[$P{godina}]]></datasetParameterExpression>
+						</datasetParameter>
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="328">
+						<jr:detailCell height="23" rowSpan="1">
+							<textField>
+								<reportElement x="1" y="0" width="266" height="20"/>
+								<textElement verticalAlignment="Bottom">
+									<font fontName="Calibri" size="10" pdfEncoding="Cp1250"/>
+								</textElement>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{NEKO}]]></textFieldExpression>
+							</textField>
+							<staticText>
+								<reportElement x="281" y="0" width="40" height="20"/>
+								<textElement textAlignment="Right" verticalAlignment="Bottom">
+									<font fontName="Calibri" size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[Dana:]]></text>
+							</staticText>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="125">
+						<jr:detailCell height="23" rowSpan="1">
+							<textField>
+								<reportElement x="3" y="0" width="122" height="20"/>
+								<textElement verticalAlignment="Bottom">
+									<font fontName="Calibri" pdfEncoding="Cp1250"/>
+								</textElement>
+								<textFieldExpression class="java.lang.String"><![CDATA[$F{DATUM}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>

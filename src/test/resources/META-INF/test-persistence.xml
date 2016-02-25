@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             version="1.0">
+    <persistence-unit name="testPU" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <class>rs.invado.wo.domain.admin.AdminUserCinpos</class>
+        <class>rs.invado.wo.domain.hr.KeRadnici</class>
+        <class>rs.invado.wo.domain.ocp.OcpKlasifikacija</class>
+        <class>rs.invado.wo.domain.ocp.OcpProizvod</class>
+        <class>rs.invado.wo.domain.ocp.OcpKlasifikacijaProizvoda</class>
+        <class>rs.invado.wo.domain.ocp.OcpAtributZaKlasifikaciju</class>
+        <class>rs.invado.wo.domain.ocp.OcpAtribut</class>
+        <class>rs.invado.wo.domain.ocp.OcpKlasifikacijaPp</class>
+        <class>rs.invado.wo.domain.ocp.OcpVrstaDokumenta</class>
+        <class>rs.invado.wo.domain.ocp.OcpJedinicaMere</class>
+        <class>rs.invado.wo.domain.ocp.OcpVrAtrProizvod</class>
+        <class>rs.invado.wo.domain.ocp.OcpPoslovniPartner</class>
+        <class>rs.invado.wo.domain.ocp.OcpMesto</class>
+        <class>rs.invado.wo.domain.ocp.OcpOrganizacionaJedinica</class>
+        <class>rs.invado.wo.domain.ocp.OcpRadnik</class>
+        <class>rs.invado.wo.domain.ocp.OcpLiceZaKontakt</class>
+        <class>rs.invado.wo.domain.ocp.OcpZiroRacun</class>
+        <class>rs.invado.wo.domain.ocp.OcpValuta</class>
+        <class>rs.invado.wo.domain.ocp.OcpKontaktiLica</class>
+        <class>rs.invado.wo.domain.prod.ProdStavkaCenovnika</class>
+        <class>rs.invado.wo.domain.prod.ProdStavkaCenovnikaId</class>
+        <class>rs.invado.wo.domain.prod.ProdCenovnik</class>
+        <class>rs.invado.wo.domain.prod.ProdCenovnikId</class>
+        <class>rs.invado.wo.domain.prod.ProdPpRabat</class>
+        <class>rs.invado.wo.domain.prod.ProdPpRabatStavka</class>
+        <class>rs.invado.wo.domain.prod.ProdNacinPlacanja</class>
+        <class>rs.invado.wo.domain.prod.ProdKlasaCene</class>
+        <class>rs.invado.wo.domain.prod.ProdFinDokument</class>
+        <class>rs.invado.wo.domain.prod.ProdStavkaFinDokumenta</class>
+        <class>rs.invado.wo.domain.prod.ProdPoreskaStopa</class>
+        <class>rs.invado.wo.domain.wo.WoUser</class>
+        <class>rs.invado.wo.domain.wo.WoArtikliNaAkciji</class>
+        <class>rs.invado.wo.domain.wo.WoParametri</class>
+        <class>rs.invado.wo.domain.wo.WoPartnerSetting</class>
+        <class>rs.invado.wo.domain.wo.WoKompanijaKorisnik</class>
+        <class>rs.invado.wo.domain.wo.WoRezervacija</class>
+        <class>rs.invado.wo.domain.uz.UzStanjeZalihaSkladista</class>
+        <class>rs.invado.wo.domain.uz.UzSkladiste</class>
+        <class>rs.invado.wo.domain.uz.UzDokument</class>
+        <class>rs.invado.wo.domain.uz.UzDokumentStavka</class>
+        <class>rs.invado.wo.domain.uz.UzDokumentUsloviPlacanja</class>
+        <class>rs.invado.wo.domain.uz.UzDokumentStavkaPakovanje</class>
+        <class>rs.invado.wo.domain.uz.UzDozvPakovanja</class>
+        <class>rs.invado.wo.domain.uz.UzZaliheJskl</class>
+        <class>rs.invado.wo.domain.uz.UzDokumentOj</class>
+        <class>rs.invado.wo.domain.wo.WoDownloadTip</class>
+        <class>rs.invado.wo.domain.wo.WoDownloadFiles</class>
+        <class>rs.invado.wo.domain.wo.WoSetPoNacinPlacanja</class>
+        <class>rs.invado.wo.domain.wo.WoUserHasRight</class>
+        <class>rs.invado.wo.domain.wo.WoUserRights</class>
+        <class>rs.invado.wo.domain.wo.WoDownloadGrupa</class>
+        <class>rs.invado.wo.domain.wo.WoMapKompanijskaSkladista</class>
+        <class>rs.invado.wo.domain.ocp.OcpProizvod</class>
+        <class>rs.invado.wo.domain.wo.WoMapKompanijskaSkladista</class>
+
+        <properties>
+            <!-- <property name="hibernate.hbm2ddl.auto" value="update" />        -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
+        </properties>
+    </persistence-unit>
+</persistence>

@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+
+	<table-filter match-name="OCP_ATRIBUT"></table-filter>
+	<table-filter match-name="OCP_VRSTA_DOKUMENTA"></table-filter>
+	<table-filter match-name="OCP_VRSTA_KLASIFIKACIJE"></table-filter>
+	<table-filter match-name="OCP_KLASIFIKACIJA_NA_VD"></table-filter>
+	<table-filter match-name="OCP_ZIRO_RACUN"></table-filter>
+	<table-filter match-name="OCP_ATRIBUT_ZA_KLASIFIKACIJU"></table-filter>
+	<table-filter match-name="OCP_JEDINICA_MERE"></table-filter>
+	<table-filter match-name="OCP_VP_NA_VD"></table-filter>
+	<table-filter match-name="OCP_KLASIFIKACIJA_PP"></table-filter>
+	<table-filter match-name="OCP_VR_ATR_PROIZVOD"></table-filter>
+	<table-filter match-name="OCP_RADNIK"></table-filter>
+	<table-filter match-name="OCP_KLASIFIKACIJA_PROIZVODA"></table-filter>
+	<table-filter match-name="OCP_KLASIFIKACIJA_SKLADISTA"></table-filter>
+	<table-filter match-name="OCP_KONTAKTI_LICA"></table-filter>
+	<table-filter match-name="OCP_VALUTA"></table-filter>
+	<table-filter match-name="OCP_KLASIFIKACIJA"></table-filter>
+	<table-filter match-name="OCP_ORGANIZACIONA_JEDINICA"></table-filter>
+	<table-filter match-name="OCP_LICE_ZA_KONTAKT"></table-filter>
+	<table-filter match-name="OCP_ATRIBUT" ></table-filter>
+	<table-filter match-name="OCP_POSLOVNI_PARTNER"></table-filter>
+	<table-filter match-name="OCP_PROIZVOD_JE_VRSTE"></table-filter>
+	<table-filter match-name="OCP_MESTO"></table-filter>
+	<table-filter match-name="OCP_PROIZVOD"></table-filter>
+
+
+	<table name="OCP_ATRIBUT">
+		<column name="ATRIBUT#" property="atribut"></column>
+		<column name="NAZIV"></column>
+		<column name="TIP_PODATKA"></column>
+		<column name="DUZINA"></column>
+		<column name="FORMAT_MASKA"></column>
+		<column name="DEFAULT_VREDNOST"></column>
+		<column name="VR_OD"></column>
+		<column name="VR_DO"></column>
+		<column name="UKLJUCUJE_OD"></column>
+		<column name="UKLJUCUJE_DO"></column>
+		<column name="IMA_HIJERARHIJU"></column>
+		<column name="IMA_DISKRETNE_VR"></column>
+		<column name="VRSTA_KLASIFIKACIJE#" property="vrstaKlasifikacije">
+		</column>
+		<column name="KLASIFIKACIJA#" property="klasifikacija"></column>
+		<column name="JEDINICA_MERE#" property="jedinicaMere"></column>
+		<column name="ATRIBUT#_GP" property="atributGP"></column>
+		<column name="PREFIKS_U_NAZIVU"></column>
+		<column name="REDOSLED_U_NAZIVU"></column>
+	</table>
+
+	<table name="OCP_VRSTA_DOKUMENTA">
+		<column name="ID_VD"></column>
+		<column name="BR_POSL_DOK"></column>
+		<column name="NAZIV_VD"></column>
+		<column name="KOD_U_I"></column>
+		<column name="ON_VALIDATE_RECORD"></column>
+		<column name="SKR_NAZIV_VD"></column>
+		<column name="KOD_U_I_MK"></column>
+		<column name="KLASD"></column>
+		<column name="INTEXT"></column>
+		<column name="FO_VD#" property="foVd"></column>
+		<column name="RADNIK#_TP" property="radnikTP"></column>
+		<column name="ID_VD_PO"></column>
+		<column name="DEF_VRSTA_STAVKE"></column>
+		<column name="KOD_ID"></column>
+		<column name="NAZIV_APL"></column>
+		<column name="NAZIV_STAMPA"></column>
+		<column name="ID_VD_NAD"></column>
+		<column name="ID_VD_GEN"></column>
+		<column name="ID_VD_VRSTE"></column>
+		<column name="REDOSLED_KNJIZENJA"></column>
+		<column name="PO_RADNOM_NALOGU"></column>
+		<column name="GENERISE_OTPREMNICU"></column>
+		<column name="ISO_OZNAKA"></column>
+		<column name="PROTIV_KONTO#_DUGOVNI" property="protivKontoDugovni">
+		</column>
+		<column name="PROTIV_KONTO#_POTRAZNI" property="protivKontoPotrazni">
+		</column>
+	</table>
+	<table name="OCP_KLASIFIKACIJA_NA_VD">
+		<column name="VRSTA_KLASIFIKACIJE#" property="vrstaKlasifikacije">
+		</column>
+		<column name="KLASIFIKACIJA#" property="klasifikacija"></column>
+		<column name="ID_VD"></column>
+	</table>
+	<table name="OCP_VRSTA_KLASIFIKACIJE">
+		<column name="VRSTA_KLASIFIKACIJE#" property="vrstaKlasifikacije">
+		</column>
+		<column name="ID_NAMENE"></column>
+		<column name="IMA_STRUKTURU"></column>
+		<column name="OBAVEZNOST"></column>
+		<column name="NAZIV"></column>
+		<column name="OPIS"></column>
+		<column name="DUZINA_KLJUCA"></column>
+		<column name="TIP_OBJEKTA#" property="tipObjekta"></column>
+		<column name="VRSTA"></column>
+		<column name="FORMIRA_ZK"></column>
+	</table>
+	<table name="OCP_ZIRO_RACUN">
+		<column name="POSLOVNI_PARTNER#" property="poslovniPartner"></column>
+		<column name="ZIRO_RACUN#" property="ziroRacun"></column>
+		<column name="ID_POSLOVNE_BANKE"></column>
+		<column name="ID_VALUTE"></column>
+		<column name="NAPOMENA"></column>
+		<column name="DATUM_OTVARANJA"></column>
+		<column name="OTVORIO_RADNIK#" property="otvorioRadnik"></column>
+		<column name="DATUM_BRISANJA"></column>
+		<column name="OBRISAO_RADNIK#" property="obrisaoRadnik"></column>
+	</table>
+	<table name="OCP_ATRIBUT_ZA_KLASIFIKACIJU">
+		<column name="ATRIBUT#" property="atribut"></column>
+		<column name="VRSTA_KLASIFIKACIJE#" property="vrstaKlasifikacije">
+		</column>
+		<column name="KLASIFIKACIJA#" property="klasifikacija"></column>
+		<column name="PREFIKS_U_NAZIVU"></column>
+		<column name="REDOSLED_U_NAZIVU"></column>
+		<column name="JM_UCESTVUJE_U_NAZIVU"></column>
+	</table>
+	<table name="OCP_JEDINICA_MERE">
+		<column name="ID_JEDINICE_MERE"></column>
+		<column name="JM_ZA_DRUGU_DONJU_GRANICU"></column>
+		<column name="JM_ZA_DRUGU_GORNJU_GRANICU"></column>
+		<column name="JM_ZA_PRVU_DONJU_GRANICU"></column>
+		<column name="JM_ZA_PRVU_GORNJU_GRANICU"></column>
+		<column name="NAZIV_JEDINICE_MERE"></column>
+		<column name="SKR_OZNAKA_SLOZENE_JM"></column>
+		<column name="SKRACENA_OZNAKA"></column>
+		<column name="ZAOKRUZI"></column>
+	</table>
+	<table name="OCP_VP_NA_VD">
+		<column name="VRSTA_STAVKE#" property="vrstaStavke"></column>
+		<column name="ID_VD"></column>
+		<column name="VRSTA_PROIZVODA#" property="vrstaProizvoda"></column>
+		<column name="MAP_PROIZVOD"></column>
+	</table>
+	<table name="OCP_KLASIFIKACIJA_PP">
+		<column name="VRSTA_KLASIFIKACIJE#" property="vrstaKlasifikacije">
+		</column>
+		<column name="KLASIFIKACIJA#" property="klasifikacija"></column>
+		<column name="POSLOVNI_PARTNER#" property="poslovniPartner"></column>
+	</table>
+	<table name="OCP_VR_ATR_PROIZVOD">
+		<column name="PROIZVOD#" property="proizvod"></column>
+		<column name="KLASIFIKACIJA#" property="klasifikacija"></column>
+		<column name="VRSTA_KLASIFIKACIJE#" property="vrstaKlasifikacije">
+		</column>
+		<column name="ATRIBUT#" property="atribut"></column>
+		<column name="VREDNOST"></column>
+	</table>
+	<table name="OCP_RADNIK">
+		<column name="RADNIK#" property="radnik"></column>
+		<column name="IME"></column>
+		<column name="PREZIME"></column>
+		<column name="ORGANIZACIONA_JEDINICA#"></column>
+		<column name="VRSTA"></column>
+		<column name="SIFRA_LD"></column>
+		<column name="SS"></column>
+		<column name="PP_REF"></column>
+	</table>
+	<table name="OCP_KLASIFIKACIJA_PROIZVODA">
+		<column name="VRSTA_KLASIFIKACIJE#" property="vrstaKlasifikacije">
+		</column>
+		<column name="KLASIFIKACIJA#" property="klasifikacija"></column>
+		<column name="PROIZVOD#" property="proizvod"></column>
+	</table>
+	<table name="OCP_KLASIFIKACIJA_SKLADISTA">
+		<column name="VRSTA_KLASIFIKACIJE#" property="vrstaKLasifikacija">
+		</column>
+		<column name="KLASIFIKACIJA#" property="klasifikacija"></column>
+		<column name="ID_SKLADISTA"></column>
+	</table>
+	<table name="OCP_KONTAKTI_LICA">
+		<column name="BROJ"></column>
+		<column name="ID_VRSTE_TELEFONSKOG_BROJA"></column>
+		<column name="RBR"></column>
+		<column name="POSLOVNI_PARTNER#" property="poslovniPartner"></column>
+	</table>
+	<table name="OCP_VALUTA">
+		<column name="ID_VALUTE"></column>
+		<column name="NAZIV_VALUTE"></column>
+		<column name="SKR_NAZIV_VALUTE"></column>
+		<column name="RADNIK#" property="radnik"></column>
+		<column name="VAZI_ZA"></column>
+		<column name="DRZAVA#" property="drzava"></column>
+		<column name="NAZIV_100_TOG_DELA"></column>
+		<column name="SORT"></column>
+	</table>
+	<table name="OCP_KLASIFIKACIJA">
+		<column name="VRSTA_KLASIFIKACIJE#" property="vrstaKlasifikacije">
+		</column>
+		<column name="KLASIFIKACIJA#" property="klasifikacija"></column>
+		<column name="NAZIV"></column>
+		<column name="KLASIFIKACIJA#_NAD" property="klasifikacijaNad"></column>
+		<column name="JEDINICA_MERE#" property="jedinicaMere"></column>
+		<column name="OPIS"></column>
+		<column name="MAX_RABAT"></column>
+		<column name="PRIKAZISIFRUWO"></column>
+		<column name="SORT"></column>
+	</table>
+	<table name="OCP_ORGANIZACIONA_JEDINICA">
+		<column name="ORGANIZACIONA_JEDINICA#" property="organizacionaJedinica">
+		</column>
+		<column name="NAZIV"></column>
+		<column name="TELEFON"></column>
+		<column name="FAX"></column>
+		<column name="ADRESA"></column>
+		<column name="DATUM_OTVARANJA"></column>
+		<column name="PTT"></column>
+		<column name="NADREDJENA_OJ"></column>
+		<column name="RADNIK#" property="radnik"></column>
+		<column name="ID_SKLADISTA"></column>
+		<column name="KOD_PRIHODA"></column>
+		<column name="KOD_TROSKA"></column>
+		<column name="POSLOVNI_PARTNER#" property="poslovniPartner"></column>
+		<column name="SKRACENICA_PO_ISO"></column>
+		<column name="OZNAKA"></column>
+		<column name="RADNIK#_ZATVORIO" property="radnikZatvorio"></column>
+		<column name="DATUM_ZATVARANJA"></column>
+		<column name="ZAVISI_OD"></column>
+	</table>
+	<table name="OCP_LICE_ZA_KONTAKT">
+		<column name="POSLOVNI_PARTNER#" property="poslovniPartner"></column>
+		<column name="RBR"></column>
+		<column name="IME"></column>
+		<column name="PREZIME"></column>
+		<column name="PRIMEDBA"></column>
+		<column name="FUNKCIJA"></column>
+		<column name="WOUSERNAME"></column>
+		<column name="WOPASSWORD"></column>
+		<column name="WOUSERNIVO"></column>
+	</table>
+
+	<table name="OCP_POSLOVNI_PARTNER">
+		<column name="POSLOVNI_PARTNER#" property="poslovniPartner"></column>
+		<column name="MATICNI_BROJ"></column>
+		<column name="NAZIV"></column>
+		<column name="ID_MESTA"></column>
+		<column name="ADRESA"></column>
+		<column name="EDI_ADRESA"></column>
+		<column name="NADREDJENI_PP"></column>
+		<column name="ORGANIZACIONA_JEDINICA#" property="organizacionaJedinica">
+		</column>
+		<column name="VRSTA_PREDUZECA#" property="vrstaPreduzeca"></column>
+		<column name="OBLIK_SVOJINE#" property="oblikSvojine"></column>
+		<column name="DATUM_OTVARANJA"></column>
+		<column name="RADNIK#" property="radnik"></column>
+		<column name="DATUM_BRISANJA"></column>
+		<column name="OBRISAO_RADNIK#" property="obrisaoRadnik"></column>
+		<column name="DODATNI_NAZIV"></column>
+		<column name="TEREN#" property="teren"></column>
+		<column name="PIB"></column>
+		<column name="TIPCLREF"></column>
+		<column name="PDV"></column>
+		<column name="INT_NAPOMENA"></column>
+		<column name="ADR_ZA_SLANJE_POSTE"></column>
+		<column name="BRISAN_APR"></column>
+		<column name="UTUZEN"></column>
+		<column name="PUSTENA_MENICA"></column>
+		<column name="EMAIL"></column>
+		<column name="POSLATIRACUNPDF"></column>
+	</table>
+	<table name="OCP_PROIZVOD_JE_VRSTE">
+		<column name="PROIZVOD#" property="proizvod"></column>
+		<column name="VRSTA_PROIZVODA#" property="vrstaProizvoda"></column>
+	</table>
+	<table name="OCP_MESTO">
+		<column name="ID_MESTA"></column>
+		<column name="NAZIV"></column>
+		<column name="PTT_BROJ"></column>
+		<column name="TERITORIJA#" property="teritorija"></column>
+		<column name="KORISTI_PTT_BROJ_MESTA"></column>
+	</table>
+	<table name="OCP_PROIZVOD">
+		<column name="PROIZVOD#" property="proizvod"></column>
+		<column name="NAZIV_PROIZVODA"></column>
+		<column name="ROK_VAZENJA"></column>
+		<column name="DATUM_OTV"></column>
+		<column name="GRUPA_PROIZVODA#" property="grupaProizvoda"></column>
+		<column name="RADNIK#" property="radnik"></column>
+		<column name="JEDINICA_MERE#" property="jedinicaMere"></column>
+		<column name="DODATNI_NAZIV"></column>
+		<column name="KOD_KB"></column>
+		<column name="MIN_NIVO_ZALIHA"></column>
+		<column name="MAX_NIVO_ZALIHA"></column>
+		<column name="OPTIMALNI_NIVO_ZALIHA"></column>
+		<column name="JM_AKTIVITETA"></column>
+		<column name="KONTINUALNA_PR"></column>
+		<column name="SLEDLJIVOST"></column>
+		<column name="KOD_PAKOVANJA"></column>
+		<column name="FAMILIJA_REF"></column>
+		<column name="NAZIV_NA_ENGLESKOM"></column>
+		<column name="VREME_NABAVKE"></column>
+		<column name="VREME_KONTROLE"></column>
+		<column name="ORDER_MIN_KOLICINA"></column>
+		<column name="ORDER_MAX_KOLICINA"></column>
+		<column name="OVER_QUANTITY_CONTROL"></column>
+		<column name="DAYS_EARLY_RECEIPT"></column>
+		<column name="DAYS_LATE_RECEIPT"></column>
+		<column name="RECEIPT_DATE_CONTROL"></column>
+		<column name="OBRISAO_RADNIK#" property="obrisaoRadnik"></column>
+		<column name="DATUM_BRISANJA"></column>
+		<column name="VERSION_CONTROL"></column>
+		<column name="SERIAL_CONTROL"></column>
+		<column name="ID_JEDINICE_MERE_ALT_REF"></column>
+		<column name="DATUM_KRAJA_AKCIJE"></column>
+		<column name="SLIKA"></column>
+		<column name="DATUM_DEKOR_MESECA"></column>
+	</table>
+
+</hibernate-reverse-engineering>
