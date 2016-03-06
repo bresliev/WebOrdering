@@ -3,6 +3,7 @@ package rs.invado.wo.service;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.ServletContextAware;
@@ -28,9 +29,8 @@ import java.util.*;
  * Time: 20.12
  * To change this template use File | Settings | File Templates.
  */
-
-@Transactional
 @Service
+@Transactional
 public class AppInitService implements ServletContextAware {
     private static ServletContext ctx;
     private static final Log log = LogFactory.getLog(AppInitService.class);

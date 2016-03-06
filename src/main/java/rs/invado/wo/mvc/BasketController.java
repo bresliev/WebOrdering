@@ -67,6 +67,7 @@ public class BasketController {
         OcpProizvod product = productService.getProizvodById(Integer.parseInt(productId), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
         BigDecimal orderedQ = new BigDecimal(orderedQuantity);
         IncreaseReservation increaseReservation = null;
+
         try {
             log.info("korpa pre " + user.getBasket().size() + "  raspolozivo=" + product.getRaspolozivo() + "   session=" + session.getId()+" sa pakovanjem "+pakovanje);
             basketService.increaseReservation(product, oj, orderedQ, session.getId(), user, pakovanje);

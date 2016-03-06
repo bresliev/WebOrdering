@@ -23,7 +23,7 @@ public class WoConfigSingleton {
     private String secondFilterlevel;
     private String idFilterTypeKlasification;
     private String idMenuTypeCLasification;
-    private String[] atributs = new String[4];
+    private String[] atributs = new String[5];
     private  String neki;
 
     public static WoConfigSingleton getInstance() {
@@ -52,6 +52,8 @@ public class WoConfigSingleton {
         this.atributs[2] = "1541";
         //PRIMENIJSKLPAK
         this.atributs[3] = "1740";
+        //PROVERA ZALIHA
+        this.atributs[4] = "1820";
 
     }
 

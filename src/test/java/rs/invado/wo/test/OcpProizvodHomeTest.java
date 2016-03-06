@@ -10,14 +10,15 @@ import org.springframework.transaction.annotation.Transactional;
 import rs.invado.wo.dao.ocp.OcpProizvodHome;
 import rs.invado.wo.dao.prod.ProdCenovnikHome;
 import rs.invado.wo.dao.prod.ProdNacinPlacanjaHome;
+import rs.invado.wo.dao.uz.UzStanjeZalihaSkladistaHome;
 import rs.invado.wo.dao.uz.UzZaliheJsklHome;
 import rs.invado.wo.dao.wo.WoParametriHome;
 import rs.invado.wo.dao.wo.WoRezervacijaHome;
 import rs.invado.wo.dao.wo.WoSetPoNacinPlacanjaHome;
 import rs.invado.wo.domain.ocp.OcpProizvod;
-import rs.invado.wo.domain.ocp.OcpProizvod;
+import rs.invado.wo.domain.ocp.OcpSastavProizvoda;
 import rs.invado.wo.domain.prod.ProdNacinPlacanja;
-import rs.invado.wo.domain.uz.UzZaliheJskl;
+import rs.invado.wo.domain.uz.UzStanjeZalihaSkladista;
 import rs.invado.wo.domain.wo.WoParametri;
 import rs.invado.wo.domain.wo.WoPartnerSetting;
 import rs.invado.wo.domain.wo.WoSetPoNacinPlacanja;
@@ -29,6 +30,7 @@ import rs.invado.wo.service.LogOnService;
 import rs.invado.wo.service.ProductService;
 import rs.invado.wo.util.WOException;
 
+import javax.inject.Inject;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.util.ArrayList;
@@ -40,8 +42,8 @@ import static org.junit.Assert.fail;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:test-context.xml",
-        "classpath:/META-INF/spring/applicationContext.xml"})
+//@ContextConfiguration(locations = {"classpath:test-context.xml", "classpath:/META-INF/applicationContext.xml"})
+@ContextConfiguration(locations = {"classpath:/META-INF/testApplicationContext.xml"})
 @Transactional
 @TransactionConfiguration(defaultRollback = false)
 public class OcpProizvodHomeTest {
@@ -54,7 +56,7 @@ public class OcpProizvodHomeTest {
     private ProductService ps;
     @Autowired
     private LogOnService logOnService;
-    @Autowired
+    @Inject
     private AppInitService appInitService;
     @Autowired
     private WoRezervacijaHome woRezervacijaDAO;
@@ -66,6 +68,8 @@ public class OcpProizvodHomeTest {
     private WoSetPoNacinPlacanjaHome woSetPoNacinPlacanjaDao;
     @Autowired
     private UzZaliheJsklHome uzZaliheJsklDAO;
+    @Inject
+    private UzStanjeZalihaSkladistaHome uzStanjeZalihaSkladistaDAO;
 
 
     /*@PersistenceContext
@@ -86,7 +90,7 @@ public class OcpProizvodHomeTest {
         Map<Integer, BigDecimal> m = prodCenovnikDAO.findCeneMapped(wpsc);
         int i = 0;
         // Proizvodi p = ocpProizvodDAO.findProizvodiZaBrend("0101", m, 0, 10);
-        //List<OcpProizvod> p = ocpProizvodDAO.findProizvodiByName("iverica opleme", m, 0, 200);
+        //List<OcpProizvod> p = ocpProizvodDAO.findProizvodiByName("iverica opleme", 1, 0,  cs.getKompanijskiParametri().get(19));
         //List<OcpProizvod> p = ocpProizvodDAO.findProizvodiNaAkciji("AKCIJA", m);
         /* for (OcpProizvod item : p.getProizvodList()) {
         System.out.println(item.getProizvod() + " Proizvod " + item.getNazivProizvoda() + item.getDodatniNaziv() + " " + item.getCena()
@@ -98,13 +102,33 @@ public class OcpProizvodHomeTest {
     @Test
     public void testProductServiceSort() {
         Integer oj = new Integer(19);
-        CompanySetting cs = null;//appInitService.initApp();
+        CompanySetting cs = appInitService.initApp();
 
         try {
             User user = logOnService.logOn("milomirtankosic01", "11111111", cs, oj);
             Map<Integer, BigDecimal> m = prodCenovnikDAO.findCeneMapped(user.getWoPartnerSetting().get(0));
+/*
+            Proizvodi proizvodi = ps.getProizvodiZaBrendSorted("003401", m, 0, 15, cs.getKompanijskiParametri().get(19),
+                    user.getWoPartnerSetting(), cs.getTrasportnaPakovanja(), cs, 19);*/
 
-            Proizvodi proizvodi = ps.getProizvodiZaBrendSorted("1001", user.getCeneProizvoda(), 0, 1500,
+            Proizvodi proizvodi = ocpProizvodDAO.findProizvodiZaBrendSorted("003401", 0, 15, cs.getKompanijskiParametri().get(19),
+                    user.getWoPartnerSetting(), cs);
+            System.out.println("Dužina lisete je " + proizvodi.getProizvodList().size());
+
+            for (OcpProizvod item : proizvodi.getProizvodList()) {
+                System.out.println("Dužina lisete sastava je " + item.getSastavProizvoda().size());
+                for (OcpSastavProizvoda ocpSastavProizvoda : item.getSastavProizvoda()) {
+                    System.out.println("Sastav za "+item.getProizvod()+" "+ item.getNazivProizvoda() + " je " + ocpSastavProizvoda.getProizvodIzlaz());
+
+                }
+            }
+
+            /*
+
+
+            Proizvodi proizvodi = ocpProizvodDAO.findProizvodiByName("Fioka", 0, 15, cs.getKompanijskiParametri().get(19),
+                    user.getWoPartnerSetting());
+
                     cs.getKompanijskiParametri().get(19), user.getWoPartnerSetting(), cs.getTrasportnaPakovanja(), cs, oj);
             for (OcpProizvod item : proizvodi.getProizvodList()) {
                 System.out.println(" Proizvod je 1001 " + item.getProizvod() + " Raspolozivo za  "+ item.getPunNazivProizvoda());
@@ -124,7 +148,9 @@ public class OcpProizvodHomeTest {
                 System.out.println(" Proizvod je 0103 " + item.getProizvod() + " Raspolozivo za  "+ item.getPunNazivProizvoda());
 
             }
-            /*
+
+
+
             proizvodi = ocpProizvodDAO.findProizvodiZaBrendSorted("0103", 2, 15, cs.getKompanijskiParametri().get(19),
                     user.getWoPartnerSetting(), cs);
             for (OcpProizvod item : proizvodi.getProizvodList()) {
@@ -150,17 +176,28 @@ public class OcpProizvodHomeTest {
     }
 
     @Test
+    public void btvz(){
+
+        BigDecimal v1 = new BigDecimal(5);
+        BigDecimal v2 = new BigDecimal(2);
+        BigDecimal v3 = new BigDecimal(3);
+
+        System.out.println(v1.subtract(v2));
+        System.out.println(v1.subtract(v2).divide(v3));
+    }
+
+    @Test
     public void testProductService() {
         Integer oj = new Integer(19);
         CompanySetting cs = null;//appInitService.initApp();
         try {
-        User user = logOnService.logOn("milomirtankosic01", "11111111", cs, oj);
+            User user = logOnService.logOn("milomirtankosic01", "11111111", cs, oj);
 
 
             /*CompanySetting cs =  new CompanySetting();
             User user = new User();  */
-        Map<Integer, BigDecimal> m = prodCenovnikDAO.findCeneMapped(user.getWoPartnerSetting().get(0));
-        //Proizvodi proizvodi = ps.getProizvodiZaBrend("0101", m, 0, 10) ;
+            Map<Integer, BigDecimal> m = prodCenovnikDAO.findCeneMapped(user.getWoPartnerSetting().get(0));
+            //Proizvodi proizvodi = ps.getProizvodiZaBrend("0101", m, 0, 10) ;
         /*Proizvodi proizvodi = ps.getProzivodiNaAkcijiSorted("AKTUELNO", m, 0, 100); */
         /*Proizvodi proizvodi = ocpProizvodDAO.findProizvodiZaBrendSorted("0101", 0, 1050, cs.getKompanijskiParametri().get(19),
                 user.getWoPartnerSetting(), cs);  */
@@ -172,13 +209,13 @@ public class OcpProizvodHomeTest {
                     user.getWoPartnerSetting());
             for (OcpProizvod item : proizvodi.getProizvodList()) {
                 System.out.println(" Proizvod je " + item.getProizvod() + " Raspolozivo za  "
-                                 + " jm osn je " + item.getPunNazivProizvoda()
-                        + "i alt jem je " + item.getJedinicaMere().getSkracenaOznaka()
-                        + " "+item.getSortKlasa()
-                        +" "+item.getCena()
+                                + " jm osn je " + item.getPunNazivProizvoda()
+                                + "i alt jem je " + item.getJedinicaMere().getSkracenaOznaka()
+                                + " " + item.getSortKlasa()
+                                + " " + item.getCena()
 
                 );
-        //List<String> proizvodi = ps.findProizvodByFullName("iverica");
+                //List<String> proizvodi = ps.findProizvodByFullName("iverica");
           /*       Proizvodi proizvodi = ocpProizvodDAO.findProizvodiByNameSorted("abs", 0, 1050, cs.getKompanijskiParametri().get(19),
                 user.getWoPartnerSetting());   */
         /* Proizvodi proizvodi = ps.getFilterProizvodi("0101", "iverica", m, 0, 1000, cs.getKompanijskiParametri().get(oj),
@@ -212,10 +249,10 @@ public class OcpProizvodHomeTest {
 
      OcpProizvod item = ocpProizvod;*/
 
-            //System.out.println("proizvod je "+item);
+                //System.out.println("proizvod je "+item);
             /*for (OcpVrAtrProizvod vra : item.getVrAtrProizvod())
           System.out.println(vra.getId().getAtribut() +" "+vra.getVrednost());*/
-        }
+            }
 
         } catch (WOException e) {
             System.out.println((e.getMessage()));
@@ -369,7 +406,7 @@ public class OcpProizvodHomeTest {
 
 
     @Test
-    public void tstPak(){
+    public void tstPak() {
 
         List<BigDecimal> l = uzZaliheJsklDAO.findJsklPakPerPro(331147, 15);
 

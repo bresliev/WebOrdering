@@ -50,7 +50,6 @@ public class ProizvodiController {
         if (ACTION_MENI.equals(formAction)) {
             proizvodi = productService.getProizvodiZaBrendSorted(brandId, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), companySetting, oj);
         } else if (ACTION_AKCIJA.equals(formAction)) {
-            System.out.println("Desava se ovo upravo sada");
             proizvodi = productService.getProzivodiNaAkcijiSorted(brandId, ProductService.PROIZVODI_NA_AKCIJI, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
         } else if (ACTION_NOVO.equals(formAction)) {
             proizvodi = productService.getProzivodiNaAkcijiSorted(brandId, ProductService.PROIZVODI_NOVO, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());

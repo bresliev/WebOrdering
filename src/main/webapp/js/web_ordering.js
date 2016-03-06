@@ -61,6 +61,7 @@ $.ajaxSetup({
     };
 
     $("#groups .group_item .product_item_img").live('click', function () {
+        console.log("ovo se desava garantovano 1");
         var klasa = $(this).attr('id');
         $('#brandId').attr('value', klasa.substring(11, klasa.length));
         $('.group_item').fadeTo(500, 0.2);
@@ -69,6 +70,7 @@ $.ajaxSetup({
 
 
     $.fn.showProducts = function (pageNo, productId) {
+        console.log("ipak ide ovo");
         try {
            $('.waitcursor').show();
             $('.product_item').fadeTo(500, 0.2);
@@ -489,6 +491,7 @@ $(document).ready(function () {
     });
 
     $(".G2_MENI").live('click', function () {
+
         $(this).resetFilter();
         $(this).resetMenu();
         $("#productId").val("ŠIFRA");

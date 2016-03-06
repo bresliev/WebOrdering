@@ -7,6 +7,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import rs.invado.wo.domain.ocp.OcpProizvod;
 import rs.invado.wo.domain.uz.UzStanjeZalihaSkladista;
 import rs.invado.wo.domain.uz.UzStanjeZalihaSkladistaId;
 
@@ -14,6 +15,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.LockModeType;
 import javax.persistence.PersistenceContext;
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * Home object for domain model class UzStanjeZalihaSkladista.
@@ -90,7 +92,7 @@ public class UzStanjeZalihaSkladistaHome {
             BigDecimal kolicinaZaRezervaciju = uzStanjeZalihaSkladista.getRezervisanaKol().add(BigDecimal.valueOf(povecajIliUmanji * kolicina));
             uzStanjeZalihaSkladista.setRezervisanaKol(kolicinaZaRezervaciju);
             merge(uzStanjeZalihaSkladista);
-        }else{
+        } else {
             UzStanjeZalihaSkladista uzStanjeZalihaSkladistaP = new UzStanjeZalihaSkladista();
             uzStanjeZalihaSkladistaP.setId(id);
             uzStanjeZalihaSkladistaP.setRezervisanaKol(new BigDecimal(kolicina));
@@ -99,6 +101,23 @@ public class UzStanjeZalihaSkladistaHome {
             uzStanjeZalihaSkladistaP.setUkupnoPrimljenaKol(new BigDecimal(0.0));
             uzStanjeZalihaSkladistaP.setPocStProizvodaUSkl(new BigDecimal(0.0));
             persist(uzStanjeZalihaSkladistaP);
+        }
+
+    }
+
+    @Transactional(readOnly = true)
+    public List<UzStanjeZalihaSkladista> findByProizvod(OcpProizvod proizvod) {
+        log.debug("getting UzStanjeZalihaSkladista instance with id: " + proizvod);
+        try {
+            List<UzStanjeZalihaSkladista> list = entityManager.createNamedQuery(
+                    UzStanjeZalihaSkladista.READ_BY_PROIZVOD,
+                    UzStanjeZalihaSkladista.class)
+                    .setParameter("proizvod", (proizvod))
+                    .getResultList();
+            return list;
+        } catch (RuntimeException re) {
+            log.error("get ba pro", re);
+            throw re;
         }
 
     }

@@ -8,10 +8,12 @@ import org.springframework.transaction.annotation.Transactional;
 import rs.invado.wo.dao.ocp.OcpProizvodHome;
 import rs.invado.wo.dao.ocp.OcpVrAtrProizvodHome;
 import rs.invado.wo.dao.prod.ProdPpRabatStavkaHome;
+import rs.invado.wo.dao.uz.UzStanjeZalihaSkladistaHome;
 import rs.invado.wo.dao.uz.UzZaliheJsklHome;
 import rs.invado.wo.dao.wo.WoArtikliNaAkcijiHome;
 import rs.invado.wo.domain.ocp.OcpKlasifikacijaProizvoda;
 import rs.invado.wo.domain.ocp.OcpProizvod;
+import rs.invado.wo.domain.ocp.OcpSastavProizvoda;
 import rs.invado.wo.domain.ocp.OcpVrAtrProizvod;
 import rs.invado.wo.domain.prod.ProdPpRabatStavka;
 import rs.invado.wo.domain.uz.UzStanjeZalihaSkladista;
@@ -21,6 +23,8 @@ import rs.invado.wo.domain.wo.WoPartnerSetting;
 import rs.invado.wo.dto.CompanySetting;
 import rs.invado.wo.dto.Proizvodi;
 import rs.invado.wo.util.WoConfigSingleton;
+
+import javax.inject.Inject;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -40,6 +44,8 @@ public class ProductService {
     private ProdPpRabatStavkaHome prodPpRabatStavkaDAO;
     @Autowired
     private UzZaliheJsklHome uzZaliheJsklDAO;
+    @Inject
+    private UzStanjeZalihaSkladistaHome uzStanjeZalihaSkladistaDAO;
 
 
     /* za sada imamo četiri različita tipa akcije prodaje proizvoda i to:
@@ -61,7 +67,7 @@ public class ProductService {
     public final static String NAJPRODAVANIJE = "NAJPRODAVANIJE";
 
     public void setTransAtrZaPro(List<OcpProizvod> lp, Map<Integer, BigDecimal> mapaCena, List<WoPartnerSetting> woPartnerSetting,
-                                 Map<Integer, BigDecimal> transortnaPakovanjaProizvoda, WoParametri woParametri) {
+                                 Map<Integer, BigDecimal> transportnaPakovanjaProizvoda, WoParametri woParametri) {
         //Izvuci količinu po pakovanju
         Map<Integer, BigDecimal> m = mapaCena;
         List<WoArtikliNaAkciji> laa = woArtikliNaAkcijiDAO.findArtikliNaAkcijiAktivno(DateUtils.truncate(new Date(), Calendar.DATE),
@@ -116,42 +122,85 @@ public class ProductService {
                         item.setPrimeniJsklPakovanje(false);
                     }
                     vatp = null;
+                    vatp = ocpVrAtrProizvodDAO.findByNivoAtributa(klasifikacijaProizvoda.getId().getVrstaKlasifikacije(),
+                            klasifikacijaProizvoda.getId().getKlasifikacija(), klasifikacijaProizvoda.getId().getProizvod(),
+                            Integer.valueOf(WoConfigSingleton.getInstance().getAtributs()[4]));
+                    if (vatp != null)
+                        item.setProveraZaliha(vatp.getVrednost());
+                    vatp = null;
                 }
             }
 
             //Setuj default pakovanja
-            if (transortnaPakovanjaProizvoda != null)
-                item.setKolicinaPoPakovanju(transortnaPakovanjaProizvoda.get(item.getProizvod()));
+            if (transportnaPakovanjaProizvoda != null)
+                item.setKolicinaPoPakovanju(transportnaPakovanjaProizvoda.get(item.getProizvod()));
             //izračunaj raspolozivu kolicinu
             BigDecimal raspolozivaKolicina = new BigDecimal(0.0);
             for (WoPartnerSetting wps : woPartnerSetting)
-                for (UzStanjeZalihaSkladista uzskl : item.getUzStanjeZalihaSkladistas()) {
-                    if (uzskl.getId().getIdSkladista() == wps.getIdSkladista() &&
-                            wps.getIdSkladista() != obradjenoSkl &&
-                            uzskl.getKolicinaPoStanjuZ().compareTo(new BigDecimal(0.0)) == 1) {
-                        raspolozivaKolicina = raspolozivaKolicina.add(uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()));
-                        item.setMaticnoSkladiste(uzskl.getId().getIdSkladista());
-                        obradjenoSkl = wps.getIdSkladista();
-                        if (item.getPrimeniJsklPakovanje()) {
-                            item.setBrojPakovanja(uzZaliheJsklDAO.findJsklPakPerPro(item.getProizvod(), item.getMaticnoSkladiste(), null));
-                            /*if (item.getBrojPakovanja().size() == 1 ) {
-                                item.setPrimeniJsklPakovanje(false);
-                            } else {*/
+                if (item.getProveraZaliha().equals("DA")) {
+                    for (UzStanjeZalihaSkladista uzskl : item.getUzStanjeZalihaSkladistas()) {
+                        if (uzskl.getId().getIdSkladista() == wps.getIdSkladista() &&
+                                wps.getIdSkladista() != obradjenoSkl &&
+                                uzskl.getKolicinaPoStanjuZ().compareTo(new BigDecimal(0.0)) == 1) {
+                            raspolozivaKolicina = raspolozivaKolicina.add(uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()));
+                            item.setMaticnoSkladiste(uzskl.getId().getIdSkladista());
+                            obradjenoSkl = wps.getIdSkladista();
+                            if (item.getPrimeniJsklPakovanje()) {
+                                item.setBrojPakovanja(uzZaliheJsklDAO.findJsklPakPerPro(item.getProizvod(), item.getMaticnoSkladiste(), null));
                                 List<BigDecimal> pakNaZal = new ArrayList<BigDecimal>();
                                 Iterator it = item.getBrojPakovanja().entrySet().iterator();
                                 while (it.hasNext()) {
-                                    Map.Entry pairs = (Map.Entry)it.next();
-                                    pakNaZal.add((BigDecimal)pairs.getKey());
+                                    Map.Entry pairs = (Map.Entry) it.next();
+                                    pakNaZal.add((BigDecimal) pairs.getKey());
                                 }
                                 item.setJsklPakovanja(pakNaZal);
-                            //}
+                                //}
+                            }
                         }
                     }
+                    if (item.getKolicinaPoPakovanju() == null)
+                        item.setKolicinaPoPakovanju(new BigDecimal(1.0));
+                    item.setKolUAltJM(raspolozivaKolicina.divide(item.getKolicinaPoPakovanju(), 0, RoundingMode.FLOOR).intValue());
+                    item.setRaspolozivo(raspolozivaKolicina);
+                } else if (item.getProveraZaliha().equals("SASTAV")) {
+                    System.out.println("nadredjeni je "+item.getProizvod());
+                    for (OcpSastavProizvoda ocpSastavProizvoda : item.getSastavProizvoda()) {
+                        obradjenoSkl = 0;
+                        List<UzStanjeZalihaSkladista> uzSklList = uzStanjeZalihaSkladistaDAO.findByProizvod(ocpSastavProizvoda.getProizvodIzlaz());
+                        for (UzStanjeZalihaSkladista uzskl : uzSklList) {
+                            if (uzskl.getId().getIdSkladista() == wps.getIdSkladista() &&
+                                    wps.getIdSkladista() != obradjenoSkl &&
+                                    uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje()).compareTo(new BigDecimal(1.0)) != -1) {
+                                /*-1, 0, or 1 as this BigDecimal is numerically less than, equal to, or greater than val.*/
+                                System.out.println("a raspolozivo je pree dodele " + raspolozivaKolicina+" za podrejeni "+ocpSastavProizvoda.getProizvodIzlaz()
+                                        +" koji ucestvuje sa kolicinom od "+ocpSastavProizvoda.getKolicinaUgradnje()
+                                +" a kojeg na zaliham ima "+uzskl.getKolicinaPoStanjuZ()+" dok je rezervisano "+uzskl.getRezervisanaKol());
+                                        raspolozivaKolicina = uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje()).compareTo(raspolozivaKolicina)
+                                        == -1 ? (uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje())).setScale(0, RoundingMode.FLOOR) :
+                                        (raspolozivaKolicina.compareTo(new BigDecimal(0.0)) == 0 ? (uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje()).setScale(0, RoundingMode.FLOOR)) : raspolozivaKolicina);
+                                System.out.println("a raspolozivo je posle dodele " + raspolozivaKolicina+" za podrejeni "+ocpSastavProizvoda.getProizvodIzlaz());
+                                ocpSastavProizvoda.setMaticnoSkladiste(uzskl.getId().getIdSkladista());
+                                obradjenoSkl = wps.getIdSkladista();
+                                if (item.getPrimeniJsklPakovanje()) {
+                                    item.setBrojPakovanja(uzZaliheJsklDAO.findJsklPakPerPro(item.getProizvod(), item.getMaticnoSkladiste(), null));
+                                    List<BigDecimal> pakNaZal = new ArrayList<BigDecimal>();
+                                    Iterator it = item.getBrojPakovanja().entrySet().iterator();
+                                    while (it.hasNext()) {
+                                        Map.Entry pairs = (Map.Entry) it.next();
+                                        pakNaZal.add((BigDecimal) pairs.getKey());
+                                    }
+                                    item.setJsklPakovanja(pakNaZal);
+                                    //}
+                                }
+                            }
+                        }
+                    }
+                    System.out.println("pre konacno "+raspolozivaKolicina+"za "+item.getProizvod());
+                    if (item.getKolicinaPoPakovanju() == null)
+                        item.setKolicinaPoPakovanju(new BigDecimal(1.0));
+                    item.setKolUAltJM(raspolozivaKolicina.divide(item.getKolicinaPoPakovanju(), 0, RoundingMode.FLOOR).intValue());
+                    item.setRaspolozivo(raspolozivaKolicina);
                 }
-            if (item.getKolicinaPoPakovanju() == null)
-                item.setKolicinaPoPakovanju(new BigDecimal(1.0));
-            item.setKolUAltJM(raspolozivaKolicina.divide(item.getKolicinaPoPakovanju(), 0, RoundingMode.FLOOR).intValue());
-            item.setRaspolozivo(raspolozivaKolicina);
 
             //setuj tip akcije
             if (laaMap.containsKey(item.getProizvod())) {
@@ -166,6 +215,8 @@ public class ProductService {
                                                Map<Integer, BigDecimal> transortnaPakovanjaProizvoda, CompanySetting cs, Integer oj) {
 
         Proizvodi proizvodi = ocpProizvodDAO.findProizvodiZaBrendSorted(brendId, pageNo, pageSize, woParametri, woPartnerSetting, cs);
+        for (OcpProizvod proizvod : proizvodi.getProizvodList())
+            System.out.println("Ovo je klasaa " + proizvod.getOcpKlasifikacijaProizvoda().get(1).getOcpKlasifikacija().getNaziv());
         setTransAtrZaPro(proizvodi.getProizvodList(), cenovnik, woPartnerSetting, transortnaPakovanjaProizvoda, woParametri);
         return proizvodi;
     }

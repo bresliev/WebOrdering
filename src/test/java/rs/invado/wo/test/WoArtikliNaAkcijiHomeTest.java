@@ -29,7 +29,7 @@ import static org.junit.Assert.fail;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:test-context.xml",
+@ContextConfiguration(locations = {"classpath:META-INF/test-context.xml",
         "classpath:/META-INF/spring/applicationContext.xml"})
 @Transactional
 @TransactionConfiguration(defaultRollback = false)
@@ -40,11 +40,14 @@ public class WoArtikliNaAkcijiHomeTest {
     private WoArtikliNaAkcijiHome woArtikliNaAkcijiDAO;
     @Autowired
     private OcpProizvodHome ocpProizvodHome;
+
     @PersistenceContext
     private EntityManager entityManager;
 
     @Test
     public void test() {
+
+
         fail("Not yet implemented");
     }
 

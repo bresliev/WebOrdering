@@ -18,7 +18,8 @@ import javax.persistence.PersistenceContext;
  * @see rs.invado.wo.dao.ocp.OcpMestoHome
  * @author Hibernate Tools
  */
-@Repository     @Transactional
+@Repository
+@Transactional
 //
 public class OcpMestoHome {
 

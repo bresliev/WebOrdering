@@ -15,6 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import rs.invado.wo.domain.ocp.OcpKlasifikacija;
 import rs.invado.wo.domain.ocp.OcpKlasifikacijaProizvoda;
 import rs.invado.wo.domain.ocp.OcpProizvod;
+import rs.invado.wo.domain.ocp.OcpVrAtrProizvod;
 import rs.invado.wo.domain.prod.ProdCenovnik;
 import rs.invado.wo.domain.prod.ProdPoreskaStopa;
 import rs.invado.wo.domain.uz.UzStanjeZalihaSkladista;
@@ -147,13 +148,24 @@ public class OcpProizvodHome {
         return new Proizvodi(lp, 0, rowCount);
     }
 
+    private DetachedCriteria getNonSKUArticlesSubquery() {
+/**pronalazi artikle za koje se ne proverava stanje na zalihama*/
+
+        DetachedCriteria subquery = DetachedCriteria.forClass(OcpVrAtrProizvod.class, "atributeValues")
+                .setProjection(Projections.property("atributeValues.id.proizvod"))
+                .add(Restrictions.eq("atributeValues.id.atribut", 1820))
+                .add(Restrictions.eq("atributeValues.vrednost", "NE"));
+        return subquery;
+    }
+
     public Proizvodi findProizvodiByName(String namePattern, int pageNo, int pageSize, WoParametri woParametri,
                                          List<WoPartnerSetting> woPartnerSettings) {
-        Criteria cr = getSession().createCriteria(OcpProizvod.class)
+        Criteria cr = getSession().createCriteria(OcpProizvod.class, "pro")
                 .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY)
                 .setFirstResult(pageNo * pageSize)
                 .setMaxResults(pageSize)
-                .add(Subqueries.propertyIn("pro.proizvod", getProPoSklSubquery(woPartnerSettings)))
+                .add(Restrictions.or(Subqueries.propertyIn("pro.proizvod", getProPoSklSubquery(woPartnerSettings)),
+                        Subqueries.propertyIn("pro.proizvod", getNonSKUArticlesSubquery())))
                 .add(Restrictions.or(Restrictions.like("nazivProizvoda", namePattern, MatchMode.ANYWHERE).ignoreCase(),
                         Restrictions.like("dodatniNaziv", namePattern, MatchMode.ANYWHERE).ignoreCase()))
                 .addOrder(Order.asc("nazivProizvoda"))
@@ -166,6 +178,7 @@ public class OcpProizvodHome {
             rowCount = getRowCount(cr);
         return new Proizvodi(lp, 0, rowCount);
     }
+
 
     public Proizvodi findFilterProizvodi(String brand, String patternNaziv, int pageNo, int pageSize, WoParametri woParametri,
                                          List<WoPartnerSetting> woPartnerSettings) {
@@ -245,7 +258,7 @@ public class OcpProizvodHome {
                 .setParameter("kompanija", woParametri.getWoKompanijaKorisnik().getId())
                 .setParameter("vrstaKlasifikacijeFilter", woParametri.getVrstaKlasifikacijeFilter())
                 .setParameter("brand", brand);
-        List<OcpProizvod> lp=new ArrayList<OcpProizvod>();
+        List<OcpProizvod> lp = new ArrayList<OcpProizvod>();
         Iterator i = q.getResultList().iterator();
         setTansientForSorted(i, lp);
         return lp;
@@ -287,6 +300,7 @@ public class OcpProizvodHome {
             if (ocpKlasifikacija.getId().getKlasifikacija().equals(brand))
                 vrstaKlasifikacijeSort = ocpKlasifikacija.getSortByClass().intValue();
         if (vrstaKlasifikacijeSort != 0) {
+            System.out.println("Upit je findAllByBrandSorted");
             namedQ = "findAllByBrandSorted";
             q = entityManager.createNamedQuery(namedQ)
                     .setParameter("partner", woPartnerSettings.get(0).getPoslovniPartner().getPoslovniPartner())
@@ -295,6 +309,7 @@ public class OcpProizvodHome {
                     .setParameter("vrstaKlasifikacijeMeni", woParametri.getVrstaKlasifikacijeMeni())
                     .setParameter("brand", brand);
         } else {
+            System.out.println("Upit je findAllByBrandSorted");
             namedQ = "findAllByBrandPriceSorted";
             q = entityManager.createNamedQuery(namedQ)
                     .setParameter("partner", woPartnerSettings.get(0).getPoslovniPartner().getPoslovniPartner())
@@ -306,7 +321,7 @@ public class OcpProizvodHome {
                     .setParameter("brand", brand);
         }
 
-        if (pageNo == 0) rowCount=q.getResultList().size();
+        if (pageNo == 0) rowCount = q.getResultList().size();
 
         q.setFirstResult(pageNo * pageSize);
         q.setMaxResults(pageSize);
@@ -336,7 +351,7 @@ public class OcpProizvodHome {
                 .setParameter("vrstaKlasifikacijeSort", woParametri.getVrstaKlasifikacijeMeni())
                 .setParameter("klasifikacija", brandID);
 
-        if (pageNo == 0) rowCount=q.getResultList().size();
+        if (pageNo == 0) rowCount = q.getResultList().size();
 
         q.setFirstResult(pageNo * pageSize);
         q.setMaxResults(pageSize);
@@ -389,7 +404,7 @@ public class OcpProizvodHome {
                 .setParameter("vrstaKlasifikacijeMeni", woParametri.getVrstaKlasifikacijeFilter())
                 .setParameter("brand", brand);
 
-        if (pageNo == 0) rowCount=q.getResultList().size();
+        if (pageNo == 0) rowCount = q.getResultList().size();
 
         q.setFirstResult(pageNo * pageSize);
         q.setMaxResults(pageSize);
@@ -403,7 +418,7 @@ public class OcpProizvodHome {
 
 
     public Proizvodi findFilterProizvodiByNamePatternsSorted(String brand, List<String> patterns, int pageNo, int pageSize, WoParametri woParametri,
-                                               List<WoPartnerSetting> woPartnerSettings) {
+                                                             List<WoPartnerSetting> woPartnerSettings) {
         Session session = getSession();
         int rowCount = 0;
         int vrstaKlasifikacijeSort = 0;
@@ -421,14 +436,14 @@ public class OcpProizvodHome {
                 + "                   and u.proizvod# = p.proizvod# "
                 + "                   and u.kolicina_po_stanju_z - u.rezervisana_kol >0) "
                 + "    and c.organizaciona_jedinica# = :ojc "
-                +"     and c.id_klasa_cene = :klc "
-                +"     and c.id_cenovnik = :cenovnik "
-                +"     and c.datum_do is null "
-                +"     and c.datum_ov is not null "
-                +"     and c.organizaciona_jedinica# = cs.organizaciona_jedinica#"
-                +"     and c.id_klasa_cene = cs.id_klasa_cene "
-                +"     and c.id_cenovnik = cs.id_cenovnik"
-                +"     and cs.proizvod# = p.proizvod#  "
+                + "     and c.id_klasa_cene = :klc "
+                + "     and c.id_cenovnik = :cenovnik "
+                + "     and c.datum_do is null "
+                + "     and c.datum_ov is not null "
+                + "     and c.organizaciona_jedinica# = cs.organizaciona_jedinica#"
+                + "     and c.id_klasa_cene = cs.id_klasa_cene "
+                + "     and c.id_cenovnik = cs.id_cenovnik"
+                + "     and cs.proizvod# = p.proizvod#  "
                 + "  and (exists (select 1 from ocp_klasifikacija_proizvoda km"
                 + "                  where km.vrsta_klasifikacije# = :vrstaKlasifikacijeMeni"
                 + "                   and km.klasifikacija# like  :brand||'%'"
@@ -446,7 +461,7 @@ public class OcpProizvodHome {
                 .setParameter("vrstaKlasifikacijeMeni", woParametri.getVrstaKlasifikacijeFilter())
                 .setParameter("brand", brand);
 
-        if (pageNo == 0) rowCount= qNative.getResultList().size();
+        if (pageNo == 0) rowCount = qNative.getResultList().size();
 
         qNative.setFirstResult(pageNo * pageSize);
         qNative.setMaxResults(pageSize);

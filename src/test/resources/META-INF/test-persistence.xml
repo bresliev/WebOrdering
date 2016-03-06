@@ -23,6 +23,7 @@
         <class>rs.invado.wo.domain.ocp.OcpZiroRacun</class>
         <class>rs.invado.wo.domain.ocp.OcpValuta</class>
         <class>rs.invado.wo.domain.ocp.OcpKontaktiLica</class>
+        <class>rs.invado.wo.domain.ocp.OcpSastavProizvoda</class>
         <class>rs.invado.wo.domain.prod.ProdStavkaCenovnika</class>
         <class>rs.invado.wo.domain.prod.ProdStavkaCenovnikaId</class>
         <class>rs.invado.wo.domain.prod.ProdCenovnik</class>
@@ -58,6 +59,7 @@
         <class>rs.invado.wo.domain.wo.WoMapKompanijskaSkladista</class>
         <class>rs.invado.wo.domain.ocp.OcpProizvod</class>
         <class>rs.invado.wo.domain.wo.WoMapKompanijskaSkladista</class>
+
 
         <properties>
             <!-- <property name="hibernate.hbm2ddl.auto" value="update" />        -->

@@ -1,6 +1,5 @@
 package rs.invado.wo.service;
 
-import org.jfree.util.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,7 +46,7 @@ public class LogOnService {
     @Autowired
     private ProdCenovnikHome prodCenovnikDAO;
     @Autowired
-    private AdmUserCinposHome adminUserCinposDAO;
+    private AdmUserCinposHome admUserCinposDAO;
     @Autowired
     private OcpValutaHome ocpValutaDAO;
     @Autowired
@@ -89,7 +88,7 @@ public class LogOnService {
 
         } else if (woUser.getUserType().equals(WoUser.USER_INTERNAL)) {
 
-            if (adminUserCinposDAO.findByIdParameters(Integer.valueOf(woUser.getRadnik().getRadbr()),
+            if (admUserCinposDAO.findByIdParameters(Integer.valueOf(woUser.getRadnik().getRadbr()),
                     AdminUserCinpos.OBJEKAT_ANALITIKE, OJ + "") == null)
                 throw new WOException(WOExceptionCodes.WO_UNAUTHORIZED_USER);
 
@@ -97,10 +96,10 @@ public class LogOnService {
             //if (woUser.getRadnik().getObrJedinica())
             Connection connection = null;
             try {
-                connection = DriverManager.getConnection(
-                        "jdbc:oracle:thin:@10.10.10.170:1526:darex", userName, password);
                 /*connection = DriverManager.getConnection(
-                        "jdbc:oracle:thin:@10.10.10.219:1521:test", userName, password);*/
+                        "jdbc:oracle:thin:@10.10.10.170:1526:darex", userName, password);*/
+                connection = DriverManager.getConnection(
+                        "jdbc:oracle:thin:@localhost:1521:orcl", userName, password);
 
                 if (connection == null) {
                     throw new   WOException(WOExceptionCodes.WO_UNEXESTING_USER);

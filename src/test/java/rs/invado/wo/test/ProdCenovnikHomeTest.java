@@ -26,7 +26,7 @@ import java.util.Map;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:test-context.xml",
+@ContextConfiguration(locations = {"classpath:META-INF/test-context.xml",
         "classpath:/META-INF/spring/applicationContext.xml"})
 @Transactional
 @TransactionConfiguration(defaultRollback = true)

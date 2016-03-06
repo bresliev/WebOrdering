@@ -1,7 +1,6 @@
 package rs.invado.wo.test;
 
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +10,12 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 import rs.invado.wo.dao.hr.KeRadniciHome;
 import rs.invado.wo.domain.hr.KeRadnici;
-import rs.invado.wo.domain.ocp.OcpPoslovniPartner;
 import rs.invado.wo.domain.wo.WoUser;
 import rs.invado.wo.dao.wo.WoUserHome;
 
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import java.math.BigDecimal;
 import java.util.Date;
 
 import static org.junit.Assert.fail;
@@ -32,7 +29,7 @@ import static org.junit.Assert.fail;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:test-context.xml",
+@ContextConfiguration(locations = {"classpath:META-INF/test-context.xml",
         "classpath:/META-INF/spring/applicationContext.xml" })
 @Transactional
 @TransactionConfiguration(defaultRollback = false)

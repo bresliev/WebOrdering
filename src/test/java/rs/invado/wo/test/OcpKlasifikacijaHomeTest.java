@@ -4,8 +4,6 @@ import static org.junit.Assert.*;
 
 import java.math.BigDecimal;
 import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
 
 import org.junit.Test;
@@ -18,11 +16,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import rs.invado.wo.dao.ocp.OcpKlasifikacijaHome;
 import rs.invado.wo.dao.uz.UzDozvPakovanjaHome;
-import rs.invado.wo.domain.ocp.OcpKlasifikacija;
-import rs.invado.wo.domain.uz.UzDozvPakovanja;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:test-context.xml",
+@ContextConfiguration(locations = {"classpath:META-INF/test-context.xml",
 		"classpath:/META-INF/spring/applicationContext.xml" })
 @Transactional
 @TransactionConfiguration(defaultRollback = true)

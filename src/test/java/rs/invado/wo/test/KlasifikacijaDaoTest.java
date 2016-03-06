@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import rs.invado.wo.dao.ocp.OcpKlasifikacijaHome;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:test-context.xml",
+@ContextConfiguration(locations = {"classpath:META-INF/test-context.xml",
         "classpath:/META-INF/spring/applicationContext.xml"})
 public class KlasifikacijaDaoTest {
     @Autowired

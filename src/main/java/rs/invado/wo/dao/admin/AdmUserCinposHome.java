@@ -18,7 +18,7 @@ import javax.persistence.PersistenceContext;
  * Time: 23.13
  * To change this template use File | Settings | File Templates.
  */
-@Repository
+@Repository()
 @Transactional
 public class AdmUserCinposHome {
 
@@ -81,5 +81,5 @@ public class AdmUserCinposHome {
        AdminUserCinposId id = new AdminUserCinposId(radnik, objekatAnalitike, idCinpos);
        return findById(id);
    }
-   
+
 }

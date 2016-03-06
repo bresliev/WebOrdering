@@ -36,7 +36,7 @@ import java.util.*;
  * Time: 4:38 AM
  * To change this template use File | Settings | File Templates.
  */
-@Controller
+
 public class BasketControllerN {
     private static final Log log = LogFactory.getLog(BasketControllerN.class);
     @Autowired
