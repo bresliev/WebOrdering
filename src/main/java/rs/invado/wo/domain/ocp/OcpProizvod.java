@@ -743,18 +743,6 @@ public class OcpProizvod implements java.io.Serializable {
     }
 
 
-    @OneToMany(targetEntity = OcpSastavProizvoda.class, mappedBy = "proizvodUlaz")
-    @LazyCollection(LazyCollectionOption.FALSE)
-    @Transient
-    public List<OcpSastavProizvoda> getSastavProizvoda() {
-        return sastavProizvoda;
-    }
-
-    public void setSastavProizvoda(List<OcpSastavProizvoda> sastavProizvoda) {
-        this.sastavProizvoda = sastavProizvoda;
-    }
-
-
     @Transient
     public BigDecimal getCena() {
         return cena;
@@ -943,6 +931,16 @@ public class OcpProizvod implements java.io.Serializable {
         this.woRezervacijas = woRezervacijas;
     }
 
+
+    @OneToMany(targetEntity = OcpSastavProizvoda.class, mappedBy = "proizvodUlaz")
+    @LazyCollection(LazyCollectionOption.FALSE)
+    public List<OcpSastavProizvoda> getSastavProizvoda() {
+        return sastavProizvoda;
+    }
+
+    public void setSastavProizvoda(List<OcpSastavProizvoda> sastavProizvoda) {
+        this.sastavProizvoda = sastavProizvoda;
+    }
 
 }
 

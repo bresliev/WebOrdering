@@ -4,10 +4,12 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import rs.invado.wo.domain.ocp.OcpProizvod;
 import rs.invado.wo.domain.ocp.OcpSastavProizvoda;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 /**
  * Created by Nikola on 01/03/2016.
@@ -65,5 +67,23 @@ public class OcpSastavProizvodaHome {
             log.error("get failed", re);
             throw re;
         }
+    }
+
+
+    @Transactional(readOnly = true)
+    public List<OcpSastavProizvoda> findByProizvod(Integer proizvod) {
+        log.debug("getting UzStanjeZalihaSkladista instance with id: " + proizvod);
+        try {
+            List<OcpSastavProizvoda> list = entityManager.createNamedQuery(
+                    OcpSastavProizvoda.READ_BY_PROIZVOD_ULAZ,
+                    OcpSastavProizvoda.class)
+                    .setParameter("proizvod", (proizvod))
+                    .getResultList();
+            return list;
+        } catch (RuntimeException re) {
+            log.error("get ba pro", re);
+            throw re;
+        }
+
     }
 }

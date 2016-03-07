@@ -8,6 +8,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 import rs.invado.wo.dao.ocp.OcpProizvodHome;
+import rs.invado.wo.dao.ocp.OcpSastavProizvodaHome;
 import rs.invado.wo.dao.prod.ProdCenovnikHome;
 import rs.invado.wo.dao.prod.ProdNacinPlacanjaHome;
 import rs.invado.wo.dao.uz.UzStanjeZalihaSkladistaHome;
@@ -70,6 +71,8 @@ public class OcpProizvodHomeTest {
     private UzZaliheJsklHome uzZaliheJsklDAO;
     @Inject
     private UzStanjeZalihaSkladistaHome uzStanjeZalihaSkladistaDAO;
+    @Inject
+    private OcpSastavProizvodaHome ocpSastavProizvodaDAO;
 
 
     /*@PersistenceContext
@@ -107,16 +110,17 @@ public class OcpProizvodHomeTest {
         try {
             User user = logOnService.logOn("milomirtankosic01", "11111111", cs, oj);
             Map<Integer, BigDecimal> m = prodCenovnikDAO.findCeneMapped(user.getWoPartnerSetting().get(0));
-/*
-            Proizvodi proizvodi = ps.getProizvodiZaBrendSorted("003401", m, 0, 15, cs.getKompanijskiParametri().get(19),
-                    user.getWoPartnerSetting(), cs.getTrasportnaPakovanja(), cs, 19);*/
 
-            Proizvodi proizvodi = ocpProizvodDAO.findProizvodiZaBrendSorted("003401", 0, 15, cs.getKompanijskiParametri().get(19),
-                    user.getWoPartnerSetting(), cs);
+            Proizvodi proizvodi = ps.getProizvodiZaBrendSorted("003401", m, 0, 15, cs.getKompanijskiParametri().get(19),
+                    user.getWoPartnerSetting(), cs.getTrasportnaPakovanja(), cs, 19);
+
+            /*Proizvodi proizvodi = ocpProizvodDAO.findProizvodiZaBrendSorted("003401", 0, 15, cs.getKompanijskiParametri().get(19),
+                    user.getWoPartnerSetting(), cs);*/
             System.out.println("Dužina lisete je " + proizvodi.getProizvodList().size());
 
             for (OcpProizvod item : proizvodi.getProizvodList()) {
-                System.out.println("Dužina lisete sastava je " + item.getSastavProizvoda().size());
+                //item.setSastavProizvoda(ocpSastavProizvodaDAO.findByProizvod(item.getProizvod()));
+                System.out.println("Dužina lisete sastava je " + item.getSastavProizvoda().size()+" za pro "+item.getProizvod());
                 for (OcpSastavProizvoda ocpSastavProizvoda : item.getSastavProizvoda()) {
                     System.out.println("Sastav za "+item.getProizvod()+" "+ item.getNazivProizvoda() + " je " + ocpSastavProizvoda.getProizvodIzlaz());
 

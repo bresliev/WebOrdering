@@ -170,14 +170,14 @@ public class ProductService {
                         for (UzStanjeZalihaSkladista uzskl : uzSklList) {
                             if (uzskl.getId().getIdSkladista() == wps.getIdSkladista() &&
                                     wps.getIdSkladista() != obradjenoSkl &&
-                                    uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje()).compareTo(new BigDecimal(1.0)) != -1) {
+                                    uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(), 0, BigDecimal.ROUND_FLOOR).compareTo(new BigDecimal(1.0)) != -1) {
                                 /*-1, 0, or 1 as this BigDecimal is numerically less than, equal to, or greater than val.*/
                                 System.out.println("a raspolozivo je pree dodele " + raspolozivaKolicina+" za podrejeni "+ocpSastavProizvoda.getProizvodIzlaz()
                                         +" koji ucestvuje sa kolicinom od "+ocpSastavProizvoda.getKolicinaUgradnje()
                                 +" a kojeg na zaliham ima "+uzskl.getKolicinaPoStanjuZ()+" dok je rezervisano "+uzskl.getRezervisanaKol());
-                                        raspolozivaKolicina = uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje()).compareTo(raspolozivaKolicina)
-                                        == -1 ? (uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje())).setScale(0, RoundingMode.FLOOR) :
-                                        (raspolozivaKolicina.compareTo(new BigDecimal(0.0)) == 0 ? (uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje()).setScale(0, RoundingMode.FLOOR)) : raspolozivaKolicina);
+                                        raspolozivaKolicina = uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(), 0, RoundingMode.FLOOR).compareTo(raspolozivaKolicina)
+                                        == -1 ? (uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(), 0, RoundingMode.FLOOR)).setScale(0, RoundingMode.FLOOR) :
+                                        (raspolozivaKolicina.compareTo(new BigDecimal(0.0)) == 0 ? (uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(),0, RoundingMode.FLOOR).setScale(0, RoundingMode.FLOOR)) : raspolozivaKolicina);
                                 System.out.println("a raspolozivo je posle dodele " + raspolozivaKolicina+" za podrejeni "+ocpSastavProizvoda.getProizvodIzlaz());
                                 ocpSastavProizvoda.setMaticnoSkladiste(uzskl.getId().getIdSkladista());
                                 obradjenoSkl = wps.getIdSkladista();

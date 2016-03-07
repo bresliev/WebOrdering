@@ -7,7 +7,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import rs.invado.wo.domain.ocp.OcpProizvod;
 import rs.invado.wo.domain.uz.UzStanjeZalihaSkladista;
 import rs.invado.wo.domain.uz.UzStanjeZalihaSkladistaId;
 
@@ -106,7 +105,7 @@ public class UzStanjeZalihaSkladistaHome {
     }
 
     @Transactional(readOnly = true)
-    public List<UzStanjeZalihaSkladista> findByProizvod(OcpProizvod proizvod) {
+    public List<UzStanjeZalihaSkladista> findByProizvod(Integer proizvod) {
         log.debug("getting UzStanjeZalihaSkladista instance with id: " + proizvod);
         try {
             List<UzStanjeZalihaSkladista> list = entityManager.createNamedQuery(

@@ -9,10 +9,16 @@ import java.math.BigDecimal;
 
 @Entity
 @Table(name = "OCP_SASTAV_PROIZVODA", schema = "DAREX")
+@NamedQueries({
+        @NamedQuery(name = OcpSastavProizvoda.READ_BY_PROIZVOD_ULAZ,
+                query = "SELECT x FROM OcpSastavProizvoda x WHERE x.proizvodUlaz = :proizvod")
+})
 public class OcpSastavProizvoda implements java.io.Serializable {
 
+    public static final String READ_BY_PROIZVOD_ULAZ = "OcpSastavProizvoda.ReadByProizvodULaz";
+
     private OcpProizvod proizvodUlaz;
-    private OcpProizvod proizvodIzlaz;
+    private Integer proizvodIzlaz;
     private Integer sirina;
     private Integer cenaUlaz;
     private Integer id;
@@ -20,7 +26,8 @@ public class OcpSastavProizvoda implements java.io.Serializable {
 
     private int maticnoSkladiste;
 
-    @Column(name = "PROIZVOD#_ULAZ")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "PROIZVOD#_ULAZ", nullable = false, insertable = false, updatable = false)
     public OcpProizvod getProizvodUlaz() {
         return proizvodUlaz;
     }
@@ -30,11 +37,11 @@ public class OcpSastavProizvoda implements java.io.Serializable {
     }
 
     @Column(name = "PROIZVOD#_IZLAZ")
-    public OcpProizvod getProizvodIzlaz() {
+    public Integer getProizvodIzlaz() {
         return proizvodIzlaz;
     }
 
-    public void setProizvodIzlaz(OcpProizvod proizvodIzlaz) {
+    public void setProizvodIzlaz(Integer proizvodIzlaz) {
         this.proizvodIzlaz = proizvodIzlaz;
     }
 
