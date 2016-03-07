@@ -1,0 +1,6 @@
+INSERT INTO ocp_klasifikacija 
+VALUES(22,'0034','SASTAVI',NULL,NULL,NULL,NULL,2,34,1,NULL);
+INSERT INTO ocp_klasifikacija 
+VALUES(22,'003401','Fioke','0034',NULL,NULL,NULL,2,34.1,1,NULL);
+INSERT INTO ocp_klasifikacija 
+VALUES(22,'003402','Podizni sistemi','0034',NULL,NULL,NULL,2,34.2,1,NULL);
