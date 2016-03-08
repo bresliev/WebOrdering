@@ -116,11 +116,9 @@ public class OcpProizvodHomeTest {
 
             /*Proizvodi proizvodi = ocpProizvodDAO.findProizvodiZaBrendSorted("003401", 0, 15, cs.getKompanijskiParametri().get(19),
                     user.getWoPartnerSetting(), cs);*/
-            System.out.println("Dužina lisete je " + proizvodi.getProizvodList().size());
 
             for (OcpProizvod item : proizvodi.getProizvodList()) {
                 //item.setSastavProizvoda(ocpSastavProizvodaDAO.findByProizvod(item.getProizvod()));
-                System.out.println("Dužina lisete sastava je " + item.getSastavProizvoda().size()+" za pro "+item.getProizvod());
                 for (OcpSastavProizvoda ocpSastavProizvoda : item.getSastavProizvoda()) {
                     System.out.println("Sastav za "+item.getProizvod()+" "+ item.getNazivProizvoda() + " je " + ocpSastavProizvoda.getProizvodIzlaz());
 

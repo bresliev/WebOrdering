@@ -17,7 +17,7 @@ public class OcpSastavProizvoda implements java.io.Serializable {
 
     public static final String READ_BY_PROIZVOD_ULAZ = "OcpSastavProizvoda.ReadByProizvodULaz";
 
-    private OcpProizvod proizvodUlaz;
+    protected OcpProizvod proizvodUlaz;
     private Integer proizvodIzlaz;
     private Integer sirina;
     private Integer cenaUlaz;

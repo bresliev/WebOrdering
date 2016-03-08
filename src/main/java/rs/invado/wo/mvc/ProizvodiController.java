@@ -68,7 +68,7 @@ public class ProizvodiController {
             } else
                 proizvodi = productService.getFilterProizvodiSorted(brandId, namePattern, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
         }
-        Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT, Modifier.STATIC).create();
+        Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT, Modifier.STATIC, Modifier.PROTECTED).create();
         return gson.toJson(proizvodi).replace("undefined","");
     }
 

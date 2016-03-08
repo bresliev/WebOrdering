@@ -163,7 +163,6 @@ public class ProductService {
                     item.setKolUAltJM(raspolozivaKolicina.divide(item.getKolicinaPoPakovanju(), 0, RoundingMode.FLOOR).intValue());
                     item.setRaspolozivo(raspolozivaKolicina);
                 } else if (item.getProveraZaliha().equals("SASTAV")) {
-                    System.out.println("nadredjeni je "+item.getProizvod());
                     for (OcpSastavProizvoda ocpSastavProizvoda : item.getSastavProizvoda()) {
                         obradjenoSkl = 0;
                         List<UzStanjeZalihaSkladista> uzSklList = uzStanjeZalihaSkladistaDAO.findByProizvod(ocpSastavProizvoda.getProizvodIzlaz());
@@ -172,13 +171,9 @@ public class ProductService {
                                     wps.getIdSkladista() != obradjenoSkl &&
                                     uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(), 0, BigDecimal.ROUND_FLOOR).compareTo(new BigDecimal(1.0)) != -1) {
                                 /*-1, 0, or 1 as this BigDecimal is numerically less than, equal to, or greater than val.*/
-                                System.out.println("a raspolozivo je pree dodele " + raspolozivaKolicina+" za podrejeni "+ocpSastavProizvoda.getProizvodIzlaz()
-                                        +" koji ucestvuje sa kolicinom od "+ocpSastavProizvoda.getKolicinaUgradnje()
-                                +" a kojeg na zaliham ima "+uzskl.getKolicinaPoStanjuZ()+" dok je rezervisano "+uzskl.getRezervisanaKol());
                                         raspolozivaKolicina = uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(), 0, RoundingMode.FLOOR).compareTo(raspolozivaKolicina)
                                         == -1 ? (uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(), 0, RoundingMode.FLOOR)).setScale(0, RoundingMode.FLOOR) :
                                         (raspolozivaKolicina.compareTo(new BigDecimal(0.0)) == 0 ? (uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(),0, RoundingMode.FLOOR).setScale(0, RoundingMode.FLOOR)) : raspolozivaKolicina);
-                                System.out.println("a raspolozivo je posle dodele " + raspolozivaKolicina+" za podrejeni "+ocpSastavProizvoda.getProizvodIzlaz());
                                 ocpSastavProizvoda.setMaticnoSkladiste(uzskl.getId().getIdSkladista());
                                 obradjenoSkl = wps.getIdSkladista();
                                 if (item.getPrimeniJsklPakovanje()) {
@@ -195,10 +190,13 @@ public class ProductService {
                             }
                         }
                     }
-                    System.out.println("pre konacno "+raspolozivaKolicina+"za "+item.getProizvod());
                     if (item.getKolicinaPoPakovanju() == null)
                         item.setKolicinaPoPakovanju(new BigDecimal(1.0));
+                    System.out.println("evo raspolozivo  "+raspolozivaKolicina+" za pakvvanje od "+item.getKolicinaPoPakovanju()
+                    +" imam reci sledece "+raspolozivaKolicina.divide(item.getKolicinaPoPakovanju(), 0, RoundingMode.FLOOR)
+                    +" li sledece "+raspolozivaKolicina.divide(item.getKolicinaPoPakovanju()).setScale(0, RoundingMode.FLOOR));
                     item.setKolUAltJM(raspolozivaKolicina.divide(item.getKolicinaPoPakovanju(), 0, RoundingMode.FLOOR).intValue());
+
                     item.setRaspolozivo(raspolozivaKolicina);
                 }
 
