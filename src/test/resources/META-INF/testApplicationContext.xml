@@ -38,10 +38,12 @@
             <value>oracle.jdbc.driver.OracleDriver</value>
         </property>
         <property name="url">
-            <!-- home
+
             <value>jdbc:oracle:thin:@localhost:1521:orcl</value>
-            -->
+
+            <!-- hom
             <value>jdbc:oracle:thin:@10.10.1.136:1521:fis</value>
+            -->
         </property>
         <property name="username">
             <value>darex</value>
@@ -52,8 +54,8 @@
     </bean>
 
     <!--
-        <bean id="AppInitService" class="rs.invado.wo.service.AppInitService" scope="singleton"/>
-        -->
+    <bean id="AppInitService" class="rs.invado.wo.service.AppInitService" scope="singleton"/>
+    -->
 </beans>
 
 

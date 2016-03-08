@@ -85,6 +85,7 @@ public class ProdCenovnikHome {
     public HashMap findCeneMapped(WoPartnerSetting woPartnerSetting) {
         Session session = entityManager.unwrap(Session.class);
         HashMap mapaCena = new HashMap();
+        System.out.println("klasa: "+ woPartnerSetting.getIdKlasaCene()+ " cenovnik: "+ woPartnerSetting.getIdCenovnik()+" oj: "+ woPartnerSetting.getOrganizacionaJedinica());
         List items = session.createQuery("select psc.ocpProizvod.proizvod, psc.cena " +
                 " from ProdCenovnik pc" +
                 " inner join pc.prodStavkaCenovnikas psc" +
