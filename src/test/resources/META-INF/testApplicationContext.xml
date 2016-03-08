@@ -32,13 +32,16 @@
         <property name="jpaDialect" ref="jpaDialect"/>
     </bean>
     <bean id="jpaDialect" class="org.springframework.orm.jpa.vendor.HibernateJpaDialect"/>
+
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName">
             <value>oracle.jdbc.driver.OracleDriver</value>
         </property>
         <property name="url">
+            <!-- home
             <value>jdbc:oracle:thin:@localhost:1521:orcl</value>
-            <!--<value>jdbc:oracle:thin:@10.10.10.170:1526:darex</value>-->
+            -->
+            <value>jdbc:oracle:thin:@10.10.1.136:1521:fis</value>
         </property>
         <property name="username">
             <value>darex</value>

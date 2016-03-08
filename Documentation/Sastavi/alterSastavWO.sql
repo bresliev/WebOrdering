@@ -1,7 +1,7 @@
 alter table ocp_sastav_proizvoda add kolicina_ugradnje number;
 
 update ocp_klasifikacija_proizvoda k
-set k."KLASIFIKACIJA#" = '0034'
+set k."KLASIFIKACIJA#" = '003401'
 where k."VRSTA_KLASIFIKACIJE#" = 22
 and "PROIZVOD#" in (107204, 334561);
 

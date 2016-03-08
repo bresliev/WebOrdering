@@ -53,7 +53,7 @@ public class WoConfigSingleton {
         //PRIMENIJSKLPAK
         this.atributs[3] = "1740";
         //PROVERA ZALIHA
-        this.atributs[4] = "1820";
+        this.atributs[4] = "1840";
 
     }
 

@@ -79,7 +79,7 @@ public class ProizvodiController {
         ServletContext ctx = AppInitService.getServletConfig();
         CompanySetting companySetting = (CompanySetting) ctx.getAttribute(AppInitService.CompanySetting);
         List<OcpKlasifikacija> drugiNivo = companySetting.getFilterDrugiNivo().get(brandId);
-        Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT, Modifier.STATIC).create();
+        Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT, Modifier.STATIC, Modifier.PROTECTED).create();
         return gson.toJson(drugiNivo);
     }
 
@@ -98,7 +98,7 @@ public class ProizvodiController {
 
         productList = productService.getProizvodiByNameAndByBrend(term, brandId, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting());
 
-        Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT, Modifier.STATIC).create();
+        Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT, Modifier.STATIC, Modifier.PROTECTED).create();
         return "{\"products\":" + gson.toJson(productList) + "}";
     }
 

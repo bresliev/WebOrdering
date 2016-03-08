@@ -153,7 +153,7 @@ public class OcpProizvodHome {
 
         DetachedCriteria subquery = DetachedCriteria.forClass(OcpVrAtrProizvod.class, "atributeValues")
                 .setProjection(Projections.property("atributeValues.id.proizvod"))
-                .add(Restrictions.eq("atributeValues.id.atribut", 1820))
+                .add(Restrictions.eq("atributeValues.id.atribut", 1840))
                 .add(Restrictions.eq("atributeValues.vrednost", "NE"));
         return subquery;
     }

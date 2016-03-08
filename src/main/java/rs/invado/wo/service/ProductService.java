@@ -171,9 +171,9 @@ public class ProductService {
                                     wps.getIdSkladista() != obradjenoSkl &&
                                     uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(), 0, BigDecimal.ROUND_FLOOR).compareTo(new BigDecimal(1.0)) != -1) {
                                 /*-1, 0, or 1 as this BigDecimal is numerically less than, equal to, or greater than val.*/
-                                        raspolozivaKolicina = uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(), 0, RoundingMode.FLOOR).compareTo(raspolozivaKolicina)
+                                raspolozivaKolicina = uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(), 0, RoundingMode.FLOOR).compareTo(raspolozivaKolicina)
                                         == -1 ? (uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(), 0, RoundingMode.FLOOR)).setScale(0, RoundingMode.FLOOR) :
-                                        (raspolozivaKolicina.compareTo(new BigDecimal(0.0)) == 0 ? (uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(),0, RoundingMode.FLOOR).setScale(0, RoundingMode.FLOOR)) : raspolozivaKolicina);
+                                        (raspolozivaKolicina.compareTo(new BigDecimal(0.0)) == 0 ? (uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(), 0, RoundingMode.FLOOR).setScale(0, RoundingMode.FLOOR)) : raspolozivaKolicina);
                                 ocpSastavProizvoda.setMaticnoSkladiste(uzskl.getId().getIdSkladista());
                                 obradjenoSkl = wps.getIdSkladista();
                                 if (item.getPrimeniJsklPakovanje()) {
@@ -192,9 +192,6 @@ public class ProductService {
                     }
                     if (item.getKolicinaPoPakovanju() == null)
                         item.setKolicinaPoPakovanju(new BigDecimal(1.0));
-                    System.out.println("evo raspolozivo  "+raspolozivaKolicina+" za pakvvanje od "+item.getKolicinaPoPakovanju()
-                    +" imam reci sledece "+raspolozivaKolicina.divide(item.getKolicinaPoPakovanju(), 0, RoundingMode.FLOOR)
-                    +" li sledece "+raspolozivaKolicina.divide(item.getKolicinaPoPakovanju()).setScale(0, RoundingMode.FLOOR));
                     item.setKolUAltJM(raspolozivaKolicina.divide(item.getKolicinaPoPakovanju(), 0, RoundingMode.FLOOR).intValue());
 
                     item.setRaspolozivo(raspolozivaKolicina);

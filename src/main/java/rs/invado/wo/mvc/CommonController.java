@@ -123,7 +123,7 @@ public class CommonController {
         model.addAttribute("url", "/akcija");
         model.addAttribute("flashSize", commonService.getFlashSize(oj).getPodrskaflash());
         model.addAttribute("najprodavanije", getNajprodavanijeList(session));
-        Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT, Modifier.STATIC).create();
+        Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT, Modifier.STATIC, Modifier.PROTECTED).create();
         return gson.toJson(listaKlasa);
     }
 
@@ -164,14 +164,14 @@ public class CommonController {
 
     @RequestMapping(value = "/getPartnersByName", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody String getPartnersByName(@RequestParam String term) {
-        Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT, Modifier.STATIC).create();
+        Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT, Modifier.STATIC, Modifier.PROTECTED).create();
         return "{\"partners\":" + gson.toJson(commonService.findPartnerByName(term)) + "}";
     }
 
 
     @RequestMapping(value = "/getNajprodavanije", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody String getNajprodavanije(HttpSession session) {
-        Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT, Modifier.STATIC).create();
+        Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT, Modifier.STATIC, Modifier.PROTECTED).create();
         return gson.toJson(getNajprodavanijeList(session));
     }
 
