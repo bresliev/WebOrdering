@@ -84,7 +84,6 @@ public class ProductService {
             item.setStopaPoreza(ocpProizvodDAO.findStopaPorezaZaProizvod(woPartnerSetting.get(0).getOrganizacionaJedinica(), item.getProizvod()));
 
             // setuj cene
-
             item.setCena((BigDecimal) mapaCena.get(item.getProizvod()));
 
             //setuj atribute
@@ -165,7 +164,7 @@ public class ProductService {
                 } else if (item.getProveraZaliha().equals("SASTAV")) {
                     for (OcpSastavProizvoda ocpSastavProizvoda : item.getSastavProizvoda()) {
                         obradjenoSkl = 0;
-                        List<UzStanjeZalihaSkladista> uzSklList = uzStanjeZalihaSkladistaDAO.findByProizvod(ocpSastavProizvoda.getProizvodIzlaz());
+                        List<UzStanjeZalihaSkladista> uzSklList = uzStanjeZalihaSkladistaDAO.findByProizvod(ocpSastavProizvoda.getProizvodIzlaz().getProizvod());
                         for (UzStanjeZalihaSkladista uzskl : uzSklList) {
                             if (uzskl.getId().getIdSkladista() == wps.getIdSkladista() &&
                                     wps.getIdSkladista() != obradjenoSkl &&
@@ -195,6 +194,13 @@ public class ProductService {
                     item.setKolUAltJM(raspolozivaKolicina.divide(item.getKolicinaPoPakovanju(), 0, RoundingMode.FLOOR).intValue());
 
                     item.setRaspolozivo(raspolozivaKolicina);
+                    /*setuj cenu za sastav */
+                    item.setCena(new BigDecimal("0.0"));
+                    for (OcpSastavProizvoda proizvodSastav : item.getSastavProizvoda()) {
+                        proizvodSastav.getProizvodIzlaz().setCena((BigDecimal) mapaCena.get(proizvodSastav.getProizvodIzlaz().getProizvod()));
+                        item.setCena(item.getCena().add(proizvodSastav.getProizvodIzlaz().getCena()));
+                    }
+
                 }
 
             //setuj tip akcije

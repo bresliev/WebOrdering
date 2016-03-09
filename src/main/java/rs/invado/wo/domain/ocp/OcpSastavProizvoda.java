@@ -18,7 +18,7 @@ public class OcpSastavProizvoda implements java.io.Serializable {
     public static final String READ_BY_PROIZVOD_ULAZ = "OcpSastavProizvoda.ReadByProizvodULaz";
 
     protected OcpProizvod proizvodUlaz;
-    private Integer proizvodIzlaz;
+    private OcpProizvod proizvodIzlaz;
     private Integer sirina;
     private Integer cenaUlaz;
     private Integer id;
@@ -36,12 +36,13 @@ public class OcpSastavProizvoda implements java.io.Serializable {
         this.proizvodUlaz = proizvodUlaz;
     }
 
-    @Column(name = "PROIZVOD#_IZLAZ")
-    public Integer getProizvodIzlaz() {
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "PROIZVOD#_IZLAZ", nullable = false, insertable = false, updatable = false)
+    public OcpProizvod getProizvodIzlaz() {
         return proizvodIzlaz;
     }
 
-    public void setProizvodIzlaz(Integer proizvodIzlaz) {
+    public void setProizvodIzlaz(OcpProizvod proizvodIzlaz) {
         this.proizvodIzlaz = proizvodIzlaz;
     }
 

@@ -8,6 +8,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title><tiles:insertAttribute name="title" ignore="true"/></title>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+    <link href="/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
     <c:choose>
         <c:when test="${oj == 40}"><link rel="stylesheet" type="text/css" href="<c:url value="/css/wo_itison.css"/>"/></c:when>
         <c:otherwise><link rel="stylesheet" type="text/css" href="<c:url value="/css/wo_darex.css"/>"/></c:otherwise>
@@ -17,6 +19,9 @@
     <script type="text/javascript" src="js/jquery-ui-1.9.2.js"></script>
     <!--<script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script>-->
     <script type="text/javascript" src="js/web_ordering.js"></script>
+    <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap/npm.js"></script>
+
 </head>
 	<!--[if gte IE 9]>
 	   <style type="text/css">

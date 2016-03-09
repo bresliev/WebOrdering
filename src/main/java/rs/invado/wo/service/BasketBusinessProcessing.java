@@ -13,6 +13,7 @@ import rs.invado.wo.dao.wo.WoKompanijaKorisnikHome;
 import rs.invado.wo.dao.wo.WoRezervacijaHome;
 import rs.invado.wo.dao.wo.WoSetPoNacinPlacanjaHome;
 import rs.invado.wo.domain.ocp.OcpProizvod;
+import rs.invado.wo.domain.ocp.OcpSastavProizvoda;
 import rs.invado.wo.domain.prod.ProdFinDokument;
 import rs.invado.wo.domain.prod.ProdPpRabat;
 import rs.invado.wo.domain.uz.*;
@@ -93,11 +94,120 @@ public class BasketBusinessProcessing {
         woRezervacija.setVrednost(woRezervacija.getKolicina().multiply(woRezervacija.getCena()).setScale(3, RoundingMode.HALF_EVEN));
     }
 
+    public void increaseReservationComposite(OcpProizvod ocpProizvod, int currentOJ, BigDecimal narucenaKolicina, String sessionId, User user,
+                                             BigDecimal pakovanje)
+            throws WOException {
+
+        BigDecimal aktuelnoPakovanje = pakovanje == null ? ocpProizvod.getKolicinaPoPakovanju() : pakovanje;
+
+
+        WoKompanijaKorisnik woKompanijaKorisnik = woKompanijaKorisnikDAO.findByCoresponingOJ(currentOJ);
+
+        for (OcpSastavProizvoda ocpSastavProizvoda : ocpProizvod.getSastavProizvoda()) {
+            String basketIndex = ocpProizvod.getProizvod() + "/" + aktuelnoPakovanje+"/"+ocpSastavProizvoda.getProizvodIzlaz().getProizvod();
+            Integer skladisteRezervacije = ocpSastavProizvoda.getProizvodIzlaz().getMaticnoSkladiste();
+            //poeveÄ‡aj rezervaciju u magacinu
+            UzStanjeZalihaSkladistaId uzStanjeZalihaSkladistaId = new UzStanjeZalihaSkladistaId();
+            /* za potrebe testiranje maticno skladiste je zakucano na 15
+            uzStanjeZalihaSkladistaId.setIdSkladista(ocpSastavProizvoda.getProizvodIzlaz().getMaticnoSkladiste());
+            */
+            uzStanjeZalihaSkladistaId.setIdSkladista(15);
+            uzStanjeZalihaSkladistaId.setProizvod(ocpSastavProizvoda.getProizvodIzlaz().getProizvod());
+
+            UzStanjeZalihaSkladista uzStanjeZalihaSkladista = uzStanjeZalihaSkladistaDAO.findById(uzStanjeZalihaSkladistaId);
+
+            if (uzStanjeZalihaSkladista == null || narucenaKolicina.multiply(aktuelnoPakovanje).multiply(ocpSastavProizvoda.getKolicinaUgradnje())
+                    .compareTo(WOUtil.trimToZero(uzStanjeZalihaSkladista.getKolicinaPoStanjuZ()).subtract(WOUtil.trimToZero(uzStanjeZalihaSkladista.getRezervisanaKol()))) == 1) {
+                throw new WOException(WOExceptionCodes.WO_INSUFFICIENT_SKU_QUANTITY);
+            } else {
+                if (!woKompanijaKorisnik.getWoMapKompanijskaSkladistas().isEmpty()) {
+                    for (WoMapKompanijskaSkladista woMapKompanijskaSkladista : woKompanijaKorisnik.getWoMapKompanijskaSkladistas()) {
+                        if (woMapKompanijskaSkladista != null && woMapKompanijskaSkladista.getUzSkladisteRaspolozivo() != null)
+                            if (woMapKompanijskaSkladista.getUzSkladisteRaspolozivo().getIdSkladista() == uzStanjeZalihaSkladistaId.getIdSkladista()) {
+                                if (woMapKompanijskaSkladista.isRezervisiURaspolozivo()) {
+                                    //rezervi??i robu u magacinu koji daje raspolozivu kolicinu
+                                    uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.multiply(ocpProizvod.getKolicinaPoPakovanju()).multiply(ocpSastavProizvoda.getKolicinaUgradnje()).doubleValue(), 1);
+                                }
+                                uzStanjeZalihaSkladistaId.setIdSkladista(woMapKompanijskaSkladista.getUzSkladisteRezervacija().getIdSkladista());
+                                uzStanjeZalihaSkladistaId.setProizvod(ocpSastavProizvoda.getProizvodIzlaz().getProizvod());
+                                //rezervi??i robu u magacinu na koji se polazni magacin mapira
+                                uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.multiply(ocpProizvod.getKolicinaPoPakovanju()).multiply(ocpSastavProizvoda.getKolicinaUgradnje()).doubleValue(), 1);
+                                skladisteRezervacije = uzStanjeZalihaSkladistaId.getIdSkladista();
+                            }
+                    }
+
+                } else {
+                    uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.multiply(aktuelnoPakovanje).multiply(ocpSastavProizvoda.getKolicinaUgradnje()).doubleValue(), 1);
+                }
+
+            /*kolciina za rezervaciju se mno??i sa operacijom tako da se koliÄ?ina u objektu poveÄ‡ava ako je vrednost operacije 1,
+  smanjuje ako je vrednost operacije -1 ??to je sluÄ?aj kod umanjenja*/
+                BigDecimal operacija = new BigDecimal(1);
+                //insertuj stavku u wo_rezervacija za tekuÄ‡u sesiju
+                WoRezervacija woRezervacija = getBasketElement(user.getBasket(), basketIndex);
+                if (woRezervacija != null) {
+                    updateExistingBasketElemnt(woRezervacija, narucenaKolicina.multiply(aktuelnoPakovanje).multiply(ocpSastavProizvoda.getKolicinaUgradnje()), operacija);
+                    WoRezervacija woRezervacijaPersistent = woRezervacijaDAO.findById(woRezervacija.getId());
+                    woRezervacijaPersistent.setKolicina(woRezervacija.getKolicina());
+                    user.setOrderValue(woRezervacija.getVrednost());
+                    user.setOrderValueWithTax(user.getOrderValue().add(user.getOrderValue().multiply(ocpProizvod.getStopaPoreza()
+                            .divide(new BigDecimal("100")))).setScale(3, RoundingMode.HALF_EVEN));
+                    woRezervacijaDAO.persist(woRezervacijaPersistent);
+                } else {
+                    woRezervacija = new WoRezervacija();
+                    woRezervacija.setAkcija(" ");
+                    if (ocpProizvod.getTipAkcije() != null) {
+                        if (ocpProizvod.getTipAkcije().equals(ProductService.PROIZVODI_NA_AKCIJI)
+                                || ocpProizvod.getTipAkcije().equals(ProductService.PROIZVODI_NA_RASPRODAJI)
+                                || ocpProizvod.getTipAkcije().equals(ProductService.IZDVOJENA_AKCIJA)) {
+                            woRezervacija.setAkcija("D");
+                        }
+                    }
+                    woRezervacija.setCena(ocpSastavProizvoda.getProizvodIzlaz().getCena());
+                    woRezervacija.setDatumivreme(new Timestamp(Calendar.getInstance().getTimeInMillis()));
+                    woRezervacija.setIdjedinicemere(ocpSastavProizvoda.getProizvodIzlaz().getJedinicaMere().getIdJediniceMere());
+                    woRezervacija.setIdSkladista(skladisteRezervacije);
+                    woRezervacija.setKolicina(narucenaKolicina.multiply(aktuelnoPakovanje).multiply(ocpSastavProizvoda.getKolicinaUgradnje()));
+                    woRezervacija.setPoslovniPartner(user.getWoPartnerSetting().get(0).getPoslovniPartner().getPoslovniPartner());
+                    woRezervacija.setProizvod(ocpSastavProizvoda.getProizvodIzlaz());
+                    woRezervacija.setStatusRezervacije(1);
+                    woRezervacija.setSessionid(sessionId);
+                    woRezervacija.setKolPoPakovanju(narucenaKolicina);
+                    /**trenutno se raèpuna rabat dat na osnovni proizvod , a ne na ugradni*/
+                    woRezervacija.setRabat((productService.getRabatZaProizvod(ocpProizvod.getProizvod(), user.getWoPartnerSetting().get(0).getPoslovniPartner().getPoslovniPartner(), currentOJ)).getRabat());
+                    if (woRezervacija.getRabat() == null || (ocpProizvod.getTipAkcije() != null && (ocpProizvod.getTipAkcije().equals(ProductService.PROIZVODI_NA_AKCIJI)
+                            || ocpProizvod.getTipAkcije().equals(ProductService.IZDVOJENA_AKCIJA)
+                            || ocpProizvod.getTipAkcije().equals(ProductService.PROIZVODI_NA_RASPRODAJI))))
+                        woRezervacija.setRabat(new BigDecimal(0));
+                    woRezervacija.setVrednost(woRezervacija.getKolicina().multiply(woRezervacija.getCena()).setScale(3, RoundingMode.HALF_EVEN));
+                    woRezervacija.setVrednostSaPorezom(woRezervacija.getVrednost()
+                            .add(ocpProizvod.getStopaPoreza().multiply(woRezervacija.getVrednost().divide(new BigDecimal("100")))).setScale(3, RoundingMode.HALF_EVEN));
+                    user.setOrderValue(user.getOrderValue().add(woRezervacija.getCena().multiply(woRezervacija.getKolicina())).setScale(3, RoundingMode.HALF_EVEN));
+                    user.setOrderValueWithTax(user.getOrderValueWithTax().add(woRezervacija.getCena()
+                            .multiply(narucenaKolicina.multiply(aktuelnoPakovanje).multiply(ocpSastavProizvoda.getKolicinaUgradnje())).add(woRezervacija.getCena()
+                                    .multiply(narucenaKolicina.multiply(aktuelnoPakovanje).multiply(ocpSastavProizvoda.getKolicinaUgradnje())).multiply(ocpProizvod.getStopaPoreza().divide(new BigDecimal("100"))))).setScale(3, RoundingMode.HALF_EVEN));
+                    woRezervacija.setWoUser(user.getWoUser());
+                    woRezervacija.setCompositeArticle(ocpProizvod);
+                    woRezervacija.setCompositeArticlePackQuantity(aktuelnoPakovanje);
+                    woRezervacija.setCompositeArticleQuantity(narucenaKolicina);
+                    woRezervacija.setCompositeArticleUnitOfMeasure(ocpProizvod.getJedinicaMere().getIdJediniceMere());
+                    woRezervacija.setCompositeArticlePrice(ocpProizvod.getCena());
+                    woRezervacijaDAO.persist(woRezervacija);
+                    addBasketElement(user.getBasket(), basketIndex, woRezervacija);
+                }
+            }
+            //umanjiti kolicinu rasplozivu na objektu.
+            ocpProizvod.setRaspolozivo(ocpProizvod.getRaspolozivo().subtract(narucenaKolicina.multiply(aktuelnoPakovanje)));
+            ocpProizvod.setKolUAltJM(ocpProizvod.getRaspolozivo().divide(aktuelnoPakovanje, 0, RoundingMode.FLOOR).intValue());
+        }
+
+    }
+
     public void increaseReservation(OcpProizvod ocpProizvod, int currentOJ, BigDecimal narucenaKolicina, String sessionId, User user,
                                     BigDecimal pakovanje)
             throws WOException {
 
-                   BigDecimal aktuelnoPakovanje = pakovanje == null ? ocpProizvod.getKolicinaPoPakovanju() : pakovanje;
+        BigDecimal aktuelnoPakovanje = pakovanje == null ? ocpProizvod.getKolicinaPoPakovanju() : pakovanje;
         String basketIndex = ocpProizvod.getProizvod() + "/" + aktuelnoPakovanje;
 
         WoKompanijaKorisnik woKompanijaKorisnik = woKompanijaKorisnikDAO.findByCoresponingOJ(currentOJ);
@@ -117,17 +227,17 @@ public class BasketBusinessProcessing {
             if (!woKompanijaKorisnik.getWoMapKompanijskaSkladistas().isEmpty()) {
                 for (WoMapKompanijskaSkladista woMapKompanijskaSkladista : woKompanijaKorisnik.getWoMapKompanijskaSkladistas()) {
                     if (woMapKompanijskaSkladista != null && woMapKompanijskaSkladista.getUzSkladisteRaspolozivo() != null)
-                    if (woMapKompanijskaSkladista.getUzSkladisteRaspolozivo().getIdSkladista() == uzStanjeZalihaSkladistaId.getIdSkladista()) {
-                        if (woMapKompanijskaSkladista.isRezervisiURaspolozivo()) {
-                            //rezervi??i robu u magacinu koji daje raspolozivu kolicinu
+                        if (woMapKompanijskaSkladista.getUzSkladisteRaspolozivo().getIdSkladista() == uzStanjeZalihaSkladistaId.getIdSkladista()) {
+                            if (woMapKompanijskaSkladista.isRezervisiURaspolozivo()) {
+                                //rezervi??i robu u magacinu koji daje raspolozivu kolicinu
+                                uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.multiply(ocpProizvod.getKolicinaPoPakovanju()).doubleValue(), 1);
+                            }
+                            uzStanjeZalihaSkladistaId.setIdSkladista(woMapKompanijskaSkladista.getUzSkladisteRezervacija().getIdSkladista());
+                            uzStanjeZalihaSkladistaId.setProizvod(ocpProizvod.getProizvod());
+                            //rezervi??i robu u magacinu na koji se polazni magacin mapira
                             uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.multiply(ocpProizvod.getKolicinaPoPakovanju()).doubleValue(), 1);
+                            skladisteRezervacije = uzStanjeZalihaSkladistaId.getIdSkladista();
                         }
-                        uzStanjeZalihaSkladistaId.setIdSkladista(woMapKompanijskaSkladista.getUzSkladisteRezervacija().getIdSkladista());
-                        uzStanjeZalihaSkladistaId.setProizvod(ocpProizvod.getProizvod());
-                        //rezervi??i robu u magacinu na koji se polazni magacin mapira
-                        uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.multiply(ocpProizvod.getKolicinaPoPakovanju()).doubleValue(), 1);
-                        skladisteRezervacije = uzStanjeZalihaSkladistaId.getIdSkladista();
-                    }
                 }
 
             } else {

@@ -27,6 +27,7 @@ import rs.invado.wo.dto.CompanySetting;
 import rs.invado.wo.dto.Proizvodi;
 import rs.invado.wo.dto.User;
 import rs.invado.wo.service.AppInitService;
+import rs.invado.wo.service.BasketBusinessProcessing;
 import rs.invado.wo.service.LogOnService;
 import rs.invado.wo.service.ProductService;
 import rs.invado.wo.util.WOException;
@@ -73,6 +74,8 @@ public class OcpProizvodHomeTest {
     private UzStanjeZalihaSkladistaHome uzStanjeZalihaSkladistaDAO;
     @Inject
     private OcpSastavProizvodaHome ocpSastavProizvodaDAO;
+    @Inject
+    private BasketBusinessProcessing basketBusinessProcessing;
 
 
     /*@PersistenceContext
@@ -119,15 +122,17 @@ public class OcpProizvodHomeTest {
 
             for (OcpProizvod item : proizvodi.getProizvodList()) {
                 //item.setSastavProizvoda(ocpSastavProizvodaDAO.findByProizvod(item.getProizvod()));
-                for (OcpSastavProizvoda ocpSastavProizvoda : item.getSastavProizvoda()) {
-                    System.out.println("Sastav za "+item.getProizvod()+" "+ item.getNazivProizvoda() + " je " + ocpSastavProizvoda.getProizvodIzlaz());
-
+                if (item.getProizvod().equals(new Integer("334561"))) {
+                    basketBusinessProcessing.increaseReservationComposite(item, 19, new BigDecimal(10), "-125", user, new BigDecimal("1") );
                 }
+                /*for (OcpSastavProizvoda ocpSastavProizvoda : item.getSastavProizvoda()) {
+                    System.out.println("Sastav za "+item.getProizvod()+" sa cenom "+item.getCena()+" je "+ item.getNazivProizvoda() + " je "
+                            + ocpSastavProizvoda.getProizvodIzlaz().getProizvod()+" sa svojom cenom "+ocpSastavProizvoda.getProizvodIzlaz().getCena());
+
+                }*/
             }
 
             /*
-
-
             Proizvodi proizvodi = ocpProizvodDAO.findProizvodiByName("Fioka", 0, 15, cs.getKompanijskiParametri().get(19),
                     user.getWoPartnerSetting());
 

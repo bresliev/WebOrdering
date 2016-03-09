@@ -33,6 +33,11 @@ public class WoRezervacija implements java.io.Serializable {
     private BigDecimal ekstraRabat;
     private WoUser woUser;
     private BigDecimal kolPoPakovanju;
+    private OcpProizvod compositeArticle;
+    private BigDecimal compositeArticleQuantity;
+    private BigDecimal compositeArticlePackQuantity;
+    private int compositeArticleUnitOfMeasure;
+    private BigDecimal compositeArticlePrice;
 
 
     private BigDecimal vrednost;
@@ -213,6 +218,53 @@ public class WoRezervacija implements java.io.Serializable {
 
     public void setWoUser(WoUser woUser) {
         this.woUser = woUser;
+    }
+
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "COMPOSITEARTICLE", referencedColumnName = "PROIZVOD#", insertable = true, updatable = true, nullable = false)
+    public OcpProizvod getCompositeArticle() {
+        return compositeArticle;
+    }
+
+    public void setCompositeArticle(OcpProizvod compositeArticle) {
+        this.compositeArticle = compositeArticle;
+    }
+
+    @Column(name = "COMPOSITEARTICLEQUANTITY")
+    public BigDecimal getCompositeArticleQuantity() {
+        return compositeArticleQuantity;
+    }
+
+    public void setCompositeArticleQuantity(BigDecimal compositeArticleQuantity) {
+        this.compositeArticleQuantity = compositeArticleQuantity;
+    }
+
+    @Column(name = "COMPOSITEARTICLEPACKQUANTITY")
+    public BigDecimal getCompositeArticlePackQuantity() {
+        return compositeArticlePackQuantity;
+    }
+
+    public void setCompositeArticlePackQuantity(BigDecimal compositeArticlePackQuantity) {
+        this.compositeArticlePackQuantity = compositeArticlePackQuantity;
+    }
+
+    @Column(name = "COMPOSITEARTICLEUNITOFMEASURE")
+    public int getCompositeArticleUnitOfMeasure() {
+        return compositeArticleUnitOfMeasure;
+    }
+
+    @Column(name = "COMPOSITEARTICLEPRICE")
+    public BigDecimal getCompositeArticlePrice() {
+        return compositeArticlePrice;
+    }
+
+    public void setCompositeArticlePrice(BigDecimal compositeArticlePrice) {
+        this.compositeArticlePrice = compositeArticlePrice;
+    }
+
+    public void setCompositeArticleUnitOfMeasure(int compositeArticleUnitOfMeasure) {
+        this.compositeArticleUnitOfMeasure = compositeArticleUnitOfMeasure;
     }
 
     @Transient

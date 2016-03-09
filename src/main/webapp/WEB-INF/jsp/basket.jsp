@@ -80,6 +80,11 @@
                     <img style="margin:0px;border:none;" width="700px" height="490px" src="/WO/images/large/${item.value.proizvod.proizvod}.jpg" alt=""/>
                 </div>
             </td>
+            <td>
+                <table class="table">
+
+                </table>
+            </td>
         </tr>
         </c:forEach>
     </table>
