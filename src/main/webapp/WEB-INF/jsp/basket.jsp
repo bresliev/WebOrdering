@@ -45,7 +45,7 @@
         </c:if>
         <th style="width:16px;"></th>
         <c:forEach items="${loginUser.basket}" var="item" varStatus="i">
-        <tr id="korpa_uvecaj_${item.value.proizvod.proizvod}">
+        <tr id="korpa_uvecaj_${item.value.proizvod.proizvod}" >
             <td>
                 <c:set var="rbStavke" value="${item.value.id}"/>
                 <c:choose>

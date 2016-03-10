@@ -59,6 +59,7 @@
         <class>rs.invado.wo.domain.wo.WoMapKompanijskaSkladista</class>
         <class>rs.invado.wo.domain.ocp.OcpProizvod</class>
         <class>rs.invado.wo.domain.wo.WoMapKompanijskaSkladista</class>
+        <class>rs.invado.wo.domain.wo.WoRezervacijaSastava</class>
 
 
         <properties>

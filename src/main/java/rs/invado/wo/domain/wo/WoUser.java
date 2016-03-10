@@ -4,6 +4,7 @@ import rs.invado.wo.domain.hr.KeRadnici;
 import rs.invado.wo.domain.ocp.OcpPoslovniPartner;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,7 +14,7 @@ import java.util.List;
 @Table(name="WO_USER", schema="DAREX")
 @SequenceGenerator(   name = "woparametri_seq",
         sequenceName = "WO_ID_SEQ", allocationSize = 1)
-public class WoUser {
+public class WoUser implements Serializable{
     private BigDecimal id;
 	private String userName;
 	private String password;

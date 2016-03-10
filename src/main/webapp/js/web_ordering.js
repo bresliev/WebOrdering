@@ -737,7 +737,7 @@ $(document).ready(function () {
         } catch (e) {
             btn.removeClass('wait');
             btn.addClass('basket');
-            $(".error-box").text("Odabrani proizvod nije moguæe dodati u korpu. Proverite stanje na zalihama sa Vašom službom prodaje.");
+            $(".error-box").text("Odabrani proizvod nije moguæe dodati u korpu. Proverite stanje na zalihama sa Vašom službom prodaje!");
             $("#dialog-message").dialog("open");
         }
     });
