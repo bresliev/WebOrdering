@@ -5,7 +5,6 @@ import com.google.gson.GsonBuilder;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -37,8 +36,8 @@ import java.util.*;
  * To change this template use File | Settings | File Templates.
  */
 
-public class BasketControllerN {
-    private static final Log log = LogFactory.getLog(BasketControllerN.class);
+public class BasketControllerDeprecated {
+    private static final Log log = LogFactory.getLog(BasketControllerDeprecated.class);
     @Autowired
     BasketBusinessProcessing basketService;
     @Autowired
@@ -68,8 +67,12 @@ public class BasketControllerN {
         BigDecimal orderedQ = new BigDecimal(orderedQuantity);
         IncreaseReservation increaseReservation = null;
         try {
-            log.info("korpa pre " + user.getBasket().size() + "  raspolozivo=" + product.getRaspolozivo() + "   session=" + session.getId()+" sa pakovanjem "+pakovanje);
-            basketService.increaseReservation(product, oj, orderedQ, session.getId(), user, pakovanje);
+            log.info("korpa pre za basket N" + user.getBasket().size() + "  raspolozivo=" + product.getRaspolozivo() + "   session=" + session.getId() + " sa pakovanjem " + pakovanje);
+            if (product.getProveraZaliha().equals("SASTAV")) {
+                basketService.increaseReservationCompositeObject(product, oj, orderedQ, session.getId(), user, pakovanje);
+            }else{
+                basketService.increaseReservation(product, oj, orderedQ, session.getId(), user, pakovanje);
+            }
             product = productService.getProizvodById(Integer.parseInt(productId), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
             session.setAttribute("loginUser", user);
             log.info("  korpa posle " + user.getBasket().size() + "  raspolozivo=" + product.getRaspolozivo() + "   session=" + session.getId());

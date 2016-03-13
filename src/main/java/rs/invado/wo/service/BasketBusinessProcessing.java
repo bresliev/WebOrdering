@@ -96,11 +96,14 @@ public class BasketBusinessProcessing {
     private void updateExistingBasketElemnt(WoRezervacija woRezervacija, BigDecimal kolicinaZaRezervaciju, BigDecimal operand) {
         woRezervacija.setKolicina(woRezervacija.getKolicina().add(kolicinaZaRezervaciju.multiply(operand)));
         woRezervacija.setVrednost(woRezervacija.getKolicina().multiply(woRezervacija.getCena()).setScale(3, RoundingMode.HALF_EVEN));
+        for(WoRezervacijaSastava woRezervacijaSastava : woRezervacija.getWoRezervacijaSastavaList())
+            woRezervacijaSastava.setKolicinaUgradnje(woRezervacijaSastava.getKolicina().add(kolicinaZaRezervaciju.multiply(operand).multiply(woRezervacijaSastava.getKolicinaUgradnje())));
     }
 
     public void increaseReservationCompositeObject(OcpProizvod ocpProizvod, int currentOJ, BigDecimal narucenaKolicina, String sessionId, User user,
                                                    BigDecimal pakovanje)
             throws WOException {
+
 
         BigDecimal aktuelnoPakovanje = pakovanje == null ? ocpProizvod.getKolicinaPoPakovanju() : pakovanje;
         String basketIndex = ocpProizvod.getProizvod() + "/" + aktuelnoPakovanje;
@@ -113,7 +116,7 @@ public class BasketBusinessProcessing {
         WoRezervacija woRezervacija = getBasketElement(user.getBasket(), basketIndex);
         if (woRezervacija != null) {
             updateExistingBasketElemnt(woRezervacija, narucenaKolicina.multiply(aktuelnoPakovanje), operacija);
-            WoRezervacija woRezervacijaPersistent = woRezervacijaDAO.findById(woRezervacija.getId());
+            WoRezervacija woRezervacijaPersistent = woRezervacijaDAO.findByWoRezervacijaById(woRezervacija.getId());
             woRezervacijaPersistent.setKolicina(woRezervacija.getKolicina());
             user.setOrderValue(woRezervacija.getVrednost());
             user.setOrderValueWithTax(user.getOrderValue().add(user.getOrderValue().multiply(ocpProizvod.getStopaPoreza()
@@ -139,7 +142,6 @@ public class BasketBusinessProcessing {
             woRezervacija.setStatusRezervacije(1);
             woRezervacija.setSessionid(sessionId);
             woRezervacija.setKolPoPakovanju(aktuelnoPakovanje);
-
             woRezervacija.setRabat((productService.getRabatZaProizvod(ocpProizvod.getProizvod(), user.getWoPartnerSetting().get(0).getPoslovniPartner().getPoslovniPartner(), currentOJ)).getRabat());
             if (woRezervacija.getRabat() == null || (ocpProizvod.getTipAkcije() != null && (ocpProizvod.getTipAkcije().equals(ProductService.PROIZVODI_NA_AKCIJI)
                     || ocpProizvod.getTipAkcije().equals(ProductService.IZDVOJENA_AKCIJA)
@@ -185,17 +187,17 @@ public class BasketBusinessProcessing {
                     }
 
                 } else {
-                    uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.multiply(aktuelnoPakovanje).doubleValue(), 1);
+                    uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.multiply(aktuelnoPakovanje).multiply(ocpSastavProizvoda.getKolicinaUgradnje()).doubleValue(), 1);
                 }
 
-            /*kolciina za rezervaciju se mno??i sa operacijom tako da se koliÄ?ina u objektu poveÄ‡ava ako je vrednost operacije 1,
-  smanjuje ako je vrednost operacije -1 ??to je sluÄ?aj kod umanjenja*/
+            /*kolciina za rezervaciju se mno??i sa operacijom tako da se koliï¿½?ina u objektu poveÄ‡ava ako je vrednost operacije 1,
+  smanjuje ako je vrednost operacije -1 ??to je sluï¿½?aj kod umanjenja*/
 
                 //umanjiti kolicinu rasplozivu na objektu.
                 ocpProizvod.setRaspolozivo(ocpProizvod.getRaspolozivo().subtract(narucenaKolicina.multiply(aktuelnoPakovanje)));
                 ocpProizvod.setKolUAltJM(ocpProizvod.getRaspolozivo().divide(aktuelnoPakovanje, 0, RoundingMode.FLOOR).intValue());
 
-                WoRezervacijaSastava woRezervacijaSastava = woRezervacijaSastavaDAO.findByWoRezervacijaAndProizvodNotChecked(woRezervacija, ocpSastavProizvoda.getProizvodIzlaz());
+                WoRezervacijaSastava woRezervacijaSastava = woRezervacijaSastavaDAO.findByWoRezervacijaByIdAndProizvod(woRezervacija, ocpSastavProizvoda.getProizvodIzlaz());
                 /*
                 for (WoRezervacijaSastava woRezervacijaSastavaExiting : woRezervacija.getWoRezervacijaSastavaList()) {
                     if (woRezervacijaSastavaExiting.getProizvod().getProizvod().equals(ocpSastavProizvoda.getProizvodIzlaz()) &&
@@ -205,6 +207,11 @@ public class BasketBusinessProcessing {
 
                 if (woRezervacijaSastava != null) {
                     woRezervacijaSastava.setKolicina(woRezervacijaSastava.getKolicina().add(narucenaKolicina.multiply(ocpProizvod.getKolicinaPoPakovanju().multiply(ocpSastavProizvoda.getKolicinaUgradnje()))));
+                    for (WoRezervacijaSastava woRezervacijaSastavaExisting : woRezervacija.getWoRezervacijaSastavaList()) {
+                        if (woRezervacijaSastava.getProizvod().getProizvod().equals(woRezervacijaSastavaExisting.getProizvod().getProizvod())) {
+                            woRezervacijaSastavaExisting.setKolicina(woRezervacijaSastava.getKolicina());
+                        }
+                    }
                 } else {
                     woRezervacijaSastava = new WoRezervacijaSastava();
                     woRezervacijaSastava.setWoRezervacija(woRezervacija);
@@ -214,11 +221,13 @@ public class BasketBusinessProcessing {
                     woRezervacijaSastava.setIdjedinicemere(ocpSastavProizvoda.getProizvodIzlaz().getJedinicaMere().getIdJediniceMere());
                     woRezervacijaSastava.setIdSkladista(ocpSastavProizvoda.getMaticnoSkladiste());
                     woRezervacijaSastava.setKolPoPakovanju(narucenaKolicina);
+                    woRezervacijaSastava.setKolicinaUgradnje(ocpSastavProizvoda.getKolicinaUgradnje());
                     woRezervacijaSastava.setProizvod(ocpSastavProizvoda.getProizvodIzlaz());
                     if (woRezervacijaSastava.getRabat() == null || (ocpProizvod.getTipAkcije() != null && (ocpProizvod.getTipAkcije().equals(ProductService.PROIZVODI_NA_AKCIJI)
                             || ocpProizvod.getTipAkcije().equals(ProductService.IZDVOJENA_AKCIJA)
                             || ocpProizvod.getTipAkcije().equals(ProductService.PROIZVODI_NA_RASPRODAJI))))
                         woRezervacijaSastava.setRabat(new BigDecimal(0));
+                    woRezervacija.getWoRezervacijaSastavaList().add(woRezervacijaSastava);
                 }
                 woRezervacijaSastavaDAO.persist(woRezervacijaSastava);
             }
@@ -272,14 +281,14 @@ public class BasketBusinessProcessing {
                     uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.multiply(aktuelnoPakovanje).multiply(ocpSastavProizvoda.getKolicinaUgradnje()).doubleValue(), 1);
                 }
 
-            /*kolciina za rezervaciju se mno??i sa operacijom tako da se koliÄ?ina u objektu poveÄ‡ava ako je vrednost operacije 1,
-  smanjuje ako je vrednost operacije -1 ??to je sluÄ?aj kod umanjenja*/
+            /*kolciina za rezervaciju se mno??i sa operacijom tako da se koliï¿½?ina u objektu poveÄ‡ava ako je vrednost operacije 1,
+  smanjuje ako je vrednost operacije -1 ??to je sluï¿½?aj kod umanjenja*/
                 BigDecimal operacija = new BigDecimal(1);
                 //insertuj stavku u wo_rezervacija za tekuÄ‡u sesiju
                 WoRezervacija woRezervacija = getBasketElement(user.getBasket(), basketIndex);
                 if (woRezervacija != null) {
                     updateExistingBasketElemnt(woRezervacija, narucenaKolicina.multiply(aktuelnoPakovanje).multiply(ocpSastavProizvoda.getKolicinaUgradnje()), operacija);
-                    WoRezervacija woRezervacijaPersistent = woRezervacijaDAO.findById(woRezervacija.getId());
+                    WoRezervacija woRezervacijaPersistent = woRezervacijaDAO.findByWoRezervacijaById(woRezervacija.getId());
                     woRezervacijaPersistent.setKolicina(woRezervacija.getKolicina());
                     user.setOrderValue(woRezervacija.getVrednost());
                     user.setOrderValueWithTax(user.getOrderValue().add(user.getOrderValue().multiply(ocpProizvod.getStopaPoreza()
@@ -305,7 +314,7 @@ public class BasketBusinessProcessing {
                     woRezervacija.setStatusRezervacije(1);
                     woRezervacija.setSessionid(sessionId);
                     woRezervacija.setKolPoPakovanju(narucenaKolicina);
-                    /**trenutno se raèpuna rabat dat na osnovni proizvod , a ne na ugradni*/
+                    /**trenutno se raï¿½puna rabat dat na osnovni proizvod , a ne na ugradni*/
                     woRezervacija.setRabat((productService.getRabatZaProizvod(ocpProizvod.getProizvod(), user.getWoPartnerSetting().get(0).getPoslovniPartner().getPoslovniPartner(), currentOJ)).getRabat());
                     if (woRezervacija.getRabat() == null || (ocpProizvod.getTipAkcije() != null && (ocpProizvod.getTipAkcije().equals(ProductService.PROIZVODI_NA_AKCIJI)
                             || ocpProizvod.getTipAkcije().equals(ProductService.IZDVOJENA_AKCIJA)
@@ -376,14 +385,14 @@ public class BasketBusinessProcessing {
                 uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.multiply(aktuelnoPakovanje).doubleValue(), 1);
             }
 
-            /*kolciina za rezervaciju se mno??i sa operacijom tako da se koliÄ?ina u objektu poveÄ‡ava ako je vrednost operacije 1,
-  smanjuje ako je vrednost operacije -1 ??to je sluÄ?aj kod umanjenja*/
+            /*kolciina za rezervaciju se mno??i sa operacijom tako da se koliï¿½?ina u objektu poveÄ‡ava ako je vrednost operacije 1,
+  smanjuje ako je vrednost operacije -1 ??to je sluï¿½?aj kod umanjenja*/
             BigDecimal operacija = new BigDecimal(1);
             //insertuj stavku u wo_rezervacija za tekuÄ‡u sesiju
             WoRezervacija woRezervacija = getBasketElement(user.getBasket(), basketIndex);
             if (woRezervacija != null) {
                 updateExistingBasketElemnt(woRezervacija, narucenaKolicina.multiply(aktuelnoPakovanje), operacija);
-                WoRezervacija woRezervacijaPersistent = woRezervacijaDAO.findById(woRezervacija.getId());
+                WoRezervacija woRezervacijaPersistent = woRezervacijaDAO.findByWoRezervacijaById(woRezervacija.getId());
                 woRezervacijaPersistent.setKolicina(woRezervacija.getKolicina());
                 user.setOrderValue(woRezervacija.getVrednost());
                 user.setOrderValueWithTax(user.getOrderValue().add(user.getOrderValue().multiply(ocpProizvod.getStopaPoreza()
@@ -433,6 +442,70 @@ public class BasketBusinessProcessing {
 
     }
 
+    public void decreaseReservationCompositeObject(OcpProizvod ocpProizvod, int currentOJ, BigDecimal narucenaKolicina, String sessionId, User user,
+                                                   String basketIndex) {
+
+        // komentar dat u metodi increaseReservation
+        BigDecimal operacija = new BigDecimal(-1);
+        BigDecimal vrednost = new BigDecimal("0");
+        BigDecimal novaVrednost = new BigDecimal("0");
+        WoRezervacija woRezervacija = getBasketElement(user.getBasket(), basketIndex);
+        WoKompanijaKorisnik woKompanijaKorisnik = woKompanijaKorisnikDAO.findByCoresponingOJ(currentOJ);
+        System.out.println("Wo rezervacija pre "+woRezervacija.getKolicina());
+        if (woRezervacija != null) {
+            /*Umanji rezervaciju */
+            for (WoRezervacijaSastava woRezervacijaSastava : woRezervacija.getWoRezervacijaSastavaList()) {
+                UzStanjeZalihaSkladistaId uzStanjeZalihaSkladistaId = new UzStanjeZalihaSkladistaId();
+                uzStanjeZalihaSkladistaId.setProizvod(woRezervacijaSastava.getProizvod().getProizvod());
+                if (!woKompanijaKorisnik.getWoMapKompanijskaSkladistas().isEmpty()) {
+                    for (WoMapKompanijskaSkladista woMapKompanijskaSkladista : woKompanijaKorisnik.getWoMapKompanijskaSkladistas()) {
+                        if (woMapKompanijskaSkladista.getUzSkladisteRaspolozivo().getIdSkladista() == woRezervacijaSastava.getIdSkladista()) {
+                            if (woMapKompanijskaSkladista.isRezervisiURaspolozivo()) {
+                                //rezervi??i robu u magacinu koji daje raspolozivu kolicinu
+                                uzStanjeZalihaSkladistaId.setIdSkladista(ocpProizvod.getMaticnoSkladiste());
+                                uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.multiply(woRezervacijaSastava.getKolicinaUgradnje()).doubleValue(), -1);
+                            }
+                            uzStanjeZalihaSkladistaId.setIdSkladista(woMapKompanijskaSkladista.getUzSkladisteRezervacija().getIdSkladista());
+                            //rezervi??i robu u magacinu na koji se polazni magacin mapira
+                            uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.multiply(woRezervacijaSastava.getKolicinaUgradnje()).doubleValue(), -1);
+
+                        }
+                    }
+                } else {
+                    uzStanjeZalihaSkladistaId.setIdSkladista(woRezervacijaSastava.getIdSkladista());
+                    uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.multiply(woRezervacijaSastava.getKolicinaUgradnje()).doubleValue(), -1);
+                }
+            }
+            if (woRezervacija.getKolicina().compareTo(narucenaKolicina) == 0) {
+                WoRezervacija woRezervacijaPersistent = woRezervacijaDAO.findByWoRezervacijaById(woRezervacija.getId());
+                vrednost = woRezervacijaPersistent.getKolicina().multiply(woRezervacija.getCena()).setScale(3, RoundingMode.HALF_EVEN);
+                user.setOrderValue(user.getOrderValue().subtract(woRezervacijaPersistent.getKolicina().multiply(woRezervacija.getCena())).setScale(3, RoundingMode.HALF_EVEN));
+                user.getBasket().remove(basketIndex);
+                woRezervacijaDAO.remove(woRezervacijaPersistent);
+
+            } else {
+                vrednost = woRezervacija.getVrednost();
+                updateExistingBasketElemnt(woRezervacija, narucenaKolicina, operacija);
+                user.setOrderValue(user.getOrderValue().subtract(vrednost.subtract(woRezervacija.getVrednost())).setScale(3, RoundingMode.HALF_EVEN));
+
+            }
+        }
+        if (vrednost.doubleValue() != woRezervacija.getVrednost().doubleValue())
+            novaVrednost = woRezervacija.getVrednost();
+
+        user.setOrderValueWithTax(user.getOrderValueWithTax().subtract((vrednost.subtract(novaVrednost))
+                .add((vrednost.subtract(novaVrednost)).multiply(ocpProizvod.getStopaPoreza()
+                        .divide(new BigDecimal("100"))))).setScale(3, RoundingMode.HALF_EVEN));
+
+        ocpProizvod.setRaspolozivo(ocpProizvod.getRaspolozivo().add(narucenaKolicina));
+        ocpProizvod.setKolUAltJM(ocpProizvod.getRaspolozivo().divide(ocpProizvod.getKolicinaPoPakovanju(), 0, RoundingMode.FLOOR).intValue());
+
+        System.out.println("Wo rezervacija posle "+woRezervacija.getKolicina());
+        for(WoRezervacijaSastava woRezervacijaSastava : woRezervacija.getWoRezervacijaSastavaList())
+            System.out.println("Posle decrease Za proizvod "+woRezervacija.getProizvod().getProizvod()+" je sastavni element "+woRezervacijaSastava.getProizvod().getProizvod()
+            +" sa kolicinom "+woRezervacijaSastava.getKolicina());
+    }
+
     public void decreaseReservation(OcpProizvod ocpProizvod, int currentOJ, BigDecimal narucenaKolicina, String sessionId, User user,
                                     String basketIndex) {
 
@@ -443,7 +516,7 @@ public class BasketBusinessProcessing {
         WoRezervacija woRezervacija = getBasketElement(user.getBasket(), basketIndex);
         if (woRezervacija != null) {
             if (woRezervacija.getKolicina().compareTo(narucenaKolicina) == 0) {
-                WoRezervacija woRezervacijaPersistent = woRezervacijaDAO.findById(woRezervacija.getId());
+                WoRezervacija woRezervacijaPersistent = woRezervacijaDAO.findByWoRezervacijaById(woRezervacija.getId());
                 vrednost = woRezervacijaPersistent.getKolicina().multiply(woRezervacija.getCena()).setScale(3, RoundingMode.HALF_EVEN);
                 user.setOrderValue(user.getOrderValue().subtract(woRezervacijaPersistent.getKolicina().multiply(woRezervacija.getCena())).setScale(3, RoundingMode.HALF_EVEN));
                 user.getBasket().remove(basketIndex);
@@ -466,25 +539,29 @@ public class BasketBusinessProcessing {
 
         uzStanjeZalihaSkladistaId.setProizvod(woRezervacija.getProizvod().getProizvod());
         WoKompanijaKorisnik woKompanijaKorisnik = woKompanijaKorisnikDAO.findByCoresponingOJ(currentOJ);
-        if (!woKompanijaKorisnik.getWoMapKompanijskaSkladistas().isEmpty()) {
-            for (WoMapKompanijskaSkladista woMapKompanijskaSkladista : woKompanijaKorisnik.getWoMapKompanijskaSkladistas()) {
-                if (woMapKompanijskaSkladista.getUzSkladisteRaspolozivo().getIdSkladista() == ocpProizvod.getMaticnoSkladiste()) {
-                    if (woMapKompanijskaSkladista.isRezervisiURaspolozivo()) {
-                        //rezervi??i robu u magacinu koji daje raspolozivu kolicinu
-                        uzStanjeZalihaSkladistaId.setIdSkladista(ocpProizvod.getMaticnoSkladiste());
+        if (!woRezervacija.getProizvod().getProveraZaliha().equals("SASTAV")) {
+            if (!woKompanijaKorisnik.getWoMapKompanijskaSkladistas().isEmpty()) {
+                for (WoMapKompanijskaSkladista woMapKompanijskaSkladista : woKompanijaKorisnik.getWoMapKompanijskaSkladistas()) {
+                    if (woMapKompanijskaSkladista.getUzSkladisteRaspolozivo().getIdSkladista() == ocpProizvod.getMaticnoSkladiste()) {
+                        if (woMapKompanijskaSkladista.isRezervisiURaspolozivo()) {
+                            //rezervi??i robu u magacinu koji daje raspolozivu kolicinu
+                            uzStanjeZalihaSkladistaId.setIdSkladista(ocpProizvod.getMaticnoSkladiste());
 
+                            uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.doubleValue(), -1);
+                        }
+                        uzStanjeZalihaSkladistaId.setIdSkladista(woMapKompanijskaSkladista.getUzSkladisteRezervacija().getIdSkladista());
+                        //rezervi??i robu u magacinu na koji se polazni magacin mapira
                         uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.doubleValue(), -1);
+
                     }
-                    uzStanjeZalihaSkladistaId.setIdSkladista(woMapKompanijskaSkladista.getUzSkladisteRezervacija().getIdSkladista());
-                    //rezervi??i robu u magacinu na koji se polazni magacin mapira
-                    uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.doubleValue(), -1);
-
                 }
-            }
 
+            } else {
+                uzStanjeZalihaSkladistaId.setIdSkladista(woRezervacija.getIdSkladista());
+                uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.doubleValue(), -1);
+            }
         } else {
-            uzStanjeZalihaSkladistaId.setIdSkladista(woRezervacija.getIdSkladista());
-            uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.doubleValue(), -1);
+
         }
 
         ocpProizvod.setRaspolozivo(ocpProizvod.getRaspolozivo().add(narucenaKolicina));
@@ -530,7 +607,7 @@ public class BasketBusinessProcessing {
         List<ProdFinDokument> prodFinDokuments = new ArrayList<ProdFinDokument>(0);
         Iterator it = cs.getKompanijskiParametri().get(OJ).getWoSetPoNacinPlacanja().iterator();
         while (it.hasNext()) {
-            //odredi vrstu dokumenta na osnovu naÄ?in plaÄ‡anja
+            //odredi vrstu dokumenta na osnovu naï¿½?in plaÄ‡anja
             WoSetPoNacinPlacanja woSetPoNacinPlacanja = (WoSetPoNacinPlacanja) it.next();
             if (woSetPoNacinPlacanja.getProdNacinPlacanja().getNacin().equals(nacinPlacanja)) {
                 Integer idVd;
@@ -557,11 +634,11 @@ public class BasketBusinessProcessing {
 
                 Map.Entry mapWoRezervacija = (Map.Entry) it.next();
                 WoRezervacija woRezervacija = (WoRezervacija) mapWoRezervacija.getValue();
-                WoRezervacija woRezervacijaPersistent = woRezervacijaDAO.findById(woRezervacija.getId());
+                WoRezervacija woRezervacijaPersistent = woRezervacijaDAO.findByWoRezervacijaById(woRezervacija.getId());
                 woRezervacijaPersistent.setStatusRezervacije(2);
                 woRezervacijaPersistent.setEkstraRabat(woRezervacija.getEkstraRabat());
                 woRezervacijaDAO.persist(woRezervacijaPersistent);
-                //ako nije naÄ?in plaÄ‡anja AVA onda sve stavke idu  na jednom dokumentu
+                //ako nije naï¿½?in plaÄ‡anja AVA onda sve stavke idu  na jednom dokumentu
                 skl = uzSkladisteDAO.findById(woRezervacija.getIdSkladista());
 
                 Integer partner = new Integer(0);
@@ -644,7 +721,7 @@ public class BasketBusinessProcessing {
                 uzDokumentStavka.setVrstaPromene(0);
                 uzDokumentStavka.setNavedKol(woRezervacija.getKolicina());
                 if (nacinPlacanja.equals("CAS"))
-// u sluÄ?aju plaÄ‡anja ke?? na polazna cena mora biti sa uraÄ?unatim porezom te se na cenu iz cenovnika poreska stopa
+// u sluï¿½?aju plaÄ‡anja ke?? na polazna cena mora biti sa uraï¿½?unatim porezom te se na cenu iz cenovnika poreska stopa
                     uzDokumentStavka.setJedinicnaCena(woRezervacija.getCena()
                             .multiply(prodPoreskaStopaDAO.findPorezPerProizvod(woRezervacija.getProizvod().getProizvod(), OJ, datumPromene)
                                     .divide(new BigDecimal(100.0)).add(new BigDecimal(1.0)).setScale(2, RoundingMode.HALF_EVEN)));
@@ -694,11 +771,11 @@ public class BasketBusinessProcessing {
 
                     Map.Entry mapWoRezervacija = (Map.Entry) it.next();
                     WoRezervacija woRezervacija = (WoRezervacija) mapWoRezervacija.getValue();
-                    WoRezervacija woRezervacijaPersistent = woRezervacijaDAO.findById(woRezervacija.getId());
+                    WoRezervacija woRezervacijaPersistent = woRezervacijaDAO.findByWoRezervacijaById(woRezervacija.getId());
                     woRezervacijaPersistent.setStatusRezervacije(2);
                     woRezervacijaPersistent.setEkstraRabat(woRezervacija.getEkstraRabat());
                     woRezervacijaDAO.persist(woRezervacijaPersistent);
-                    //ako nije naÄ?in plaÄ‡anja AVA onda sve stavke idu  na jednom dokumentu
+                    //ako nije naï¿½?in plaÄ‡anja AVA onda sve stavke idu  na jednom dokumentu
                     skl = uzSkladisteDAO.findById(woRezervacija.getIdSkladista());
                     if (woRezervacija.getAkcija().equals(akcija.toString())
                             || (woRezervacija.getAkcija() == " " && akcija.toString().equals("N"))) {
@@ -758,7 +835,7 @@ public class BasketBusinessProcessing {
                             uzDokumentUsloviPlacanja.setKreiratiFakturu(false);
                             if (woRezervacija.getAkcija() == " " && akcija.toString().equals("N") && maxRabat != 1
                                     && user.getWoPartnerSetting().get(0).getApproveCassaSconto())
-// kassa sconto u sluÄ?aju avansnog plaÄ‡anja i kada nema proizvoda koji su na akciji ili imaju maksimalni rabat
+// kassa sconto u sluï¿½?aju avansnog plaÄ‡anja i kada nema proizvoda koji su na akciji ili imaju maksimalni rabat
                                 uzDokumentUsloviPlacanja.setProcKassaSkonto(new BigDecimal(2));
                             uzDokumentUsloviPlacanjaDAO.persist(uzDokumentUsloviPlacanja);
 

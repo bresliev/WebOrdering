@@ -11,15 +11,29 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "WO_REZERVACIJA_SASTAVA", schema = "DAREX")
-@IdClass(WoRezervacijaSastavaId.class)
+//@IdClass(WoRezervacijaSastavaId.class)
+@NamedQueries({
+        @NamedQuery(name = WoRezervacijaSastava.READ_BY_REZERVACIJA_AND_PRO,
+                query = "SELECT x FROM WoRezervacijaSastava x WHERE x.woRezervacija.id = :woId and x.proizvod.proizvod = :proizvod")
+})
+
+@SequenceGenerator(name = "sastav_rezervacija_seq",
+        sequenceName = "WO_SEQ_SASTAV_REZERVACIJA_ID", allocationSize = 1)
 public class WoRezervacijaSastava {
 
+    public static final String READ_BY_REZERVACIJA_AND_PRO = "WoRezervacijaSastava.ReadByRezervacijaAndPro";
+
     @Id
+    @Column(name = "ID", unique = true, nullable = false)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE,
+            generator = "sastav_rezervacija_seq")
+    private BigDecimal id;
+    //@Id
     @ManyToOne
     @JoinColumns(value = {
             @JoinColumn(name = "WO_REZERVACIJA_ID", referencedColumnName = "ID")})
     private WoRezervacija woRezervacija;
-    @Id
+    //@Id
     @ManyToOne
     @JoinColumns(value = {
             @JoinColumn(name = "PROIZVOD#", referencedColumnName = "PROIZVOD#")})
@@ -38,7 +52,18 @@ public class WoRezervacijaSastava {
     private BigDecimal ekstraRabat;
     @Column(name = "KOLPOPAKOVANJU")
     private BigDecimal kolPoPakovanju;
+    @Column(name = "KOLICINA_UGRADNJE")
+    private BigDecimal kolicinaUgradnje;
 
+
+
+    public BigDecimal getId() {
+        return this.id;
+    }
+
+    public void setId(BigDecimal id) {
+        this.id = id;
+    }
 
     public WoRezervacija getWoRezervacija() {
         return woRezervacija;
@@ -110,5 +135,13 @@ public class WoRezervacijaSastava {
 
     public void setKolPoPakovanju(BigDecimal kolPoPakovanju) {
         this.kolPoPakovanju = kolPoPakovanju;
+    }
+
+    public BigDecimal getKolicinaUgradnje() {
+        return kolicinaUgradnje;
+    }
+
+    public void setKolicinaUgradnje(BigDecimal kolicinaUgradnje) {
+        this.kolicinaUgradnje = kolicinaUgradnje;
     }
 }

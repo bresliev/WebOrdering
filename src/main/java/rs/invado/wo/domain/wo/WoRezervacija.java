@@ -17,10 +17,16 @@ import java.util.List;
  */
 @Entity
 @Table(name = "WO_REZERVACIJA", schema = "DAREX")
+@NamedQueries({
+        @NamedQuery(name = WoRezervacija.READ_BY_ID,
+                query = "SELECT x FROM WoRezervacija x WHERE x.id = :woId")
+})
+
 @SequenceGenerator(name = "rezervacija_seq",
         sequenceName = "WO_SEQ_REZERVACIJA_ID", allocationSize = 1)
 public class WoRezervacija implements java.io.Serializable {
 
+    public static final String READ_BY_ID = "WoRezervacija.ReadById";
 
     private BigDecimal id;
     private int poslovniPartner;
@@ -47,9 +53,9 @@ public class WoRezervacija implements java.io.Serializable {
     private BigDecimal vrednost;
     private BigDecimal vrednostSaPorezom;
 
-    /*
+
     List<WoRezervacijaSastava> woRezervacijaSastavaList = new ArrayList<WoRezervacijaSastava>(0);
-*/
+
 
 
     public WoRezervacija() {
@@ -273,17 +279,18 @@ public class WoRezervacija implements java.io.Serializable {
     public void setCompositeArticleUnitOfMeasure(int compositeArticleUnitOfMeasure) {
         this.compositeArticleUnitOfMeasure = compositeArticleUnitOfMeasure;
     }
-/*
-    @OneToMany(targetEntity = WoRezervacijaSastava.class, mappedBy = "woRezervacija")
-    @LazyCollection(LazyCollectionOption.FALSE)
-    public List<WoRezervacijaSastava> getWoRezervacijaSastavaList() {
-        return woRezervacijaSastavaList;
-    }
 
-    public void setWoRezervacijaSastavaList(List<WoRezervacijaSastava> woRezervacijaSastavaList) {
-        this.woRezervacijaSastavaList = woRezervacijaSastavaList;
-    }
-*/
+
+        @OneToMany(targetEntity = WoRezervacijaSastava.class, mappedBy = "woRezervacija")
+        @LazyCollection(LazyCollectionOption.FALSE)
+        public List<WoRezervacijaSastava> getWoRezervacijaSastavaList() {
+            return woRezervacijaSastavaList;
+        }
+
+        public void setWoRezervacijaSastavaList(List<WoRezervacijaSastava> woRezervacijaSastavaList) {
+            this.woRezervacijaSastavaList = woRezervacijaSastavaList;
+        }
+
     @Transient
     public BigDecimal getVrednost() {
         return vrednost;

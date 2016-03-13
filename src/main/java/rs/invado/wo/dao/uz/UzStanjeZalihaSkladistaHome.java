@@ -87,6 +87,7 @@ public class UzStanjeZalihaSkladistaHome {
 
     public void azurirajRezervisanuKolicinu(UzStanjeZalihaSkladistaId id, double kolicina, int povecajIliUmanji) {
 
+        System.out.println("Uz stanje PK je "+id.getProizvod()+" "+id.getIdSkladista());
         UzStanjeZalihaSkladista uzStanjeZalihaSkladista = findById(id);
         if (uzStanjeZalihaSkladista != null) {
             BigDecimal kolicinaZaRezervaciju = uzStanjeZalihaSkladista.getRezervisanaKol().add(BigDecimal.valueOf(povecajIliUmanji * kolicina));

@@ -1,3 +1,6 @@
+/**
+ * Created by Nikola on 13/03/2016.
+ */
 var pageTotalNum = 0;
 var timer;
 // increase the default animation speed to exaggerate the effect
@@ -6,7 +9,7 @@ $.fx.speeds._default = 1000;
 $.ajaxSetup({
     cache: false,
     statusCode: {
-    901:function () {
+        901:function () {
             clearTimeout(timer);
             $(".error-box").text("Vaša sesija je istekla. Ukoliko ste imali nepotvrðene artikle u korpi sve stavke æe biti poništene. ");
             $("#dialog-message-w").dialog("open");
@@ -60,7 +63,7 @@ $.ajaxSetup({
         return group;
     };
 
-    $("#groups .group_item .product_item_img").live('click', function () {
+    $("#groups .group_item .product_item_img").on('click', function () {
         console.log("ovo se desava garantovano 1");
         var klasa = $(this).attr('id');
         $('#brandId').attr('value', klasa.substring(11, klasa.length));
@@ -72,7 +75,7 @@ $.ajaxSetup({
     $.fn.showProducts = function (pageNo, productId) {
         console.log("ipak ide ovo");
         try {
-           $('.waitcursor').show();
+            $('.waitcursor').show();
             $('.product_item').fadeTo(500, 0.2);
             $("#groups").fadeTo(500, 0.2);
             var namePattern = "";
@@ -170,10 +173,10 @@ $.ajaxSetup({
             zalihe = item.raspolozivo + " " + item.jedinicaMere.skracenaOznaka;
         }
         /*else if (item.primeniJsklPakovanje && item.jsklPakovanja.length == 1) {
-            //console.log("ima jedno pakovanja pro=" + item.proizvod + " pak=" + item.jsklPakovanja[0]);
-            product += "<div class='kol_pak ellipsis'>Kolièina po pakovanju: " + item.jsklPakovanja[0] + " " + item.jedinicaMere.skracenaOznaka.toLowerCase() + "</div>";
-            zalihe = item.raspolozivo + " " + item.jedinicaMere.skracenaOznaka;
-        } */
+         //console.log("ima jedno pakovanja pro=" + item.proizvod + " pak=" + item.jsklPakovanja[0]);
+         product += "<div class='kol_pak ellipsis'>Kolièina po pakovanju: " + item.jsklPakovanja[0] + " " + item.jedinicaMere.skracenaOznaka.toLowerCase() + "</div>";
+         zalihe = item.raspolozivo + " " + item.jedinicaMere.skracenaOznaka;
+         } */
         //
         else {
             zalihe = Math.floor(item.raspolozivo/item.kolicinaPoPakovanju) + ' ' + item.jedinicaMereAltRef.skracenaOznaka + ' / ' + item.raspolozivo + ' ' + item.jedinicaMere.skracenaOznaka;
@@ -402,7 +405,7 @@ $.ajaxSetup({
                     $.each(result, function (i, item) {
                         //console.log(item.proizvod + "   " + item.cena + "   " + i);
                         resDiv += "<div id='najprodavanije-" + item.proizvod + "' class='fade najprod'>" +
-                            /*"<img width='120px' height='84px' src='http://slikeproizvoda.darex.rs/slike/" + item.proizvod + ".jpg'  alt=''/>" +*/
+                                /*"<img width='120px' height='84px' src='http://slikeproizvoda.darex.rs/slike/" + item.proizvod + ".jpg'  alt=''/>" +*/
                             "<img width='120px' height='84px' src='/WO/images/small/" + item.proizvod + ".jpg'  alt=''/>" +
                             "<div class='naziv multiline'>" + item.nazivProizvoda + " " + $(this).trimToEmptyString(item.dodatniNaziv) + "</div>" +
                             "<div class='cena'>" + item.cena + " EUR</div>" +
@@ -423,10 +426,7 @@ $.ajaxSetup({
 
 
 $(document).ready(function () {
-    if ($.browser.msie && parseInt($.browser.version, 10) <= 7) {
-        $("input, select").css('vertical-align', 'middle');
-        $("#partnerPretraga").css('margin-top', '8px');
-    }
+
     setTimeout($(this).showNajprodavanije, 15000);
     $(this).dialogCfg();
     $(this).dialogCfgMSG();
@@ -441,11 +441,11 @@ $(document).ready(function () {
         }
     });
 
-    $('#toTop').live('click', function () {
+    $('#toTop').on('click', function () {
         $('body,html').animate({scrollTop: 0}, 'slow');
     });
 
-    $(".side_menu ul li").live('click', function () {
+    $(".side_menu ul li").on('click', function () {
         if ($(this).parents('li').length == 0) {
             //$('ul li ul li.opened ul li').fadeOut(500);
         }
@@ -474,7 +474,7 @@ $(document).ready(function () {
         }
         return false;
     });
-    $("#navigation_bar input").live('click', function () {
+    $("#navigation_bar input").on('click', function () {
         /*$("#navigation_bar input").removeClass("selected");
          $(this).addClass("selected");*/
         if ($(this).val() == "<<") $(this).refreshDownNavMenu(1, "<<");
@@ -485,12 +485,12 @@ $(document).ready(function () {
             else if ($(this).val() == ">" && currentPage < pageTotalNum) $(this).refreshDownNavMenu(currentPage + 1, ">");
         }
     });
-    $(".navigation_bar").live('click', function () {
+    $(".navigation_bar").on('click', function () {
         var currentPage = parseInt($(this).attr('value'));
         $(this).refreshDownNavMenu(currentPage, "");
     });
 
-    $(".G2_MENI").live('click', function () {
+    $(".G2_MENI").on('click', function () {
 
         $(this).resetFilter();
         $(this).resetMenu();
@@ -500,7 +500,7 @@ $(document).ready(function () {
         $(this).showGroups();
         //$(this).showProducts(0, "");
     });
-    $(".G2_MENI_NEW").live('click', function () {
+    $(".G2_MENI_NEW").on('click', function () {
         $(this).resetFilter();
         $(this).resetMenu();
         $("#productId").val("ŠIFRA");
@@ -511,40 +511,40 @@ $(document).ready(function () {
     });
 
     /*
-     $(".product_item_img").live('mouseenter', function() {
+     $(".product_item_img").on('mouseenter', function() {
      // mouse-over
      $("#" + $(this).attr('id') + "-1").fadeOut(500);
      $("#" + $(this).attr('id') + "-2").fadeOut(500);
      });
 
-     $(".product_item_img").live('mouseleave', function() {
+     $(".product_item_img").on('mouseleave', function() {
      // mouse-out
      $("#" + $(this).attr('id') + "-1").fadeIn(500);
      $("#" + $(this).attr('id') + "-2").fadeIn(500);
      });*/
 
 
-    $(".opener").live('click', function () {
+    $(".opener").on('click', function () {
         var id = $(this).attr('id');
         id = id.replace("-img", "");
         $('#opener-' + id).dialog("open");
         return false;
     });
 
-    $('.dialog img').live('click', function () {
+    $('.dialog img').on('click', function () {
         $(this).parents(".ui-dialog-content").dialog('close');
     });
 
-    $('.dialogMultiImg .gv_panel img').live('click', function () {
+    $('.dialogMultiImg .gv_panel img').on('click', function () {
         $(this).parents(".ui-dialog-content").dialog('close');
     });
 
-    $("#selectPerPage").live('change', function () {
+    $("#selectPerPage").on('change', function () {
         $("#perPage").attr('value', $(this).attr('value'));
         $(this).showProducts(0, "");
     });
 
-    $("select.filterPrviNivo").live('change', function () {
+    $("select.filterPrviNivo").on('change', function () {
         $(this).resetMenu();
         $("#productId").val("ŠIFRA");
         var res = "<select style='width: 170px;' class='filterDrugiNivo'>";
@@ -561,9 +561,6 @@ $(document).ready(function () {
                 }
                 res += "</select>";
                 $(".filterDrugiNivo").replaceWith(res);
-                if ($.browser.msie && parseInt($.browser.version, 10) <= 7) {
-                    $(".filterDrugiNivo").css('vertical-align', 'middle');
-                }
             });
         } else {
             $('#brandId').attr('value', null);
@@ -571,12 +568,12 @@ $(document).ready(function () {
             $(".filterDrugiNivo").replaceWith(res);
         }
     });
-    $("select.filterDrugiNivo").live('change', function () {
+    $("select.filterDrugiNivo").on('change', function () {
         $(this).resetMenu();
         $("#productId").val("ŠIFRA");
     });
 
-    $("#search_button").live('click', function () {
+    $("#search_button").on('click', function () {
         try {
             $(this).resetMenu();
             $('#brandId').attr('value', null);
@@ -600,12 +597,12 @@ $(document).ready(function () {
         }
     });
 
-    $("#productId").live('keypress', function () {
+    $("#productId").on('keypress', function () {
         $(this).resetFilter();
         $(this).resetMenu();
     });
 
-    $("#productId").live('keydown', function (e) {
+    $("#productId").on('keydown', function (e) {
         if (e.keyCode == 13) {
             $("#search_button").click();
         }
@@ -648,7 +645,7 @@ $(document).ready(function () {
 
     });
 
-    $("#namePattern").live('keydown', function (e) {
+    $("#namePattern").on('keydown', function (e) {
         if (e.keyCode == 13) {
             $(".ui-autocomplete").hide();
             $("#search_button").click();
@@ -682,7 +679,7 @@ $(document).ready(function () {
         }
     });
 
-    $(".add_to_basket").live('click', function () {
+    $(".add_to_basket").on('click', function () {
         try {
             var btn = $(this);
             var productId = $(this).attr('id').replace("basket-", "");
@@ -743,7 +740,7 @@ $(document).ready(function () {
         }
     });
 
-    $(".product_item .kolicina input").live('keydown', function (e) {
+    $(".product_item .kolicina input").on('keydown', function (e) {
         var productId = $(this).attr('id').replace("orderedQuantity-", "");
         if (e.keyCode == 13) {
             $("#basket-" + productId).click();
@@ -751,7 +748,7 @@ $(document).ready(function () {
     });
 
 
-    $('.najprod').live('click', function () {
+    $('.najprod').on('click', function () {
         $(this).resetMenu();
         $(this).resetFilter();
         var productId = $(this).attr('id').replace("najprodavanije-", "");
@@ -760,12 +757,12 @@ $(document).ready(function () {
 
     });
 
-    $("#karticaPKP").live('click', function () {
+    $("#karticaPKP").on('click', function () {
         //$('#karticaHidden').datepicker('show');
         window.open('kartica');
     });
 
-    $("#kartica").live('click', function () {
+    $("#kartica").on('click', function () {
         $(".error-box").text("Nemate pravo na pregled kartice!");
         $("#dialog-message").dialog("open");
     });
@@ -792,17 +789,17 @@ $(document).ready(function () {
      $(this).fadeTo(400, 1);
      });  */
 
-    $("#div-najprodavanije .fade").live('mouseenter', function () {
+    $("#div-najprodavanije .fade").on('mouseenter', function () {
         // mouse-over
         $(this).fadeTo(400, 0.4);
     });
 
-    $("#div-najprodavanije .fade").live('mouseleave', function () {
+    $("#div-najprodavanije .fade").on('mouseleave', function () {
         // mouse-out
         $(this).fadeTo(400, 1);
     });
 
-    $("table.korpa tr td:not(:last-child)").live('click', function () {
+    $("table.korpa tr td:not(:last-child)").on('click', function () {
         if (!$(this).hasClass("not_link")) {
             var productId = $(this).parent('tr').attr('id').replace("korpa_uvecaj_", "");
             $('#uvecaj_' + productId).dialog("open");
@@ -810,7 +807,7 @@ $(document).ready(function () {
         }
     });
 
-    $("#formFakture a").live('click', function () {
+    $("#formFakture a").on('click', function () {
         if ($("#userRight").val() == "true") {
             $("#idDokumenta").val($(this).text());
             $("#formFakture").submit();
@@ -820,7 +817,7 @@ $(document).ready(function () {
         }
     });
 
-    $("#chceckOutBasketBtn").live('click', function () {
+    $("#chceckOutBasketBtn").on('click', function () {
         if (!$("input[name='nacinTransporta']:checked").val() || !$("input[name='nacinPlacanja']:checked").val()) {
             $(".error-box").text("Obavezan izbor naèina plaæanja i prevoza pre potvrde kupovine!");
             $("#dialog-message").dialog("open");
@@ -832,7 +829,7 @@ $(document).ready(function () {
         }
     });
     /*   iskomentarisano kako bi se omogu?ila kombinacija CAS i Brza Po?ta
-     $("input[name='nacinPlacanja'],input[name='nacinTransporta']").live('change', function() {
+     $("input[name='nacinPlacanja'],input[name='nacinTransporta']").on('.change', function() {
      if ( $(this).val() == 'CAS') {
      $("input[name='nacinTransporta'][value='5']").attr("checked", false);
      $("input[name='nacinTransporta'][value='5']").attr('disabled', 'disabled');

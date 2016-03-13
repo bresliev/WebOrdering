@@ -57,8 +57,10 @@ public class BasketController {
 
 
     @RequestMapping(value = "/addToBasket", method = RequestMethod.GET, produces = "application/json")
-    public @ResponseBody String addToBasket(HttpSession session, String productId, String orderedQuantity, BigDecimal pakovanje) {
-        log.info("proizvod=" + productId + " orderedQuantity="+orderedQuantity + " pakovanje=" + pakovanje);
+    public
+    @ResponseBody
+    String addToBasket(HttpSession session, String productId, String orderedQuantity, BigDecimal pakovanje) {
+        log.info("proizvod=" + productId + " orderedQuantity=" + orderedQuantity + " pakovanje=" + pakovanje);
         ServletContext ctx = AppInitService.getServletConfig();
         CompanySetting companySetting = (CompanySetting) ctx.getAttribute(AppInitService.CompanySetting);
         User user = (User) session.getAttribute("loginUser");
@@ -69,18 +71,23 @@ public class BasketController {
         IncreaseReservation increaseReservation = null;
 
         try {
-            log.info("korpa pre " + user.getBasket().size() + "  raspolozivo=" + product.getRaspolozivo() + "   session=" + session.getId()+" sa pakovanjem "+pakovanje);
-            basketService.increaseReservation(product, oj, orderedQ, session.getId(), user, pakovanje);
+            if (product.getProveraZaliha().equals("SASTAV")) {
+                log.info("korpa pre rezervacija sastava " + user.getBasket().size() + "  raspolozivo=" + product.getRaspolozivo() + "   session=" + session.getId() + " sa pakovanjem " + pakovanje);
+                basketService.increaseReservationCompositeObject(product, oj, orderedQ, session.getId(), user, pakovanje);
+            } else {
+                log.info("korpa pre redovne rezervacije " + user.getBasket().size() + "  raspolozivo=" + product.getRaspolozivo() + "   session=" + session.getId() + " sa pakovanjem " + pakovanje);
+                basketService.increaseReservation(product, oj, orderedQ, session.getId(), user, pakovanje);
+            }
             product = productService.getProizvodById(Integer.parseInt(productId), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
             session.setAttribute("loginUser", user);
             log.info("  korpa posle " + user.getBasket().size() + "  raspolozivo=" + product.getRaspolozivo() + "   session=" + session.getId());
             increaseReservation = new IncreaseReservation(user.getBasket().size(), user.getOrderValueWithTax(), product.getRaspolozivo(), product.getJedinicaMere().getSkracenaOznaka(), product.getKolUAltJM(),
                     product.getJedinicaMereAltRef().getSkracenaOznaka(), product.getPrimeniJsklPakovanje(), product.getJsklPakovanja(), product.getBrojPakovanja());
         } catch (WOException e) {
-            increaseReservation = new IncreaseReservation(WOExceptionCodes.getInstance().getErrorMessage(e.getErrorCode()),user.getBasket().size(), user.getOrderValueWithTax(), product.getRaspolozivo(), product.getJedinicaMere().getSkracenaOznaka(), product.getKolUAltJM(), product.getJedinicaMereAltRef().getSkracenaOznaka());
+            increaseReservation = new IncreaseReservation(WOExceptionCodes.getInstance().getErrorMessage(e.getErrorCode()), user.getBasket().size(), user.getOrderValueWithTax(), product.getRaspolozivo(), product.getJedinicaMere().getSkracenaOznaka(), product.getKolUAltJM(), product.getJedinicaMereAltRef().getSkracenaOznaka());
             log.error("proizvod=" + productId + " sessionId=" + session.getId() + "  " + WOExceptionCodes.getInstance().getErrorMessage(e.getErrorCode()));
         } catch (Exception e) {
-            increaseReservation = new IncreaseReservation(e.getMessage(),user.getBasket().size(), user.getOrderValueWithTax(), product.getRaspolozivo(), product.getJedinicaMere().getSkracenaOznaka(), product.getKolUAltJM(), product.getJedinicaMereAltRef().getSkracenaOznaka());
+            increaseReservation = new IncreaseReservation(e.getMessage(), user.getBasket().size(), user.getOrderValueWithTax(), product.getRaspolozivo(), product.getJedinicaMere().getSkracenaOznaka(), product.getKolUAltJM(), product.getJedinicaMereAltRef().getSkracenaOznaka());
             log.error("proizvod=" + productId + " sessionId=" + session.getId() + "  " + e.getMessage(), e);
         }
         Gson gson = new GsonBuilder().create();
@@ -98,7 +105,12 @@ public class BasketController {
 
         BigDecimal kol = user.getBasket().get(productId).getKolicina();
         OcpProizvod product = productService.getProizvodById(Integer.parseInt(productId.split("/")[0]), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
-        basketService.decreaseReservation(product, oj, kol, session.getId(), user, productId);
+        if (product.getProveraZaliha().equals("SASTAV")) {
+            System.out.println("removeFromBasket");
+            basketService.decreaseReservationCompositeObject(product, oj, kol, session.getId(), user, productId);
+        } else {
+            basketService.decreaseReservation(product, oj, kol, session.getId(), user, productId);
+        }
         if (user.getBasket() != null && user.getBasket().size() == 0) {
             user.setBasket(new LinkedHashMap<String, WoRezervacija>());
             user.setOrderValue(new BigDecimal(0.00));
@@ -121,8 +133,13 @@ public class BasketController {
         Set<String> keys = temp.keySet();
         for (String key : keys) {
             WoRezervacija rezervacija = user.getBasket().get(key);
-            String basketIndex=rezervacija.getProizvod().getProizvod()+ "/" + (rezervacija.getKolPoPakovanju()!=null?rezervacija.getKolPoPakovanju():rezervacija.getProizvod().getKolicinaPoPakovanju());
-            basketService.decreaseReservation(rezervacija.getProizvod(), oj, rezervacija.getKolicina(), session.getId(), user, basketIndex);
+            String basketIndex = rezervacija.getProizvod().getProizvod() + "/" + (rezervacija.getKolPoPakovanju() != null ? rezervacija.getKolPoPakovanju() : rezervacija.getProizvod().getKolicinaPoPakovanju());
+            if (rezervacija.getProizvod().getProveraZaliha().equals("SASTAV")) {
+                System.out.println("removeBasket");
+                basketService.decreaseReservationCompositeObject(rezervacija.getProizvod(), oj, rezervacija.getKolicina(), session.getId(), user, basketIndex);
+            } else {
+                basketService.decreaseReservation(rezervacija.getProizvod(), oj, rezervacija.getKolicina(), session.getId(), user, basketIndex);
+            }
         }
         user.setBasket(new LinkedHashMap<String, WoRezervacija>());
         user.setOrderValue(new BigDecimal(0.00));
@@ -133,7 +150,7 @@ public class BasketController {
 
 
     @RequestMapping(value = "/chceckOutBasket", method = RequestMethod.POST)
-    public String chceckOutBasket(HttpSession session, HttpServletRequest req, String nacinPlacanja, Integer nacinTransporta, String adresa, String napomena, String [] dodatniRabat, Model model) {
+    public String chceckOutBasket(HttpSession session, HttpServletRequest req, String nacinPlacanja, Integer nacinTransporta, String adresa, String napomena, String[] dodatniRabat, Model model) {
         try {
             ServletContext ctx = AppInitService.getServletConfig();
             CompanySetting companySetting = (CompanySetting) ctx.getAttribute(AppInitService.CompanySetting);
@@ -141,9 +158,9 @@ public class BasketController {
             Integer oj = Integer.parseInt((String) session.getAttribute("oj"));
 
             if ("INTERNI".equals(user.getWoUser().getUserType()) && dodatniRabat != null && dodatniRabat.length > 0) {
-                int index=0;
-                Set<String> items=user.getBasket().keySet();
-                for(String itemKey:items) {
+                int index = 0;
+                Set<String> items = user.getBasket().keySet();
+                for (String itemKey : items) {
                     if (dodatniRabat[index] != null && !"".equals(dodatniRabat[index].trim()))
                         user.getBasket().get(itemKey).setEkstraRabat(new BigDecimal(dodatniRabat[index]));
                     index++;
@@ -180,12 +197,12 @@ public class BasketController {
         List<OcpProizvod> result = new ArrayList<OcpProizvod>();
         if (najprodavanije != null && najprodavanije.size() > 0) {
             int range = najprodavanije.size();
-            OcpProizvod pro=null;
-            int index=0;
-            if (range>4) index=4;
-            else index=range;
+            OcpProizvod pro = null;
+            int index = 0;
+            if (range > 4) index = 4;
+            else index = range;
             for (int i = 0; i < index; i++) {
-                while (pro==null || result.contains(pro)) pro = najprodavanije.get(rn.nextInt(range));
+                while (pro == null || result.contains(pro)) pro = najprodavanije.get(rn.nextInt(range));
                 result.add(pro);
             }
         }

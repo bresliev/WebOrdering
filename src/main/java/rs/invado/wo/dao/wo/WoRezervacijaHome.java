@@ -85,7 +85,18 @@ public class WoRezervacijaHome {
 			throw re;
 		}
 	}
-    
+
+	@Transactional(readOnly = true)
+	public WoRezervacija findByWoRezervacijaById(BigDecimal id) {
+		try {
+			return entityManager.createNamedQuery(WoRezervacija.READ_BY_ID, WoRezervacija.class)
+					.setParameter("woId", id).getSingleResult();
+		} catch (Exception ex) {
+			log.error("find failed", ex);
+		}
+		return null;
+	}
+
     public List<WoRezervacija> findBySessionIdAndDefaultStatus(String sessionId){
         return  getSession().createCriteria(WoRezervacija.class)
                 .add(Restrictions.eq("sessionid", sessionId))

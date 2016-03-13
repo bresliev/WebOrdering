@@ -15,86 +15,100 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.logging.Level;
 
 /**
  * Created by Nikola on 10/03/2016.
  */
-    @Repository
-    @Transactional
+@Repository
+@Transactional
 //
-    public class WoRezervacijaSastavaHome {
+public class WoRezervacijaSastavaHome {
 
-        private static final Log log = LogFactory.getLog(WoRezervacijaSastavaHome.class);
+    private static final Log log = LogFactory.getLog(WoRezervacijaSastavaHome.class);
 
-        @PersistenceContext
-        private EntityManager entityManager;
+    @PersistenceContext
+    private EntityManager entityManager;
 
-        public Session getSession(){
-            return entityManager.unwrap(Session.class);
-        }
-
-        public void persist(WoRezervacijaSastava transientInstance) {
-            log.debug("persisting WoRezervacijaSastava instance");
-            try {
-                entityManager.persist(transientInstance);
-                entityManager.flush();
-                log.debug("persist successful");
-            } catch (RuntimeException re) {
-                log.error("persist failed", re);
-                throw re;
-            }
-        }
-
-        public void remove(WoRezervacijaSastava persistentInstance) {
-            log.debug("removing WoRezervacijaSastava instance");
-
-            try {
-                entityManager.remove(persistentInstance);
-                log.debug("remove successful");
-            } catch (RuntimeException re) {
-                log.error("remove failed", re);
-                throw re;
-            }
-        }
-
-        public WoRezervacijaSastava merge(WoRezervacijaSastava detachedInstance) {
-            log.debug("merging WoRezervacijaSastava instance");
-            try {
-                WoRezervacijaSastava result = entityManager.merge(detachedInstance);
-                entityManager.flush();
-                log.debug("merge successful");
-                return result;
-            } catch (RuntimeException re) {
-                log.error("merge failed", re);
-                throw re;
-            }
-        }
-
-        public WoRezervacijaSastava findById(BigDecimal id) {
-            log.debug("getting WoRezervacijaSastava instance with id: " + id);
-            try {
-                WoRezervacijaSastava instance = entityManager
-                        .find(WoRezervacijaSastava.class, id);
-                log.debug("get successful");
-                return instance;
-            } catch (RuntimeException re) {
-                log.error("get failed", re);
-                throw re;
-            }
-        }
-
-        public List<WoRezervacijaSastava> findByWoRezervacijaNotChecked(WoRezervacijaSastava woRezervacijaSastava){
-            return  getSession().createCriteria(WoRezervacijaSastava.class)
-                    .add(Restrictions.eq("woRezervacijaSastava", woRezervacijaSastava))
-                    .add(Restrictions.eq("statusRezervacije", 1))
-                    .list();
-        }
-
-        public WoRezervacijaSastava findByWoRezervacijaAndProizvodNotChecked(WoRezervacija woRezervacija, OcpProizvod ocpProizvod){
-            return  (WoRezervacijaSastava)getSession().createCriteria(WoRezervacijaSastava.class)
-                    .add(Restrictions.eq("woRezervacija.id", woRezervacija.getId()))
-                    .add(Restrictions.eq("proizvod.proizvod#", ocpProizvod.getProizvod())).uniqueResult();
-        }
-
+    public Session getSession() {
+        return entityManager.unwrap(Session.class);
     }
+
+    public void persist(WoRezervacijaSastava transientInstance) {
+        log.debug("persisting WoRezervacijaSastava instance");
+        try {
+            entityManager.persist(transientInstance);
+            entityManager.flush();
+            log.debug("persist successful");
+        } catch (RuntimeException re) {
+            log.error("persist failed", re);
+            throw re;
+        }
+    }
+
+    public void remove(WoRezervacijaSastava persistentInstance) {
+        log.debug("removing WoRezervacijaSastava instance");
+
+        try {
+            entityManager.remove(persistentInstance);
+            log.debug("remove successful");
+        } catch (RuntimeException re) {
+            log.error("remove failed", re);
+            throw re;
+        }
+    }
+
+    public WoRezervacijaSastava merge(WoRezervacijaSastava detachedInstance) {
+        log.debug("merging WoRezervacijaSastava instance");
+        try {
+            WoRezervacijaSastava result = entityManager.merge(detachedInstance);
+            entityManager.flush();
+            log.debug("merge successful");
+            return result;
+        } catch (RuntimeException re) {
+            log.error("merge failed", re);
+            throw re;
+        }
+    }
+
+    public WoRezervacijaSastava findById(BigDecimal id) {
+        log.debug("getting WoRezervacijaSastava instance with id: " + id);
+        try {
+            WoRezervacijaSastava instance = entityManager
+                    .find(WoRezervacijaSastava.class, id);
+            log.debug("get successful");
+            return instance;
+        } catch (RuntimeException re) {
+            log.error("get failed", re);
+            throw re;
+        }
+    }
+
+    public List<WoRezervacijaSastava> findByWoRezervacijaNotChecked(WoRezervacijaSastava woRezervacijaSastava) {
+        return getSession().createCriteria(WoRezervacijaSastava.class)
+                .add(Restrictions.eq("woRezervacijaSastava", woRezervacijaSastava))
+                .add(Restrictions.eq("statusRezervacije", 1))
+                .list();
+    }
+
+    public WoRezervacijaSastava findByWoRezervacijaAndProizvodNotChecked(WoRezervacija woRezervacija, OcpProizvod ocpProizvod) {
+        return (WoRezervacijaSastava) getSession().createCriteria(WoRezervacijaSastava.class)
+                .add(Restrictions.eq("woRezervacija.id", woRezervacija.getId()))
+                .add(Restrictions.eq("proizvod.proizvod#", ocpProizvod.getProizvod())).uniqueResult();
+    }
+
+    @Transactional(readOnly = true)
+    public WoRezervacijaSastava findByWoRezervacijaByIdAndProizvod(WoRezervacija woRezervacija, OcpProizvod ocpProizvod) {
+        try {
+            return entityManager.createNamedQuery(WoRezervacijaSastava.READ_BY_REZERVACIJA_AND_PRO, WoRezervacijaSastava.class)
+                    .setParameter("woId", woRezervacija.getId())
+                    .setParameter("proizvod", ocpProizvod.getProizvod())
+                    .getSingleResult();
+        } catch (Exception ex) {
+            log.error("findByWoRezervacijaByIdAndProizvod nodata found ", null);
+        }
+        return null;
+    }
+
+}
 
