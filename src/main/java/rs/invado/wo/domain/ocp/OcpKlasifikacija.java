@@ -87,7 +87,25 @@ import java.util.Set;
                 + "                                   and u.proizvod# = p.proizvod# "
                 + "                                   and u.kolicina_po_stanju_z - u.rezervisana_kol >0)) "
                 + "              and k.klasifikacija#_nad is NULL"
-                + " order by k.sort", resultClass = OcpKlasifikacija.class)})
+                + " order by k.sort", resultClass = OcpKlasifikacija.class),
+        @NamedNativeQuery(name = "findKlasifikacijaSastav", query = " select distinct k.vrsta_klasifikacije#, k.klasifikacija#,k.naziv, "
+                + "            k.klasifikacija#_nad, k.jedinica_mere#, k.opis, nvl(k.max_rabat, 0) max_rabat, k.prikazisifruwo, k.sort, k.sort1"
+                + "           from ocp_klasifikacija k "
+                + "           where k.sort is null"
+                +"             and k.VRSTA_KLASIFIKACIJE# = :vrklas "
+                +"               and  exists (select 1"
+                +"                           from ocp_klasifikacija_proizvoda kk, wo_partner_settings w, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak "
+                +"                           where k.VRSTA_KLASIFIKACIJE# = kk.VRSTA_KLASIFIKACIJE#"
+                +"                           and k.KLASIFIKACIJA# = kk.KLASIFIKACIJA# "
+                +"                           and w.poslovni_partner# = :partner"
+                +"                           and w.id_kompanija_korisnik = :kompanijaKorisnik"
+                +"                           and w.id_skladista = u.id_skladista"
+                +"                           and s.proizvod#_ulaz = pak.proizvod_ref"
+                +"                           and pak.transportno = 'DA'"
+                +"                           and s.proizvod#_ulaz = kk.proizvod#"
+                +"                           and u.proizvod#  = s.proizvod#_izlaz"
+                +"                           and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1 )"
+                +"            order by k.KLASIFIKACIJA#", resultClass = OcpKlasifikacija.class)})
 
 @Entity
 @Table(name = "OCP_KLASIFIKACIJA", schema = "DAREX")

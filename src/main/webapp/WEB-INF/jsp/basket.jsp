@@ -60,11 +60,11 @@
                             <c:choose>
                                 <c:when test="${loginUser.woUser.userType == 'INTERNI'}">
                                     <div class="multiline"
-                                         style="width:220px;">${item.value.proizvod.nazivProizvoda} ${item.value.proizvod.dodatniNaziv}</div>
+                                         style="width:208px;">${item.value.proizvod.nazivProizvoda} ${item.value.proizvod.dodatniNaziv}</div>
                                 </c:when>
                                 <c:otherwise>
                                     <div class="multiline"
-                                         style="width:280px;">${item.value.proizvod.nazivProizvoda} ${item.value.proizvod.dodatniNaziv}</div>
+                                         style="width:208px;">${item.value.proizvod.nazivProizvoda} ${item.value.proizvod.dodatniNaziv}</div>
                                 </c:otherwise>
                             </c:choose>
                         </td>
@@ -74,10 +74,10 @@
                         <td style="text-align:left">${item.value.cena}</td>
                         <td style="text-align:left">${item.value.vrednost}</td>
                         <c:if test="${loginUser.woUser.userType == 'INTERNI'}">
-                        <td style="text-align:left" class="not_link">${item.value.rabat}</td>
-                        <td style="text-align:left" class="not_link"><input type="text" name="dodatniRabat"
-                                                                            style="width:40px;border:solid 1px #4c4b4b;color: #4c4b4b;"/>
-                        </td>
+                            <td style="text-align:left" class="not_link">${item.value.rabat}</td>
+                            <td style="text-align:left" class="not_link"><input type="text" name="dodatniRabat"
+                                                                                style="width:40px;border:solid 1px #4c4b4b;color: #4c4b4b;"/>
+                            </td>
                         </c:if>
                         <td>
                             <img src="images/remove.png" alt=""
@@ -93,14 +93,16 @@
                     </tr>
                     <tr>
                         <td>
-                            <table class="sastav">
-                                <th>Sastav</th>
-                                <th>Kolièina</th>
-                                <th>Cena</th>
+                            <table class="sastav" ${item.value.woRezervacijaSastavaList.size() == 0 ? "hidden" : ""} >
+                                <th style="width: 70%">Sastav</th>
+                                <th style="width: 15%">Kolièina</th>
+                                <th style="width: 15%">Cena</th>
                                 <c:forEach items="${item.value.woRezervacijaSastavaList}" var="compositeItem"
                                            varStatus="i">
                                     <tr>
-                                        <td>${compositeItem.proizvod.nazivProizvoda}</td>
+                                        <td style="text-align:left">
+                                            <div class="multiline">${compositeItem.proizvod.nazivProizvoda} ${compositeItem.proizvod.dodatniNaziv}</div>
+                                        </td>
                                         <td>${compositeItem.kolicina}</td>
                                         <td>${compositeItem.cena}</td>
                                     </tr>

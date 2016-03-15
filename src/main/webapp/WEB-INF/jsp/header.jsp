@@ -59,6 +59,9 @@
                 <a href='http://opc.blum.com/?calledFromInternal=false&calledFromPortal=true' target="_blank" class="G2_MENI" id="BLUM">Blum
                     Konfigurator</a>
             </li>
+            <li>
+                <a href='#' class="G2_MENI" id="SASTAV">Sastavi</a>
+            </li>
             <c:if test="${oj == 199 || oj == 309}">
                 <li>
                     <!--a href='#' class="G2_MENI_NEW" id="41">Oprema/Vozila</a-->

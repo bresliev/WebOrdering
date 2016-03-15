@@ -147,4 +147,16 @@ public class OcpKlasifikacijaHome {
         hijerarhijaKlasa = q.getResultList();
         return hijerarhijaKlasa;
     }
+
+    public List<OcpKlasifikacija> findKlasifikacijaSastav(String tipAkcije, CompanySetting cs, int oj, User user) {
+        WoParametri woParametri = cs.getKompanijskiParametri().get(oj);
+        String namedQ = "findKlasifikacijaSastav";
+        List<OcpKlasifikacija> hijerarhijaKlasa = new ArrayList<OcpKlasifikacija>();
+        Query q = entityManager.createNamedQuery(namedQ)
+                .setParameter("vrklas", woParametri.getVrstaKlasifikacijeMeni())
+                .setParameter("kompanijaKorisnik", woParametri.getWoKompanijaKorisnik().getId())
+                .setParameter("partner", user.getWoPartnerSetting().get(0).getPoslovniPartner().getPoslovniPartner());
+        hijerarhijaKlasa = q.getResultList();
+        return hijerarhijaKlasa;
+    }
 }

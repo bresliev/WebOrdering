@@ -122,6 +122,12 @@ public class CommonService {
     }
 
     public List<OcpKlasifikacija> findKlasifikacijaWithAction(CompanySetting cs, String tipAkcije, int oj,User user){
+        if (tipAkcije.equals("SASTAV"))
+            return ocpKlasifikacijaDAO.findKlasifikacijaSastav(tipAkcije, cs, oj, user);
         return ocpKlasifikacijaDAO.findKlasifikacijaWithAction(tipAkcije, cs, oj, user);
+    }
+
+    public List<OcpKlasifikacija> findKlasifikacijaSastav(CompanySetting cs, String tipAkcije, int oj,User user){
+        return ocpKlasifikacijaDAO.findKlasifikacijaSastav(tipAkcije, cs, oj, user);
     }
 }

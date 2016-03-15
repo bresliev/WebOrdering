@@ -712,36 +712,6 @@ table.korpa {
     table-layout: fixed;
 }
 
-table.sastav {
-    float: left;
-    width: 700px;
-    line-height: 22px;
-    font-weight: 600;
-    text-align: center;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    color: #4c4b4b;
-    border: 1px solid #b3b3b3;
-    table-layout: fixed;
-}
-table.sastav tr {
-    vertical-align: top;
-    height: 25px;
-}
-
-table.sastav tr td {
-    height: 15px;
-    line-height: 7px;
-}
-
-table.sastav th {
-    height: 19px;
-    line-height: 19px;
-    font-size: 10px;
-    margin-bottom: 5px;
-    background-color: #0C7746;
-}
-
 table.korpa tr {
     vertical-align: top;
     height: 30px;
@@ -785,6 +755,38 @@ table.korpa th {
     margin-top: 60px;
     color: #4c4b4b;
 }
+
+table.sastav {
+    float: left;
+    width: 600px;
+    line-height: 22px;
+    font-weight: 600;
+    text-align: center;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    color: #4c4b4b;
+    border: 1px solid #b3b3b3;
+    table-layout: fixed;
+}
+table.sastav tr {
+    vertical-align: top;
+    height: 25px;
+}
+
+table.sastav tr td {
+    height: 15px;
+    line-height: 7px;
+}
+
+table.sastav th {
+    height: 19px;
+    line-height: 19px;
+    font-size: 10px;
+    margin-bottom: 5px;
+    background-color: #D3D3D3;
+}
+
+
 
 .korpa_total hr {
     margin: 5px 20px 0px 20px;

@@ -123,7 +123,8 @@ public class OcpProizvodHomeTest {
             for (OcpProizvod item : proizvodi.getProizvodList()) {
                 //item.setSastavProizvoda(ocpSastavProizvodaDAO.findByProizvod(item.getProizvod()));
                 if (item.getProizvod().equals(new Integer("334561"))) {
-                    basketBusinessProcessing.increaseReservationCompositeObject(item, 19, new BigDecimal(1), "-125", user, new BigDecimal("1") );
+                    basketBusinessProcessing.increaseReservationCompositeObject(item, 19, new BigDecimal(1), "-125", user, new BigDecimal("1"));
+
                 }
                 /*for (OcpSastavProizvoda ocpSastavProizvoda : item.getSastavProizvoda()) {
                     System.out.println("Sastav za "+item.getProizvod()+" sa cenom "+item.getCena()+" je "+ item.getNazivProizvoda() + " je "

@@ -451,7 +451,7 @@ public class BasketBusinessProcessing {
         BigDecimal novaVrednost = new BigDecimal("0");
         WoRezervacija woRezervacija = getBasketElement(user.getBasket(), basketIndex);
         WoKompanijaKorisnik woKompanijaKorisnik = woKompanijaKorisnikDAO.findByCoresponingOJ(currentOJ);
-        System.out.println("Wo rezervacija pre "+woRezervacija.getKolicina());
+
         if (woRezervacija != null) {
             /*Umanji rezervaciju */
             for (WoRezervacijaSastava woRezervacijaSastava : woRezervacija.getWoRezervacijaSastavaList()) {
