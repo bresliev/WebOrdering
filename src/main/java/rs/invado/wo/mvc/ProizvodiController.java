@@ -31,6 +31,7 @@ public class ProizvodiController {
     private static final String ACTION_RASPRODAJA = "RASPRODAJA";
     private static final String ACTION_NAJAKTUELNIJE = "NAJAKTUELNIJE";
     private static final String ACTION_FILTER = "FILTER";
+    private static final String ACTION_SASTAV = "SASTAV";
 
 
     @Autowired
@@ -57,6 +58,8 @@ public class ProizvodiController {
             proizvodi = productService.getProzivodiNaAkcijiSorted(brandId, ProductService.PROIZVODI_AKTUELNO, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
         } else if (ACTION_RASPRODAJA.equals(formAction)) {
             proizvodi = productService.getProzivodiNaAkcijiSorted(brandId, ProductService.PROIZVODI_NA_RASPRODAJI, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
+        }else if (ACTION_SASTAV.equals(formAction)){
+            proizvodi = productService.getProizvodiZaBrendSorted(brandId, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), companySetting, oj );
         } else { //if (ACTION_FILTER.equals(formAction))
             if (productId != null && !"".equals(productId)) {
                 OcpProizvod pro = productService.getProizvodById(Integer.parseInt(productId), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());

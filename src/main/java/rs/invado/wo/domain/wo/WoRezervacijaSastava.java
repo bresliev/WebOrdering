@@ -54,6 +54,8 @@ public class WoRezervacijaSastava {
     private BigDecimal kolPoPakovanju;
     @Column(name = "KOLICINA_UGRADNJE")
     private BigDecimal kolicinaUgradnje;
+    @Column(name = "STATUS")
+    private int status;
 
 
 
@@ -143,5 +145,13 @@ public class WoRezervacijaSastava {
 
     public void setKolicinaUgradnje(BigDecimal kolicinaUgradnje) {
         this.kolicinaUgradnje = kolicinaUgradnje;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 }

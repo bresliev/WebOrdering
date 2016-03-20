@@ -174,6 +174,7 @@ public class ProductService {
                                         == -1 ? (uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(), 0, RoundingMode.FLOOR)).setScale(0, RoundingMode.FLOOR) :
                                         (raspolozivaKolicina.compareTo(new BigDecimal(0.0)) == 0 ? (uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(), 0, RoundingMode.FLOOR).setScale(0, RoundingMode.FLOOR)) : raspolozivaKolicina);
                                 ocpSastavProizvoda.setMaticnoSkladiste(uzskl.getId().getIdSkladista());
+                                ocpSastavProizvoda.getProizvodIzlaz().setPrimeniJsklPakovanje(false);
                                 obradjenoSkl = wps.getIdSkladista();
                                 if (item.getPrimeniJsklPakovanje()) {
                                     item.setBrojPakovanja(uzZaliheJsklDAO.findJsklPakPerPro(item.getProizvod(), item.getMaticnoSkladiste(), null));
