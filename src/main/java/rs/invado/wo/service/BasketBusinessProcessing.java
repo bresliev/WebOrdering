@@ -687,7 +687,6 @@ public class BasketBusinessProcessing {
         uzDokumentStavka.setGodina(year);
         uzDokumentStavka.setRabat(rabat);
         uzDokumentStavka.setKol1(ekstraRabat);
-
         uzDokumentStavkaDAO.persist(uzDokumentStavka);
 
         if (ocpProizvod.getPrimeniJsklPakovanje()) {
@@ -855,7 +854,7 @@ public class BasketBusinessProcessing {
 
         if (!nacinPlacanja.equals("AVA")) {
             it = user.getBasket().entrySet().iterator();
-            short index = 0;
+            short index = 1;
             while (it.hasNext()) {
 
                 Map.Entry mapWoRezervacija = (Map.Entry) it.next();
@@ -870,11 +869,13 @@ public class BasketBusinessProcessing {
                     uzDokument = createDocumentAVA(woRezervacija.getIdSkladista(), dokumentaMap, uzDokument, nacinPlacanja, user, cs, OJ, year, adresa, datumPromene, sessionId, prevoz, napomena,
                             datumValute, index, woRezervacija.getKolicina(), woRezervacija.getCena(), woRezervacija.getRabat(), woRezervacija.getEkstraRabat(), woRezervacija.getProizvod(),
                             woRezervacija.getKolPoPakovanju());
+                    index++;
                 } else {
                     for (WoRezervacijaSastava woRezervacijaSastava : woRezervacija.getWoRezervacijaSastavaList()) {
                         uzDokument = createDocumentAVA(woRezervacijaSastava.getIdSkladista(), dokumentaMap, uzDokument, nacinPlacanja, user, cs, OJ, year, adresa, datumPromene, sessionId, prevoz, napomena,
                                 datumValute, index, woRezervacijaSastava.getKolicina(), woRezervacijaSastava.getCena(), woRezervacijaSastava.getRabat(), woRezervacijaSastava.getEkstraRabat(),
                                 woRezervacijaSastava.getProizvod(), woRezervacijaSastava.getKolPoPakovanju());
+                        index++;
                     }
 
                 }
