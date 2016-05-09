@@ -93,7 +93,7 @@ import java.util.Set;
                 + "           from ocp_klasifikacija k "
                 + "           where k.sort is null"
                 +"             and k.VRSTA_KLASIFIKACIJE# = :vrklas "
-                +"               and  exists (select 1"
+                +"             and  exists (select 1"
                 +"                           from ocp_klasifikacija_proizvoda kk, wo_partner_settings w, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak "
                 +"                           where k.VRSTA_KLASIFIKACIJE# = kk.VRSTA_KLASIFIKACIJE#"
                 +"                           and k.KLASIFIKACIJA# = kk.KLASIFIKACIJA# "
@@ -104,7 +104,12 @@ import java.util.Set;
                 +"                           and pak.transportno = 'DA'"
                 +"                           and s.proizvod#_ulaz = kk.proizvod#"
                 +"                           and u.proizvod#  = s.proizvod#_izlaz"
-                +"                           and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1 )"
+                +"                           and (((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju >= 1 "
+                +"                                      and u.kolicina_po_stanju_z - u.rezervisana_kol > 0)) "
+                +"             and exists (select 1 "
+                +"                          from ocp_klasifikacija_proizvoda kp "
+                +"                          where k.vrsta_klasifikacije# = kp.vrsta_klasifikacije# "
+                +"                          and k.klasifikacija# = kp.klasifikacija#) "
                 +"            order by k.KLASIFIKACIJA#", resultClass = OcpKlasifikacija.class)})
 
 @Entity

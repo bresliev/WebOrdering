@@ -153,7 +153,7 @@ public class OcpProizvodHome {
 
         DetachedCriteria subquery = DetachedCriteria.forClass(OcpVrAtrProizvod.class, "atributeValues")
                 .setProjection(Projections.property("atributeValues.id.proizvod"))
-                .add(Restrictions.eq("atributeValues.id.atribut", 1840))
+                .add(Restrictions.eq("atributeValues.id.atribut", 1841))
                 .add(Restrictions.eq("atributeValues.vrednost", "NE"));
         return subquery;
     }
@@ -300,7 +300,7 @@ public class OcpProizvodHome {
             if (ocpKlasifikacija.getId().getKlasifikacija().equals(brand))
                 vrstaKlasifikacijeSort = ocpKlasifikacija.getSortByClass().intValue();
         if (vrstaKlasifikacijeSort != 0) {
-            System.out.println("Upit je findAllByBrandSorted");
+
             namedQ = "findAllByBrandSorted";
             q = entityManager.createNamedQuery(namedQ)
                     .setParameter("partner", woPartnerSettings.get(0).getPoslovniPartner().getPoslovniPartner())
@@ -309,7 +309,7 @@ public class OcpProizvodHome {
                     .setParameter("vrstaKlasifikacijeMeni", woParametri.getVrstaKlasifikacijeMeni())
                     .setParameter("brand", brand);
         } else {
-            System.out.println("Upit je findAllByBrandSorted");
+
             namedQ = "findAllByBrandPriceSorted";
             q = entityManager.createNamedQuery(namedQ)
                     .setParameter("partner", woPartnerSettings.get(0).getPoslovniPartner().getPoslovniPartner())

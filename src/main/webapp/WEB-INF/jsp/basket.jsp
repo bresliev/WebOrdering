@@ -84,7 +84,7 @@
                                  onClick="location.href='removeFromBasket?productId=${item.key}'"/>
 
                             <div class="dialog" id="uvecaj_${item.value.proizvod.proizvod}"
-                                 title="${item.value.proizvod.nazivProizvoda} ${item.value.proizvod.dodatniNaziv}">
+                                 title="${item.value.proizvod.proizvod}  ${item.value.proizvod.nazivProizvoda} ${item.value.proizvod.dodatniNaziv}">
                                 <img style="margin:0px;border:none;" width="700px" height="490px"
                                      src="/WO/images/large/${item.value.proizvod.proizvod}.jpg" alt=""/>
                             </div>
@@ -101,7 +101,7 @@
                                            varStatus="i">
                                     <tr>
                                         <td style="text-align:left">
-                                            <div class="multiline">${compositeItem.proizvod.nazivProizvoda} ${compositeItem.proizvod.dodatniNaziv}</div>
+                                            <div class="multiline">${compositeItem.proizvod.proizvod} ${compositeItem.proizvod.nazivProizvoda} ${compositeItem.proizvod.dodatniNaziv}</div>
                                         </td>
                                         <td>${compositeItem.kolicina}</td>
                                         <td>${compositeItem.cena}</td>

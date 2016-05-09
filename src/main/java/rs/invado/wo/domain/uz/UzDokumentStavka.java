@@ -14,6 +14,11 @@ import javax.persistence.*;
 @Table(name="UZ_DOKUMENT_STAVKA"
     ,schema="DAREX"
 )
+
+@NamedQueries({
+        @NamedQuery(name = UzDokumentStavka.READ_BY_DOK_PRO_RABAT,
+                query = "SELECT x FROM UzDokumentStavka x WHERE x.id.idDokumenta = :dokument and x.id.idVd = :idVd and x.proizvod = :proizvod and x.rabat = :rabat")
+})
 @NamedNativeQuery(name = "inserStavkaSklDokumenta", query = "{call avr_util.I_StavkaSklDokumenta (:p_id_vd,:p_id_dokumenta, :p_status_stavke, " +
         " :p_id_jedinice_mere, :p_proizvod, :p_nivo_kvaliteta, :p_vrsta_promene, :p_id_kontrolnog_broja, :p_id_lota_pp, :p_ispor_kol, " +
         ":p_naved_kol, :p_jedinicna_cena, :p_vrednost, :p_id_porudzbenice, :p_rb_stavke_porudzbenice,:p_kolicina_promener,:p_id_vd_po, " +
@@ -21,8 +26,11 @@ import javax.persistence.*;
         " :p_vrstaproizvoda :p_godina, :p_rabat, :p_kol01  )}",
         resultClass = UzDokumentStavka.class, hints = { @javax.persistence.QueryHint(name = "org.hibernate.callable", value = "true") })
 
+
 public class UzDokumentStavka  implements java.io.Serializable {
 
+
+    public static final String READ_BY_DOK_PRO_RABAT = "BusinessPartner.ReadByDokProRabat";
 
      private UzDokumentStavkaId id;
      private UzDokument uzDokument;

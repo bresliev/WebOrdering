@@ -14,6 +14,8 @@ import org.springframework.transaction.annotation.Transactional;
 import rs.invado.wo.domain.uz.UzDokumentStavkaPakovanje;
 import rs.invado.wo.domain.uz.UzDokumentStavkaPakovanjeId;
 
+import java.math.BigDecimal;
+
 /**
  * Home object for domain model class UzDokumentStavkaPakovanje.
  * @see rs.invado.wo.domain.uz.UzDokumentStavkaPakovanje
@@ -77,4 +79,23 @@ public class UzDokumentStavkaPakovanjeHome {
 			throw re;
 		}
 	}
+
+	public UzDokumentStavkaPakovanje findPakovanjByStavka(String idDokumenta, int idVd, short rbStavke, BigDecimal kolPoPakovanju ) {
+
+		try {
+			UzDokumentStavkaPakovanje uzDokumentStavkaPakovanje = entityManager.createNamedQuery(
+					UzDokumentStavkaPakovanje.READ_BY_DOK_STAVKA,
+					UzDokumentStavkaPakovanje.class)
+					.setParameter("dokument", idDokumenta)
+					.setParameter("idVd", idVd)
+					.setParameter("rbStavke", rbStavke)
+					.setParameter("kolPoPakovanju", kolPoPakovanju)
+					.getSingleResult();
+			return uzDokumentStavkaPakovanje;
+		} catch (Exception ex) {
+			log.error("No stavka", ex);
+		}
+		return null;
+	}
+
 }

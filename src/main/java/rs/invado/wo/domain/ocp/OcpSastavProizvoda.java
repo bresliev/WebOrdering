@@ -25,6 +25,7 @@ public class OcpSastavProizvoda implements java.io.Serializable {
     private BigDecimal kolicinaUgradnje;
 
     private int maticnoSkladiste;
+    private BigDecimal raspolozivaKolicina;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "PROIZVOD#_ULAZ", nullable = false, insertable = false, updatable = false)
@@ -93,4 +94,12 @@ public class OcpSastavProizvoda implements java.io.Serializable {
         this.maticnoSkladiste = maticnoSkladiste;
     }
 
+    @Transient
+    public BigDecimal getRaspolozivaKolicina() {
+        return raspolozivaKolicina;
+    }
+
+    public void setRaspolozivaKolicina(BigDecimal raspolozivaKolicina) {
+        this.raspolozivaKolicina = raspolozivaKolicina;
+    }
 }

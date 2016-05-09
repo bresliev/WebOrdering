@@ -168,13 +168,15 @@ public class ProductService {
                         for (UzStanjeZalihaSkladista uzskl : uzSklList) {
                             if (uzskl.getId().getIdSkladista() == wps.getIdSkladista() &&
                                     wps.getIdSkladista() != obradjenoSkl &&
-                                    uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(), 0, BigDecimal.ROUND_FLOOR).compareTo(new BigDecimal(1.0)) != -1) {
+                                    uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(), 0, BigDecimal.ROUND_FLOOR).compareTo(new BigDecimal(1.0))
+                                            != -1) {
                                 /*-1, 0, or 1 as this BigDecimal is numerically less than, equal to, or greater than val.*/
                                 raspolozivaKolicina = uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(), 0, RoundingMode.FLOOR).compareTo(raspolozivaKolicina)
                                         == -1 ? (uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(), 0, RoundingMode.FLOOR)).setScale(0, RoundingMode.FLOOR) :
                                         (raspolozivaKolicina.compareTo(new BigDecimal(0.0)) == 0 ? (uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(), 0, RoundingMode.FLOOR).setScale(0, RoundingMode.FLOOR)) : raspolozivaKolicina);
                                 ocpSastavProizvoda.setMaticnoSkladiste(uzskl.getId().getIdSkladista());
                                 ocpSastavProizvoda.getProizvodIzlaz().setPrimeniJsklPakovanje(false);
+                                ocpSastavProizvoda.setRaspolozivaKolicina(uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(), 0, RoundingMode.FLOOR));
                                 obradjenoSkl = wps.getIdSkladista();
                                 if (item.getPrimeniJsklPakovanje()) {
                                     item.setBrojPakovanja(uzZaliheJsklDAO.findJsklPakPerPro(item.getProizvod(), item.getMaticnoSkladiste(), null));
@@ -188,6 +190,13 @@ public class ProductService {
                                     //}
                                 }
                             }
+                        }
+                    }
+
+                    for (OcpSastavProizvoda ocpSastavProizvoda : item.getSastavProizvoda()) {
+                        if (ocpSastavProizvoda.getRaspolozivaKolicina() == null) {
+                            raspolozivaKolicina = BigDecimal.ZERO;
+                            break;
                         }
                     }
                     if (item.getKolicinaPoPakovanju() == null)

@@ -34,3 +34,4 @@ CREATE TABLE wo_rezervacija_sastava
 alter table wo_rezervacija_sastava add id number primary key;
 
 alter table wo_rezervacija_sastava add KOLICINA_UGRADNJE number;
+alter table wo_rezervacija_sastava add KOLICINA_UGRADNJE number;

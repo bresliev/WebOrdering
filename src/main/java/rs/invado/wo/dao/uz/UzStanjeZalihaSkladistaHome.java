@@ -92,6 +92,8 @@ public class UzStanjeZalihaSkladistaHome {
         if (uzStanjeZalihaSkladista != null) {
             BigDecimal kolicinaZaRezervaciju = uzStanjeZalihaSkladista.getRezervisanaKol().add(BigDecimal.valueOf(povecajIliUmanji * kolicina));
             uzStanjeZalihaSkladista.setRezervisanaKol(kolicinaZaRezervaciju);
+            System.out.println("skidanje rezervacija " + uzStanjeZalihaSkladista.getUzSkladiste().getIdSkladista() + " "
+                    + uzStanjeZalihaSkladista.getRezervisanaKol() + " " + kolicinaZaRezervaciju);
             merge(uzStanjeZalihaSkladista);
         } else {
             UzStanjeZalihaSkladista uzStanjeZalihaSkladistaP = new UzStanjeZalihaSkladista();

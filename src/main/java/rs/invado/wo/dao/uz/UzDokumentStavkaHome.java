@@ -16,6 +16,7 @@ import rs.invado.wo.domain.uz.UzDokumentStavka;
 import rs.invado.wo.domain.uz.UzDokumentStavkaId;
 
 import java.math.BigDecimal;
+import java.util.logging.Level;
 
 /**
  * Home object for domain model class UzDokumentStavka.
@@ -85,6 +86,25 @@ public class UzDokumentStavkaHome {
 			throw re;
 		}
 	}
+
+	public UzDokumentStavka findStavkaDokIdProAndRabat(String idDokumenta, int idVd, int proizvod, BigDecimal rabat ) {
+
+		try {
+			UzDokumentStavka uzDokumentStavka = entityManager.createNamedQuery(
+					UzDokumentStavka.READ_BY_DOK_PRO_RABAT,
+					UzDokumentStavka.class)
+					.setParameter("dokument", idDokumenta)
+					.setParameter("idVd", idVd)
+					.setParameter("proizvod", proizvod)
+					.setParameter("rabat", rabat)
+					.getSingleResult();
+			return uzDokumentStavka;
+		} catch (Exception ex) {
+			log.error("No stavka", ex);
+		}
+		return null;
+	}
+
 
     public UzDokumentStavka insertDokumentStavkaByStoredProcedure(UzDokumentStavkaId id, String statusStavke,
              Short idJediniceMere, Integer proizvod,String nivoKvaliteta,Integer vrstaPromene,Integer idKontrolnogBroja,String idLotaPp,

@@ -217,17 +217,17 @@ public class BasketBusinessProcessing {
                     woRezervacijaSastava.setWoRezervacija(woRezervacija);
                     woRezervacijaSastava.setKolicina(narucenaKolicina.multiply(ocpProizvod.getKolicinaPoPakovanju().multiply(ocpSastavProizvoda.getKolicinaUgradnje())));
                     woRezervacijaSastava.setCena(ocpSastavProizvoda.getProizvodIzlaz().getCena());
-                    woRezervacijaSastava.setEkstraRabat((productService.getRabatZaProizvod(ocpProizvod.getProizvod(), user.getWoPartnerSetting().get(0).getPoslovniPartner().getPoslovniPartner(), currentOJ)).getRabat());
+                    woRezervacijaSastava.setRabat((productService.getRabatZaProizvod(ocpSastavProizvoda.getProizvodIzlaz().getProizvod(), user.getWoPartnerSetting().get(0).getPoslovniPartner().getPoslovniPartner(), currentOJ)).getRabat());
+                    if (woRezervacijaSastava.getRabat() == null || (ocpSastavProizvoda.getProizvodIzlaz().getTipAkcije() != null && (ocpSastavProizvoda.getProizvodIzlaz().getTipAkcije().equals(ProductService.PROIZVODI_NA_AKCIJI)
+                            || ocpSastavProizvoda.getProizvodIzlaz().getTipAkcije().equals(ProductService.IZDVOJENA_AKCIJA)
+                            || ocpSastavProizvoda.getProizvodIzlaz().getTipAkcije().equals(ProductService.PROIZVODI_NA_RASPRODAJI))))
+                        woRezervacijaSastava.setRabat(new BigDecimal(0));
                     woRezervacijaSastava.setIdjedinicemere(ocpSastavProizvoda.getProizvodIzlaz().getJedinicaMere().getIdJediniceMere());
                     woRezervacijaSastava.setIdSkladista(ocpSastavProizvoda.getMaticnoSkladiste());
                     woRezervacijaSastava.setKolPoPakovanju(narucenaKolicina);
                     woRezervacijaSastava.setKolicinaUgradnje(ocpSastavProizvoda.getKolicinaUgradnje());
                     woRezervacijaSastava.setProizvod(ocpSastavProizvoda.getProizvodIzlaz());
                     woRezervacijaSastava.setStatus(1);
-                    if (woRezervacijaSastava.getRabat() == null || (ocpProizvod.getTipAkcije() != null && (ocpProizvod.getTipAkcije().equals(ProductService.PROIZVODI_NA_AKCIJI)
-                            || ocpProizvod.getTipAkcije().equals(ProductService.IZDVOJENA_AKCIJA)
-                            || ocpProizvod.getTipAkcije().equals(ProductService.PROIZVODI_NA_RASPRODAJI))))
-                        woRezervacijaSastava.setRabat(new BigDecimal(0));
                     woRezervacija.getWoRezervacijaSastavaList().add(woRezervacijaSastava);
                 }
                 woRezervacijaSastavaDAO.persist(woRezervacijaSastava);
@@ -501,10 +501,7 @@ public class BasketBusinessProcessing {
         ocpProizvod.setRaspolozivo(ocpProizvod.getRaspolozivo().add(narucenaKolicina));
         ocpProizvod.setKolUAltJM(ocpProizvod.getRaspolozivo().divide(ocpProizvod.getKolicinaPoPakovanju(), 0, RoundingMode.FLOOR).intValue());
 
-        System.out.println("Wo rezervacija posle " + woRezervacija.getKolicina());
-        for (WoRezervacijaSastava woRezervacijaSastava : woRezervacija.getWoRezervacijaSastavaList())
-            System.out.println("Posle decrease Za proizvod " + woRezervacija.getProizvod().getProizvod() + " je sastavni element " + woRezervacijaSastava.getProizvod().getProizvod()
-                    + " sa kolicinom " + woRezervacijaSastava.getKolicina());
+
     }
 
     public void decreaseReservation(OcpProizvod ocpProizvod, int currentOJ, BigDecimal narucenaKolicina, String sessionId, User user,
@@ -588,10 +585,10 @@ public class BasketBusinessProcessing {
     }
 
 
-    private UzDokument createDocumentAVA(Integer woSkladiste, Map<String, UzDokumentId> dokumentaMap, UzDokument uzDokument, String nacinPlacanja, User user,
-                                         CompanySetting cs, Integer OJ, Integer year, String adresa, Date datumPromene, String sessionId, int prevoz,
-                                         String napomena, short datumValute, short index, BigDecimal kolicina, BigDecimal cena,
-                                         BigDecimal rabat, BigDecimal ekstraRabat, OcpProizvod ocpProizvod, BigDecimal kolPoPakovanju) {
+    private UzDokument createDocument(Integer woSkladiste, Map<String, UzDokumentId> dokumentaMap, UzDokument uzDokument, String nacinPlacanja, User user,
+                                      CompanySetting cs, Integer OJ, Integer year, String adresa, Date datumPromene, String sessionId, int prevoz,
+                                      String napomena, short datumValute, short index, BigDecimal kolicina, BigDecimal cena,
+                                      BigDecimal rabat, BigDecimal ekstraRabat, OcpProizvod ocpProizvod, BigDecimal kolPoPakovanju) {
 
 
         UzSkladiste skl = uzSkladisteDAO.findById(woSkladiste);
@@ -663,55 +660,73 @@ public class BasketBusinessProcessing {
             uzDokumentUsloviPlacanjaDAO.persist(uzDokumentUsloviPlacanja);
         }
 
-        UzDokumentStavkaId uzDokumentStavkaId = new UzDokumentStavkaId();
-        uzDokumentStavkaId.setIdDokumenta(dokumentaMap.get(skl.getIdSkladista() + "").getIdDokumenta());
-        uzDokumentStavkaId.setIdVd(dokumentaMap.get(skl.getIdSkladista() + "").getIdVd());
-        uzDokumentStavkaId.setRbStavke(++index);
-        UzDokumentStavka uzDokumentStavka = new UzDokumentStavka();
-        uzDokumentStavka.setId(uzDokumentStavkaId);
-        uzDokumentStavka.setStatusStavke("A");
-        uzDokumentStavka.setIdJediniceMere(ocpProizvod.getJedinicaMere().getIdJediniceMere());
-        uzDokumentStavka.setProizvod(ocpProizvod.getProizvod());
-        uzDokumentStavka.setNivoKvaliteta("Z");
-        uzDokumentStavka.setVrstaPromene(0);
-        uzDokumentStavka.setNavedKol(kolicina);
-        if (nacinPlacanja.equals("CAS"))
+        UzDokumentStavka uzDokumentStavka = uzDokumentStavkaDAO.findStavkaDokIdProAndRabat(dokumentaMap.get(skl.getIdSkladista() + "").getIdDokumenta(),
+                dokumentaMap.get(skl.getIdSkladista() + "").getIdVd(), ocpProizvod.getProizvod(), rabat);
+        System.out.println("poruka je " + dokumentaMap.get(skl.getIdSkladista() + "").getIdDokumenta() + " " + dokumentaMap.get(skl.getIdSkladista() + "").getIdVd() + " " + ocpProizvod.getProizvod() + " " + rabat);
+        if (uzDokumentStavka != null) {
+            System.out.println("poruka je druga "+uzDokumentStavka.getProizvod());
+                    uzDokumentStavka.setNavedKol(uzDokumentStavka.getNavedKol().add(kolicina));
+            if (ocpProizvod.getPrimeniJsklPakovanje()) {
+                UzDokumentStavkaPakovanje uzDokumentStavkaPakovanje = uzDokumentStavkaPakovanjeDAO.findPakovanjByStavka(dokumentaMap.get(skl.getIdSkladista() + "").getIdDokumenta(),
+                        dokumentaMap.get(skl.getIdSkladista() + "").getIdVd(), uzDokumentStavka.getId().getRbStavke(), kolPoPakovanju);
+                uzDokumentStavkaPakovanje.getId().setUskladistenaKol(uzDokumentStavkaPakovanje.getId().getUskladistenaKol().add(kolicina));
+                uzDokumentStavkaPakovanje.getId().setBrojKomada(uzDokumentStavkaPakovanje.getId().getUskladistenaKol().divide(uzDokumentStavkaPakovanje.getId().getKolPoPakovanju()).longValue());
+                uzDokumentStavkaPakovanjeDAO.persist(uzDokumentStavkaPakovanje);
+            }
+            uzDokumentStavkaDAO.persist(uzDokumentStavka);
+        } else {
+
+            UzDokumentStavkaId uzDokumentStavkaId = new UzDokumentStavkaId();
+            uzDokumentStavkaId.setIdDokumenta(dokumentaMap.get(skl.getIdSkladista() + "").getIdDokumenta());
+            uzDokumentStavkaId.setIdVd(dokumentaMap.get(skl.getIdSkladista() + "").getIdVd());
+            uzDokumentStavkaId.setRbStavke(++index);
+            uzDokumentStavka = new UzDokumentStavka();
+            uzDokumentStavka.setId(uzDokumentStavkaId);
+            uzDokumentStavka.setStatusStavke("A");
+            uzDokumentStavka.setIdJediniceMere(ocpProizvod.getJedinicaMere().getIdJediniceMere());
+            uzDokumentStavka.setProizvod(ocpProizvod.getProizvod());
+            uzDokumentStavka.setNivoKvaliteta("Z");
+            uzDokumentStavka.setVrstaPromene(0);
+            uzDokumentStavka.setNavedKol(kolicina);
+            if (nacinPlacanja.equals("CAS"))
 // u slu?aju plaćanja ke?? na polazna cena mora biti sa ura?unatim porezom te se na cenu iz cenovnika poreska stopa
-            uzDokumentStavka.setJedinicnaCena(cena.multiply(prodPoreskaStopaDAO.findPorezPerProizvod(ocpProizvod.getProizvod(), OJ, datumPromene)
-                    .divide(new BigDecimal(100.0)).add(new BigDecimal(1.0)).setScale(2, RoundingMode.HALF_EVEN)));
-        else
-            uzDokumentStavka.setJedinicnaCena(cena);
+                uzDokumentStavka.setJedinicnaCena(cena.multiply(prodPoreskaStopaDAO.findPorezPerProizvod(ocpProizvod.getProizvod(), OJ, datumPromene)
+                        .divide(new BigDecimal(100.0)).add(new BigDecimal(1.0)).setScale(2, RoundingMode.HALF_EVEN)));
+            else
+                uzDokumentStavka.setJedinicnaCena(cena);
 
-        uzDokumentStavka.setVrednost(kolicina.multiply(uzDokumentStavka.getJedinicnaCena()).setScale(3, RoundingMode.HALF_EVEN));
-        uzDokumentStavka.setVrstaProizvoda(16);
-        uzDokumentStavka.setGodina(year);
-        uzDokumentStavka.setRabat(rabat);
-        uzDokumentStavka.setKol1(ekstraRabat);
-        uzDokumentStavkaDAO.persist(uzDokumentStavka);
+            uzDokumentStavka.setVrednost(kolicina.multiply(uzDokumentStavka.getJedinicnaCena()).setScale(3, RoundingMode.HALF_EVEN));
+            uzDokumentStavka.setVrstaProizvoda(16);
+            uzDokumentStavka.setGodina(year);
+            uzDokumentStavka.setRabat(rabat);
+            uzDokumentStavka.setKol1(ekstraRabat);
+            uzDokumentStavkaDAO.persist(uzDokumentStavka);
 
-        if (ocpProizvod.getPrimeniJsklPakovanje()) {
-            UzDokumentStavkaPakovanje uzDokumentStavkaPakovanje = new UzDokumentStavkaPakovanje();
-            UzDokumentStavkaPakovanjeId uzDokumentStavkaPakovanjeId = new UzDokumentStavkaPakovanjeId();
-            uzDokumentStavkaPakovanjeId.setIdVd(uzDokumentStavka.getId().getIdVd());
-            uzDokumentStavkaPakovanjeId.setIdDokumenta(uzDokumentStavka.getId().getIdDokumenta());
-            uzDokumentStavkaPakovanjeId.setRbStavke(uzDokumentStavka.getId().getRbStavke());
-            uzDokumentStavkaPakovanjeId.setKolPoPakovanju(kolPoPakovanju);
-            uzDokumentStavkaPakovanjeId.setUskladistenaKol(kolicina);
-            uzDokumentStavkaPakovanjeId.setBrojKomada(kolicina.divide(kolPoPakovanju).longValue());
-            uzDokumentStavkaPakovanje.setId(uzDokumentStavkaPakovanjeId);
-            uzDokumentStavkaPakovanjeDAO.persist(uzDokumentStavkaPakovanje);
+            if (ocpProizvod.getPrimeniJsklPakovanje()) {
+                UzDokumentStavkaPakovanje uzDokumentStavkaPakovanje = new UzDokumentStavkaPakovanje();
+                UzDokumentStavkaPakovanjeId uzDokumentStavkaPakovanjeId = new UzDokumentStavkaPakovanjeId();
+                uzDokumentStavkaPakovanjeId.setIdVd(uzDokumentStavka.getId().getIdVd());
+                uzDokumentStavkaPakovanjeId.setIdDokumenta(uzDokumentStavka.getId().getIdDokumenta());
+                uzDokumentStavkaPakovanjeId.setRbStavke(uzDokumentStavka.getId().getRbStavke());
+                uzDokumentStavkaPakovanjeId.setKolPoPakovanju(kolPoPakovanju);
+                uzDokumentStavkaPakovanjeId.setUskladistenaKol(kolicina);
+                uzDokumentStavkaPakovanjeId.setBrojKomada(kolicina.divide(kolPoPakovanju).longValue());
+                uzDokumentStavkaPakovanje.setId(uzDokumentStavkaPakovanjeId);
+                uzDokumentStavkaPakovanjeDAO.persist(uzDokumentStavkaPakovanje);
+            }
         }
         return uzDokument;
     }
 
-    private UzDokument createDocument(Integer woSkladiste, Map<String, UzDokumentId> dokumentaMap, UzDokument uzDokument, String nacinPlacanja, User user,
-                                      CompanySetting cs, Integer OJ, Integer year, String adresa, Date datumPromene, String sessionId, int prevoz,
-                                      String napomena, short datumValute, short index, BigDecimal kolicina, BigDecimal cena, BigDecimal rabat, BigDecimal ekstraRabat,
-                                      OcpProizvod ocpProizvod, BigDecimal kolPoPakovanju, String akcija, short maxRabat) {
+    private UzDokument createDocumentAVA(Integer woSkladiste, Map<String, UzDokumentId> dokumentaMap, UzDokument uzDokument, String nacinPlacanja, User user,
+                                         CompanySetting cs, Integer OJ, Integer year, String adresa, Date datumPromene, String sessionId, int prevoz,
+                                         String napomena, short datumValute, short index, BigDecimal kolicina, BigDecimal cena, BigDecimal rabat, BigDecimal ekstraRabat,
+                                         OcpProizvod ocpProizvod, BigDecimal kolPoPakovanju, String woAkcija, ProAkcija akcija, short maxRabat) {
 
         UzSkladiste skl = uzSkladisteDAO.findById(woSkladiste);
-        if (akcija.equals(akcija.toString())
-                || (akcija == " " && akcija.toString().equals("N"))) {
+        System.out.println("Akcija je " + akcija);
+        if (woAkcija.equals(akcija.toString())
+                || (woAkcija == " " && akcija.toString().equals("N"))) {
             if (!dokumentaMap.containsKey(skl.getIdSkladista() + akcija.toString())) {
                 //insertuj dokument
                 Integer partner = user.getWoPartnerSetting().get(0).getPoslovniPartner().getPoslovniPartner();
@@ -766,7 +781,7 @@ public class BasketBusinessProcessing {
                 uzDokumentUsloviPlacanja.setBrojDanaValute(0);
                 uzDokumentUsloviPlacanja.setNacinPlacanja(nacinPlacanja);
                 uzDokumentUsloviPlacanja.setKreiratiFakturu(false);
-                if (akcija == " " && akcija.toString().equals("N") && maxRabat != 1
+                if (woAkcija == " " && akcija.toString().equals("N") && maxRabat != 1
                         && user.getWoPartnerSetting().get(0).getApproveCassaSconto())
 // kassa sconto u slu?aju avansnog plaćanja i kada nema proizvoda koji su na akciji ili imaju maksimalni rabat
                     uzDokumentUsloviPlacanja.setProcKassaSkonto(new BigDecimal(2));
@@ -792,7 +807,8 @@ public class BasketBusinessProcessing {
             uzDokumentStavka.setGodina(year);
             uzDokumentStavka.setRabat(rabat);
             uzDokumentStavka.setKol1(ekstraRabat);
-
+            System.out.println("stavka je " + uzDokumentStavka.getId().getRbStavke() + " " + uzDokumentStavka.getId().getIdDokumenta() + " " + uzDokumentStavka.getId().getIdVd()
+                    + " " + uzDokumentStavka.getProizvod());
             uzDokumentStavkaDAO.persist(uzDokumentStavka);
 
             if (ocpProizvod.getPrimeniJsklPakovanje()) {
@@ -866,13 +882,13 @@ public class BasketBusinessProcessing {
                 //ako nije na�?in plaćanja AVA onda sve stavke idu  na jednom dokumentu
 
                 if (woRezervacija.getWoRezervacijaSastavaList().size() == 0) {
-                    uzDokument = createDocumentAVA(woRezervacija.getIdSkladista(), dokumentaMap, uzDokument, nacinPlacanja, user, cs, OJ, year, adresa, datumPromene, sessionId, prevoz, napomena,
+                    uzDokument = createDocument(woRezervacija.getIdSkladista(), dokumentaMap, uzDokument, nacinPlacanja, user, cs, OJ, year, adresa, datumPromene, sessionId, prevoz, napomena,
                             datumValute, index, woRezervacija.getKolicina(), woRezervacija.getCena(), woRezervacija.getRabat(), woRezervacija.getEkstraRabat(), woRezervacija.getProizvod(),
                             woRezervacija.getKolPoPakovanju());
                     index++;
                 } else {
                     for (WoRezervacijaSastava woRezervacijaSastava : woRezervacija.getWoRezervacijaSastavaList()) {
-                        uzDokument = createDocumentAVA(woRezervacijaSastava.getIdSkladista(), dokumentaMap, uzDokument, nacinPlacanja, user, cs, OJ, year, adresa, datumPromene, sessionId, prevoz, napomena,
+                        uzDokument = createDocument(woRezervacijaSastava.getIdSkladista(), dokumentaMap, uzDokument, nacinPlacanja, user, cs, OJ, year, adresa, datumPromene, sessionId, prevoz, napomena,
                                 datumValute, index, woRezervacijaSastava.getKolicina(), woRezervacijaSastava.getCena(), woRezervacijaSastava.getRabat(), woRezervacijaSastava.getEkstraRabat(),
                                 woRezervacijaSastava.getProizvod(), woRezervacijaSastava.getKolPoPakovanju());
                         index++;
@@ -883,6 +899,7 @@ public class BasketBusinessProcessing {
         } else {
             Map<String, UzDokument> dokPoAkciji = new HashMap<String, UzDokument>(0);
             for (ProAkcija akcija : ProAkcija.values()) {
+
                 it = user.getBasket().entrySet().iterator();
                 short index = 0;
                 short maxRabat = 0;
@@ -898,7 +915,6 @@ public class BasketBusinessProcessing {
 
                 it = user.getBasket().entrySet().iterator();
                 while (it.hasNext()) {
-
                     Map.Entry mapWoRezervacija = (Map.Entry) it.next();
                     WoRezervacija woRezervacija = (WoRezervacija) mapWoRezervacija.getValue();
                     WoRezervacija woRezervacijaPersistent = woRezervacijaDAO.findByWoRezervacijaById(woRezervacija.getId());
@@ -906,16 +922,19 @@ public class BasketBusinessProcessing {
                     woRezervacijaPersistent.setEkstraRabat(woRezervacija.getEkstraRabat());
                     woRezervacijaDAO.persist(woRezervacijaPersistent);
                     //ako nije na�?in plaćanja AVA onda sve stavke idu  na jednom dokumentu
+                    System.out.println("Korpa " + woRezervacija.getProizvod().getProizvod());
                     if (woRezervacija.getWoRezervacijaSastavaList().size() == 0) {
-                        createDocument(woRezervacija.getIdSkladista(), dokumentaMap, uzDokument, nacinPlacanja, user, cs, OJ, year, adresa, datumPromene, sessionId, prevoz,
+                        createDocumentAVA(woRezervacija.getIdSkladista(), dokumentaMap, uzDokument, nacinPlacanja, user, cs, OJ, year, adresa, datumPromene, sessionId, prevoz,
                                 napomena, datumValute, index, woRezervacija.getKolicina(), woRezervacija.getCena(), woRezervacija.getRabat(), woRezervacija.getEkstraRabat(),
-                                woRezervacija.getProizvod(), woRezervacija.getKolPoPakovanju(), woRezervacija.getAkcija(), maxRabat);
+                                woRezervacija.getProizvod(), woRezervacija.getKolPoPakovanju(), woRezervacija.getAkcija(), akcija, maxRabat);
+                        index++;
 
                     } else {
                         for (WoRezervacijaSastava woRezervacijaSastava : woRezervacija.getWoRezervacijaSastavaList()) {
-                            createDocument(woRezervacijaSastava.getIdSkladista(), dokumentaMap, uzDokument, nacinPlacanja, user, cs, OJ, year, adresa, datumPromene, sessionId, prevoz,
+                            createDocumentAVA(woRezervacijaSastava.getIdSkladista(), dokumentaMap, uzDokument, nacinPlacanja, user, cs, OJ, year, adresa, datumPromene, sessionId, prevoz,
                                     napomena, datumValute, index, woRezervacijaSastava.getKolicina(), woRezervacijaSastava.getCena(), woRezervacijaSastava.getRabat(),
-                                    woRezervacijaSastava.getEkstraRabat(), woRezervacijaSastava.getProizvod(), woRezervacijaSastava.getKolPoPakovanju(), woRezervacija.getAkcija(), maxRabat);
+                                    woRezervacijaSastava.getEkstraRabat(), woRezervacijaSastava.getProizvod(), woRezervacijaSastava.getKolPoPakovanju(), woRezervacija.getAkcija(), akcija, maxRabat);
+                            index++;
                         }
                     }
                 }
