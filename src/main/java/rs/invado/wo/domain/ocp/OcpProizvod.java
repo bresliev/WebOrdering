@@ -83,7 +83,7 @@ import java.util.*;
                         + " from Ocp_Proizvod p, ocp_vr_atr_proizvod a "
                         + " where ( :namePattern )"
                         + "   and p.proizvod# = a.proizvod#"
-                        + "   and a.atribut# = 1840 "
+                        + "   and a.atribut# = :proveraZaliha "
                         + "   and ((exists (select 1 "
                         + "              from wo_partner_settings w, uz_stanje_zaliha_skladista u"
                         + "              where w.poslovni_partner# = :partner"
@@ -118,7 +118,7 @@ import java.util.*;
                         "null raspolozivo, naziv_proizvoda||dodatni_naziv punNazivProizvoda, null maticnoSkladiste, null kolUAltJM, null stopaPoreza, k.klasifikacija# sortKlasa  " +
                         " from Ocp_Proizvod p, ocp_klasifikacija_proizvoda k, ocp_vr_atr_proizvod a " +
                         " where p.proizvod# = a.proizvod#" +
-                        " and a.atribut# = 1840 " +
+                        " and a.atribut# = :proveraZaliha " +
                         " and ((exists (select 1 " +
                         "              from wo_partner_settings w, uz_stanje_zaliha_skladista u" +
                         "              where w.poslovni_partner# = :partner" +
@@ -156,7 +156,7 @@ import java.util.*;
                         + "        null maticnoSkladiste, null kolUAltJM, null stopaPoreza, null sortKlasa  "
                         + " from Ocp_Proizvod p, prod_cenovnik c, prod_stavka_cenovnika cs, ocp_vr_atr_proizvod a "
                         + " where p.proizvod# = a.proizvod#"
-                        + " and a.atribut# = 1840 "
+                        + " and a.atribut# = :proveraZaliha "
                         + " and ((exists (select 1 "
                         + "              from wo_partner_settings w, uz_stanje_zaliha_skladista u"
                         + "              where w.poslovni_partner# = :partner"
@@ -206,7 +206,7 @@ import java.util.*;
                         + "                               and w.id_kompanije_korisnik = :kompanija"
                         + "                               and ( w.datum_do > sysdate or datum_do is null)) "
                         + "   and p.proizvod# = a.proizvod#"
-                        + "   and a.atribut# = 1840 "
+                        + "   and a.atribut# = :proveraZaliha "
                         + "   and ((exists (select 1 "
                         + "              from wo_partner_settings w, uz_stanje_zaliha_skladista u"
                         + "              where w.poslovni_partner# = :partner"
@@ -252,7 +252,7 @@ import java.util.*;
                         + " where (lower(naziv_proizvoda) like '%'||lower(:namePattern)||'%'"
                         + "           or lower(dodatni_naziv) like '%'||lower(:namePattern)||'%')"
                         + "    and p.proizvod# = a.proizvod#"
-                        + "     and a.atribut# = 1840 "
+                        + "     and a.atribut# = :proveraZaliha "
                         + "   and ((exists (select 1 "
                         + "              from wo_partner_settings w, uz_stanje_zaliha_skladista u"
                         + "              where w.poslovni_partner# = :partner"
@@ -295,7 +295,7 @@ import java.util.*;
                         + " where (lower(naziv_proizvoda) like '%'||lower(:namePattern)||'%'"
                         + "           or lower(dodatni_naziv) like '%'||lower(:namePattern)||'%')"
                         + "  and p.proizvod# = a.proizvod#"
-                        + "   and a.atribut# = 1840 "
+                        + "   and a.atribut# = :proveraZaliha "
                         + "   and ((exists (select 1 "
                         + "              from wo_partner_settings w, uz_stanje_zaliha_skladista u"
                         + "              where w.poslovni_partner# = :partner"
@@ -344,7 +344,7 @@ import java.util.*;
                         + " where (lower(naziv_proizvoda) like '%'||lower(:namePattern)||'%'"
                         + "           or lower(dodatni_naziv) like '%'||lower(:namePattern)||'%')"
                         + "  and p.proizvod# = a.proizvod#"
-                        + "   and a.atribut# = 1840 "
+                        + "   and a.atribut# = :proveraZaliha "
                         + "   and ((exists (select 1 "
                         + "              from wo_partner_settings w, uz_stanje_zaliha_skladista u"
                         + "              where w.poslovni_partner# = :partner"

@@ -46,8 +46,8 @@
                 </c:if>
                 <th style="width:16px;"></th>
                 <c:forEach items="${loginUser.basket}" var="item" varStatus="i">
-                    <tr id="korpa_uvecaj_${item.value.proizvod.proizvod}">
-                        <td>
+                    <tr id="korpa_uvecaj_${item.value.proizvod.proizvod}" style="border-bottom: 1px solid #b3b3b3">
+                        <td class="underllned">
                             <c:set var="rbStavke" value="${item.value.id}"/>
                             <c:choose>
                                 <c:when test="${i.count < 10}">00${i.count}</c:when>
@@ -55,8 +55,8 @@
                                 <c:otherwise>${i.count}</c:otherwise>
                             </c:choose>
                         </td>
-                        <td style="text-align:left">${item.value.proizvod.proizvod}</td>
-                        <td>
+                        <td class="underllned" style="text-align:left">${item.value.proizvod.proizvod}</td>
+                        <td class="underllned">
                             <c:choose>
                                 <c:when test="${loginUser.woUser.userType == 'INTERNI'}">
                                     <div class="multiline"
@@ -68,14 +68,14 @@
                                 </c:otherwise>
                             </c:choose>
                         </td>
-                        <td>${item.value.kolPoPakovanju}</td>
-                        <td>${item.value.kolicina}</td>
-                        <td width="40px">${item.value.proizvod.jedinicaMere.skracenaOznaka}</td>
-                        <td style="text-align:left">${item.value.cena}</td>
-                        <td style="text-align:left">${item.value.vrednost}</td>
+                        <td class="underllned">${item.value.kolPoPakovanju}</td>
+                        <td class="underllned">${item.value.kolicina}</td>
+                        <td class="underllned" width="40px">${item.value.proizvod.jedinicaMere.skracenaOznaka}</td>
+                        <td class="underllned" style="text-align:left">${item.value.cena}</td>
+                        <td class="underllned" style="text-align:left">${item.value.vrednost}</td>
                         <c:if test="${loginUser.woUser.userType == 'INTERNI'}">
-                            <td style="text-align:left" class="not_link">${item.value.rabat}</td>
-                            <td style="text-align:left" class="not_link"><input type="text" name="dodatniRabat"
+                            <td class="underllned" style="text-align:left" class="not_link">${item.value.rabat}</td>
+                            <td class="underllned" style="text-align:left" class="not_link"><input type="text" name="dodatniRabat"
                                                                                 style="width:40px;border:solid 1px #4c4b4b;color: #4c4b4b;"/>
                             </td>
                         </c:if>

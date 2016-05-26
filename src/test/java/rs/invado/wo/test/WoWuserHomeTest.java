@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
@@ -12,8 +13,11 @@ import rs.invado.wo.dao.hr.KeRadniciHome;
 import rs.invado.wo.domain.hr.KeRadnici;
 import rs.invado.wo.domain.wo.WoUser;
 import rs.invado.wo.dao.wo.WoUserHome;
+import rs.invado.wo.util.EtoConf;
+import rs.invado.wo.util.WoConfigSingleton;
 
 
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Date;
@@ -42,9 +46,33 @@ public class WoWuserHomeTest {
     @Autowired
     private KeRadniciHome keRadniciDAO;
 
+
+    @Value("${wo.mailaPassword}")
+    private String mailaPassword;
+    @Value("${wo.woMailAddress}")
+    private String woMailAddress;
+    @Value("${wo.idDocForCash}")
+    private String idDocForCash;
+    @Value("${wo.idDocForVirman}")
+    private String idDocForVirman;
+    @Value("${wo.vrstaStavke}")
+    private String vrstaStavke;
+    @Value("${wo.idDocGen}")
+    private String idDocGen;
+    @Value("${wo.secondFilterlevel}")
+    private String secondFilterlevel;
+    @Value("${wo.idFilterTypeKlasification}")
+    private String idFilterTypeKlasification;
+    @Value("${wo.idMenuTypeCLasification}")
+    private String idMenuTypeCLasification;
+
+
     @Test
     public void test() {
-        fail("Not yet implemented");
+
+        EtoConf woConfigSingleton = new EtoConf();
+        System.out.println("lokalna varijabal je: "+mailaPassword);
+        System.out.println("singleton varijabla je : "+woConfigSingleton.getMailaPassword());
     }
 
     @Test

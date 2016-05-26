@@ -1,5 +1,11 @@
 package rs.invado.wo.util;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Component;
+
+import javax.inject.Inject;
+
 /**
  * Created by IntelliJ IDEA.
  * User: nikola
@@ -7,53 +13,43 @@ package rs.invado.wo.util;
  * Time: 20.32
  * To change this template use File | Settings | File Templates.
  */
+@Component
 public class WoConfigSingleton {
+
+    @Inject
+    private Environment env;
 
     private static WoConfigSingleton ourInstance = new WoConfigSingleton();
 
-
+    @Value("${wo.mailaPassword}")
     private String mailaPassword;
     private String mailAddress;
+    @Value("${wo.woMailAddress}")
     private String woMailAddress;
     private String mailServer;
+    @Value("${wo.idDocForCash}")
     private String idDocForCash;
+    @Value("${wo.idDocForVirman}")
     private String idDocForVirman;
+    @Value("${wo.vrstaStavke}")
     private String vrstaStavke;
+    @Value("${wo.idDocGen}")
     private String idDocGen;
+    @Value("${wo.secondFilterlevel}")
     private String secondFilterlevel;
+    @Value("${wo.idFilterTypeKlasification}")
     private String idFilterTypeKlasification;
+    @Value("${wo.idMenuTypeCLasification}")
     private String idMenuTypeCLasification;
+    @Value("#{'${wo.atributs}'.split(',')}")
     private String[] atributs = new String[5];
-    private  String neki;
+    private String neki;
 
     public static WoConfigSingleton getInstance() {
         return ourInstance;
     }
 
     private WoConfigSingleton() {
-
-        this.idMenuTypeCLasification = "7";
-        this.idFilterTypeKlasification = "2";
-        this.secondFilterlevel = "2";
-        this.idDocGen = "12";
-        this.vrstaStavke = "25";
-        this.idDocForVirman = "12";
-        this.idDocForCash = "163";
-        this.mailServer = "smtp.gmail.com";
-        this.woMailAddress = "darex.rs@gmail.com";
-        this.mailAddress = "webordering@darex.rs";
-        this.mailaPassword = "Sto.Si.Gadjo.Konja";
-
-        //DEZEN
-        this.atributs[0] = "1600";
-        //STRUKTURA
-        this.atributs[1] = "1601";
-        //PROIZVODJAÈ
-        this.atributs[2] = "1541";
-        //PRIMENIJSKLPAK
-        this.atributs[3] = "1740";
-        //PROVERA ZALIHA ZA POTREB SASTAVA
-        this.atributs[4] = "1840";
 
     }
 
@@ -70,7 +66,6 @@ public class WoConfigSingleton {
     }
 
 
-
     public String getMailAddress() {
         return mailAddress;
     }
@@ -81,11 +76,9 @@ public class WoConfigSingleton {
     }
 
 
-
     public String getMailServer() {
         return mailServer;
     }
-
 
 
     public String getIdDocForCash() {
@@ -98,11 +91,9 @@ public class WoConfigSingleton {
     }
 
 
-
     public String getVrstaStavke() {
         return vrstaStavke;
     }
-
 
 
     public String getIdDocGen() {

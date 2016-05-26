@@ -1,0 +1,17 @@
+wo.mailaPassword=Sto.Si.Gadjo.Konja
+wo.idMenuTypeCLasification = 7;
+wo.idFilterTypeKlasification = 2;
+wo.secondFilterlevel = 2;
+wo.idDocGen = 12;
+wo.vrstaStavke = 25;
+wo.idDocForVirman = 12;
+wo.idDocForCash = 163;
+wo.mailServer = smtp.gmail.com;
+wo.woMailAddress = darex.rs@gmail.com;
+wo.mailAddress = webordering@darex.rs;
+# DEZEN
+# STRUKTURA
+# PROIZVODJA?
+#PRIMENIJSKLPAK
+# PROVERA ZALIHA ZA POTREBE SASTAVA (1840 u lokalu 1841 na Darexu)
+wo.atributs = 1600,1601,1541,1740,1840

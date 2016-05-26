@@ -43,11 +43,6 @@ public class WoRezervacija implements java.io.Serializable {
     private BigDecimal ekstraRabat;
     private WoUser woUser;
     private BigDecimal kolPoPakovanju;
-    private OcpProizvod compositeArticle;
-    private BigDecimal compositeArticleQuantity;
-    private BigDecimal compositeArticlePackQuantity;
-    private int compositeArticleUnitOfMeasure;
-    private BigDecimal compositeArticlePrice;
 
 
     private BigDecimal vrednost;
@@ -55,7 +50,6 @@ public class WoRezervacija implements java.io.Serializable {
 
 
     List<WoRezervacijaSastava> woRezervacijaSastavaList = new ArrayList<WoRezervacijaSastava>(0);
-
 
 
     public WoRezervacija() {
@@ -234,62 +228,15 @@ public class WoRezervacija implements java.io.Serializable {
     }
 
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "COMPOSITEARTICLE", referencedColumnName = "PROIZVOD#", insertable = true, updatable = true, nullable = false)
-    public OcpProizvod getCompositeArticle() {
-        return compositeArticle;
+    @OneToMany(targetEntity = WoRezervacijaSastava.class, mappedBy = "woRezervacija")
+    @LazyCollection(LazyCollectionOption.FALSE)
+    public List<WoRezervacijaSastava> getWoRezervacijaSastavaList() {
+        return woRezervacijaSastavaList;
     }
 
-    public void setCompositeArticle(OcpProizvod compositeArticle) {
-        this.compositeArticle = compositeArticle;
+    public void setWoRezervacijaSastavaList(List<WoRezervacijaSastava> woRezervacijaSastavaList) {
+        this.woRezervacijaSastavaList = woRezervacijaSastavaList;
     }
-
-    @Column(name = "COMPOSITEARTICLEQUANTITY")
-    public BigDecimal getCompositeArticleQuantity() {
-        return compositeArticleQuantity;
-    }
-
-    public void setCompositeArticleQuantity(BigDecimal compositeArticleQuantity) {
-        this.compositeArticleQuantity = compositeArticleQuantity;
-    }
-
-    @Column(name = "COMPOSITEARTICLEPACKQUANTITY")
-    public BigDecimal getCompositeArticlePackQuantity() {
-        return compositeArticlePackQuantity;
-    }
-
-    public void setCompositeArticlePackQuantity(BigDecimal compositeArticlePackQuantity) {
-        this.compositeArticlePackQuantity = compositeArticlePackQuantity;
-    }
-
-    @Column(name = "COMPOSITEARTICLEUNITOFMEASURE")
-    public int getCompositeArticleUnitOfMeasure() {
-        return compositeArticleUnitOfMeasure;
-    }
-
-    @Column(name = "COMPOSITEARTICLEPRICE")
-    public BigDecimal getCompositeArticlePrice() {
-        return compositeArticlePrice;
-    }
-
-    public void setCompositeArticlePrice(BigDecimal compositeArticlePrice) {
-        this.compositeArticlePrice = compositeArticlePrice;
-    }
-
-    public void setCompositeArticleUnitOfMeasure(int compositeArticleUnitOfMeasure) {
-        this.compositeArticleUnitOfMeasure = compositeArticleUnitOfMeasure;
-    }
-
-
-        @OneToMany(targetEntity = WoRezervacijaSastava.class, mappedBy = "woRezervacija")
-        @LazyCollection(LazyCollectionOption.FALSE)
-        public List<WoRezervacijaSastava> getWoRezervacijaSastavaList() {
-            return woRezervacijaSastavaList;
-        }
-
-        public void setWoRezervacijaSastavaList(List<WoRezervacijaSastava> woRezervacijaSastavaList) {
-            this.woRezervacijaSastavaList = woRezervacijaSastavaList;
-        }
 
     @Transient
     public BigDecimal getVrednost() {

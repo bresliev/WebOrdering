@@ -722,13 +722,19 @@ table.korpa tr:hover {
     color: #e26f16;
 }
 
-
 table.korpa tr td {
     height: 24px;
     line-height: 12px;
 }
 
+.underllned {
 
+    border-bottom: 1px solid #3b3b3b;
+    border-bottom-right-radius: 3px;
+    border-top: 1px solid #3b3b3b;
+    border-bottom-left-radius: 3px;
+
+}
 
 table.korpa tr td > div {
     height: 24px;
@@ -772,6 +778,7 @@ table.sastav {
     border: 1px solid #b3b3b3;
     table-layout: fixed;
 }
+
 table.sastav tr {
     vertical-align: top;
     height: 25px;
@@ -789,8 +796,6 @@ table.sastav th {
     margin-bottom: 5px;
     background-color: #D3D3D3;
 }
-
-
 
 .korpa_total hr {
     margin: 5px 20px 0px 20px;
