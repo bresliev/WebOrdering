@@ -31,7 +31,7 @@ import java.util.*;
 
 /**
  * Created by IntelliJ IDEA.
- * User: Djordje
+ * User:
  * Date: 1/21/13
  * Time: 4:38 AM
  * To change this template use File | Settings | File Templates.
@@ -106,7 +106,7 @@ public class BasketController {
         BigDecimal kol = user.getBasket().get(productId).getKolicina();
         OcpProizvod product = productService.getProizvodById(Integer.parseInt(productId.split("/")[0]), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
         if (product.getProveraZaliha().equals("SASTAV")) {
-            System.out.println("removeFromBasket");
+
             basketService.decreaseReservationCompositeObject(product, oj, kol, session.getId(), user, productId);
         } else {
             basketService.decreaseReservation(product, oj, kol, session.getId(), user, productId);
@@ -135,7 +135,7 @@ public class BasketController {
             WoRezervacija rezervacija = user.getBasket().get(key);
             String basketIndex = rezervacija.getProizvod().getProizvod() + "/" + (rezervacija.getKolPoPakovanju() != null ? rezervacija.getKolPoPakovanju() : rezervacija.getProizvod().getKolicinaPoPakovanju());
             if (rezervacija.getProizvod().getProveraZaliha().equals("SASTAV")) {
-                System.out.println("removeBasket");
+
                 basketService.decreaseReservationCompositeObject(rezervacija.getProizvod(), oj, rezervacija.getKolicina(), session.getId(), user, basketIndex);
             } else {
                 basketService.decreaseReservation(rezervacija.getProizvod(), oj, rezervacija.getKolicina(), session.getId(), user, basketIndex);

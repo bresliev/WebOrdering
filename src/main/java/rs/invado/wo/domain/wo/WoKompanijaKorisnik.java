@@ -8,7 +8,7 @@ import java.util.*;
 
 /**
  * Created by IntelliJ IDEA.
- * User: nikola
+ * User:
  * Date: 19.12.12.
  * Time: 22.12
  * To change this template use File | Settings | File Templates.

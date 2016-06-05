@@ -43,11 +43,8 @@ public class WoRezervacija implements java.io.Serializable {
     private BigDecimal ekstraRabat;
     private WoUser woUser;
     private BigDecimal kolPoPakovanju;
-
-
     private BigDecimal vrednost;
     private BigDecimal vrednostSaPorezom;
-
 
     List<WoRezervacijaSastava> woRezervacijaSastavaList = new ArrayList<WoRezervacijaSastava>(0);
 

@@ -20,7 +20,7 @@ import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
- * User: nikola
+ * User:
  * Date: 20.12.12.
  * Time: 20.29
  * To change this template use File | Settings | File Templates.

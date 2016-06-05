@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import java.sql.Timestamp;
 
 /**
- * Created by Nikola on 10/03/2016.
+ * Created by .
  */
 @Entity
 @Table(name = "WO_REZERVACIJA_SASTAVA", schema = "DAREX")

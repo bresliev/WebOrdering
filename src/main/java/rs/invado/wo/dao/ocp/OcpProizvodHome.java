@@ -13,10 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import rs.invado.wo.domain.ocp.OcpKlasifikacija;
-import rs.invado.wo.domain.ocp.OcpKlasifikacijaProizvoda;
 import rs.invado.wo.domain.ocp.OcpProizvod;
 import rs.invado.wo.domain.ocp.OcpVrAtrProizvod;
-import rs.invado.wo.domain.prod.ProdCenovnik;
 import rs.invado.wo.domain.prod.ProdPoreskaStopa;
 import rs.invado.wo.domain.uz.UzStanjeZalihaSkladista;
 import rs.invado.wo.domain.wo.WoParametri;
@@ -38,7 +36,6 @@ import java.util.*;
  */
 
 
-
 @Repository
 @Transactional
 public class OcpProizvodHome {
@@ -55,8 +52,7 @@ public class OcpProizvodHome {
     private OcpKlasifikacijaHome ocpKlasifikacijaDAO;
 
     public Session getSession() {
-        Session session = entityManager.unwrap(Session.class);
-        return session;
+        return entityManager.unwrap(Session.class);
     }
 
     public void persist(OcpProizvod transientInstance) {
@@ -110,8 +106,7 @@ public class OcpProizvodHome {
 
     private int getRowCount(Criteria cr) {
         Criteria crRowCount = cr.setProjection(Projections.rowCount());
-        int rowCount = Integer.valueOf(cr.uniqueResult().toString());
-        return rowCount;
+        return Integer.valueOf(cr.uniqueResult().toString());
     }
 
 
@@ -160,7 +155,7 @@ public class OcpProizvodHome {
 
         DetachedCriteria subquery = DetachedCriteria.forClass(OcpVrAtrProizvod.class, "atributeValues")
                 .setProjection(Projections.property("atributeValues.id.proizvod"))
-                .add(Restrictions.eq("atributeValues.id.atribut", woConfigSingleton.getAtributs()[4]))
+                .add(Restrictions.eq("atributeValues.id.atribut", woConfigSingleton.getAttributes()[4]))
                 .add(Restrictions.eq("atributeValues.vrednost", "NE"));
         return subquery;
     }
@@ -239,7 +234,18 @@ public class OcpProizvodHome {
             predicate = predicate + "lower(naziv_proizvoda||dodatni_naziv) like lower('%" + pattern + "%') and ";
         }
         q.append(predicate.substring(0, predicate.length() - 4));
-        q.append(") and exists (select 1                    from wo_partner_settings w, uz_stanje_zaliha_skladista u                   where w.poslovni_partner# = :partner                   and w.id_kompanija_korisnik = :kompanija                   and w.id_skladista = u.id_skladista                   and u.proizvod# = p.proizvod#                    and u.kolicina_po_stanju_z - u.rezervisana_kol >0)   and (exists (select 1 from ocp_klasifikacija_proizvoda km                  where km.vrsta_klasifikacije# = :vrstaKlasifikacijeFilter                   and klasifikacija# like  :brand||'%%'                   and km.proizvod# = p.proizvod#)           or :brand is null ) order by naziv_proizvoda||dodatni_naziv");
+        q.append(") and exists (select 1                    " +
+                "           from wo_partner_settings w, uz_stanje_zaliha_skladista u                   " +
+                "           where w.poslovni_partner# = :partner                   " +
+                "           and w.id_kompanija_korisnik = :kompanija                   " +
+                "           and w.id_skladista = u.id_skladista                   " +
+                "           and u.proizvod# = p.proizvod#                    " +
+                "           and u.kolicina_po_stanju_z - u.rezervisana_kol >0)   " +
+                "   and (exists (select 1 from ocp_klasifikacija_proizvoda km                  " +
+                "               where km.vrsta_klasifikacije# = :vrstaKlasifikacijeFilter                  " +
+                "               and klasifikacija# like  :brand||'%%'                  " +
+                "               and km.proizvod# = p.proizvod#)           or :brand is null ) " +
+                "order by naziv_proizvoda||dodatni_naziv");
         String query = q.toString();
 
 
@@ -314,7 +320,7 @@ public class OcpProizvodHome {
                     .setParameter("kompanija", woParametri.getWoKompanijaKorisnik().getId())
                     .setParameter("vrstaKlasifikacijeSort", vrstaKlasifikacijeSort)
                     .setParameter("vrstaKlasifikacijeMeni", woParametri.getVrstaKlasifikacijeMeni())
-                    .setParameter("proveraZaliha", woConfigSingleton.getAtributs()[4])
+                    .setParameter("proveraZaliha", woConfigSingleton.getAttributes()[4])
                     .setParameter("brand", brand);
         } else {
 
@@ -326,7 +332,7 @@ public class OcpProizvodHome {
                     .setParameter("klc", woPartnerSettings.get(0).getIdKlasaCene())
                     .setParameter("cenovnik", woPartnerSettings.get(0).getIdCenovnik())
                     .setParameter("vrstaKlasifikacijeMeni", woParametri.getVrstaKlasifikacijeMeni())
-                    .setParameter("proveraZaliha", woConfigSingleton.getAtributs()[4])
+                    .setParameter("proveraZaliha", woConfigSingleton.getAttributes()[4])
                     .setParameter("brand", brand);
         }
 
@@ -337,7 +343,6 @@ public class OcpProizvodHome {
 
         Iterator i = q.getResultList().iterator();
         setTansientForSorted(i, lp);
-
         return new Proizvodi(lp, vrstaKlasifikacijeSort, rowCount);
     }
 
@@ -359,7 +364,7 @@ public class OcpProizvodHome {
                 .setParameter("cenovnik", woPartnerSettings.get(0).getIdCenovnik())
                 .setParameter("vrstaKlasifikacijeSort", woParametri.getVrstaKlasifikacijeMeni())
                 .setParameter("klasifikacija", brandID)
-                .setParameter("proveraZaliha", woConfigSingleton.getAtributs()[4]);
+                .setParameter("proveraZaliha", woConfigSingleton.getAttributes()[4]);
 
         if (pageNo == 0) rowCount = q.getResultList().size();
 
@@ -388,7 +393,7 @@ public class OcpProizvodHome {
                 .setParameter("ojc", woPartnerSettings.get(0).getOrganizacionaJedinica())
                 .setParameter("klc", woPartnerSettings.get(0).getIdKlasaCene())
                 .setParameter("cenovnik", woPartnerSettings.get(0).getIdCenovnik())
-                .setParameter("proveraZaliha", woConfigSingleton.getAtributs()[4]);
+                .setParameter("proveraZaliha", woConfigSingleton.getAttributes()[4]);
 
         Iterator i = q.getResultList().iterator();
 
@@ -414,7 +419,7 @@ public class OcpProizvodHome {
                 .setParameter("cenovnik", woPartnerSettings.get(0).getIdCenovnik())
                 .setParameter("vrstaKlasifikacijeMeni", woParametri.getVrstaKlasifikacijeFilter())
                 .setParameter("brand", brand)
-                .setParameter("proveraZaliha", woConfigSingleton.getAtributs()[4]);
+                .setParameter("proveraZaliha", woConfigSingleton.getAttributes()[4]);
 
         if (pageNo == 0) rowCount = q.getResultList().size();
 
@@ -441,6 +446,7 @@ public class OcpProizvodHome {
         }
         q.append(predicate.substring(0, predicate.length() - 4));
         q.append(") and a.atribut# = :proveraZaliha "
+                +"  and a.proizvod# = p.proizvod# "
                 + "   and ((exists (select 1 "
                 + "              from wo_partner_settings w, uz_stanje_zaliha_skladista u"
                 + "              where w.poslovni_partner# = :partner"
@@ -485,7 +491,7 @@ public class OcpProizvodHome {
                 .setParameter("cenovnik", woPartnerSettings.get(0).getIdCenovnik())
                 .setParameter("vrstaKlasifikacijeMeni", woParametri.getVrstaKlasifikacijeFilter())
                 .setParameter("brand", brand)
-                .setParameter("proveraZaliha", woConfigSingleton.getAtributs()[4]);
+                .setParameter("proveraZaliha", woConfigSingleton.getAttributes()[4]);
 
         if (pageNo == 0) rowCount = qNative.getResultList().size();
 

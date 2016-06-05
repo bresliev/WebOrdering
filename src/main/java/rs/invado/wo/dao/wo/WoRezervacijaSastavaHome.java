@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.logging.Level;
 
 /**
- * Created by Nikola on 10/03/2016.
+ * Created by .
  */
 @Repository
 @Transactional

@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 /**
  * Created with IntelliJ IDEA.
- * User: nikola
+ * User:
  * Date: 5/8/13
  * Time: 4:38 PM
  * To change this template use File | Settings | File Templates.

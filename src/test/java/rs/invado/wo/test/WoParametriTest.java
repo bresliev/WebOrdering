@@ -20,7 +20,7 @@ import java.util.Calendar;
 
 /**
  * Created by IntelliJ IDEA.
- * User: nikola
+ * User:
  * Date: 16.12.12.
  * Time: 21.34
  * To change this template use File | Settings | File Templates.

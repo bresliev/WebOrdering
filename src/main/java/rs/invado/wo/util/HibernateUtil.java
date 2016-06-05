@@ -11,7 +11,7 @@ import javax.persistence.PersistenceContext;
 
 /**
  * Created by IntelliJ IDEA.
- * User: nikola
+ * User:
  * Date: 20.12.12.
  * Time: 22.19
  * To change this template use File | Settings | File Templates.

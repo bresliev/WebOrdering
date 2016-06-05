@@ -34,7 +34,7 @@ import java.util.*;
 
 /**
  * Created by IntelliJ IDEA.
- * User: nikola
+ * User:
  * Date: 13.2.13.
  * Time: 22.54
  * To change this template use File | Settings | File Templates.
@@ -555,9 +555,8 @@ public class BasketBusinessProcessing {
 
         UzDokumentStavka uzDokumentStavka = uzDokumentStavkaDAO.findStavkaDokIdProAndRabat(dokumentaMap.get(skl.getIdSkladista() + "").getIdDokumenta(),
                 dokumentaMap.get(skl.getIdSkladista() + "").getIdVd(), ocpProizvod.getProizvod(), rabat);
-        System.out.println("poruka je " + dokumentaMap.get(skl.getIdSkladista() + "").getIdDokumenta() + " " + dokumentaMap.get(skl.getIdSkladista() + "").getIdVd() + " " + ocpProizvod.getProizvod() + " " + rabat);
+
         if (uzDokumentStavka != null) {
-            System.out.println("poruka je druga "+uzDokumentStavka.getProizvod());
                     uzDokumentStavka.setNavedKol(uzDokumentStavka.getNavedKol().add(kolicina));
             if (ocpProizvod.getPrimeniJsklPakovanje()) {
                 UzDokumentStavkaPakovanje uzDokumentStavkaPakovanje = uzDokumentStavkaPakovanjeDAO.findPakovanjByStavka(dokumentaMap.get(skl.getIdSkladista() + "").getIdDokumenta(),
@@ -617,7 +616,6 @@ public class BasketBusinessProcessing {
                                          OcpProizvod ocpProizvod, BigDecimal kolPoPakovanju, String woAkcija, ProAkcija akcija, short maxRabat) {
 
         UzSkladiste skl = uzSkladisteDAO.findById(woSkladiste);
-        System.out.println("Akcija je " + akcija);
         if (woAkcija.equals(akcija.toString())
                 || (woAkcija == " " && akcija.toString().equals("N"))) {
             if (!dokumentaMap.containsKey(skl.getIdSkladista() + akcija.toString())) {
@@ -700,8 +698,6 @@ public class BasketBusinessProcessing {
             uzDokumentStavka.setGodina(year);
             uzDokumentStavka.setRabat(rabat);
             uzDokumentStavka.setKol1(ekstraRabat);
-            System.out.println("stavka je " + uzDokumentStavka.getId().getRbStavke() + " " + uzDokumentStavka.getId().getIdDokumenta() + " " + uzDokumentStavka.getId().getIdVd()
-                    + " " + uzDokumentStavka.getProizvod());
             uzDokumentStavkaDAO.persist(uzDokumentStavka);
 
             if (ocpProizvod.getPrimeniJsklPakovanje()) {
@@ -815,7 +811,7 @@ public class BasketBusinessProcessing {
                     woRezervacijaPersistent.setEkstraRabat(woRezervacija.getEkstraRabat());
                     woRezervacijaDAO.persist(woRezervacijaPersistent);
                     //ako nije na�?in plaćanja AVA onda sve stavke idu  na jednom dokumentu
-                    System.out.println("Korpa " + woRezervacija.getProizvod().getProizvod());
+
                     if (woRezervacija.getWoRezervacijaSastavaList().size() == 0) {
                         createDocumentAVA(woRezervacija.getIdSkladista(), dokumentaMap, uzDokument, nacinPlacanja, user, cs, OJ, year, adresa, datumPromene, sessionId, prevoz,
                                 napomena, datumValute, index, woRezervacija.getKolicina(), woRezervacija.getCena(), woRezervacija.getRabat(), woRezervacija.getEkstraRabat(),

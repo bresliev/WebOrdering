@@ -169,9 +169,9 @@
         </tr>
         <tr>
             <td>
-                <b>Bojan Periæ</b><br>
-                mob: 065 31 95 278<br>
-                e-mail: <b><a style="color:#58595b;" href="mailto:bojan.peric@darex.rs">bojan.peric@darex.rs</a></b><br><br>
+                <b>Vladimir Kostiæ</b><br>
+                mob: 065 31 95 254<br>
+                e-mail: <b><a style="color:#58595b;" href="mailto:vladimir.kostic@darex.rs">vladimir.kostic@darex.rs</a></b><br><br>
 
                 <b>Radiša Vatazoviæ</b><br>
                 mob: 065 31 95 284<br>

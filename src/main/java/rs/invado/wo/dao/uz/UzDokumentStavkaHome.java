@@ -100,7 +100,7 @@ public class UzDokumentStavkaHome {
 					.getSingleResult();
 			return uzDokumentStavka;
 		} catch (Exception ex) {
-			log.error("No stavka", ex);
+			log.error("No stavka", null);
 		}
 		return null;
 	}

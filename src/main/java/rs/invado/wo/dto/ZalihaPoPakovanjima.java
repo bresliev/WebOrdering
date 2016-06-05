@@ -3,7 +3,7 @@ package rs.invado.wo.dto;
 import java.math.BigDecimal;
 
 /**
- * Created by NikolaB on 10/18/2014.
+ * Created by .
  */
 public class ZalihaPoPakovanjima {
 

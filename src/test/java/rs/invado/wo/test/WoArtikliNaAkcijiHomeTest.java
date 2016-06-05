@@ -22,7 +22,7 @@ import static org.junit.Assert.fail;
 
 /**
  * Created by IntelliJ IDEA.
- * User: nikola
+ * User:
  * Date: 16.12.12.
  * Time: 18.28
  * To change this template use File | Settings | File Templates.
@@ -59,7 +59,7 @@ public class WoArtikliNaAkcijiHomeTest {
         OcpProizvod p = ocpProizvodHome.findById(534617);
         artikal.setOcpProizvod(p);
         WoUser user = new WoUser();
-        user.setUserName("nikola");
+        user.setUserName("");
         Calendar c = Calendar.getInstance();
         artikal.setDatumOd(c.getTime());
         c.add(Calendar.DATE, 60);
@@ -70,7 +70,7 @@ public class WoArtikliNaAkcijiHomeTest {
 
         p = ocpProizvodHome.findById(513024);
         artikal1.setOcpProizvod(p);
-        user.setUserName("nikola");
+        user.setUserName("");
         c = Calendar.getInstance();
         artikal1.setDatumOd(c.getTime());
         artikal1.setTipAkcije("AKCIJA");

@@ -6,7 +6,7 @@ $.fx.speeds._default = 1000;
 $.ajaxSetup({
     cache: false,
     statusCode: {
-    901:function () {
+        901:function () {
             clearTimeout(timer);
             $(".error-box").text("Vaša sesija je istekla. Ukoliko ste imali nepotvrðene artikle u korpi sve stavke æe biti poništene. ");
             $("#dialog-message-w").dialog("open");
@@ -33,7 +33,7 @@ $.ajaxSetup({
             dataType: 'json',
             success: function (result) {
                 if (result) {
-                    console.log("Uspesan poziv getGroupsJSON ");
+                    console.log("Uspesan poziv getGroupsJSON "+result);
                     $.each(result, function (i, item) {
                         console.log("Klasa " + item.naziv);
                         group += $(this).createGroupItemDiv(item);
@@ -61,7 +61,6 @@ $.ajaxSetup({
     };
 
     $("#groups .group_item .product_item_img").live('click', function () {
-        console.log("ovo se desava garantovano 1");
         var klasa = $(this).attr('id');
         $('#brandId').attr('value', klasa.substring(11, klasa.length));
         $('.group_item').fadeTo(500, 0.2);
@@ -70,9 +69,8 @@ $.ajaxSetup({
 
 
     $.fn.showProducts = function (pageNo, productId) {
-        console.log("ipak ide ovo");
         try {
-           $('.waitcursor').show();
+            $('.waitcursor').show();
             $('.product_item').fadeTo(500, 0.2);
             $("#groups").fadeTo(500, 0.2);
             var namePattern = "";
@@ -149,6 +147,9 @@ $.ajaxSetup({
         else if (item.tipAkcije == 'NOVO') tipAkcijeImg = "<img src='images/Novo.png' alt='' style='position: absolute;top: 34px;right: 11px;'>";
         else if (item.tipAkcije == 'AKTUELNO') tipAkcijeImg = "<img src='images/Aktuelno.png' alt='' style='position: absolute;top: 34px;right: 11px;'>";
         else if (item.tipAkcije == 'RASPRODAJA') tipAkcijeImg = "<img src='images/Rasprodaja.png' alt='' style='position: absolute;top: 34px;right: 11px;'>";
+        else if (item.tipAkcije == 'OSTECENA_ROBA') tipAkcijeImg = "<img src='images/OstecenaRoba.png' alt='' style='position: absolute;top: 34px;right: 11px;'>"
+        console.log('tipa je akcije '+ item.tipAkcije);
+        console.log('prozvod za prikaz je '+item.proizvod);
         var product = "<div class='product_item' style='display: none;'>" +
             "<div class='dezen'>" + item.dezenIstruktira + "</div>" +
             "<img id='dialog-img-" + item.proizvod + "' class='product_item_img opener' src='/WO/images/medium/" + item.proizvod + ".jpg' alt=''/>" + tipAkcijeImg +
@@ -170,13 +171,19 @@ $.ajaxSetup({
             zalihe = item.raspolozivo + " " + item.jedinicaMere.skracenaOznaka;
         }
         /*else if (item.primeniJsklPakovanje && item.jsklPakovanja.length == 1) {
-            //console.log("ima jedno pakovanja pro=" + item.proizvod + " pak=" + item.jsklPakovanja[0]);
-            product += "<div class='kol_pak ellipsis'>Kolièina po pakovanju: " + item.jsklPakovanja[0] + " " + item.jedinicaMere.skracenaOznaka.toLowerCase() + "</div>";
-            zalihe = item.raspolozivo + " " + item.jedinicaMere.skracenaOznaka;
-        } */
+         //console.log("ima jedno pakovanja pro=" + item.proizvod + " pak=" + item.jsklPakovanja[0]);
+         product += "<div class='kol_pak ellipsis'>Kolièina po pakovanju: " + item.jsklPakovanja[0] + " " + item.jedinicaMere.skracenaOznaka.toLowerCase() + "</div>";
+         zalihe = item.raspolozivo + " " + item.jedinicaMere.skracenaOznaka;
+         } */
         //
         else {
-            zalihe = Math.floor(item.raspolozivo/item.kolicinaPoPakovanju) + ' ' + item.jedinicaMereAltRef.skracenaOznaka + ' / ' + item.raspolozivo + ' ' + item.jedinicaMere.skracenaOznaka;
+            console.log('prvi '+item.raspolozivo);
+            console.log('drugi '+item.kolicinaPoPakovanj);
+            console.log('treci '+item.jedinicaMereAltRef.skracenaOznaka);
+            console.log('cetvrti '+item.raspolozivo);
+            console.log('peti '+ item.jedinicaMere.skracenaOznaka);
+
+            zalihe = Math.ceil(item.raspolozivo/item.kolicinaPoPakovanju) + ' ' + item.jedinicaMereAltRef.skracenaOznaka + ' / ' + item.raspolozivo + ' ' + item.jedinicaMere.skracenaOznaka;
             product += "<div class='kol_pak ellipsis'>Kolièina po pakovanju: " + item.kolicinaPoPakovanju + " " + item.jedinicaMere.skracenaOznaka.toLowerCase() + "</div>";
         }
 
@@ -246,7 +253,7 @@ $.ajaxSetup({
     $.fn.createDownNavMenu = function () {
         var navButtons = "";
 
-        var index = (pageTotalNum < 6) ? pageTotalNum : 6;
+        var index = (pageTotalNum < 14) ? pageTotalNum : 14;
         for (var i = 1; i <= index; i++) {
             if (i == 1) navButtons += "<input type='button' class='navigation_bar btn light_gray_gradient selected' value='" + i + "'/>";
             else navButtons += "<input type='button' class='navigation_bar btn light_gray_gradient' value='" + i + "'/>";
@@ -402,7 +409,7 @@ $.ajaxSetup({
                     $.each(result, function (i, item) {
                         //console.log(item.proizvod + "   " + item.cena + "   " + i);
                         resDiv += "<div id='najprodavanije-" + item.proizvod + "' class='fade najprod'>" +
-                            /*"<img width='120px' height='84px' src='http://slikeproizvoda.darex.rs/slike/" + item.proizvod + ".jpg'  alt=''/>" +*/
+                                /*"<img width='120px' height='84px' src='http://slikeproizvoda.darex.rs/slike/" + item.proizvod + ".jpg'  alt=''/>" +*/
                             "<img width='120px' height='84px' src='/WO/images/small/" + item.proizvod + ".jpg'  alt=''/>" +
                             "<div class='naziv multiline'>" + item.nazivProizvoda + " " + $(this).trimToEmptyString(item.dodatniNaziv) + "</div>" +
                             "<div class='cena'>" + item.cena + " EUR</div>" +
@@ -491,7 +498,6 @@ $(document).ready(function () {
     });
 
     $(".G2_MENI").live('click', function () {
-
         $(this).resetFilter();
         $(this).resetMenu();
         $("#productId").val("ŠIFRA");
@@ -702,7 +708,6 @@ $(document).ready(function () {
                         orderedQuantity: parseFloat(orderedQuantity),
                         pakovanje: pakovanje
                     }, function (result) {
-                        console.log("erro message "+result.errorMsg);
                         if (result && !result.errorMsg) {
 
                             if (result.primeniJsklPakovanje) {
@@ -738,7 +743,7 @@ $(document).ready(function () {
         } catch (e) {
             btn.removeClass('wait');
             btn.addClass('basket');
-            $(".error-box").text("Odabrani proizvod nije moguæe dodati u korpu. Proverite stanje na zalihama sa Vašom službom prodaje!");
+            $(".error-box").text("Odabrani proizvod nije moguæe dodati u korpu. Proverite stanje na zalihama sa Vašom službom prodaje.");
             $("#dialog-message").dialog("open");
         }
     });

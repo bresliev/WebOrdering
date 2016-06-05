@@ -8,7 +8,7 @@ import javax.inject.Inject;
 
 /**
  * Created by IntelliJ IDEA.
- * User: nikola
+ * User:
  * Date: 29.12.12.
  * Time: 20.32
  * To change this template use File | Settings | File Templates.
@@ -41,8 +41,8 @@ public class WoConfigSingleton {
     private String idFilterTypeKlasification;
     @Value("${wo.idMenuTypeCLasification}")
     private String idMenuTypeCLasification;
-    @Value("#{'${wo.atributs}'.split(',')}")
-    private String[] atributs = new String[5];
+    @Value("#{'${wo.attributes}'.split(',')}")
+    private String[] attributes = new String[5];
     private String neki;
 
     public static WoConfigSingleton getInstance() {
@@ -115,8 +115,8 @@ public class WoConfigSingleton {
     }
 
 
-    public String[] getAtributs() {
-        return atributs;
+    public String[] getAttributes() {
+        return attributes;
     }
 
     public String getNeki() {

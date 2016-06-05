@@ -30,7 +30,7 @@ import java.util.*;
 
 /**
  * Created by IntelliJ IDEA.
- * User: Djordje
+ * User:
  * Date: 1/21/13
  * Time: 4:38 AM
  * To change this template use File | Settings | File Templates.

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 
 /**
- * Created by Nikola on 01/03/2016.
+ * Created by .
  */
 
 @Entity

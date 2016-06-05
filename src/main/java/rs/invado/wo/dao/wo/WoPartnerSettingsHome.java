@@ -110,6 +110,7 @@ public class WoPartnerSettingsHome {
                     .add(Restrictions.eq("woKompanijaKorisnik",kompanijeKorisnik.getId() ))
                     .list();
             log.debug("get successful");
+			System.out.println("iz upita je "+partnerId+" / "+kompanijeKorisnik.getId()+" / "+instances.size());
             return instances;
         } catch (RuntimeException re) {
             log.error("get failed", re);

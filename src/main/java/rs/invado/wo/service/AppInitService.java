@@ -24,7 +24,7 @@ import java.util.*;
 
 /**
  * Created by IntelliJ IDEA.
- * User: nikola
+ * User:
  * Date: 2.1.13.
  * Time: 20.12
  * To change this template use File | Settings | File Templates.
@@ -79,6 +79,7 @@ public class AppInitService implements ServletContextAware {
         for (WoKompanijaKorisnik kompanija : kompanije) {
             companyMap.put(kompanija.getCorrespondingOJ(), kompanija);
             companySettingsMap.put(kompanija.getCorrespondingOJ(),woParametriDAO.findActualSetOfParametersPerCompany(kompanija));
+
             if (companySettingsMap.get(kompanija.getCorrespondingOJ()) != null) {
                 meniji.put(kompanija.getCorrespondingOJ() + "",
                         ocpKlasifikacijaDAO.findHierarchy(companySettingsMap.get(kompanija.getCorrespondingOJ()).getVrstaKlasifikacijeMeni(), null, 0, "klasifikacija#" ));

@@ -12,7 +12,7 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 /**
- * Created by Nikola on 01/03/2016.
+ * Created by
  */
 @Repository
 @Transactional

@@ -29,7 +29,8 @@ CREATE TABLE wo_rezervacija_sastava
     cena                           NUMBER,
     rabat                          NUMBER,
     ekstra_rabat                   NUMBER,
-    kolpopakovanju                 NUMBER);
+    kolpopakovanju                 NUMBER,
+    status                          NUMBER);
     
 alter table wo_rezervacija_sastava add id number primary key;
 

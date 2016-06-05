@@ -12,7 +12,7 @@ import java.util.*;
 
 /**
  * Created by IntelliJ IDEA.
- * User: nikola
+ * User:
  * Date: 2.1.13.
  * Time: 17.10
  * To change this template use File | Settings | File Templates.

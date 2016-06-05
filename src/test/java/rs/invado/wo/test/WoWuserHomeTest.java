@@ -26,7 +26,7 @@ import static org.junit.Assert.fail;
 
 /**
  * Created by IntelliJ IDEA.
- * User: nikola
+ * User:
  * Date: 16.12.12.
  * Time: 18.53
  * To change this template use File | Settings | File Templates.

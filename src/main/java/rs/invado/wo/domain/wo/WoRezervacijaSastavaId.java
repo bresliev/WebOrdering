@@ -7,7 +7,7 @@ import javax.persistence.Embeddable;
 import java.io.Serializable;
 
 /**
- * Created by Nikola on 10/03/2016.
+ * Created by .
  */
 @Embeddable
 public class WoRezervacijaSastavaId implements Serializable {

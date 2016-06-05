@@ -30,7 +30,7 @@ import java.util.*;
 
 /**
  * Created by IntelliJ IDEA.
- * User: nikola
+ * User:
  * Date: 2.1.13.
  * Time: 17.09
  * To change this template use File | Settings | File Templates.
@@ -114,6 +114,7 @@ public class LogOnService {
         }
         List<WoPartnerSetting> wpsc = wpscDAO.findByPartnerIdForCurrentCompany(woUser.getOcpPoslovniPartner().getPoslovniPartner(),
                 cs.getKompanijaKorisnikMap().get(OJ));
+System.out.println("partner setinga ima "+wpsc.size());
         if (wpsc.size() == 0)
             throw new WOException(WOExceptionCodes.WO_UNAUTHORIZED_USER);
         for (int i = 0; i < woUser.getOcpPoslovniPartner().getProdPpRabats().size(); i++) {

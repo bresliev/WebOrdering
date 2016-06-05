@@ -22,7 +22,6 @@ import rs.invado.wo.domain.wo.WoParametri;
 import rs.invado.wo.domain.wo.WoPartnerSetting;
 import rs.invado.wo.dto.CompanySetting;
 import rs.invado.wo.dto.Proizvodi;
-import rs.invado.wo.util.EtoConf;
 import rs.invado.wo.util.WoConfigSingleton;
 
 import javax.inject.Inject;
@@ -72,10 +71,6 @@ public class ProductService {
     public void setTransAtrZaPro(List<OcpProizvod> lp, Map<Integer, BigDecimal> mapaCena, List<WoPartnerSetting> woPartnerSetting,
                                  Map<Integer, BigDecimal> transportnaPakovanjaProizvoda, WoParametri woParametri) {
         //Izvuci količinu po pakovanju
-        System.out.println("poruka je za atribute ova "+woConfigSingleton.getAtributs()[0]+woConfigSingleton.getAtributs()[1]
-                +woConfigSingleton.getAtributs()[2]+woConfigSingleton.getAtributs()[3]+woConfigSingleton.getAtributs()[4]);
-        System.out.println("poruka je za atribute ova iz injectiranog  "+woConfigSingleton.getMailaPassword());
-
         Map<Integer, BigDecimal> m = mapaCena;
         List<WoArtikliNaAkciji> laa = woArtikliNaAkcijiDAO.findArtikliNaAkcijiAktivno(DateUtils.truncate(new Date(), Calendar.DATE),
                 woParametri);
@@ -102,17 +97,17 @@ public class ProductService {
                 if (klasifikacijaProizvoda.getId().getVrstaKlasifikacije() == 1) {
                     vatp = ocpVrAtrProizvodDAO.findByNivoAtributa(klasifikacijaProizvoda.getId().getVrstaKlasifikacije(),
                             klasifikacijaProizvoda.getId().getKlasifikacija(), klasifikacijaProizvoda.getId().getProizvod(),
-                            Integer.valueOf(woConfigSingleton.getAtributs()[0]));
+                            Integer.valueOf(woConfigSingleton.getAttributes()[0]));
                     if (vatp != null) dezenIStruktura = dezenIStruktura + " " + vatp.getVrednost();
                     vatp = null;
                     vatp = ocpVrAtrProizvodDAO.findByNivoAtributa(klasifikacijaProizvoda.getId().getVrstaKlasifikacije(),
                             klasifikacijaProizvoda.getId().getKlasifikacija(), klasifikacijaProizvoda.getId().getProizvod(),
-                            Integer.valueOf(woConfigSingleton.getAtributs()[1]));
+                            Integer.valueOf(woConfigSingleton.getAttributes()[1]));
                     if (vatp != null) dezenIStruktura = dezenIStruktura + " " + vatp.getVrednost();
                     vatp = null;
                     vatp = ocpVrAtrProizvodDAO.findByNivoAtributa(klasifikacijaProizvoda.getId().getVrstaKlasifikacije(),
                             klasifikacijaProizvoda.getId().getKlasifikacija(), klasifikacijaProizvoda.getId().getProizvod(),
-                            Integer.valueOf(woConfigSingleton.getAtributs()[2]));
+                            Integer.valueOf(woConfigSingleton.getAttributes()[2]));
                     if (vatp != null) item.setProizvodjac(vatp.getVrednost());
                     item.setDezenIstruktira(dezenIStruktura);
                     vatp = null;
@@ -121,7 +116,7 @@ public class ProductService {
                 if (klasifikacijaProizvoda.getId().getVrstaKlasifikacije() == woParametri.getVrstaKlasifikacijeMeni()) {
                     vatp = ocpVrAtrProizvodDAO.findByNivoAtributa(klasifikacijaProizvoda.getId().getVrstaKlasifikacije(),
                             klasifikacijaProizvoda.getId().getKlasifikacija(), klasifikacijaProizvoda.getId().getProizvod(),
-                            Integer.valueOf(woConfigSingleton.getAtributs()[3]));
+                            Integer.valueOf(woConfigSingleton.getAttributes()[3]));
                     if (vatp != null && vatp.getVrednost().equals("DA")) {
                         item.setPrimeniJsklPakovanje(true);
                     } else {
@@ -130,7 +125,7 @@ public class ProductService {
                     vatp = null;
                     vatp = ocpVrAtrProizvodDAO.findByNivoAtributa(klasifikacijaProizvoda.getId().getVrstaKlasifikacije(),
                             klasifikacijaProizvoda.getId().getKlasifikacija(), klasifikacijaProizvoda.getId().getProizvod(),
-                            Integer.valueOf(woConfigSingleton.getAtributs()[4]));
+                            Integer.valueOf(woConfigSingleton.getAttributes()[4]));
                     if (vatp != null)
                         item.setProveraZaliha(vatp.getVrednost());
                     vatp = null;
@@ -142,15 +137,21 @@ public class ProductService {
                 item.setKolicinaPoPakovanju(transportnaPakovanjaProizvoda.get(item.getProizvod()));
             //izračunaj raspolozivu kolicinu
             BigDecimal raspolozivaKolicina = new BigDecimal(0.0);
-            for (WoPartnerSetting wps : woPartnerSetting)
+
+            Set<Integer> skladista = new HashSet<Integer>();
+            for (WoPartnerSetting wps : woPartnerSetting) {
+                skladista.add(new Integer(wps.getIdSkladista()));
+            }
+
+            for (Integer wps : skladista)
                 if (item.getProveraZaliha().equals("DA")) {
                     for (UzStanjeZalihaSkladista uzskl : item.getUzStanjeZalihaSkladistas()) {
-                        if (uzskl.getId().getIdSkladista() == wps.getIdSkladista() &&
-                                wps.getIdSkladista() != obradjenoSkl &&
+                        if (uzskl.getId().getIdSkladista() == wps.intValue() &&
+                                wps.intValue() != obradjenoSkl &&
                                 uzskl.getKolicinaPoStanjuZ().compareTo(new BigDecimal(0.0)) == 1) {
                             raspolozivaKolicina = raspolozivaKolicina.add(uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()));
                             item.setMaticnoSkladiste(uzskl.getId().getIdSkladista());
-                            obradjenoSkl = wps.getIdSkladista();
+                            obradjenoSkl = wps.intValue();
                             if (item.getPrimeniJsklPakovanje()) {
                                 item.setBrojPakovanja(uzZaliheJsklDAO.findJsklPakPerPro(item.getProizvod(), item.getMaticnoSkladiste(), null));
                                 List<BigDecimal> pakNaZal = new ArrayList<BigDecimal>();
@@ -173,8 +174,8 @@ public class ProductService {
                         obradjenoSkl = 0;
                         List<UzStanjeZalihaSkladista> uzSklList = uzStanjeZalihaSkladistaDAO.findByProizvod(ocpSastavProizvoda.getProizvodIzlaz().getProizvod());
                         for (UzStanjeZalihaSkladista uzskl : uzSklList) {
-                            if (uzskl.getId().getIdSkladista() == wps.getIdSkladista() &&
-                                    wps.getIdSkladista() != obradjenoSkl &&
+                            if (uzskl.getId().getIdSkladista() == wps.intValue() &&
+                                    wps.intValue() != obradjenoSkl &&
                                     uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(), 0, BigDecimal.ROUND_FLOOR).compareTo(new BigDecimal(1.0))
                                             != -1) {
                                 /*-1, 0, or 1 as this BigDecimal is numerically less than, equal to, or greater than val.*/
@@ -184,7 +185,7 @@ public class ProductService {
                                 ocpSastavProizvoda.setMaticnoSkladiste(uzskl.getId().getIdSkladista());
                                 ocpSastavProizvoda.getProizvodIzlaz().setPrimeniJsklPakovanje(false);
                                 ocpSastavProizvoda.setRaspolozivaKolicina(uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()).divide(ocpSastavProizvoda.getKolicinaUgradnje(), 0, RoundingMode.FLOOR));
-                                obradjenoSkl = wps.getIdSkladista();
+                                obradjenoSkl = wps.intValue();
                                 if (item.getPrimeniJsklPakovanje()) {
                                     item.setBrojPakovanja(uzZaliheJsklDAO.findJsklPakPerPro(item.getProizvod(), item.getMaticnoSkladiste(), null));
                                     List<BigDecimal> pakNaZal = new ArrayList<BigDecimal>();
@@ -219,7 +220,6 @@ public class ProductService {
                     }
 
                 }
-
             //setuj tip akcije
             if (laaMap.containsKey(item.getProizvod())) {
                 item.setTipAkcije(laaMap.get(item.getProizvod()).toString());
@@ -233,8 +233,7 @@ public class ProductService {
                                                Map<Integer, BigDecimal> transortnaPakovanjaProizvoda, CompanySetting cs, Integer oj) {
 
         Proizvodi proizvodi = ocpProizvodDAO.findProizvodiZaBrendSorted(brendId, pageNo, pageSize, woParametri, woPartnerSetting, cs);
-        for (OcpProizvod proizvod : proizvodi.getProizvodList())
-            System.out.println("Ovo je klasaa " + proizvod.getOcpKlasifikacijaProizvoda().get(1).getOcpKlasifikacija().getNaziv());
+
         setTransAtrZaPro(proizvodi.getProizvodList(), cenovnik, woPartnerSetting, transortnaPakovanjaProizvoda, woParametri);
         return proizvodi;
     }
