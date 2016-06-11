@@ -69,6 +69,21 @@
             </td>
         </tr>
         <tr>
+            <td style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;">Direktor prodaje </td>
+            <td></td>
+            <td style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;">Izvršni direktor
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Bojan Periæ</b><br>
+                mob: +381 (0)65 31 95 278<br>
+                e-mail: <b><a style="color:#58595b;" href="mailto:dusko.curcic@darex.rs">bojan.peric@darex.rs</a></b>
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
             <td style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;">Šef
                 distributivnog centra
             </td>
@@ -189,15 +204,28 @@
                               href="mailto:slavisa.petrovic@darex.rs">slavisa.petrovic@darex.rs</a></b>
             </td>
             <td>
-                <b>Nenad Avramoviæ</b><br>
-                mob: 065 31 95 254<br>
-                e-mail: <b><a style="color:#58595b;" href="mailto:nenad.avramovic@darex.rs">nenad.avramovic@darex.rs</a></b><br><br>
-
+                <br><br><br><br>
                 <b>Vladimir Beševiæ</b><br>
                 mob: 065 31 95 243<br>
                 e-mail: <b><a style="color:#58595b;"
                               href="mailto:vladimir.besevic@darex.rs">vladimir.besevic@darex.rs</a></b>
             </td>
+        </tr>
+        <tr>
+            <td style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;">Direktor prodaje</td>
+            <td></td>
+            <td style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;"><!--Direktor
+                prodaje-->
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <b>Bojan Periæ</b><br>
+                mob: 065 31 95 278<br>
+                e-mail: <b><a style="color:#58595b;" href="mailto:dusko.curcic@darex.rs">bojan.peric@darex.rs</a></b>
+            </td>
+            <td></td>
+            <td></td>
         </tr>
         <tr>
             <td style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;">Šef

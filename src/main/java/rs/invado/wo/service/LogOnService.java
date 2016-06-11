@@ -75,7 +75,11 @@ public class LogOnService {
 
     public User logOn(String userName, String password, CompanySetting cs, Integer OJ) throws WOException {
         User user = new User();
-        WoUser woUser = woUserDAO.findUserByUsername(userName);
+        //cs.getKompanijaKorisnikMap().get(OJ).getId()
+        //WoUser woUser = woUserDAO.findUserByUsername(userName);
+
+        WoUser woUser = woUserDAO.findUserByUsernameAndCompany(userName, cs.getKompanijaKorisnikMap().get(OJ).getId());
+
         //WoUser woUser = woUserDAO.autenticate(userName, password);
         if (woUser == null)
             throw new WOException(WOExceptionCodes.WO_UNEXESTING_USER);

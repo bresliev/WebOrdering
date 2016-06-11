@@ -30,7 +30,7 @@
                 naiðete<br>
                 na bilo kakav problem u toku korišæenja naše aplikacije Web Ordering.<br><br>
                 Odgovore na Vaša pitanja možete dobiti putem:<br>
-                telefon: <b>+381 (0)65 31 95 298</b><br>
+                telefon: <b>+381 (0)065 31 95 330</b><br>
                 e-mail: <b><a style="color:#58595b;" href="mailto:webpodrska@darexmax.me">webpodrska@darexmax.me</a></b> , na
                 koji æemo odgovoriti u što kraæem vremenskom roku.<br><br>
                 Radno vreme Darex Partner Podrške je svakog radnog dana:<br>
@@ -44,7 +44,7 @@
                 naiðete<br>
                 na bilo kakav problem u toku korišæenja naše aplikacije Web Ordering.<br><br>
                 Odgovore na Vaša pitanja možete dobiti putem:<br>
-                telefon: <b>065 31 95 298</b><br>
+                telefon: <b>065 31 95 330</b><br>
                 e-mail: <b><a style="color:#58595b;" href="mailto:webpodrska@darex.rs">webpodrska@darex.rs</a></b> , na
                 koji æemo odgovoriti u što kraæem vremenskom roku.<br><br>
                 Radno vreme Darex Partner Podrške je svakog radnog dana:<br>

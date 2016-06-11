@@ -85,6 +85,7 @@ public class ProductService {
             //Setuj porez
             item.setStopaPoreza(ocpProizvodDAO.findStopaPorezaZaProizvod(woPartnerSetting.get(0).getOrganizacionaJedinica(), item.getProizvod()));
 
+            System.out.println("cene i pro "+item.getProizvod()+" "+mapaCena.get(item.getProizvod()));
             // setuj cene
             item.setCena((BigDecimal) mapaCena.get(item.getProizvod()));
 

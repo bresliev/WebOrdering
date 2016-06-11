@@ -28,6 +28,7 @@ public class WoUser implements Serializable{
     private String prezime;
     private OcpPoslovniPartner ocpPoslovniPartner;
     private KeRadnici radnik;
+    private Integer woKompanijaKorisnik;
 
     private List<WoRezervacija> woRezervacijas = new ArrayList<WoRezervacija>();
     private List<WoUserHasRight> woUserHasRights = new ArrayList<WoUserHasRight>();
@@ -174,5 +175,14 @@ public class WoUser implements Serializable{
 
     public void setPrezime(String prezime) {
         this.prezime = prezime;
+    }
+
+    @Column(name = "WOKOMPANIJAKORISNIK")
+    public Integer getWoKompanijaKorisnik() {
+        return woKompanijaKorisnik;
+    }
+
+    public void setWoKompanijaKorisnik(Integer woKompanijaKorisnik) {
+        this.woKompanijaKorisnik = woKompanijaKorisnik;
     }
 }

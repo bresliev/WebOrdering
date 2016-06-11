@@ -99,5 +99,14 @@ public class WoUserHome {
         return woUser;
 
     }
+
+    public WoUser findUserByUsernameAndCompany(String userName, Integer companyId) {
+        WoUser woUser = (WoUser) getSession().createCriteria(WoUser.class)
+                .add(Restrictions.eq("userName", userName))
+                .add(Restrictions.eq("woKompanijaKorisnik", companyId))
+                .uniqueResult();
+        return woUser;
+
+    }
 }
 

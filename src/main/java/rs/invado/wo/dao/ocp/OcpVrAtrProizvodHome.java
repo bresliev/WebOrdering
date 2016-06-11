@@ -91,14 +91,14 @@ public class OcpVrAtrProizvodHome {
 
     public OcpVrAtrProizvod findByNivoAtributa(int vrstaKlasifikacija, String klasifikacija, int proizvod, int atribut) {
         List<String> klase = new ArrayList<String>();
-        for (int i = 1; i <= klasifikacija.length(); i++) {
+        /*for (int i = 1; i <= klasifikacija.length(); i++) {
             klase.add(klasifikacija.substring(0, i));
-        }
+        }*/
         OcpVrAtrProizvod vap = (OcpVrAtrProizvod) getSession().createCriteria(OcpVrAtrProizvod.class)
                 .add(Restrictions.eq("id.vrstaKlasifikacije", vrstaKlasifikacija))
                 .add(Restrictions.eq("id.atribut", atribut))
                 .add(Restrictions.eq("id.proizvod", proizvod))
-                .add(Restrictions.in("id.klasifikacija", klase))
+                //.add(Restrictions.in("id.klasifikacija", klase))
                 .uniqueResult();
         return vap;
 
