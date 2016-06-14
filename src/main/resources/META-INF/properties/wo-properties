@@ -12,7 +12,7 @@ wo.woMailAddress = darex.rs@gmail.com;
 wo.mailAddress = webordering@darex.rs;
 # DEZEN
 # STRUKTURA
-# PROIZVODJA?
-#PRIMENIJSKLPAK
+# PROIZVODNJA
+# PRIMENIJSKLPAK
 # PROVERA ZALIHA ZA POTREBE SASTAVA (1840 u lokalu 1841 na DarexTest 1820 na produkciji)
 wo.attributes = 1600,1601,1541,1740,1841
