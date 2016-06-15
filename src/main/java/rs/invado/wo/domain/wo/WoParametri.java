@@ -38,6 +38,8 @@ public class WoParametri implements java.io.Serializable {
     private String confirmMailContent;
     private Integer skladisteRezervacije;
     private WoKompanijaKorisnik woKompanijaKorisnik;
+    private String jedinicaMereRezervacije;
+    private String klasaCene;
     private List<WoSetPoNacinPlacanja> woSetPoNacinPlacanja = new ArrayList<WoSetPoNacinPlacanja>(0);
 
     public WoParametri() {
@@ -203,6 +205,14 @@ public class WoParametri implements java.io.Serializable {
         this.confirmMailContent = confirmMailContent;
     }
 
+    @Column(name = "JEDINICA_MERE_REZERVACIJE")
+    public String getJedinicaMereRezervacije() {
+        return jedinicaMereRezervacije;
+    }
+
+    public void setJedinicaMereRezervacije(String jedinicaMereRezervacije) {
+        this.jedinicaMereRezervacije = jedinicaMereRezervacije;
+    }
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name =  "ID_KOMPANIJA_KORISNIK", referencedColumnName = "ID", insertable = true, updatable = true)
@@ -225,5 +235,12 @@ public class WoParametri implements java.io.Serializable {
         this.woSetPoNacinPlacanja = woSetPoNacinPlacanja;
     }
 
+    @Column(name="KLASA_CENE")
+    public String getKlasaCene() {
+        return klasaCene;
+    }
 
+    public void setKlasaCene(String klasaCene) {
+        this.klasaCene = klasaCene;
+    }
 }

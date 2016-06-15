@@ -8,16 +8,20 @@ import org.springframework.transaction.annotation.Transactional;
 import rs.invado.wo.dao.ocp.OcpProizvodHome;
 import rs.invado.wo.dao.ocp.OcpVrAtrProizvodHome;
 import rs.invado.wo.dao.prod.ProdPpRabatStavkaHome;
+import rs.invado.wo.dao.uz.UzSkladisteHome;
 import rs.invado.wo.dao.uz.UzStanjeZalihaSkladistaHome;
 import rs.invado.wo.dao.uz.UzZaliheJsklHome;
 import rs.invado.wo.dao.wo.WoArtikliNaAkcijiHome;
+import rs.invado.wo.dao.wo.WoMapKompanijskaSkladistaHome;
 import rs.invado.wo.domain.ocp.OcpKlasifikacijaProizvoda;
 import rs.invado.wo.domain.ocp.OcpProizvod;
 import rs.invado.wo.domain.ocp.OcpSastavProizvoda;
 import rs.invado.wo.domain.ocp.OcpVrAtrProizvod;
 import rs.invado.wo.domain.prod.ProdPpRabatStavka;
+import rs.invado.wo.domain.uz.UzSkladiste;
 import rs.invado.wo.domain.uz.UzStanjeZalihaSkladista;
 import rs.invado.wo.domain.wo.WoArtikliNaAkciji;
+import rs.invado.wo.domain.wo.WoMapKompanijskaSkladista;
 import rs.invado.wo.domain.wo.WoParametri;
 import rs.invado.wo.domain.wo.WoPartnerSetting;
 import rs.invado.wo.dto.CompanySetting;
@@ -48,6 +52,10 @@ public class ProductService {
     private UzStanjeZalihaSkladistaHome uzStanjeZalihaSkladistaDAO;
     @Inject
     WoConfigSingleton woConfigSingleton;
+    @Inject
+    WoMapKompanijskaSkladistaHome woMapKompanijskaSkladistaHome;
+    @Inject
+    private UzSkladisteHome uzSkladisteHome;
 
 
     /* za sada imamo četiri različita tipa akcije prodaje proizvoda i to:
@@ -85,7 +93,6 @@ public class ProductService {
             //Setuj porez
             item.setStopaPoreza(ocpProizvodDAO.findStopaPorezaZaProizvod(woPartnerSetting.get(0).getOrganizacionaJedinica(), item.getProizvod()));
 
-            System.out.println("cene i pro "+item.getProizvod()+" "+mapaCena.get(item.getProizvod()));
             // setuj cene
             item.setCena((BigDecimal) mapaCena.get(item.getProizvod()));
 
@@ -142,6 +149,10 @@ public class ProductService {
             Set<Integer> skladista = new HashSet<Integer>();
             for (WoPartnerSetting wps : woPartnerSetting) {
                 skladista.add(new Integer(wps.getIdSkladista()));
+                WoMapKompanijskaSkladista woMapKompanijskaSkladista = woMapKompanijskaSkladistaHome.findActualSklRaspolozivo(uzSkladisteHome.findById(wps.getIdSkladista()));
+                if (woMapKompanijskaSkladista.getRaspolozivaKolicinaUSkl().equals("OBASKLADISTA"))
+                    skladista.add(woMapKompanijskaSkladista.getUzSkladisteRezervacija().getIdSkladista());
+
             }
 
             for (Integer wps : skladista)

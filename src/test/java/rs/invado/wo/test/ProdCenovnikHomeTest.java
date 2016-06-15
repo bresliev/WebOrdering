@@ -52,7 +52,7 @@ public class ProdCenovnikHomeTest {
             wpsc.setOrganizacionaJedinica(19);
             System.out.println(" prvi peti ");
             if (wpsc==null) System.out.println(" nije mi kreirao objekat ");
-            Map<Integer, BigDecimal> m = prodCenovnikDAO.findCeneMapped(wpsc);
+            Map<Integer, BigDecimal> m = prodCenovnikDAO.findCeneMapped(wpsc, null);
             for (Map.Entry<Integer, BigDecimal>  entry : m.entrySet())
                 System.out.println(entry.getKey()+" "+entry.getValue());
 

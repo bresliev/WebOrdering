@@ -72,7 +72,7 @@ public class LoginController {
         CompanySetting companySetting = (CompanySetting) ctx.getAttribute(AppInitService.CompanySetting);
         User user = (User) session.getAttribute("loginUser");
         Integer oj= Integer.parseInt((String) session.getAttribute("oj"));
-        logOnService.changePartner(partnerId,companySetting,oj,user);
+        logOnService.changePartner(partnerId,companySetting,oj,user, companySetting.getKompanijskiParametri().get(oj));
         session.setAttribute("loginUser",user);
         return "redirect:/home";
     }

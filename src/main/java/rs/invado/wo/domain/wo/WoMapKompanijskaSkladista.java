@@ -22,6 +22,7 @@ public class WoMapKompanijskaSkladista {
     private UzSkladiste uzSkladisteRaspolozivo;
     private UzSkladiste uzSkladisteRezervacija;
     private boolean rezervisiURaspolozivo;
+    private String raspolozivaKolicinaUSkl;
 
     @Id
     @Column(name = "ID", nullable = false)
@@ -72,5 +73,14 @@ public class WoMapKompanijskaSkladista {
 
     public void setRezervisiURaspolozivo(boolean rezervisiURaspolozivo) {
         this.rezervisiURaspolozivo = rezervisiURaspolozivo;
+    }
+
+    @Column(name = "RASPOLOZIVA_KOLICINA_U_SKL")
+    public String getRaspolozivaKolicinaUSkl() {
+        return raspolozivaKolicinaUSkl;
+    }
+
+    public void setRaspolozivaKolicinaUSkl(String raspolozivaKolicinaUSkl) {
+        this.raspolozivaKolicinaUSkl = raspolozivaKolicinaUSkl;
     }
 }

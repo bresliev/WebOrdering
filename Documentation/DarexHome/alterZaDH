@@ -1,0 +1,16 @@
+alter table wo_parametri add jedinica_mere_rezervacije varchar2(50);
+alter table wo_parametri add klasa_cene varchar2(20);
+
+create view WoProdCene as
+select 'VP' klasaCene, c.ORGANIZACIONA_JEDINICA#, c.id_cenovnik, c.id_klasa_cene,
+cs.PROIZVOD#, cs.cena, datum_do, datum_ov
+from prod_cenovnik c, prod_stavka_cenovnika cs
+where c.ORGANIZACIONA_JEDINICA# = cs.ORGANIZACIONA_JEDINICA#
+and c.id_cenovnik = cs.id_cenovnik
+and c.id_klasa_cene = cs.id_klasa_cene
+union
+select 'MP', organizaciona_jedinica_ref, id_cenovnik,id_klasa_cene,
+    proizvod, cena, null, sysdate
+from prod_prodajne_cene;
+
+alter table wo_map_kompanijska_skladista add raspoloziva_kolicina_u_skl varchar2(50);

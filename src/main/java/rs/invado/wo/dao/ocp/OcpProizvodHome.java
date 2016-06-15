@@ -142,8 +142,7 @@ public class OcpProizvodHome {
                 .add(Restrictions.or(Restrictions.ge("wana.datumDo", DateUtils.truncate(new Date(), Calendar.DATE)),
                         Restrictions.isNull("wana.datumDo")))
                 .addOrder(Order.asc("pro.proizvod"));
-        List<OcpProizvod> lp = cr.setFirstResult(pageNo * pageSize)
-                .setMaxResults(pageSize).list();
+        List<OcpProizvod> lp = cr.setFirstResult(pageNo * pageSize).setMaxResults(pageSize).list();
         int rowCount = 0;
         if (pageNo == 0)
             rowCount = getRowCount(cr);
@@ -326,6 +325,7 @@ public class OcpProizvodHome {
 
             namedQ = "findAllByBrandPriceSorted";
             q = entityManager.createNamedQuery(namedQ)
+                    .setParameter("klasaCene", woParametri.getKlasaCene())
                     .setParameter("partner", woPartnerSettings.get(0).getPoslovniPartner().getPoslovniPartner())
                     .setParameter("kompanija", woParametri.getWoKompanijaKorisnik().getId())
                     .setParameter("ojc", woPartnerSettings.get(0).getOrganizacionaJedinica())
@@ -355,7 +355,9 @@ public class OcpProizvodHome {
         int rowCount = 0;
         Query q;
         String namedQ = "findByActionTypePriceSorted";
+
         q = entityManager.createNamedQuery(namedQ)
+                .setParameter("klasaCene", woParametri.getKlasaCene())
                 .setParameter("tipakcije", tipAkcije)
                 .setParameter("partner", woPartnerSettings.get(0).getPoslovniPartner().getPoslovniPartner())
                 .setParameter("kompanija", woParametri.getWoKompanijaKorisnik().getId())
@@ -387,6 +389,7 @@ public class OcpProizvodHome {
         Query q;
         String namedQ = "findByNamePriceSorted";
         q = entityManager.createNamedQuery(namedQ)
+                .setParameter("klasaCene", woParametri.getKlasaCene())
                 .setParameter("namePattern", namePattern)
                 .setParameter("partner", woPartnerSettings.get(0).getPoslovniPartner().getPoslovniPartner())
                 .setParameter("kompanija", woParametri.getWoKompanijaKorisnik().getId())
@@ -411,6 +414,7 @@ public class OcpProizvodHome {
         int vrstaKlasifikacijeSort = 0;
         String namedQ = "findAllByBrandOrNamePriceSorted";
         Query q = entityManager.createNamedQuery(namedQ)
+                .setParameter("klasaCene", woParametri.getKlasaCene())
                 .setParameter("namePattern", patternNaziv)
                 .setParameter("partner", woPartnerSettings.get(0).getPoslovniPartner().getPoslovniPartner())
                 .setParameter("kompanija", woParametri.getWoKompanijaKorisnik().getId())
@@ -439,14 +443,14 @@ public class OcpProizvodHome {
         Session session = getSession();
         int rowCount = 0;
         int vrstaKlasifikacijeSort = 0;
-        StringBuffer q = new StringBuffer("  select p.*  from Ocp_Proizvod p, ocp_vr_atr_proizvod a, prod_cenovnik c, prod_stavka_cenovnika cs  where ( ");
+        StringBuffer q = new StringBuffer("  select p.*  from Ocp_Proizvod p, ocp_vr_atr_proizvod a, WoProdCene c  where ( ");
         String predicate = "";
         for (String pattern : patterns) {
             predicate = predicate + "lower(naziv_proizvoda||dodatni_naziv) like lower('%" + pattern + "%') and ";
         }
         q.append(predicate.substring(0, predicate.length() - 4));
         q.append(") and a.atribut# = :proveraZaliha "
-                +"  and a.proizvod# = p.proizvod# "
+                + "  and a.proizvod# = p.proizvod# "
                 + "   and ((exists (select 1 "
                 + "              from wo_partner_settings w, uz_stanje_zaliha_skladista u"
                 + "              where w.poslovni_partner# = :partner"
@@ -465,16 +469,14 @@ public class OcpProizvodHome {
                 + "              and s.proizvod#_ulaz = p.proizvod#"
                 + "              and u.proizvod#  = s.proizvod#_izlaz"
                 + "              and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1 ) and a.vrednost = 'SASTAV')"
-                + "       or a.vrednost = 'NE')"
+                + "       or a.vrednost = 'NE') "
+                + "     and c.klasaCene = :klasaCene"
                 + "    and c.organizaciona_jedinica# = :ojc "
                 + "     and c.id_klasa_cene = :klc "
                 + "     and c.id_cenovnik = :cenovnik "
                 + "     and c.datum_do is null "
                 + "     and c.datum_ov is not null "
-                + "     and c.organizaciona_jedinica# = cs.organizaciona_jedinica#"
-                + "     and c.id_klasa_cene = cs.id_klasa_cene "
-                + "     and c.id_cenovnik = cs.id_cenovnik"
-                + "     and cs.proizvod# = p.proizvod#  "
+                + "     and c.proizvod# = p.proizvod#  "
                 + "  and (exists (select 1 from ocp_klasifikacija_proizvoda km"
                 + "                  where km.vrsta_klasifikacije# = :vrstaKlasifikacijeMeni"
                 + "                   and km.klasifikacija# like  :brand||'%'"
@@ -484,6 +486,7 @@ public class OcpProizvodHome {
 
         String query = q.toString();
         Query qNative = entityManager.createNativeQuery(query, OcpProizvod.class)
+                .setParameter("klasaCene", woParametri.getKlasaCene())
                 .setParameter("partner", woPartnerSettings.get(0).getPoslovniPartner().getPoslovniPartner())
                 .setParameter("kompanija", woParametri.getWoKompanijaKorisnik().getId())
                 .setParameter("ojc", woPartnerSettings.get(0).getOrganizacionaJedinica())

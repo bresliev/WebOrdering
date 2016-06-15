@@ -12,10 +12,7 @@ import rs.invado.wo.dao.wo.WoPartnerSettingsHome;
 import rs.invado.wo.dao.wo.WoUserHome;
 import rs.invado.wo.dao.wo.WoUserRightsHome;
 import rs.invado.wo.domain.admin.AdminUserCinpos;
-import rs.invado.wo.domain.wo.WoKompanijaKorisnik;
-import rs.invado.wo.domain.wo.WoPartnerSetting;
-import rs.invado.wo.domain.wo.WoUser;
-import rs.invado.wo.domain.wo.WoUserHasRight;
+import rs.invado.wo.domain.wo.*;
 import rs.invado.wo.dto.CompanySetting;
 import rs.invado.wo.dto.Proizvodi;
 import rs.invado.wo.dto.User;
@@ -106,7 +103,7 @@ public class LogOnService {
                         "jdbc:oracle:thin:@localhost:1521:orcl", userName, password);*/
 
                 if (connection == null) {
-                    throw new   WOException(WOExceptionCodes.WO_UNEXESTING_USER);
+                    throw new WOException(WOExceptionCodes.WO_UNEXESTING_USER);
                 } else {
                     connection.close();
                     user.setWoUser(woUser);
@@ -118,7 +115,7 @@ public class LogOnService {
         }
         List<WoPartnerSetting> wpsc = wpscDAO.findByPartnerIdForCurrentCompany(woUser.getOcpPoslovniPartner().getPoslovniPartner(),
                 cs.getKompanijaKorisnikMap().get(OJ));
-System.out.println("partner setinga ima "+wpsc.size());
+
         if (wpsc.size() == 0)
             throw new WOException(WOExceptionCodes.WO_UNAUTHORIZED_USER);
         for (int i = 0; i < woUser.getOcpPoslovniPartner().getProdPpRabats().size(); i++) {
@@ -132,7 +129,7 @@ System.out.println("partner setinga ima "+wpsc.size());
             }
         }
         user.setWoPartnerSetting(wpsc);
-        Map<Integer, BigDecimal> ceneProizvoda = prodCenovnikDAO.findCeneMapped(wpsc.get(0));
+        Map<Integer, BigDecimal> ceneProizvoda = prodCenovnikDAO.findCeneMapped(wpsc.get(0), cs.getKompanijskiParametri().get(OJ));
         user.setCeneProizvoda(ceneProizvoda);
         user.setProdCenovnik(prodCenovnikDAO.findCenovnikAktuelni(wpsc.get(0)));
         user.setValuta(ocpValutaDAO.findByKlasa(wpsc.get(0), OJ));
@@ -147,16 +144,16 @@ System.out.println("partner setinga ima "+wpsc.size());
         return user;
     }
 
-    public void changePartner(int newPartnerId, CompanySetting cs, Integer OJ, User user) {
+    public void changePartner(int newPartnerId, CompanySetting cs, Integer OJ, User user, WoParametri woParametri) {
         List<WoPartnerSetting> wpsc = wpscDAO.findByPartnerIdForCurrentCompany(newPartnerId,
                 cs.getKompanijaKorisnikMap().get(OJ));
-        for (WoPartnerSetting setting: wpsc){
+        for (WoPartnerSetting setting : wpsc) {
             setting.setMaxRokPlacanja(wpsc.get(0).getPoslovniPartner().getProdPpRabats().get(0).getMaxRokPlacanja());
         }
 
         if (wpsc != null && wpsc.size() > 0) {
             user.setWoPartnerSetting(wpsc);
-            Map<Integer, BigDecimal> ceneProizvoda = prodCenovnikDAO.findCeneMapped(wpsc.get(0));
+            Map<Integer, BigDecimal> ceneProizvoda = prodCenovnikDAO.findCeneMapped(wpsc.get(0), woParametri);
             user.setCeneProizvoda(ceneProizvoda);
             user.setProdCenovnik(prodCenovnikDAO.findCenovnikAktuelni(wpsc.get(0)));
             user.setValuta(ocpValutaDAO.findByKlasa(wpsc.get(0), OJ));

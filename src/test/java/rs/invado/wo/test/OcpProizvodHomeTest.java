@@ -93,7 +93,7 @@ public class OcpProizvodHomeTest {
         wpsc.setIdCenovnik(18);
         wpsc.setIdKlasaCene(18);
         wpsc.setOrganizacionaJedinica(19);
-        Map<Integer, BigDecimal> m = prodCenovnikDAO.findCeneMapped(wpsc);
+        Map<Integer, BigDecimal> m = prodCenovnikDAO.findCeneMapped(wpsc, null);
         int i = 0;
         // Proizvodi p = ocpProizvodDAO.findProizvodiZaBrend("0101", m, 0, 10);
         //List<OcpProizvod> p = ocpProizvodDAO.findProizvodiByName("iverica opleme", 1, 0,  cs.getKompanijskiParametri().get(19));
@@ -112,7 +112,7 @@ public class OcpProizvodHomeTest {
 
         try {
             User user = logOnService.logOn("milomirtankosic01", "11111111", cs, oj);
-            Map<Integer, BigDecimal> m = prodCenovnikDAO.findCeneMapped(user.getWoPartnerSetting().get(0));
+            Map<Integer, BigDecimal> m = prodCenovnikDAO.findCeneMapped(user.getWoPartnerSetting().get(0), cs.getKompanijskiParametri().get(0));
 
             Proizvodi proizvodi = ps.getProizvodiZaBrendSorted("003401", m, 0, 15, cs.getKompanijskiParametri().get(19),
                     user.getWoPartnerSetting(), cs.getTrasportnaPakovanja(), cs, 19);
@@ -204,7 +204,7 @@ public class OcpProizvodHomeTest {
 
             /*CompanySetting cs =  new CompanySetting();
             User user = new User();  */
-            Map<Integer, BigDecimal> m = prodCenovnikDAO.findCeneMapped(user.getWoPartnerSetting().get(0));
+            Map<Integer, BigDecimal> m = prodCenovnikDAO.findCeneMapped(user.getWoPartnerSetting().get(0), cs.getKompanijskiParametri().get(0));
             //Proizvodi proizvodi = ps.getProizvodiZaBrend("0101", m, 0, 10) ;
         /*Proizvodi proizvodi = ps.getProzivodiNaAkcijiSorted("AKTUELNO", m, 0, 100); */
         /*Proizvodi proizvodi = ocpProizvodDAO.findProizvodiZaBrendSorted("0101", 0, 1050, cs.getKompanijskiParametri().get(19),

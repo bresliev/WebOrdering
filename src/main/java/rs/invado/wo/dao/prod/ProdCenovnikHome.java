@@ -11,7 +11,9 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import rs.invado.wo.domain.prod.ProdCenovnik;
 import rs.invado.wo.domain.prod.ProdCenovnikId;
+import rs.invado.wo.domain.wo.WoParametri;
 import rs.invado.wo.domain.wo.WoPartnerSetting;
+import rs.invado.wo.domain.wo.WoProdCene;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -82,17 +84,22 @@ public class ProdCenovnikHome {
         }
     }
 // woPartnerSkladisteCenovnik će biti globalni objekat
-    public HashMap findCeneMapped(WoPartnerSetting woPartnerSetting) {
+    public HashMap findCeneMapped(WoPartnerSetting woPartnerSetting, WoParametri woParametri) {
         Session session = entityManager.unwrap(Session.class);
         HashMap mapaCena = new HashMap();
-
-        List items = session.createQuery("select psc.ocpProizvod.proizvod, psc.cena " +
-                " from ProdCenovnik pc" +
-                " inner join pc.prodStavkaCenovnikas psc" +
+System.out.println("1: "+woParametri.getKlasaCene());
+        System.out.println("1: "+woParametri.getKlasaCene());
+        System.out.println("2: "+woPartnerSetting.getIdKlasaCene());
+        System.out.println("3: "+woPartnerSetting.getIdCenovnik());
+        System.out.println("4: "+woPartnerSetting.getOrganizacionaJedinica());
+        List items = session.createQuery("select pc.ocpProizvod.proizvod, pc.cena " +
+                " from WoProdCene pc" +
                 " where pc.id.idKlasaCene = :klasa" +
                 " and pc.id.idCenovnik = :cenovnik" +
                 " and pc.id.organizacionaJedinica = :oj" +
-                " and pc.datumDo is null")
+                " and pc.datumDo is null" +
+                " and pc.id.klasaCene = :klasaCene")
+                .setParameter("klasaCene", woParametri.getKlasaCene())
                 .setParameter("klasa", woPartnerSetting.getIdKlasaCene())
                 .setParameter("cenovnik", woPartnerSetting.getIdCenovnik())
                 .setParameter("oj", woPartnerSetting.getOrganizacionaJedinica()).list();
