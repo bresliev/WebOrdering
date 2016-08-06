@@ -11,7 +11,6 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class OcpKlasifikacijaProizvodaId  implements java.io.Serializable {
 
-
      private int vrstaKlasifikacije;
      private String klasifikacija;
      private int proizvod;

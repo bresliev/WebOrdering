@@ -33,8 +33,10 @@ import rs.invado.wo.service.ProductService;
 import rs.invado.wo.util.WOException;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import java.math.BigDecimal;
 import java.math.MathContext;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -50,25 +52,25 @@ import static org.junit.Assert.fail;
 @TransactionConfiguration(defaultRollback = false)
 public class OcpProizvodHomeTest {
 
-    @Autowired
+    @Inject
     private OcpProizvodHome ocpProizvodDAO;
-    @Autowired
+    @Inject
     private ProdCenovnikHome prodCenovnikDAO;
-    @Autowired
+    @Inject
     private ProductService ps;
-    @Autowired
+    @Inject
     private LogOnService logOnService;
     @Inject
     private AppInitService appInitService;
-    @Autowired
+    @Inject
     private WoRezervacijaHome woRezervacijaDAO;
-    @Autowired
+    @Inject
     private ProdNacinPlacanjaHome prodNacinPlacanjaDAO;
-    @Autowired
+    @Inject
     private WoParametriHome woParametriDAO;
-    @Autowired
+    @Inject
     private WoSetPoNacinPlacanjaHome woSetPoNacinPlacanjaDao;
-    @Autowired
+    @Inject
     private UzZaliheJsklHome uzZaliheJsklDAO;
     @Inject
     private UzStanjeZalihaSkladistaHome uzStanjeZalihaSkladistaDAO;
@@ -112,27 +114,23 @@ public class OcpProizvodHomeTest {
 
         try {
             User user = logOnService.logOn("milomirtankosic01", "11111111", cs, oj);
-            Map<Integer, BigDecimal> m = prodCenovnikDAO.findCeneMapped(user.getWoPartnerSetting().get(0), cs.getKompanijskiParametri().get(0));
+            Map<Integer, BigDecimal> m = prodCenovnikDAO.findCeneMapped(user.getWoPartnerSetting().get(0), cs.getKompanijskiParametri().get(19));
 
-            Proizvodi proizvodi = ps.getProizvodiZaBrendSorted("003401", m, 0, 15, cs.getKompanijskiParametri().get(19),
-                    user.getWoPartnerSetting(), cs.getTrasportnaPakovanja(), cs, 19);
+            Proizvodi proizvodi = ocpProizvodDAO.findProizvodiZaBrendSortedTest("003401", 0, 100, cs.getKompanijskiParametri().get(19),user.getWoPartnerSetting(), cs);
+            for (OcpProizvod proizvod : proizvodi.getProizvodList())
+                    System.out.println("klasifikacija je "+proizvod.getProizvod()+" "+proizvod.getSortKlasaComposite());
 
             /*Proizvodi proizvodi = ocpProizvodDAO.findProizvodiZaBrendSorted("003401", 0, 15, cs.getKompanijskiParametri().get(19),
                     user.getWoPartnerSetting(), cs);*/
 
+            /*
             for (OcpProizvod item : proizvodi.getProizvodList()) {
-                //item.setSastavProizvoda(ocpSastavProizvodaDAO.findByProizvod(item.getProizvod()));
                 if (item.getProizvod().equals(new Integer("334561"))) {
                     basketBusinessProcessing.increaseReservationCompositeObject(item, 19, new BigDecimal(1), "-125", user, new BigDecimal("1"));
 
                 }
-                /*for (OcpSastavProizvoda ocpSastavProizvoda : item.getSastavProizvoda()) {
-                    System.out.println("Sastav za "+item.getProizvod()+" sa cenom "+item.getCena()+" je "+ item.getNazivProizvoda() + " je "
-                            + ocpSastavProizvoda.getProizvodIzlaz().getProizvod()+" sa svojom cenom "+ocpSastavProizvoda.getProizvodIzlaz().getCena());
-
-                }*/
             }
-
+*/
             /*
             Proizvodi proizvodi = ocpProizvodDAO.findProizvodiByName("Fioka", 0, 15, cs.getKompanijskiParametri().get(19),
                     user.getWoPartnerSetting());
@@ -180,11 +178,13 @@ public class OcpProizvodHomeTest {
 
         } catch (WOException e) {
             System.out.println((e.getMessage()));
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
     @Test
-    public void btvz(){
+    public void btvz() {
 
         BigDecimal v1 = new BigDecimal(5);
         BigDecimal v2 = new BigDecimal(2);

@@ -17,6 +17,7 @@
     <context:component-scan base-package="rs.invado.wo.domain"/>
     <context:component-scan base-package="rs.invado.wo.dao"/>
     <context:component-scan base-package="rs.invado.wo.service"/>
+    <context:component-scan base-package="rs.invado.wo.util"/>
     <context:property-placeholder location="classpath:/META-INF/properties/wo-properties"/>
 
 

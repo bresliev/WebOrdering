@@ -60,11 +60,12 @@
         <class>rs.invado.wo.domain.ocp.OcpProizvod</class>
         <class>rs.invado.wo.domain.wo.WoMapKompanijskaSkladista</class>
         <class>rs.invado.wo.domain.wo.WoRezervacijaSastava</class>
+        <class>rs.invado.wo.domain.wo.WoProdCene</class>
 
 
         <properties>
             <!-- <property name="hibernate.hbm2ddl.auto" value="update" />        -->
-            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.show_sql" value="false"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle10gDialect"/>
         </properties>
     </persistence-unit>

@@ -87,11 +87,6 @@ public class ProdCenovnikHome {
     public HashMap findCeneMapped(WoPartnerSetting woPartnerSetting, WoParametri woParametri) {
         Session session = entityManager.unwrap(Session.class);
         HashMap mapaCena = new HashMap();
-System.out.println("1: "+woParametri.getKlasaCene());
-        System.out.println("1: "+woParametri.getKlasaCene());
-        System.out.println("2: "+woPartnerSetting.getIdKlasaCene());
-        System.out.println("3: "+woPartnerSetting.getIdCenovnik());
-        System.out.println("4: "+woPartnerSetting.getOrganizacionaJedinica());
         List items = session.createQuery("select pc.ocpProizvod.proizvod, pc.cena " +
                 " from WoProdCene pc" +
                 " where pc.id.idKlasaCene = :klasa" +

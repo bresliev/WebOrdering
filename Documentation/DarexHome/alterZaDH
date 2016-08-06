@@ -14,3 +14,46 @@ select 'MP', organizaciona_jedinica_ref, id_cenovnik,id_klasa_cene,
 from prod_prodajne_cene;
 
 alter table wo_map_kompanijska_skladista add raspoloziva_kolicina_u_skl varchar2(50);
+
+insert into ocp_vrsta_klasifikacije
+select id_namene, ima_strukturu, obaveznost, 23, 'KLASIFIKACIJA WO DH', opis, duzina_kljuca, tip_objekta#, vrsta, formira_zk
+from ocp_vrsta_klasifikacije
+where vrsta_klasifikacije# = 22;
+
+insert into ocp_klasifikacija
+select 23, klasifikacija#, naziv, klasifikacija#_nad, jedinica_mere#, opis, max_rabat, prikazisifruwo, sort, sort1, idporekla
+from ocp_klasifikacija
+where vrsta_klasifikacije# in ( 22, 23)
+and (klasifikacija# in (11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26, 30, 34)
+or klasifikacija#_nad in (11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26, 30, 34));
+
+insert into ocp_klasifikacija_proizvoda
+select 23, klasifikacija#, proizvod# from ocp_klasifikacija_proizvoda
+where klasifikacija# in (select klasifikacija# from ocp_klasifikacija
+                        where vrsta_klasifikacije# in ( 22, 23)
+                        and (klasifikacija# in (11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26, 30, 34)
+                        or klasifikacija#_nad in (11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26, 30, 34)))
+and vrsta_klasifikacije# in ( 22, 23);
+
+insert into ocp_vr_atr_proizvod
+select 23, klasifikacija#, proizvod#, atribut#, vrednost from ocp_vr_atr_proizvod
+where (vrsta_klasifikacije#, klasifikacija#, proizvod#) in (select vrsta_klasifikacije#, klasifikacija#, proizvod# from ocp_klasifikacija_proizvoda
+where klasifikacija# in (select klasifikacija# from ocp_klasifikacija
+                        where vrsta_klasifikacije# in ( 22, 23)
+                        and (klasifikacija# in (11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26, 30, 34)
+                        or klasifikacija#_nad in (11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26, 30, 34)))
+and vrsta_klasifikacije# in ( 22, 23));
+
+update wo_parametri
+set vrsta_klasifikacije_meni = 23
+WHERE id_kompanija_korisnik in (select id from wo_kompanija_korisnik
+where naziv like '%DAREX%HOME%');
+
+alter table wo_rezervacija drop column compositearticle;
+alter table wo_rezervacija drop column compositearticlequantity;
+alter table wo_rezervacija drop column compositearticlepackquantity;
+alter table wo_rezervacija drop column compositearticleunitofmeasure;
+alter table wo_rezervacija drop column compositearticleprice;
+
+alter table wo_map_kompanijska_skladista add rezervacija_po_pakovanju varchar2(2);
+alter table wo_map_kompanijska_skladista add id_vd_rezervacije number;

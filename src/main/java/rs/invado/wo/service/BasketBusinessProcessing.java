@@ -174,7 +174,7 @@ public class BasketBusinessProcessing {
                     for (WoMapKompanijskaSkladista woMapKompanijskaSkladista : woKompanijaKorisnik.getWoMapKompanijskaSkladistas()) {
                         if (woMapKompanijskaSkladista != null && woMapKompanijskaSkladista.getUzSkladisteRaspolozivo() != null)
                             if (woMapKompanijskaSkladista.getUzSkladisteRaspolozivo().getIdSkladista() == uzStanjeZalihaSkladistaId.getIdSkladista()) {
-                                if (woMapKompanijskaSkladista.isRezervisiURaspolozivo()) {
+                                if (woMapKompanijskaSkladista.getRezervisiURaspolozivo().equals(1)) {
                                     //rezervi??i robu u magacinu koji daje raspolozivu kolicinu
                                     uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.multiply(ocpProizvod.getKolicinaPoPakovanju().multiply(ocpSastavProizvoda.getKolicinaUgradnje())).doubleValue(), 1);
                                 }
@@ -237,12 +237,16 @@ public class BasketBusinessProcessing {
     }
 
 
-
     public void increaseReservation(OcpProizvod ocpProizvod, int currentOJ, BigDecimal narucenaKolicina, String sessionId, User user,
                                     BigDecimal pakovanje)
             throws WOException {
 
-        BigDecimal aktuelnoPakovanje = pakovanje == null ? ocpProizvod.getKolicinaPoPakovanju() : pakovanje;
+        BigDecimal aktuelnoPakovanje;
+        if (ocpProizvod.getJedinicaMereRezervacije().equals("ALTERNATIVNA")) {
+            aktuelnoPakovanje = pakovanje == null ? ocpProizvod.getKolicinaPoPakovanju() : pakovanje;
+        } else {
+            aktuelnoPakovanje = new BigDecimal(1);
+        }
         String basketIndex = ocpProizvod.getProizvod() + "/" + aktuelnoPakovanje;
 
         WoKompanijaKorisnik woKompanijaKorisnik = woKompanijaKorisnikDAO.findByCoresponingOJ(currentOJ);
@@ -263,7 +267,7 @@ public class BasketBusinessProcessing {
                 for (WoMapKompanijskaSkladista woMapKompanijskaSkladista : woKompanijaKorisnik.getWoMapKompanijskaSkladistas()) {
                     if (woMapKompanijskaSkladista != null && woMapKompanijskaSkladista.getUzSkladisteRaspolozivo() != null)
                         if (woMapKompanijskaSkladista.getUzSkladisteRaspolozivo().getIdSkladista() == uzStanjeZalihaSkladistaId.getIdSkladista()) {
-                            if (woMapKompanijskaSkladista.isRezervisiURaspolozivo()) {
+                            if (woMapKompanijskaSkladista.getRezervisiURaspolozivo().equals(1)) {
                                 //rezervi??i robu u magacinu koji daje raspolozivu kolicinu
                                 uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.multiply(ocpProizvod.getKolicinaPoPakovanju()).doubleValue(), 1);
                             }
@@ -354,7 +358,7 @@ public class BasketBusinessProcessing {
                 if (!woKompanijaKorisnik.getWoMapKompanijskaSkladistas().isEmpty()) {
                     for (WoMapKompanijskaSkladista woMapKompanijskaSkladista : woKompanijaKorisnik.getWoMapKompanijskaSkladistas()) {
                         if (woMapKompanijskaSkladista.getUzSkladisteRaspolozivo().getIdSkladista() == woRezervacijaSastava.getIdSkladista()) {
-                            if (woMapKompanijskaSkladista.isRezervisiURaspolozivo()) {
+                            if (woMapKompanijskaSkladista.getRezervisiURaspolozivo().equals(1)) {
                                 //rezervi??i robu u magacinu koji daje raspolozivu kolicinu
                                 uzStanjeZalihaSkladistaId.setIdSkladista(ocpProizvod.getMaticnoSkladiste());
                                 uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.multiply(woRezervacijaSastava.getKolicinaUgradnje()).doubleValue(), -1);
@@ -434,7 +438,7 @@ public class BasketBusinessProcessing {
             if (!woKompanijaKorisnik.getWoMapKompanijskaSkladistas().isEmpty()) {
                 for (WoMapKompanijskaSkladista woMapKompanijskaSkladista : woKompanijaKorisnik.getWoMapKompanijskaSkladistas()) {
                     if (woMapKompanijskaSkladista.getUzSkladisteRaspolozivo().getIdSkladista() == ocpProizvod.getMaticnoSkladiste()) {
-                        if (woMapKompanijskaSkladista.isRezervisiURaspolozivo()) {
+                        if (woMapKompanijskaSkladista.getRezervisiURaspolozivo().equals(1)) {
                             //rezervi??i robu u magacinu koji daje raspolozivu kolicinu
                             uzStanjeZalihaSkladistaId.setIdSkladista(ocpProizvod.getMaticnoSkladiste());
 
@@ -557,7 +561,7 @@ public class BasketBusinessProcessing {
                 dokumentaMap.get(skl.getIdSkladista() + "").getIdVd(), ocpProizvod.getProizvod(), rabat);
 
         if (uzDokumentStavka != null) {
-                    uzDokumentStavka.setNavedKol(uzDokumentStavka.getNavedKol().add(kolicina));
+            uzDokumentStavka.setNavedKol(uzDokumentStavka.getNavedKol().add(kolicina));
             if (ocpProizvod.getPrimeniJsklPakovanje()) {
                 UzDokumentStavkaPakovanje uzDokumentStavkaPakovanje = uzDokumentStavkaPakovanjeDAO.findPakovanjByStavka(dokumentaMap.get(skl.getIdSkladista() + "").getIdDokumenta(),
                         dokumentaMap.get(skl.getIdSkladista() + "").getIdVd(), uzDokumentStavka.getId().getRbStavke(), kolPoPakovanju);

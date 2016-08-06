@@ -5,6 +5,7 @@ import org.apache.commons.lang.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import rs.invado.wo.dao.ocp.OcpKlasifikacijaProizvodaHome;
 import rs.invado.wo.dao.ocp.OcpProizvodHome;
 import rs.invado.wo.dao.ocp.OcpVrAtrProizvodHome;
 import rs.invado.wo.dao.prod.ProdPpRabatStavkaHome;
@@ -20,12 +21,14 @@ import rs.invado.wo.domain.ocp.OcpVrAtrProizvod;
 import rs.invado.wo.domain.prod.ProdPpRabatStavka;
 import rs.invado.wo.domain.uz.UzSkladiste;
 import rs.invado.wo.domain.uz.UzStanjeZalihaSkladista;
+import rs.invado.wo.domain.uz.UzStanjeZalihaSkladistaId;
 import rs.invado.wo.domain.wo.WoArtikliNaAkciji;
 import rs.invado.wo.domain.wo.WoMapKompanijskaSkladista;
 import rs.invado.wo.domain.wo.WoParametri;
 import rs.invado.wo.domain.wo.WoPartnerSetting;
 import rs.invado.wo.dto.CompanySetting;
 import rs.invado.wo.dto.Proizvodi;
+import rs.invado.wo.dto.VrAtrProizvod;
 import rs.invado.wo.util.WoConfigSingleton;
 
 import javax.inject.Inject;
@@ -38,15 +41,17 @@ import java.util.*;
 @Transactional
 public class ProductService {
 
-    @Autowired
+    @Inject
     private OcpProizvodHome ocpProizvodDAO;
-    @Autowired
+    @Inject
     private OcpVrAtrProizvodHome ocpVrAtrProizvodDAO;
-    @Autowired
+    @Inject
+    private OcpKlasifikacijaProizvodaHome ocpKlasifikacijaProizvodaHome;
+    @Inject
     private WoArtikliNaAkcijiHome woArtikliNaAkcijiDAO;
-    @Autowired
+    @Inject
     private ProdPpRabatStavkaHome prodPpRabatStavkaDAO;
-    @Autowired
+    @Inject
     private UzZaliheJsklHome uzZaliheJsklDAO;
     @Inject
     private UzStanjeZalihaSkladistaHome uzStanjeZalihaSkladistaDAO;
@@ -99,6 +104,38 @@ public class ProductService {
             //setuj atribute
             String dezenIStruktura = "";
             String vrAtr = null;
+
+            List<VrAtrProizvod> vatpList = ocpVrAtrProizvodDAO.findByNivoAtributa(item.getProizvod(), woConfigSingleton.getAttributes());
+
+            for (OcpKlasifikacijaProizvoda klasifikacijaProizvoda : item.getOcpKlasifikacijaProizvoda()) {
+                for (VrAtrProizvod ocpVrAtrProizvod : vatpList) {
+                    if (klasifikacijaProizvoda.getId().getVrstaKlasifikacije() == 1
+                            && ocpVrAtrProizvod.getVrstaKlasifikacije() == 1) {
+                        if (ocpVrAtrProizvod.getAtribut() == Integer.valueOf(woConfigSingleton.getAttributes()[0]) && ocpVrAtrProizvod.getVrednost() != null) {
+                            dezenIStruktura = dezenIStruktura + " " + ocpVrAtrProizvod.getVrednost();
+                        } else if (ocpVrAtrProizvod.getAtribut() == Integer.valueOf(woConfigSingleton.getAttributes()[1]) && ocpVrAtrProizvod.getVrednost() != null) {
+                            dezenIStruktura = dezenIStruktura + " " + ocpVrAtrProizvod.getVrednost();
+                        } else if (ocpVrAtrProizvod.getAtribut() == Integer.valueOf(woConfigSingleton.getAttributes()[2]) && ocpVrAtrProizvod.getVrednost() != null) {
+                            item.setProizvodjac(ocpVrAtrProizvod.getVrednost());
+                        }
+                    } else if (klasifikacijaProizvoda.getId().getVrstaKlasifikacije() == woParametri.getVrstaKlasifikacijeMeni()
+                            && ocpVrAtrProizvod.getVrstaKlasifikacije() == woParametri.getVrstaKlasifikacijeMeni()) {
+                        if (ocpVrAtrProizvod.getAtribut() == Integer.valueOf(woConfigSingleton.getAttributes()[3]) && ocpVrAtrProizvod.getVrednost() != null
+                                && ocpVrAtrProizvod.getVrednost().equals("DA")) {
+                            item.setPrimeniJsklPakovanje(true);
+                        } else {
+                            item.setPrimeniJsklPakovanje(false);
+                        }
+                        if (ocpVrAtrProizvod.getAtribut() == Integer.valueOf(woConfigSingleton.getAttributes()[4]) && ocpVrAtrProizvod.getVrednost() != null) {
+                            item.setProveraZaliha(ocpVrAtrProizvod.getVrednost());
+                        }
+                    }
+                }
+            }
+            item.setDezenIstruktira(dezenIStruktura);
+            item.setJedinicaMereRezervacije(woParametri.getJedinicaMereRezervacije());
+
+            /*
             for (OcpKlasifikacijaProizvoda klasifikacijaProizvoda : item.getOcpKlasifikacijaProizvoda()) {
                 OcpVrAtrProizvod vatp = new OcpVrAtrProizvod();
                 //parametrizuj da čita samo atribute za klasifiakciju 1
@@ -139,7 +176,7 @@ public class ProductService {
                     vatp = null;
                 }
             }
-
+*/
             //Setuj default pakovanja
             if (transportnaPakovanjaProizvoda != null)
                 item.setKolicinaPoPakovanju(transportnaPakovanjaProizvoda.get(item.getProizvod()));
@@ -149,12 +186,7 @@ public class ProductService {
             Set<Integer> skladista = new HashSet<Integer>();
             for (WoPartnerSetting wps : woPartnerSetting) {
                 skladista.add(new Integer(wps.getIdSkladista()));
-                WoMapKompanijskaSkladista woMapKompanijskaSkladista = woMapKompanijskaSkladistaHome.findActualSklRaspolozivo(uzSkladisteHome.findById(wps.getIdSkladista()));
-                if (woMapKompanijskaSkladista.getRaspolozivaKolicinaUSkl().equals("OBASKLADISTA"))
-                    skladista.add(woMapKompanijskaSkladista.getUzSkladisteRezervacija().getIdSkladista());
-
             }
-
             for (Integer wps : skladista)
                 if (item.getProveraZaliha().equals("DA")) {
                     for (UzStanjeZalihaSkladista uzskl : item.getUzStanjeZalihaSkladistas()) {
@@ -164,6 +196,13 @@ public class ProductService {
                             raspolozivaKolicina = raspolozivaKolicina.add(uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()));
                             item.setMaticnoSkladiste(uzskl.getId().getIdSkladista());
                             obradjenoSkl = wps.intValue();
+
+                            WoMapKompanijskaSkladista woMapKompanijskaSkladista = woMapKompanijskaSkladistaHome.findActualSklRaspolozivo(uzSkladisteHome.findById(wps.intValue()));
+                            if (!(woMapKompanijskaSkladista == null) && woMapKompanijskaSkladista.getRaspolozivaKolicinaUSkl().equals("OBASKLADISTA")) {
+                                UzStanjeZalihaSkladistaId uzStanjeZalihaSkladistaId = new UzStanjeZalihaSkladistaId(item.getProizvod(), (short) woMapKompanijskaSkladista.getUzSkladisteRaspolozivo().getIdSkladista());
+                                UzStanjeZalihaSkladista uzStanjeZalihaSkladista = uzStanjeZalihaSkladistaDAO.findById(uzStanjeZalihaSkladistaId);
+                                raspolozivaKolicina = raspolozivaKolicina.add(uzStanjeZalihaSkladista.getKolicinaPoStanjuZ().subtract(uzStanjeZalihaSkladista.getRezervisanaKol()));
+                            }
                             if (item.getPrimeniJsklPakovanje()) {
                                 item.setBrojPakovanja(uzZaliheJsklDAO.findJsklPakPerPro(item.getProizvod(), item.getMaticnoSkladiste(), null));
                                 List<BigDecimal> pakNaZal = new ArrayList<BigDecimal>();

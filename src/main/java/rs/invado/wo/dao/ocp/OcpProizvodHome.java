@@ -7,6 +7,7 @@ import org.apache.commons.lang.time.DateUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Criteria;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.criterion.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ import rs.invado.wo.util.WoConfigSingleton;
 import javax.inject.Inject;
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.sql.SQLException;
 import java.util.*;
 
 /**
@@ -48,8 +50,17 @@ public class OcpProizvodHome {
 
     @PersistenceContext
     private EntityManager entityManager;
-    @Autowired
+    @Inject
     private OcpKlasifikacijaHome ocpKlasifikacijaDAO;
+    @Inject
+    private OcpJedinicaMereHome ocpJedinicaMereDAO;
+
+    public static String getNamedQueryString(EntityManager em, String queryName) throws SQLException {
+        Query tmpQuery = em.createNamedQuery(queryName);
+        SQLQuery sqlQuery = tmpQuery.unwrap(SQLQuery.class);
+        String queryString = sqlQuery.getQueryString();
+        return queryString;
+    }
 
     public Session getSession() {
         return entityManager.unwrap(Session.class);
@@ -103,6 +114,30 @@ public class OcpProizvodHome {
         }
     }
 
+
+    public OcpProizvod getProizvodFromNativeQueryObject(Object[] object) {
+
+        OcpProizvod proizvod = new OcpProizvod();
+        proizvod.setProizvod(object[0] != null ? Integer.valueOf(object[0].toString()) : null);
+        proizvod.setNazivProizvoda(object[1] != null ? object[1].toString() : null);
+        proizvod.setRadnik(object[5] != null ? Integer.valueOf(object[5].toString()) : null);
+        proizvod.setJedinicaMere(object[6] != null ? ocpJedinicaMereDAO.findById(Integer.valueOf(object[6].toString())) : null);
+        proizvod.setDodatniNaziv(object[7] != null ? object[7].toString() : null);
+        proizvod.setJedinicaMereAltRef(object[33] != null ? ocpJedinicaMereDAO.findById(Integer.valueOf(object[33].toString())) : null);
+        proizvod.setCena(object[34] != null ? new BigDecimal(object[34].toString()) : null);
+        proizvod.setTipAkcije(object[37] != null ? object[37].toString() : null);
+        proizvod.setDezenIstruktira(object[35] != null ? object[35].toString() : null);
+        proizvod.setProizvodjac(object[36] != null ? object[36].toString() : null);
+        proizvod.setKolicinaPoPakovanju(object[38] != null ? new BigDecimal(object[38].toString()) : null);
+        proizvod.setRaspolozivo(object[39] != null ? new BigDecimal(object[39].toString()) : null);
+        proizvod.setKolUAltJM(object[42] != null ? Integer.valueOf(object[42].toString()) : null);
+        proizvod.setStopaPoreza(object[43] != null ? new BigDecimal(object[43].toString()) : null);
+        proizvod.setSortKlasa(object[44] != null ? object[44].toString() : null);
+        proizvod.setJedinicaMereRezervacije(object[45] != null ? object[45].toString() : null);
+        proizvod.setPunNazivProizvoda(proizvod.getNazivProizvoda() + " " + proizvod.getDodatniNaziv());
+
+        return proizvod;
+    }
 
     private int getRowCount(Criteria cr) {
         Criteria crRowCount = cr.setProjection(Projections.rowCount());
@@ -292,6 +327,8 @@ public class OcpProizvodHome {
             proizvod.setKolUAltJM((Integer) parovi[9]);
             proizvod.setStopaPoreza((BigDecimal) parovi[10]);
             proizvod.setSortKlasa((String) parovi[11]);
+
+
             lp.add(proizvod);
         }
 
@@ -346,6 +383,90 @@ public class OcpProizvodHome {
         return new Proizvodi(lp, vrstaKlasifikacijeSort, rowCount);
     }
 
+
+    public Proizvodi findProizvodiZaBrendSortedTest(String brand, int pageNo, int pageSize, WoParametri woParametri,
+                                                    List<WoPartnerSetting> woPartnerSettings, CompanySetting cs) throws SQLException {
+
+        //potrebno je da pro ima i osnovnu jm i alernativnu. ukoliko nije svojstveno ondaje osnovnoa = alternativnoj, postaviti triger i uraditi upradte tabele.
+        List<OcpProizvod> lp = new ArrayList<OcpProizvod>();
+        int vrstaKlasifikacijeSort = 0;
+        int rowCount = 0;
+        String namedQ;
+        Query q;
+        List<OcpKlasifikacija> meni = cs.getMeni().get(woParametri.getWoKompanijaKorisnik().getCorrespondingOJ() + "");
+        for (OcpKlasifikacija ocpKlasifikacija : meni)
+            if (ocpKlasifikacija.getId().getKlasifikacija().equals(brand))
+                vrstaKlasifikacijeSort = ocpKlasifikacija.getSortByClass().intValue();
+        if (vrstaKlasifikacijeSort != 0) {
+            System.out.println("Da da radimo soritranje 1");
+            namedQ = "findAllByBrandSortedTest";
+            StringBuilder query = new StringBuilder(getNamedQueryString(entityManager, namedQ));
+            query.replace(query.indexOf("cut"), query.indexOf("cut") + 3, "'1122'  sortKlasaComposite");
+            q = entityManager.createNativeQuery(namedQ)
+                    .setParameter("partner", woPartnerSettings.get(0).getPoslovniPartner().getPoslovniPartner())
+                    .setParameter("kompanija", woParametri.getWoKompanijaKorisnik().getId())
+                    .setParameter("vrstaKlasifikacijeSort", vrstaKlasifikacijeSort)
+                    .setParameter("vrstaKlasifikacijeMeni", woParametri.getVrstaKlasifikacijeMeni())
+                    .setParameter("proveraZaliha", woConfigSingleton.getAttributes()[4])
+                    .setParameter("brand", brand);
+
+        } else {
+
+            namedQ = "findAllByBrandPriceSortedTest";
+            StringBuilder query = new StringBuilder(getNamedQueryString(entityManager, namedQ));
+            query.replace(query.indexOf("cut"), query.indexOf("cut") + 3, "'1122'  sortKlasaComposite");
+            q = entityManager.createNativeQuery(query.toString())
+                    .setParameter("klasaCene", woParametri.getKlasaCene())
+                    .setParameter("partner", woPartnerSettings.get(0).getPoslovniPartner().getPoslovniPartner())
+                    .setParameter("kompanija", woParametri.getWoKompanijaKorisnik().getId())
+                    .setParameter("ojc", woPartnerSettings.get(0).getOrganizacionaJedinica())
+                    .setParameter("klc", woPartnerSettings.get(0).getIdKlasaCene())
+                    .setParameter("cenovnik", woPartnerSettings.get(0).getIdCenovnik())
+                    .setParameter("vrstaKlasifikacijeMeni", woParametri.getVrstaKlasifikacijeMeni())
+                    .setParameter("proveraZaliha", woConfigSingleton.getAttributes()[4])
+                    .setParameter("brand", brand);
+
+
+/*
+
+        if (pageNo == 0) rowCount = qNative.getResultList().size();
+
+        qNative.setFirstResult(pageNo * pageSize);
+        qNative.setMaxResults(pageSize);
+
+        List<OcpProizvod> lp = qNative.getResultList();
+        for (OcpProizvod proizvod : lp) {
+            proizvod.setPunNazivProizvoda(proizvod.getNazivProizvoda() + " " + proizvod.getDodatniNaziv());
+        }
+
+        return new Proizvodi(lp, vrstaKlasifikacijeSort, rowCount);
+
+            q = entityManager.createNamedQuery(namedQ)
+                    .setParameter("klasaCene", woParametri.getKlasaCene())
+                    .setParameter("partner", woPartnerSettings.get(0).getPoslovniPartner().getPoslovniPartner())
+                    .setParameter("kompanija", woParametri.getWoKompanijaKorisnik().getId())
+                    .setParameter("ojc", woPartnerSettings.get(0).getOrganizacionaJedinica())
+                    .setParameter("klc", woPartnerSettings.get(0).getIdKlasaCene())
+                    .setParameter("cenovnik", woPartnerSettings.get(0).getIdCenovnik())
+                    .setParameter("vrstaKlasifikacijeMeni", woParametri.getVrstaKlasifikacijeMeni())
+                    .setParameter("proveraZaliha", woConfigSingleton.getAttributes()[4])
+                    .setParameter("brand", brand)
+                    .setParameter("sortKlasaComposite", "1122")
+                    .setParameter("sort", "47");*/
+
+        }
+
+        if (pageNo == 0) rowCount = q.getResultList().size();
+
+        q.setFirstResult(pageNo * pageSize);
+        q.setMaxResults(pageSize);
+
+        List<Object[]> cdList = q.getResultList();
+        for (Object[] o : cdList)
+            lp.add(getProizvodFromNativeQueryObject(o));
+
+        return new Proizvodi(lp, vrstaKlasifikacijeSort, rowCount);
+    }
 
     public Proizvodi findProizvodiNaAkcijiSorted(String brandID, String tipAkcije, int pageNo, int pageSize, WoParametri woParametri,
                                                  List<WoPartnerSetting> woPartnerSettings) {
