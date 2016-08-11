@@ -401,11 +401,10 @@ public class OcpProizvodHome {
             System.out.println("Da da radimo soritranje 1");
             namedQ = "findAllByBrandSortedTest";
             StringBuilder query = new StringBuilder(getNamedQueryString(entityManager, namedQ));
-            query.replace(query.indexOf("cut"), query.indexOf("cut") + 3, "'1122'  sortKlasaComposite");
-            q = entityManager.createNativeQuery(namedQ)
+            query.replace(query.indexOf("cut"), query.indexOf("cut") + 3, "1");
+            q = entityManager.createNativeQuery(query.toString())
                     .setParameter("partner", woPartnerSettings.get(0).getPoslovniPartner().getPoslovniPartner())
                     .setParameter("kompanija", woParametri.getWoKompanijaKorisnik().getId())
-                    .setParameter("vrstaKlasifikacijeSort", vrstaKlasifikacijeSort)
                     .setParameter("vrstaKlasifikacijeMeni", woParametri.getVrstaKlasifikacijeMeni())
                     .setParameter("proveraZaliha", woConfigSingleton.getAttributes()[4])
                     .setParameter("brand", brand);
@@ -414,7 +413,7 @@ public class OcpProizvodHome {
 
             namedQ = "findAllByBrandPriceSortedTest";
             StringBuilder query = new StringBuilder(getNamedQueryString(entityManager, namedQ));
-            query.replace(query.indexOf("cut"), query.indexOf("cut") + 3, "'1122'  sortKlasaComposite");
+            //query.replace(query.indexOf("cut"), query.indexOf("cut") + 3, "'1122'  sortKlasaComposite");
             q = entityManager.createNativeQuery(query.toString())
                     .setParameter("klasaCene", woParametri.getKlasaCene())
                     .setParameter("partner", woPartnerSettings.get(0).getPoslovniPartner().getPoslovniPartner())

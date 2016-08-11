@@ -116,7 +116,7 @@ public class OcpProizvodHomeTest {
             User user = logOnService.logOn("milomirtankosic01", "11111111", cs, oj);
             Map<Integer, BigDecimal> m = prodCenovnikDAO.findCeneMapped(user.getWoPartnerSetting().get(0), cs.getKompanijskiParametri().get(19));
 
-            Proizvodi proizvodi = ocpProizvodDAO.findProizvodiZaBrendSortedTest("003401", 0, 100, cs.getKompanijskiParametri().get(19),user.getWoPartnerSetting(), cs);
+            Proizvodi proizvodi = ocpProizvodDAO.findProizvodiZaBrendSortedTest("000102", 0, 100, cs.getKompanijskiParametri().get(19),user.getWoPartnerSetting(), cs);
             for (OcpProizvod proizvod : proizvodi.getProizvodList())
                     System.out.println("klasifikacija je "+proizvod.getProizvod()+" "+proizvod.getSortKlasaComposite());
 

@@ -190,76 +190,83 @@ import java.util.*;
                         + "              and s.proizvod#_ulaz = p.proizvod#"
                         + "              and u.proizvod#  = s.proizvod#_izlaz"
                         + "              and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1) and a.vrednost = 'SASTAV')"
-                        + "       or a.vrednost = 'NE')" +
-                        " and k.vrsta_Klasifikacije# = :vrstaKlasifikacijeSort " +
-                        " and k.proizvod# = p.proizvod# " +
-                        " and exists (select 1 from ocp_klasifikacija_proizvoda km" +
-                        "            where km.vrsta_klasifikacije# = :vrstaKlasifikacijeMeni" +
-                        "            and klasifikacija# = :brand" +
-                        "            and km.proizvod# = p.proizvod#)"
+                        + "       or a.vrednost = 'NE')"
+                        + " and k.vrsta_Klasifikacije# = :vrstaKlasifikacijeSort "
+                        + " and k.proizvod# = p.proizvod# "
+                        + " and exists (select 1 from ocp_klasifikacija_proizvoda km"
+                        + "            where km.vrsta_klasifikacije# = :vrstaKlasifikacijeMeni"
+                        + "            and klasifikacija# = :brand"
+                        + "            and km.proizvod# = p.proizvod#)"
                         + " order by sortKlasa, punNazivProizvoda ", resultSetMapping = "proizvodRecord"),
         @NamedNativeQuery(name = "findAllByBrandSortedTest",
-                query = "select p.PROIZVOD#,p.NAZIV_PROIZVODA,p.ROK_VAZENJA,p.DATUM_OTV,p.GRUPA_PROIZVODA#,p.RADNIK#,p.JEDINICA_MERE#, p.DODATNI_NAZIV ,p.KOD_KB," +
-                        "p.MIN_NIVO_ZALIHA,p.MAX_NIVO_ZALIHA,p.OPTIMALNI_NIVO_ZALIHA,p.JM_AKTIVITETA,p.KONTINUALNA_PR, p.SLEDLJIVOST,p.KOD_PAKOVANJA,p.FAMILIJA_REF," +
-                        "p.NAZIV_NA_ENGLESKOM,p.VREME_NABAVKE, p.VREME_KONTROLE,p.ORDER_MIN_KOLICINA,p.ORDER_MAX_KOLICINA,p.OVER_QUANTITY_CONTROL,p.DAYS_EARLY_RECEIPT," +
-                        "p.DAYS_LATE_RECEIPT,p.RECEIPT_DATE_CONTROL,p.OBRISAO_RADNIK#,p.DATUM_BRISANJA,p.VERSION_CONTROL,p.SERIAL_CONTROL,p.DATUM_KRAJA_AKCIJE," +
-                        "p.DATUM_DEKOR_MESECA, p.slika, p.ID_JEDINICE_MERE_ALT_REF,  null cena, null dezenIstruktira, null proizvodjac, null tipAkcije, null kolicinaPoPakovanju, " +
-                        "null raspolozivo, naziv_proizvoda||dodatni_naziv punNazivProizvoda, null maticnoSkladiste, null kolUAltJM, null stopaPoreza, k.klasifikacija# sortKlasa" +
-                        ", null jedinicaMereRezervacije, :sortKlasaComposite sortKlasaComposite  " +
-                        " from Ocp_Proizvod p, ocp_klasifikacija_proizvoda k, ocp_vr_atr_proizvod a " +
-                        " where p.proizvod# = a.proizvod#" +
-                        " and a.atribut# = :proveraZaliha "
-                        + "   and ((exists (select 1 "
-                        + "              from wo_partner_settings w, uz_stanje_zaliha_skladista u"
-                        + "              where w.poslovni_partner# = :partner"
-                        + "              and w.id_kompanija_korisnik = :kompanija"
-                        + "              and w.id_skladista = u.id_skladista"
-                        + "              and u.proizvod# = p.proizvod# "
-                        + "              and u.kolicina_po_stanju_z - u.rezervisana_kol >0 "
-                        + "              UNION "
-                        + "              select 1"
-                        + "              from wo_partner_settings w, wo_map_kompanijska_skladista ks, uz_stanje_zaliha_skladista u"
-                        + "              where w.poslovni_partner# = :partner"
-                        + "              and w.id_kompanija_korisnik = :kompanija"
-                        + "              and w.id_kompanija_korisnik = ks.id_kompanije_korisnik"
-                        + "              and w.id_skladista = ks.id_skladista_raspolozivo "
-                        + "             and ks.id_skladista_rezervacija = u.id_skladista "
-                        + "             and u.proizvod# = p.proizvod# "
-                        + "             and u.kolicina_po_stanju_z - u.rezervisana_kol > 0 "
-                        + "             and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA') "
-                        + "        and a.vrednost = 'DA')"
-                        + "        or (exists (select 1"
-                        + "              from wo_partner_settings w, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak "
-                        + "              where w.poslovni_partner# = :partner"
-                        + "              and w.id_kompanija_korisnik = :kompanija"
-                        + "              and w.id_skladista = u.id_skladista"
-                        + "              and s.proizvod#_ulaz = pak.proizvod_ref"
-                        + "              and pak.transportno = 'DA'"
-                        + "              and s.proizvod#_ulaz = p.proizvod#"
-                        + "              and u.proizvod#  = s.proizvod#_izlaz"
-                        + "              and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1"
-                        + "               UNION "
-                        + "              select 1"
-                        + "              from wo_partner_settings w,  wo_map_kompanijska_skladista ks, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak "
-                        + "              where w.poslovni_partner# = :partner"
-                        + "              and w.id_kompanija_korisnik = :kompanija"
-                        + "              and w.id_kompanija_korisnik = ks.id_kompanije_korisnik "
-                        + "              and w.id_skladista = ks.id_skladista_raspolozivo "
-                        + "              and ks.id_skladista_rezervacija = u.id_skladista "
-                        + "              and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA' "
-                        + "              and s.proizvod#_ulaz = pak.proizvod_ref"
-                        + "              and pak.transportno = 'DA'"
-                        + "              and s.proizvod#_ulaz = p.proizvod#"
-                        + "              and u.proizvod#  = s.proizvod#_izlaz"
-                        + "              and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1) and a.vrednost = 'SASTAV')"
-                        + "       or a.vrednost = 'NE')" +
-                        " and k.vrsta_Klasifikacije# = :vrstaKlasifikacijeSort " +
-                        " and k.proizvod# = p.proizvod# " +
-                        " and exists (select 1 from ocp_klasifikacija_proizvoda km" +
-                        "            where km.vrsta_klasifikacije# = :vrstaKlasifikacijeMeni" +
-                        "            and klasifikacija# = :brand" +
-                        "            and km.proizvod# = p.proizvod#)"
-                        + " order by :sort ", resultSetMapping = "proizvodRecord"),
+                query = "select p.PROIZVOD#,p.NAZIV_PROIZVODA,p.ROK_VAZENJA,p.DATUM_OTV,p.GRUPA_PROIZVODA#,p.RADNIK#,p.JEDINICA_MERE#, p.DODATNI_NAZIV ,p.KOD_KB, " +
+                        "                        p.MIN_NIVO_ZALIHA,p.MAX_NIVO_ZALIHA,p.OPTIMALNI_NIVO_ZALIHA,p.JM_AKTIVITETA,p.KONTINUALNA_PR, p.SLEDLJIVOST,p.KOD_PAKOVANJA,p.FAMILIJA_REF, " +
+                        "                        p.NAZIV_NA_ENGLESKOM,p.VREME_NABAVKE, p.VREME_KONTROLE,p.ORDER_MIN_KOLICINA,p.ORDER_MAX_KOLICINA,p.OVER_QUANTITY_CONTROL,p.DAYS_EARLY_RECEIPT, " +
+                        "                        p.DAYS_LATE_RECEIPT,p.RECEIPT_DATE_CONTROL,p.OBRISAO_RADNIK#,p.DATUM_BRISANJA,p.VERSION_CONTROL,p.SERIAL_CONTROL,p.DATUM_KRAJA_AKCIJE, " +
+                        "                        p.DATUM_DEKOR_MESECA, p.slika, p.ID_JEDINICE_MERE_ALT_REF,  null cena, null dezenIstruktira, null proizvodjac, null tipAkcije, null kolicinaPoPakovanju,  " +
+                        "                        null raspolozivo, naziv_proizvoda||dodatni_naziv punNazivProizvoda, null maticnoSkladiste, null kolUAltJM, null stopaPorez, co.sort sortKlasa" +
+                        "                        , null jedinicaMereRezervacije   " +
+                        "                         from Ocp_Proizvod p, ocp_klasifikacija_proizvoda km, wo_sort_per_class sc, wo_classs_order co, ocp_klasifikacija_proizvoda k, " +
+                        "                         ocp_vr_atr_proizvod a  " +
+                        "                         where p.proizvod# = a.proizvod# " +
+                        "                         and a.atribut# = :proveraZaliha " +
+                        "                           and ((exists (select 1 " +
+                        "                                      from wo_partner_settings w, uz_stanje_zaliha_skladista u" +
+                        "                                      where w.poslovni_partner# = :partner" +
+                        "                                      and w.id_kompanija_korisnik = :kompanija" +
+                        "                                      and w.id_skladista = u.id_skladista" +
+                        "                                      and u.proizvod# = p.proizvod# " +
+                        "                                      and u.kolicina_po_stanju_z - u.rezervisana_kol >0 " +
+                        "                                      UNION " +
+                        "                                      select 1" +
+                        "                                      from wo_partner_settings w, wo_map_kompanijska_skladista ks, uz_stanje_zaliha_skladista u" +
+                        "                                      where w.poslovni_partner# = :partner" +
+                        "                                      and w.id_kompanija_korisnik = :kompanija" +
+                        "                                      and w.id_kompanija_korisnik = ks.id_kompanije_korisnik" +
+                        "                                      and w.id_skladista = ks.id_skladista_raspolozivo " +
+                        "                                     and ks.id_skladista_rezervacija = u.id_skladista " +
+                        "                                     and u.proizvod# = p.proizvod# " +
+                        "                                     and u.kolicina_po_stanju_z - u.rezervisana_kol > 0 " +
+                        "                                     and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA') " +
+                        "                                and a.vrednost = 'DA')" +
+                        "                                or (exists (select 1" +
+                        "                                      from wo_partner_settings w, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak " +
+                        "                                      where w.poslovni_partner# = :partner" +
+                        "                                      and w.id_kompanija_korisnik = :kompanija" +
+                        "                                      and w.id_skladista = u.id_skladista" +
+                        "                                      and s.proizvod#_ulaz = pak.proizvod_ref" +
+                        "                                      and pak.transportno = 'DA'" +
+                        "                                      and s.proizvod#_ulaz = p.proizvod#" +
+                        "                                      and u.proizvod#  = s.proizvod#_izlaz" +
+                        "                                      and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1" +
+                        "                                       UNION " +
+                        "                                      select 1" +
+                        "                                      from wo_partner_settings w,  wo_map_kompanijska_skladista ks, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak " +
+                        "                                      where w.poslovni_partner# = :partner" +
+                        "                                      and w.id_kompanija_korisnik = :kompanija" +
+                        "                                      and w.id_kompanija_korisnik = ks.id_kompanije_korisnik " +
+                        "                                      and w.id_skladista = ks.id_skladista_raspolozivo " +
+                        "                                      and ks.id_skladista_rezervacija = u.id_skladista " +
+                        "                                      and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA' " +
+                        "                                      and s.proizvod#_ulaz = pak.proizvod_ref" +
+                        "                                      and pak.transportno = 'DA'" +
+                        "                                      and s.proizvod#_ulaz = p.proizvod#" +
+                        "                                      and u.proizvod#  = s.proizvod#_izlaz" +
+                        "                                      and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1) and a.vrednost = 'SASTAV')" +
+                        "                               or a.vrednost = 'NE')   " +
+                        "                         and km.vrsta_klasifikacije# = :vrstaKlasifikacijeMeni " +
+                        "                         and km.klasifikacija# = :brand " +
+                        "                         and km.proizvod# = p.proizvod#" +
+                        "                         and ((km.VRSTA_KLASIFIKACIJE# = sc.WO_VRSTA_KLASIFIKACIJE#" +
+                        "                               and km.KLASIFIKACIJA# = sc.WO_KLASIFIKACIJA#" +
+                        "                               and sc.id = co.wo_sort_per_class_id" +
+                        "                               and co.OCP_VRSTA_KLASIFIKACIJE# = k.VRSTA_KLASIFIKACIJE#" +
+                        "                               and co.OCP_KLASIFIKACIJA# like k.KLASIFIKACIJA#" +
+                        "                               and k.proizvod# = p.proizvod# ) " +
+                        "                              or not exists (select 1 from wo_sort_per_class scc" +
+                        "                                               where km.vrsta_klasifikacije# = scc.wo_vrsta_klasifikacije#" +
+                        "                                               and km.klasifikacija# = scc.wo_klasifikacija#)))" +
+                        "                         order by sortKlasa, cut", resultSetMapping = "proizvodRecord"),
         @NamedNativeQuery(name = "findAllByBrandPriceSorted",
                 query = "  select p.PROIZVOD#,p.NAZIV_PROIZVODA,p.ROK_VAZENJA,p.DATUM_OTV,p.GRUPA_PROIZVODA#,p.RADNIK#,p.JEDINICA_MERE#,"
                         + " p.DODATNI_NAZIV ,p.KOD_KB,p.MIN_NIVO_ZALIHA,p.MAX_NIVO_ZALIHA,p.OPTIMALNI_NIVO_ZALIHA,p.JM_AKTIVITETA,p.KONTINUALNA_PR, "
