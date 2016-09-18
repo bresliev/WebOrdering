@@ -1,24 +1,33 @@
 package rs.invado.wo.domain.wo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by Nikola on 07/08/2016.
  */
 @Entity
 @Table(name = "WO_SORT_PER_OBJECT_ATTRIBUTE")
+@NamedNativeQueries({
+        @NamedNativeQuery(name = "findWoAttributeSortByClass", query = " select distinct a.* "
+                + "           from wo_sort_per_object_attribute a  "
+                + "           where wo_sort_per_class_id in (select id from wo_sort_per_class"
+                + "                                           where wo_vrsta_klasifikacije# = :vrstaKlasifikacije"
+                + "                                           and wo_klasifikacija# = :brand)"
+                + "               order by sort ", resultClass = WoSortPerObjectAttribute.class)})
+
+
 public class WoSortPerObjectAttribute {
 
     private Integer id;
-    private Integer woSortperClassId;
+    private Integer woSortPerClassId;
     private String attributeOwner;
     private String attributeName;
     private Integer attributeId;
     private Integer sort;
     private String orderType;
+    private Integer woClassOrderId;
 
+    @Id
     @Column(name = "ID")
     public Integer getId() {
         return id;
@@ -29,12 +38,12 @@ public class WoSortPerObjectAttribute {
     }
 
     @Column(name = "WO_SORT_PER_CLASS_ID")
-    public Integer getWoSortperClassId() {
-        return woSortperClassId;
+    public Integer getWoSortPerClassId() {
+        return woSortPerClassId;
     }
 
-    public void setWoSortperClassId(Integer woSortperClassId) {
-        this.woSortperClassId = woSortperClassId;
+    public void setWoSortPerClassId(Integer woSortPerClassId) {
+        this.woSortPerClassId = woSortPerClassId;
     }
 
     @Column(name = "ATTRIBUTE_OWNER")
@@ -80,5 +89,14 @@ public class WoSortPerObjectAttribute {
 
     public void setOrderType(String orderType) {
         this.orderType = orderType;
+    }
+
+    @Column(name = "WO_CLASS_ORDER_ID")
+    public Integer getWoClassOrderId() {
+        return woClassOrderId;
+    }
+
+    public void setWoClassOrderId(Integer woClassOrderId) {
+        this.woClassOrderId = woClassOrderId;
     }
 }

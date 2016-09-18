@@ -1,5 +1,6 @@
 package rs.invado.wo.test;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
@@ -24,4 +25,8 @@ public class KlasifikacijaDaoTest {
         return;
     }
         */
+    @Test
+    public void test(){
+        System.out.println(Math.round(205/4.1)+" "+205/4.1+" "+Math.ceil(205/4.1*100)/100);
+    }
 }

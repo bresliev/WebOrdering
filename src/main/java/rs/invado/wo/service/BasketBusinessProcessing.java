@@ -1,11 +1,13 @@
 package rs.invado.wo.service;
 
+import org.jfree.util.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import rs.invado.wo.dao.ocp.OcpKlasifikacijaHome;
 import rs.invado.wo.dao.prod.ProdFinDokumentHome;
+import rs.invado.wo.dao.prod.ProdMaxRabatiHome;
 import rs.invado.wo.dao.prod.ProdNacinPlacanjaHome;
 import rs.invado.wo.dao.prod.ProdPoreskaStopaHome;
 import rs.invado.wo.dao.uz.*;
@@ -13,6 +15,7 @@ import rs.invado.wo.dao.wo.WoKompanijaKorisnikHome;
 import rs.invado.wo.dao.wo.WoRezervacijaHome;
 import rs.invado.wo.dao.wo.WoRezervacijaSastavaHome;
 import rs.invado.wo.dao.wo.WoSetPoNacinPlacanjaHome;
+import rs.invado.wo.domain.ocp.OcpKlasifikacijaProizvoda;
 import rs.invado.wo.domain.ocp.OcpProizvod;
 import rs.invado.wo.domain.ocp.OcpSastavProizvoda;
 import rs.invado.wo.domain.prod.ProdFinDokument;
@@ -77,6 +80,8 @@ public class BasketBusinessProcessing {
     private UzDokumentStavkaPakovanjeHome uzDokumentStavkaPakovanjeDAO;
     @Inject
     private WoRezervacijaSastavaHome woRezervacijaSastavaDAO;
+    @Inject
+    private ProdMaxRabatiHome prodMaxRabatiDAO;
 
 
     private enum ProAkcija {
@@ -107,6 +112,7 @@ public class BasketBusinessProcessing {
 
         BigDecimal aktuelnoPakovanje = pakovanje == null ? ocpProizvod.getKolicinaPoPakovanju() : pakovanje;
         String basketIndex = ocpProizvod.getProizvod() + "/" + aktuelnoPakovanje;
+        BigDecimal rabatZaProizvod = new BigDecimal(0);
 
         WoKompanijaKorisnik woKompanijaKorisnik = woKompanijaKorisnikDAO.findByCoresponingOJ(currentOJ);
         Integer skladisteRezervacije = ocpProizvod.getMaticnoSkladiste();
@@ -142,7 +148,8 @@ public class BasketBusinessProcessing {
             woRezervacija.setStatusRezervacije(1);
             woRezervacija.setSessionid(sessionId);
             woRezervacija.setKolPoPakovanju(aktuelnoPakovanje);
-            woRezervacija.setRabat((productService.getRabatZaProizvod(ocpProizvod.getProizvod(), user.getWoPartnerSetting().get(0).getPoslovniPartner().getPoslovniPartner(), currentOJ)).getRabat());
+            rabatZaProizvod = (productService.getRabatZaProizvod(ocpProizvod.getProizvod(), user.getWoPartnerSetting().get(0).getPoslovniPartner().getPoslovniPartner(), currentOJ)).getRabat();
+            woRezervacija.setRabat(ocpProizvod.getMaxRabat().compareTo(new BigDecimal(-1)) != 0 && rabatZaProizvod.compareTo(ocpProizvod.getMaxRabat()) == 1 ? ocpProizvod.getMaxRabat() : rabatZaProizvod);
             if (woRezervacija.getRabat() == null || (ocpProizvod.getTipAkcije() != null && (ocpProizvod.getTipAkcije().equals(ProductService.PROIZVODI_NA_AKCIJI)
                     || ocpProizvod.getTipAkcije().equals(ProductService.IZDVOJENA_AKCIJA)
                     || ocpProizvod.getTipAkcije().equals(ProductService.PROIZVODI_NA_RASPRODAJI))))
@@ -217,7 +224,8 @@ public class BasketBusinessProcessing {
                     woRezervacijaSastava.setWoRezervacija(woRezervacija);
                     woRezervacijaSastava.setKolicina(narucenaKolicina.multiply(ocpProizvod.getKolicinaPoPakovanju().multiply(ocpSastavProizvoda.getKolicinaUgradnje())));
                     woRezervacijaSastava.setCena(ocpSastavProizvoda.getProizvodIzlaz().getCena());
-                    woRezervacijaSastava.setRabat((productService.getRabatZaProizvod(ocpSastavProizvoda.getProizvodIzlaz().getProizvod(), user.getWoPartnerSetting().get(0).getPoslovniPartner().getPoslovniPartner(), currentOJ)).getRabat());
+                    rabatZaProizvod = (productService.getRabatZaProizvod(ocpProizvod.getProizvod(), user.getWoPartnerSetting().get(0).getPoslovniPartner().getPoslovniPartner(), currentOJ)).getRabat();
+                    woRezervacija.setRabat(ocpProizvod.getMaxRabat().compareTo(new BigDecimal(-1)) != 0 && rabatZaProizvod.compareTo(ocpProizvod.getMaxRabat()) == 1 ? ocpProizvod.getMaxRabat() : rabatZaProizvod);
                     if (woRezervacijaSastava.getRabat() == null || (ocpSastavProizvoda.getProizvodIzlaz().getTipAkcije() != null && (ocpSastavProizvoda.getProizvodIzlaz().getTipAkcije().equals(ProductService.PROIZVODI_NA_AKCIJI)
                             || ocpSastavProizvoda.getProizvodIzlaz().getTipAkcije().equals(ProductService.IZDVOJENA_AKCIJA)
                             || ocpSastavProizvoda.getProizvodIzlaz().getTipAkcije().equals(ProductService.PROIZVODI_NA_RASPRODAJI))))
@@ -230,6 +238,7 @@ public class BasketBusinessProcessing {
                     woRezervacijaSastava.setStatus(1);
                     woRezervacija.getWoRezervacijaSastavaList().add(woRezervacijaSastava);
                 }
+
                 woRezervacijaSastavaDAO.persist(woRezervacijaSastava);
             }
         }
@@ -247,6 +256,7 @@ public class BasketBusinessProcessing {
         } else {
             aktuelnoPakovanje = new BigDecimal(1);
         }
+        BigDecimal rabatZaProizvod = new BigDecimal(0);
         String basketIndex = ocpProizvod.getProizvod() + "/" + aktuelnoPakovanje;
 
         WoKompanijaKorisnik woKompanijaKorisnik = woKompanijaKorisnikDAO.findByCoresponingOJ(currentOJ);
@@ -316,8 +326,14 @@ public class BasketBusinessProcessing {
                 woRezervacija.setStatusRezervacije(1);
                 woRezervacija.setSessionid(sessionId);
                 woRezervacija.setKolPoPakovanju(aktuelnoPakovanje);
-
-                woRezervacija.setRabat((productService.getRabatZaProizvod(ocpProizvod.getProizvod(), user.getWoPartnerSetting().get(0).getPoslovniPartner().getPoslovniPartner(), currentOJ)).getRabat());
+                rabatZaProizvod = (productService.getRabatZaProizvod(ocpProizvod.getProizvod(), user.getWoPartnerSetting().get(0).getPoslovniPartner().getPoslovniPartner(), currentOJ)).getRabat();
+                System.out.println("max rabat je " + ocpProizvod.getMaxRabat());
+                System.out.println("rabat je " + rabatZaProizvod);
+                System.out.println("prvi uslov je " + ocpProizvod.getMaxRabat().compareTo(new BigDecimal(-1)));
+                System.out.println("drugi uslov je " + rabatZaProizvod.compareTo(ocpProizvod.getMaxRabat()));
+                woRezervacija.setRabat(ocpProizvod.getMaxRabat().compareTo(new BigDecimal(-1)) != 0 && rabatZaProizvod.compareTo(ocpProizvod.getMaxRabat()) == 1
+                                        ? ocpProizvod.getMaxRabat() : rabatZaProizvod);
+                System.out.println("rabat nakon podesavanja je "+woRezervacija.getRabat());
                 if (woRezervacija.getRabat() == null || (ocpProizvod.getTipAkcije() != null && (ocpProizvod.getTipAkcije().equals(ProductService.PROIZVODI_NA_AKCIJI)
                         || ocpProizvod.getTipAkcije().equals(ProductService.IZDVOJENA_AKCIJA)
                         || ocpProizvod.getTipAkcije().equals(ProductService.PROIZVODI_NA_RASPRODAJI))))
@@ -800,8 +816,20 @@ public class BasketBusinessProcessing {
 //ukoliko postoji proizvo sa maksimalnim dozvoljenim rabatom kassa sconto se ne dodeljuje
                     Map.Entry mapWoRezervacijaMaxRabat = (Map.Entry) it.next();
                     WoRezervacija woRezervacijaMaxRabat = (WoRezervacija) mapWoRezervacijaMaxRabat.getValue();
+                    /*raniji način odredjivanja da li je dat max rabat ili ne. ovo pobristi posle testiranja
                     if (woRezervacijaMaxRabat.getRabat().add(new BigDecimal("2")).compareTo(woKlasifikacijaDAO.findRootKlasifikacijaByProizvod(woRezervacijaMaxRabat.getProizvod(), cs, OJ).getMaxRabat()) == 1
                             && woKlasifikacijaDAO.findRootKlasifikacijaByProizvod(woRezervacijaMaxRabat.getProizvod(), cs, OJ).getMaxRabat().compareTo(new BigDecimal("0")) != 0) {
+                        maxRabat = 1;
+                    }*/
+                    OcpProizvod product = productService.getProizvodById(woRezervacijaMaxRabat.getProizvod().getProizvod(), user.getCeneProizvoda(), cs.getKompanijskiParametri().get(OJ),
+                            user.getWoPartnerSetting(), cs.getTrasportnaPakovanja(), OJ);
+                    for (OcpKlasifikacijaProizvoda ocpKlasifikacijaProizvoda : product.getOcpKlasifikacijaProizvoda()) {
+
+                        product.setMaxRabat(prodMaxRabatiDAO.findByKlasa(OJ, ocpKlasifikacijaProizvoda.getId().getVrstaKlasifikacije(), ocpKlasifikacijaProizvoda.getId().getKlasifikacija()).getMaxRabat());
+                        if (product.getMaxRabat().compareTo(new BigDecimal(-1)) != 0)
+                            break;
+                    }
+                    if (woRezervacijaMaxRabat.getRabat().compareTo(product.getMaxRabat()) == 0) {
                         maxRabat = 1;
                     }
                 }

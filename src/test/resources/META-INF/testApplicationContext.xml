@@ -39,26 +39,44 @@
         <property name="driverClassName">
             <value>oracle.jdbc.driver.OracleDriver</value>
         </property>
+        <!-- lokalni darex -->
         <property name="url">
-
-            <value>jdbc:oracle:thin:@localhost:1521:orcl</value>
-
-            <!--
-                        <value>jdbc:oracle:thin:@10.10.1.136:1521:fis</value>
-                        -->
-
+            <value>jdbc:oracle:thin:@10.10.10.172:1521:test</value>
         </property>
         <property name="username">
             <value>darex</value>
         </property>
         <property name="password">
+            <value>darex321</value>
+        </property>
+
+<!-- testni darex
+        <property name="url">
+            <value>jdbc:oracle:thin:@10.10.10.172:1521:test</value>
+        </property>
+        <property name="username">
             <value>darex</value>
         </property>
-    </bean>
-
-    <!--
-    <bean id="AppInitService" class="rs.invado.wo.service.AppInitService" scope="singleton"/>
+        <property name="password">
+            <value>darex321</value>
+        </property>
+-->
+    <!-- produkcija darex
+    <property name="url">
+        <value>jdbc:oracle:thin:@10.10.10.170:1521:darex</value>
+    </property>
+    <property name="username">
+        <value>darex</value>
+    </property>
+    <property name="password">
+        <value>xerad.tigid</value>
+    </property>
     -->
+</bean>
+
+<!--
+<bean id="AppInitService" class="rs.invado.wo.service.AppInitService" scope="singleton"/>
+-->
 </beans>
 
 

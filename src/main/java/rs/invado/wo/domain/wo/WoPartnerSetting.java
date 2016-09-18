@@ -31,6 +31,7 @@ public class WoPartnerSetting implements java.io.Serializable {
     private Integer  receiveConfirm;
     private Boolean approveCassaSconto;
 
+
     @Transient
     private int  maxRokPlacanja = 0;
 

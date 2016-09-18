@@ -5,6 +5,7 @@ package rs.invado.wo.dao.wo;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.omg.CORBA.PUBLIC_MEMBER;
@@ -95,7 +96,8 @@ public class WoParametriHome {
                 .add(Restrictions.isNull("datumDo"))
                 .add(Restrictions.eq("woKompanijaKorisnik", woKompanijaKorisnik))
                 .uniqueResult();
-        parametri.getWoKompanijaKorisnik().getCorrespondingOJ();
+       // parametri.getWoKompanijaKorisnik().getCorrespondingOJ();
+		Hibernate.initialize(parametri.woKompanijaKorisnik);
         return parametri;
     }
 }

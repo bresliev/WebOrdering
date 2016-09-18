@@ -2,14 +2,19 @@ package rs.invado.wo.dao.wo;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.hibernate.Criteria;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import rs.invado.wo.domain.wo.WoSortPerObjectAttribute;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * Created by Nikola on 07/08/2016.
@@ -69,6 +74,23 @@ public class WoSortPerObjectAttributeHome {
         try {
             WoSortPerObjectAttribute instance = entityManager.find(
                     WoSortPerObjectAttribute.class, id);
+            log.debug("get successful");
+            return instance;
+        } catch (RuntimeException re) {
+            log.error("get failed", re);
+            throw re;
+        }
+    }
+
+    public List<WoSortPerObjectAttribute> findByWoClassId(Integer vrstaKlasifikacije, String brand) {
+        try {
+
+            String namedQ = "findWoAttributeSortByClass";
+            Query q = entityManager.createNamedQuery(namedQ)
+                    .setParameter("vrstaKlasifikacije", vrstaKlasifikacije)
+                    .setParameter("brand", brand);
+
+            List<WoSortPerObjectAttribute> instance = q.getResultList();
             log.debug("get successful");
             return instance;
         } catch (RuntimeException re) {

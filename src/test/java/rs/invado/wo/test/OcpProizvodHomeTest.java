@@ -2,7 +2,6 @@ package rs.invado.wo.test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
@@ -10,16 +9,17 @@ import org.springframework.transaction.annotation.Transactional;
 import rs.invado.wo.dao.ocp.OcpProizvodHome;
 import rs.invado.wo.dao.ocp.OcpSastavProizvodaHome;
 import rs.invado.wo.dao.prod.ProdCenovnikHome;
+import rs.invado.wo.dao.prod.ProdMaxRabatiHome;
 import rs.invado.wo.dao.prod.ProdNacinPlacanjaHome;
 import rs.invado.wo.dao.uz.UzStanjeZalihaSkladistaHome;
 import rs.invado.wo.dao.uz.UzZaliheJsklHome;
 import rs.invado.wo.dao.wo.WoParametriHome;
 import rs.invado.wo.dao.wo.WoRezervacijaHome;
 import rs.invado.wo.dao.wo.WoSetPoNacinPlacanjaHome;
+import rs.invado.wo.dao.wo.WoSortPerObjectAttributeHome;
 import rs.invado.wo.domain.ocp.OcpProizvod;
-import rs.invado.wo.domain.ocp.OcpSastavProizvoda;
+import rs.invado.wo.domain.prod.ProdMaxRabati;
 import rs.invado.wo.domain.prod.ProdNacinPlacanja;
-import rs.invado.wo.domain.uz.UzStanjeZalihaSkladista;
 import rs.invado.wo.domain.wo.WoParametri;
 import rs.invado.wo.domain.wo.WoPartnerSetting;
 import rs.invado.wo.domain.wo.WoSetPoNacinPlacanja;
@@ -33,7 +33,6 @@ import rs.invado.wo.service.ProductService;
 import rs.invado.wo.util.WOException;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 import java.math.BigDecimal;
 import java.math.MathContext;
 import java.sql.SQLException;
@@ -78,6 +77,10 @@ public class OcpProizvodHomeTest {
     private OcpSastavProizvodaHome ocpSastavProizvodaDAO;
     @Inject
     private BasketBusinessProcessing basketBusinessProcessing;
+    @Inject
+    private WoSortPerObjectAttributeHome woSortPerObjectAttributeDAO;
+    @Inject
+    private ProdMaxRabatiHome prodMaxRabatiDAO;
 
 
     /*@PersistenceContext
@@ -94,7 +97,7 @@ public class OcpProizvodHomeTest {
         WoPartnerSetting wpsc = new WoPartnerSetting();
         wpsc.setIdCenovnik(18);
         wpsc.setIdKlasaCene(18);
-        wpsc.setOrganizacionaJedinica(19);
+        wpsc.setOrganizacionaJedinica(20);
         Map<Integer, BigDecimal> m = prodCenovnikDAO.findCeneMapped(wpsc, null);
         int i = 0;
         // Proizvodi p = ocpProizvodDAO.findProizvodiZaBrend("0101", m, 0, 10);
@@ -110,15 +113,37 @@ public class OcpProizvodHomeTest {
     @Test
     public void testProductServiceSort() {
         Integer oj = new Integer(19);
+        System.out.println("bas prvi");
         CompanySetting cs = appInitService.initApp();
 
         try {
+            String cut = "";
             User user = logOnService.logOn("milomirtankosic01", "11111111", cs, oj);
-            Map<Integer, BigDecimal> m = prodCenovnikDAO.findCeneMapped(user.getWoPartnerSetting().get(0), cs.getKompanijskiParametri().get(19));
+            Map<Integer, BigDecimal> m = prodCenovnikDAO.findCeneMapped(user.getWoPartnerSetting().get(0), cs.getKompanijskiParametri().get(20));
 
-            Proizvodi proizvodi = ocpProizvodDAO.findProizvodiZaBrendSortedTest("000102", 0, 100, cs.getKompanijskiParametri().get(19),user.getWoPartnerSetting(), cs);
+            //List<WoSortPerObjectAttribute> woSortPerObjectAttributes = woSortPerObjectAttributeDAO.findByWoClassId(new Integer(22), "000101");
+            /*for (WoSortPerObjectAttribute woSortPerObjectAttribute : woSortPerObjectAttributes)
+                cut = cut +" "+woSortPerObjectAttribute.getAttributeId()+" "+woSortPerObjectAttribute.getOrderType() + ",";
+            cut = cut.substring(0, cut.lastIndexOf(","));
+            System.out.println(cut);*/
+            Proizvodi proizvodi = null;
+
+            //proizvodi = ps.getProizvodiZaBrendSorted("000104", m, 0, 100,  cs.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(),  cs.getTrasportnaPakovanja(), cs, oj);
+            proizvodi = ps.getProzivodiNaAkciji("NAJPRODAVANIJE", m, 0, 100, cs.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), cs.getTrasportnaPakovanja(), oj);
+
+            System.out.println("velicina li ste je " + proizvodi.getProizvodList().size());
+
+            for (OcpProizvod proizvod : proizvodi.getProizvodList()) {
+                System.out.println("klasifikacija ima "+proizvod.getOcpKlasifikacijaProizvoda().size());
+                System.out.println("klasifikacija je " + proizvod.getSortKlasa() + " " + proizvod.getPunNazivProizvoda() + " " + proizvod.getCena() + " " + proizvod.getProizvod() + " " + proizvod.getSortKlasaComposite()
+                        + " " + proizvod.getRaspolozivo());
+            }
+
+/*
+            proizvodi = ocpProizvodDAO.findProizvodiZaBrendSortedNativeTest("000101", 0, 100, cs.getKompanijskiParametri().get(19), user.getWoPartnerSetting(), cs);
             for (OcpProizvod proizvod : proizvodi.getProizvodList())
-                    System.out.println("klasifikacija je "+proizvod.getProizvod()+" "+proizvod.getSortKlasaComposite());
+                System.out.println("klasifikacija je " + proizvod.getSortKlasa() + " " + proizvod.getPunNazivProizvoda()+" "+proizvod.getCena()+" "+proizvod.getProizvod() + " " + proizvod.getSortKlasaComposite());
+*/
 
             /*Proizvodi proizvodi = ocpProizvodDAO.findProizvodiZaBrendSorted("003401", 0, 15, cs.getKompanijskiParametri().get(19),
                     user.getWoPartnerSetting(), cs);*/
@@ -178,8 +203,6 @@ public class OcpProizvodHomeTest {
 
         } catch (WOException e) {
             System.out.println((e.getMessage()));
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
     }
 
@@ -414,9 +437,11 @@ public class OcpProizvodHomeTest {
 
 
     @Test
-    public void tstPak() {
+    public void tstPak() throws SQLException {
 
-        List<BigDecimal> l = uzZaliheJsklDAO.findJsklPakPerPro(331147, 15);
+        ProdMaxRabati p = prodMaxRabatiDAO.findByKlasa(19, 2, "55555");
+
+        System.out.println("max rabat je "+p.getMaxRabat());
 
 
     }

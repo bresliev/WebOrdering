@@ -2,6 +2,7 @@ package rs.invado.wo.domain.wo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -19,6 +20,7 @@ public class WoClassOrder {
     private String ocpKlasifikacijaSuperior;
 
 
+    @Id
     @Column(name = "ID")
     public Integer getId() {
         return id;

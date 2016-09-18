@@ -18,14 +18,15 @@
     <bean id="entityManager" class="org.springframework.orm.jpa.support.SharedEntityManagerBean">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>
     </bean>
+
+         <jee:jndi-lookup jndi-name="java:jboss/WebOrderingDSTest" id="dataSource" expected-type="javax.sql.DataSource"/>
     <!--
-      <jee:jndi-lookup jndi-name="java:jboss/WebOrderingDSTest" id="dataSource" expected-type="javax.sql.DataSource"/>
-
-      <jee:jndi-lookup jndi-name="java:jboss/WebOrderingDSProduction" id="dataSource" expected-type="javax.sql.DataSource"/>
-      -->
-      <jee:jndi-lookup jndi-name="java:jboss/WebOrderingDS" id="dataSource" expected-type="javax.sql.DataSource"/>
+                 <jee:jndi-lookup jndi-name="java:jboss/WebOrderingDSProduction" id="dataSource" expected-type="javax.sql.DataSource"/>
 
 
+                <jee:jndi-lookup jndi-name="java:jboss/WebOrderingDS" id="dataSource" expected-type="javax.sql.DataSource"/>
+
+    -->
 
     <tx:jta-transaction-manager/>
 

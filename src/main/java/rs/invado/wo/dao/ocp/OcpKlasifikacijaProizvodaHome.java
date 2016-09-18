@@ -16,6 +16,7 @@ import rs.invado.wo.domain.ocp.OcpProizvod;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 /**
  * Home object for domain model class OcpKlasifikacijaProizvoda.
@@ -89,7 +90,13 @@ public class OcpKlasifikacijaProizvodaHome {
         }
     }
 
-
+    public List<OcpKlasifikacijaProizvoda> findByProizvod(OcpProizvod proizvod) {
+        log.debug("getting OcpKlasifikacijaProizvoda instance with proizvod: " + proizvod.getProizvod());
+        Criteria criteria = getSession().createCriteria(OcpKlasifikacijaProizvoda.class);
+        List<OcpKlasifikacijaProizvoda> ocpKlasifikacijaProizvoda = (List<OcpKlasifikacijaProizvoda>)criteria.add(Restrictions.eq("ocpProizvod", proizvod))
+                .list();
+        return ocpKlasifikacijaProizvoda;
+    }
 
 
 }

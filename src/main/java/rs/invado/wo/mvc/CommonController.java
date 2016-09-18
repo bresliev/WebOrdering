@@ -48,7 +48,7 @@ public class CommonController {
         CompanySetting companySetting = (CompanySetting) ctx.getAttribute(AppInitService.CompanySetting);
         User user = (User) session.getAttribute("loginUser");
         Integer oj = Integer.parseInt((String) session.getAttribute("oj"));
-        Proizvodi proizvodi = productService.getProzivodiNaAkciji(ProductService.IZDVOJENA_AKCIJA, user.getCeneProizvoda(), 0, 3, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
+        Proizvodi proizvodi = productService.getProzivodiNaAkciji(ProductService.IZDVOJENA_AKCIJA, user.getCeneProizvoda(), 0, 3, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
         model.addAttribute("vesti", commonService.getVestiAktuelno(oj));
         model.addAttribute("flashSize", commonService.getFlashSize(oj).getNaslovnaflash());
         model.addAttribute("productList", proizvodi.getProizvodList());

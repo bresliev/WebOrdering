@@ -61,11 +61,12 @@ public class LogOnService {
         Map<String, Proizvodi> listaNajprodavanijih = new HashMap<String, Proizvodi>();
         Iterator it = cs.getKompanijaKorisnikMap().entrySet().iterator();
         while (it.hasNext()) {
+
             Map.Entry pairs = (Map.Entry) it.next();
             WoKompanijaKorisnik kompanija = (WoKompanijaKorisnik) pairs.getValue();
             listaNajprodavanijih.put(kompanija.getCorrespondingOJ() + "", productService.getProzivodiNaAkciji(ProductService.NAJPRODAVANIJE,
                     user.getCeneProizvoda(), 0, 10000, woParametriDAO.findActualSetOfParametersPerCompany(kompanija), wpsc,
-                    cs.getTrasportnaPakovanja()));
+                    cs.getTrasportnaPakovanja(), kompanija.getCorrespondingOJ()));
         }
         cs.setListaNajprodavanijih(listaNajprodavanijih);
     }
@@ -115,7 +116,6 @@ public class LogOnService {
         }
         List<WoPartnerSetting> wpsc = wpscDAO.findByPartnerIdForCurrentCompany(woUser.getOcpPoslovniPartner().getPoslovniPartner(),
                 cs.getKompanijaKorisnikMap().get(OJ));
-
         if (wpsc.size() == 0)
             throw new WOException(WOExceptionCodes.WO_UNAUTHORIZED_USER);
         for (int i = 0; i < woUser.getOcpPoslovniPartner().getProdPpRabats().size(); i++) {

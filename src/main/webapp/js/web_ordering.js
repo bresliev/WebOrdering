@@ -175,7 +175,7 @@ $.ajaxSetup({
 
         else {
             if (item.jedinicaMereRezervacije == "ALTERNATIVNA") {
-                zalihe = Math.ceil(item.raspolozivo / item.kolicinaPoPakovanju) + ' ' + item.jedinicaMereAltRef.skracenaOznaka + ' / ' + item.raspolozivo + ' ' + item.jedinicaMere.skracenaOznaka;
+                zalihe = Math.ceil((item.raspolozivo / item.kolicinaPoPakovanju).toFixed(3)) + ' ' + item.jedinicaMereAltRef.skracenaOznaka + ' / ' + item.raspolozivo + ' ' + item.jedinicaMere.skracenaOznaka;
             }else{
                 zalihe = item.raspolozivo + ' ' + item.jedinicaMere.skracenaOznaka;
             }

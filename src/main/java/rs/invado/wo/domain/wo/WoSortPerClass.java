@@ -2,6 +2,7 @@ package rs.invado.wo.domain.wo;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -18,6 +19,7 @@ public class WoSortPerClass {
     private Integer ocpVrstaKlasifikacije;
     private Integer idKompanijeKorisnik;
 
+    @Id
     @Column(name = "ID")
     public Integer getId() {
         return id;

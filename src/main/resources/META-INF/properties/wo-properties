@@ -14,5 +14,5 @@ wo.mailAddress = webordering@darex.rs;
 # STRUKTURA
 # PROIZVODNJA
 # PRIMENIJSKLPAK
-# PROVERA ZALIHA ZA POTREBE SASTAVA (1840 u lokalu 1841 na DarexTest 1820 na produkciji)
-wo.attributes = 1600,1601,1541,1740,1840
+# PROVERA ZALIHA ZA POTREBE SASTAVA (1840 u lokalu; 1841 na DarexTest; 1820 na produkciji)
+wo.attributes = 1600,1601,1541,1740,1841
