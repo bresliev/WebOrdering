@@ -66,7 +66,7 @@ public class BasketController {
         User user = (User) session.getAttribute("loginUser");
         Integer oj = Integer.parseInt((String) session.getAttribute("oj"));
 
-        OcpProizvod product = productService.getProizvodById(Integer.parseInt(productId), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
+        OcpProizvod product = productService.getProizvodById(Integer.parseInt(productId), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), 0, 1, user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
         BigDecimal orderedQ = new BigDecimal(orderedQuantity);
         IncreaseReservation increaseReservation = null;
 
@@ -78,7 +78,7 @@ public class BasketController {
                 log.info("korpa pre redovne rezervacije " + user.getBasket().size() + "  raspolozivo=" + product.getRaspolozivo() + "   session=" + session.getId() + " sa pakovanjem " + pakovanje);
                 basketService.increaseReservation(product, oj, orderedQ, session.getId(), user, pakovanje);
             }
-            product = productService.getProizvodById(Integer.parseInt(productId), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
+            product = productService.getProizvodById(Integer.parseInt(productId), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), 0, 1, user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
             session.setAttribute("loginUser", user);
             log.info("  korpa posle " + user.getBasket().size() + "  raspolozivo=" + product.getRaspolozivo() + "   session=" + session.getId());
             increaseReservation = new IncreaseReservation(user.getBasket().size(), user.getOrderValueWithTax(), product.getRaspolozivo(), product.getJedinicaMere().getSkracenaOznaka(), product.getKolUAltJM(),
@@ -104,7 +104,7 @@ public class BasketController {
 
 
         BigDecimal kol = user.getBasket().get(productId).getKolicina();
-        OcpProizvod product = productService.getProizvodById(Integer.parseInt(productId.split("/")[0]), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
+        OcpProizvod product = productService.getProizvodById(Integer.parseInt(productId.split("/")[0]), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), 0, 1, user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
         if (product.getProveraZaliha().equals("SASTAV")) {
 
             basketService.decreaseReservationCompositeObject(product, oj, kol, session.getId(), user, productId);

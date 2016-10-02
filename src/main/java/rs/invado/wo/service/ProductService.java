@@ -281,26 +281,6 @@ public class ProductService {
         return proizvodi;
     }
 
-    public Proizvodi getProizvoByName(String namePattern, Map<Integer, BigDecimal> cenovnik, int pageNo, int pageSize
-            , WoParametri woParametri, List<WoPartnerSetting> woPartnerSetting, Map<Integer, BigDecimal> transortnaPakovanjaProizvoda, Integer OJ) {
-        Proizvodi proizvodi = ocpProizvodDAO.findProizvodiByName(namePattern, pageNo, pageSize
-                , woParametri, woPartnerSetting);
-
-        setTransAtrZaPro(proizvodi.getProizvodList(), cenovnik, woPartnerSetting, transortnaPakovanjaProizvoda, woParametri, OJ);
-
-        return proizvodi;
-    }
-
-
-    public Proizvodi getFilterProizvodi(String brand, String namePattern, Map<Integer, BigDecimal> cenovnik, int pageNo, int pageSize
-            , WoParametri woParametri, List<WoPartnerSetting> woPartnerSetting, Map<Integer, BigDecimal> transortnaPakovanjaProizvoda, Integer OJ) {
-        Proizvodi proizvodi = ocpProizvodDAO.findFilterProizvodi(brand, namePattern, pageNo, pageSize
-                , woParametri, woPartnerSetting);
-        setTransAtrZaPro(proizvodi.getProizvodList(), cenovnik, woPartnerSetting, transortnaPakovanjaProizvoda, woParametri, OJ);
-
-        return proizvodi;
-    }
-
     public Proizvodi getFilterProizvodiSorted(String brand, String namePattern, Map<Integer, BigDecimal> cenovnik, int pageNo, int pageSize
             , WoParametri woParametri, List<WoPartnerSetting> woPartnerSetting, Map<Integer, BigDecimal> transortnaPakovanjaProizvoda, Integer OJ) {
         Proizvodi proizvodi = ocpProizvodDAO.findFilterProizvodiByNamePatternsSorted(brand, getTokens(namePattern), pageNo, pageSize
@@ -310,13 +290,18 @@ public class ProductService {
         return proizvodi;
     }
 
-    public OcpProizvod getProizvodById(int id, Map<Integer, BigDecimal> cenovnik, WoParametri woParametri,
+    public OcpProizvod getProizvodById(int id, Map<Integer, BigDecimal> cenovnik, WoParametri woParametri, int pageNo, int pageSize,
                                        List<WoPartnerSetting> woPartnerSetting, Map<Integer, BigDecimal> transortnaPakovanjaProizvoda, Integer OJ) {
-        OcpProizvod proizvod = ocpProizvodDAO.findById(id);
-        List<OcpProizvod> lp = new ArrayList<OcpProizvod>(0);
-        lp.add(proizvod);
-        setTransAtrZaPro(lp, cenovnik, woPartnerSetting, transortnaPakovanjaProizvoda, woParametri, OJ);
-        return lp.get(0);
+        System.out.println("da to je to " + id);
+        //OcpProizvod proizvod = ocpProizvodDAO.findById(id);
+        OcpProizvod proizvod = ocpProizvodDAO.findFilterProizvodiById(new Integer(id), pageNo, pageSize, woParametri, woPartnerSetting);
+        List<OcpProizvod> lp = new ArrayList<OcpProizvod>();
+        if (proizvod != null) {
+            lp.add(proizvod);
+            setTransAtrZaPro(lp, cenovnik, woPartnerSetting, transortnaPakovanjaProizvoda, woParametri, OJ);
+            return lp.get(0);
+        }
+        return null;
     }
 
     public ProdPpRabatStavka getRabatZaProizvod(Integer proizvodId, int poslovniPartnerId, int oj) {
@@ -326,18 +311,6 @@ public class ProductService {
         ProdPpRabatStavka prodPpRabatStavka = new ProdPpRabatStavka();
         prodPpRabatStavka.setRabat(new BigDecimal(0));
         return prodPpRabatStavka;
-    }
-
-    public Integer getMaxRabatZaProizvod(WoParametri woParametri, OcpProizvod ocpProizvod) {
-        return new Integer(-1);
-    }
-
-
-    public List<OcpProizvod> getProizvoByNameSorted(String namePattern, Map<Integer, BigDecimal> cenovnik
-            , WoParametri woParametri, List<WoPartnerSetting> woPartnerSetting, Map<Integer, BigDecimal> transortnaPakovanjaProizvoda) {
-        List<OcpProizvod> lp = ocpProizvodDAO.findProizvodiByNameSorted(namePattern, woParametri, woPartnerSetting);
-
-        return lp;
     }
 
 

@@ -327,13 +327,8 @@ public class BasketBusinessProcessing {
                 woRezervacija.setSessionid(sessionId);
                 woRezervacija.setKolPoPakovanju(aktuelnoPakovanje);
                 rabatZaProizvod = (productService.getRabatZaProizvod(ocpProizvod.getProizvod(), user.getWoPartnerSetting().get(0).getPoslovniPartner().getPoslovniPartner(), currentOJ)).getRabat();
-                System.out.println("max rabat je " + ocpProizvod.getMaxRabat());
-                System.out.println("rabat je " + rabatZaProizvod);
-                System.out.println("prvi uslov je " + ocpProizvod.getMaxRabat().compareTo(new BigDecimal(-1)));
-                System.out.println("drugi uslov je " + rabatZaProizvod.compareTo(ocpProizvod.getMaxRabat()));
                 woRezervacija.setRabat(ocpProizvod.getMaxRabat().compareTo(new BigDecimal(-1)) != 0 && rabatZaProizvod.compareTo(ocpProizvod.getMaxRabat()) == 1
                                         ? ocpProizvod.getMaxRabat() : rabatZaProizvod);
-                System.out.println("rabat nakon podesavanja je "+woRezervacija.getRabat());
                 if (woRezervacija.getRabat() == null || (ocpProizvod.getTipAkcije() != null && (ocpProizvod.getTipAkcije().equals(ProductService.PROIZVODI_NA_AKCIJI)
                         || ocpProizvod.getTipAkcije().equals(ProductService.IZDVOJENA_AKCIJA)
                         || ocpProizvod.getTipAkcije().equals(ProductService.PROIZVODI_NA_RASPRODAJI))))
@@ -822,7 +817,7 @@ public class BasketBusinessProcessing {
                         maxRabat = 1;
                     }*/
                     OcpProizvod product = productService.getProizvodById(woRezervacijaMaxRabat.getProizvod().getProizvod(), user.getCeneProizvoda(), cs.getKompanijskiParametri().get(OJ),
-                            user.getWoPartnerSetting(), cs.getTrasportnaPakovanja(), OJ);
+                            0, 1, user.getWoPartnerSetting(), cs.getTrasportnaPakovanja(), OJ);
                     for (OcpKlasifikacijaProizvoda ocpKlasifikacijaProizvoda : product.getOcpKlasifikacijaProizvoda()) {
 
                         product.setMaxRabat(prodMaxRabatiDAO.findByKlasa(OJ, ocpKlasifikacijaProizvoda.getId().getVrstaKlasifikacije(), ocpKlasifikacijaProizvoda.getId().getKlasifikacija()).getMaxRabat());

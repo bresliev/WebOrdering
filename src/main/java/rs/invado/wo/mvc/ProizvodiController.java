@@ -62,7 +62,7 @@ public class ProizvodiController {
             proizvodi = productService.getProizvodiZaBrendSorted(brandId, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), companySetting, oj );
         } else { //if (ACTION_FILTER.equals(formAction))
             if (productId != null && !"".equals(productId)) {
-                OcpProizvod pro = productService.getProizvodById(Integer.parseInt(productId), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
+                OcpProizvod pro = productService.getProizvodById(Integer.parseInt(productId), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), pageNo, perPage, user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
                 if (pro != null) {
                     List lp = new ArrayList<OcpProizvod>();
                     lp.add(pro);

@@ -16,6 +16,7 @@ import rs.invado.wo.dao.uz.UzStanjeZalihaSkladistaHome;
 import rs.invado.wo.dao.wo.WoSortPerObjectAttributeHome;
 import rs.invado.wo.domain.ocp.OcpKlasifikacija;
 import rs.invado.wo.domain.ocp.OcpProizvod;
+import rs.invado.wo.domain.ocp.OcpSastavProizvoda;
 import rs.invado.wo.domain.ocp.OcpVrAtrProizvod;
 import rs.invado.wo.domain.prod.ProdPoreskaStopa;
 import rs.invado.wo.domain.uz.UzStanjeZalihaSkladista;
@@ -62,6 +63,8 @@ public class OcpProizvodHome {
     private OcpKlasifikacijaProizvodaHome ocpKlasifikacijaProizvodaDAO;
     @Inject
     private UzStanjeZalihaSkladistaHome uzStanjeZalihaSkladistaDAO;
+    @Inject
+    private OcpSastavProizvodaHome ocpSastavProizvodaDAO;
 
     public static String getNamedQueryString(EntityManager em, String queryName) throws SQLException {
         Query tmpQuery = em.createNamedQuery(queryName);
@@ -146,6 +149,7 @@ public class OcpProizvodHome {
         proizvod.setOcpKlasifikacijaProizvoda(ocpKlasifikacijaProizvodaDAO.findByProizvod(proizvod));
         proizvod.setVrednostSortAtributa(object[46] != null ? object[46].toString() : null);
         proizvod.setUzStanjeZalihaSkladistas(uzStanjeZalihaSkladistaDAO.findByProizvod(proizvod.getProizvod()));
+        proizvod.setSastavProizvoda(ocpSastavProizvodaDAO.findByProizvod(proizvod));
 
         return proizvod;
     }
@@ -347,54 +351,6 @@ public class OcpProizvodHome {
     }
 
 
-    public Proizvodi findProizvodiZaBrendSortedOriginal(String brand, int pageNo, int pageSize, WoParametri woParametri,
-                                                        List<WoPartnerSetting> woPartnerSettings, CompanySetting cs) {
-
-        //potrebno je da pro ima i osnovnu jm i alernativnu. ukoliko nije svojstveno ondaje osnovnoa = alternativnoj, postaviti triger i uraditi upradte tabele.
-
-        List<OcpProizvod> lp = new ArrayList<OcpProizvod>();
-        int vrstaKlasifikacijeSort = 0;
-        int rowCount = 0;
-        String namedQ;
-        Query q;
-        List<OcpKlasifikacija> meni = cs.getMeni().get(woParametri.getWoKompanijaKorisnik().getCorrespondingOJ() + "");
-        for (OcpKlasifikacija ocpKlasifikacija : meni)
-            if (ocpKlasifikacija.getId().getKlasifikacija().equals(brand))
-                vrstaKlasifikacijeSort = ocpKlasifikacija.getSortByClass().intValue();
-        if (vrstaKlasifikacijeSort != 0) {
-            namedQ = "findAllByBrandSorted";
-            q = entityManager.createNamedQuery(namedQ)
-                    .setParameter("partner", woPartnerSettings.get(0).getPoslovniPartner().getPoslovniPartner())
-                    .setParameter("kompanija", woParametri.getWoKompanijaKorisnik().getId())
-                    .setParameter("vrstaKlasifikacijeSort", vrstaKlasifikacijeSort)
-                    .setParameter("vrstaKlasifikacijeMeni", woParametri.getVrstaKlasifikacijeMeni())
-                    .setParameter("proveraZaliha", woConfigSingleton.getAttributes()[4])
-                    .setParameter("brand", brand);
-        } else {
-
-            namedQ = "findAllByBrandPriceSorted";
-
-            q = entityManager.createNamedQuery(namedQ)
-                    .setParameter("klasaCene", woParametri.getKlasaCene())
-                    .setParameter("partner", woPartnerSettings.get(0).getPoslovniPartner().getPoslovniPartner())
-                    .setParameter("kompanija", woParametri.getWoKompanijaKorisnik().getId())
-                    .setParameter("ojc", woPartnerSettings.get(0).getOrganizacionaJedinica())
-                    .setParameter("klc", woPartnerSettings.get(0).getIdKlasaCene())
-                    .setParameter("cenovnik", woPartnerSettings.get(0).getIdCenovnik())
-                    .setParameter("vrstaKlasifikacijeMeni", woParametri.getVrstaKlasifikacijeMeni())
-                    .setParameter("proveraZaliha", woConfigSingleton.getAttributes()[4])
-                    .setParameter("brand", brand);
-        }
-        if (pageNo == 0) rowCount = q.getResultList().size();
-
-        q.setFirstResult(pageNo * pageSize);
-        q.setMaxResults(pageSize);
-
-        Iterator i = q.getResultList().iterator();
-        setTansientForSorted(i, lp);
-        return new Proizvodi(lp, vrstaKlasifikacijeSort, rowCount);
-    }
-
     public Proizvodi findProizvodiZaBrendSorted(String brand, int pageNo, int pageSize, WoParametri woParametri,
                                                 List<WoPartnerSetting> woPartnerSettings, CompanySetting cs) throws SQLException {
 
@@ -576,7 +532,7 @@ public class OcpProizvodHome {
                 + "                   and km.klasifikacija# like  :brand||'%'"
                 + "                   and km.proizvod# = p.proizvod#)"
                 + "           or :brand is null )"
-                + " order by cs.cena, p.naziv_proizvoda||p.dodatni_naziv ");
+                + " order by c.cena, p.naziv_proizvoda||p.dodatni_naziv ");
 
         String query = q.toString();
         Query qNative = entityManager.createNativeQuery(query, OcpProizvod.class)
@@ -601,5 +557,72 @@ public class OcpProizvodHome {
         }
 
         return new Proizvodi(lp, vrstaKlasifikacijeSort, rowCount);
+    }
+
+    public OcpProizvod findFilterProizvodiById(Integer id, int pageNo, int pageSize, WoParametri woParametri,
+                                               List<WoPartnerSetting> woPartnerSettings) {
+        Session session = getSession();
+        int rowCount = 0;
+        int vrstaKlasifikacijeSort = 0;
+        OcpProizvod ocpProizvod = null;
+        StringBuffer q = new StringBuffer("  select p.*  from Ocp_Proizvod p, ocp_vr_atr_proizvod a, WoProdCene c  where ( ");
+        String predicate = "";
+        predicate = predicate + " p.proizvod# = " + id.intValue() + " and ";
+
+        q.append(predicate.substring(0, predicate.length() - 4));
+        q.append(") and a.atribut# = :proveraZaliha "
+                + "  and a.proizvod# = p.proizvod# "
+                + "   and ((exists (select 1 "
+                + "              from wo_partner_settings w, uz_stanje_zaliha_skladista u"
+                + "              where w.poslovni_partner# = :partner"
+                + "              and w.id_kompanija_korisnik = :kompanija"
+                + "              and w.id_skladista = u.id_skladista"
+                + "              and u.proizvod# = p.proizvod# "
+                + "              and u.kolicina_po_stanju_z - u.rezervisana_kol >0) "
+                + "        and a.vrednost = 'DA')"
+                + "        or (exists (select 1"
+                + "              from wo_partner_settings w, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak "
+                + "              where w.poslovni_partner# = :partner"
+                + "              and w.id_kompanija_korisnik = :kompanija"
+                + "              and w.id_skladista = u.id_skladista"
+                + "              and s.proizvod#_ulaz = pak.proizvod_ref"
+                + "              and pak.transportno = 'DA'"
+                + "              and s.proizvod#_ulaz = p.proizvod#"
+                + "              and u.proizvod#  = s.proizvod#_izlaz"
+                + "              and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1 ) and a.vrednost = 'SASTAV')"
+                + "       or a.vrednost = 'NE') "
+                + "     and c.klasaCene = :klasaCene"
+                + "     and c.organizaciona_jedinica# = :ojc "
+                + "     and c.id_klasa_cene = :klc "
+                + "     and c.id_cenovnik = :cenovnik "
+                + "     and c.datum_do is null "
+                + "     and c.datum_ov is not null "
+                + "     and c.proizvod# = p.proizvod#  "
+                + " order by c.cena, p.naziv_proizvoda||p.dodatni_naziv ");
+
+        String query = q.toString();
+        Query qNative = entityManager.createNativeQuery(query, OcpProizvod.class)
+                .setParameter("klasaCene", woParametri.getKlasaCene())
+                .setParameter("partner", woPartnerSettings.get(0).getPoslovniPartner().getPoslovniPartner())
+                .setParameter("kompanija", woParametri.getWoKompanijaKorisnik().getId())
+                .setParameter("ojc", woPartnerSettings.get(0).getOrganizacionaJedinica())
+                .setParameter("klc", woPartnerSettings.get(0).getIdKlasaCene())
+                .setParameter("cenovnik", woPartnerSettings.get(0).getIdCenovnik())
+                .setParameter("proveraZaliha", woConfigSingleton.getAttributes()[4]);
+
+        if (pageNo == 0) rowCount = qNative.getResultList().size();
+
+        qNative.setFirstResult(pageNo * pageSize);
+        qNative.setMaxResults(pageSize);
+
+        try {
+            ocpProizvod = (OcpProizvod) qNative.getSingleResult();
+
+            ocpProizvod.setPunNazivProizvoda(ocpProizvod.getNazivProizvoda() + " " + ocpProizvod.getDodatniNaziv());
+
+            return ocpProizvod;
+        } catch (NoResultException ex) {
+            return null;
+        }
     }
 }
