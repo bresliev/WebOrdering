@@ -99,12 +99,17 @@
                                 <th style="width: 15%">Cena</th>
                                 <c:forEach items="${item.value.woRezervacijaSastavaList}" var="compositeItem"
                                            varStatus="i">
-                                    <tr>
+                                    <tr id="korpa_uvecaj_${compositeItem.proizvod.proizvod}" style="border-bottom: 1px solid #b3b3b3">
                                         <td style="text-align:left">
                                             <div class="multiline">${compositeItem.proizvod.proizvod} ${compositeItem.proizvod.nazivProizvoda} ${compositeItem.proizvod.dodatniNaziv}</div>
                                         </td>
                                         <td>${compositeItem.kolicina}</td>
                                         <td>${compositeItem.cena}</td>
+                                        <div class="dialog" id="uvecaj_${compositeItem.proizvod.proizvod}"
+                                             title="${compositeItem.proizvod.proizvod}  ${compositeItem.proizvod.nazivProizvoda} ${compositeItem.proizvod.dodatniNaziv}">
+                                            <img style="margin:0px;border:none;" width="700px" height="490px"
+                                                 src="/WO/images/large/${compositeItem.proizvod.proizvod}.jpg" alt=""/>
+                                        </div>
                                     </tr>
                                 </c:forEach>
                             </table>

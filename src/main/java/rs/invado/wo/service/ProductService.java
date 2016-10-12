@@ -96,10 +96,11 @@ public class ProductService {
         int i = 0;
         int obradjenoSkl = 0;
         for (OcpProizvod item : lp) {
+            System.out.println("set atr za pro "+item.getProizvod());
             obradjenoSkl = 0;
             //Setuj porez
             item.setStopaPoreza(ocpProizvodDAO.findStopaPorezaZaProizvod(woPartnerSetting.get(0).getOrganizacionaJedinica(), item.getProizvod()));
-
+System.out.println("nasao stopu poreza");
             // setuj cene
             item.setCena((BigDecimal) mapaCena.get(item.getProizvod()));
 
@@ -108,6 +109,7 @@ public class ProductService {
             String vrAtr = null;
 
             List<VrAtrProizvod> vatpList = ocpVrAtrProizvodDAO.findByNivoAtributa(item.getProizvod(), woConfigSingleton.getAttributes());
+            System.out.println("nasao listu atributa");
             for (OcpKlasifikacijaProizvoda klasifikacijaProizvoda : item.getOcpKlasifikacijaProizvoda()) {
                 for (VrAtrProizvod ocpVrAtrProizvod : vatpList) {
                     if (klasifikacijaProizvoda.getId().getVrstaKlasifikacije() == 1
@@ -124,7 +126,8 @@ public class ProductService {
                         if (ocpVrAtrProizvod.getAtribut() == Integer.valueOf(woConfigSingleton.getAttributes()[3]) && ocpVrAtrProizvod.getVrednost() != null
                                 && ocpVrAtrProizvod.getVrednost().equals("DA")) {
                             item.setPrimeniJsklPakovanje(true);
-                        } else {
+                        } else if (ocpVrAtrProizvod.getAtribut() == Integer.valueOf(woConfigSingleton.getAttributes()[3]) && ocpVrAtrProizvod.getVrednost() != null
+                                && !ocpVrAtrProizvod.getVrednost().equals("DA")){
                             item.setPrimeniJsklPakovanje(false);
                         }
                         if (ocpVrAtrProizvod.getAtribut() == Integer.valueOf(woConfigSingleton.getAttributes()[4]) && ocpVrAtrProizvod.getVrednost() != null) {
@@ -137,6 +140,7 @@ public class ProductService {
             item.setJedinicaMereRezervacije(woParametri.getJedinicaMereRezervacije());
             for (OcpKlasifikacijaProizvoda ocpKlasifikacija : item.getOcpKlasifikacijaProizvoda()) {
                 item.setMaxRabat(prodMaxRabatiDAO.findByKlasa(OJ, ocpKlasifikacija.getId().getVrstaKlasifikacije(), ocpKlasifikacija.getId().getKlasifikacija()).getMaxRabat());
+                System.out.println("nasao max rabat");
                 if (item.getMaxRabat().compareTo(new BigDecimal(-1)) != 0)
                     break;
             }
@@ -163,16 +167,21 @@ public class ProductService {
                             item.setMaticnoSkladiste(uzskl.getId().getIdSkladista());
                             obradjenoSkl = wps.intValue();
                             WoMapKompanijskaSkladista woMapKompanijskaSkladista = woMapKompanijskaSkladistaDAO.findActualSklRaspolozivo(uzSkladisteDAO.findById(wps.intValue()));
+                            System.out.println("nasao skl raspoloziva ");
                             if (!(woMapKompanijskaSkladista == null) && woMapKompanijskaSkladista.getRaspolozivaKolicinaUSkl().equals("OBASKLADISTA")) {
                                 UzStanjeZalihaSkladistaId uzStanjeZalihaSkladistaId = new UzStanjeZalihaSkladistaId(item.getProizvod(), (short) woMapKompanijskaSkladista.getUzSkladisteRaspolozivo().getIdSkladista());
                                 UzStanjeZalihaSkladista uzStanjeZalihaSkladista = uzStanjeZalihaSkladistaDAO.findById(uzStanjeZalihaSkladistaId);
+                                System.out.println("nasao raspolozivo ");
                                 raspolozivaKolicina = raspolozivaKolicina.add(uzStanjeZalihaSkladista.getKolicinaPoStanjuZ().subtract(uzStanjeZalihaSkladista.getRezervisanaKol()));
                             }
+                            System.out.println("za item "+item.getProizvod());
                             if (item.getPrimeniJsklPakovanje()) {
                                 item.setBrojPakovanja(uzZaliheJsklDAO.findJsklPakPerPro(item.getProizvod(), item.getMaticnoSkladiste(), null));
+                                System.out.println("nasao pakovanja ");
                                 List<BigDecimal> pakNaZal = new ArrayList<BigDecimal>();
                                 Iterator it = item.getBrojPakovanja().entrySet().iterator();
                                 while (it.hasNext()) {
+
                                     Map.Entry pairs = (Map.Entry) it.next();
                                     pakNaZal.add((BigDecimal) pairs.getKey());
                                 }
@@ -251,7 +260,9 @@ public class ProductService {
 
         Proizvodi proizvodi = null;
         try {
+            System.out.println("pre find proizvoda");
             proizvodi = ocpProizvodDAO.findProizvodiZaBrendSorted(brendId, pageNo, pageSize, woParametri, woPartnerSetting, cs);
+            System.out.println("nakon find proizvoda");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -292,7 +303,7 @@ public class ProductService {
 
     public OcpProizvod getProizvodById(int id, Map<Integer, BigDecimal> cenovnik, WoParametri woParametri, int pageNo, int pageSize,
                                        List<WoPartnerSetting> woPartnerSetting, Map<Integer, BigDecimal> transortnaPakovanjaProizvoda, Integer OJ) {
-        System.out.println("da to je to " + id);
+
         //OcpProizvod proizvod = ocpProizvodDAO.findById(id);
         OcpProizvod proizvod = ocpProizvodDAO.findFilterProizvodiById(new Integer(id), pageNo, pageSize, woParametri, woPartnerSetting);
         List<OcpProizvod> lp = new ArrayList<OcpProizvod>();

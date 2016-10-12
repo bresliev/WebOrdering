@@ -49,8 +49,8 @@ import java.util.Date;
         "  and proizvod# = :proizvod " +
         "  order by kolicina_po_povezu desc ", resultClass = UzZaliheJskl.class),
 
-        @NamedNativeQuery(name = "distinctJsklPakAndKolPerPro", query = "select kolicina_po_povezu kolPoPovezu, ceil((kolicina_na_jskl-nvl(r.rezervisanakol, 0))/ nvl(kolicina_po_povezu, 0)) brojPakovanja, " +
-                "                                                                (kolicina_na_jskl-nvl(r.rezervisanakol, 0)) kolPoPakovanju " +
+        @NamedNativeQuery(name = "distinctJsklPakAndKolPerPro", query = "select kolicina_po_povezu kolPoPovezu, sum(ceil((kolicina_na_jskl-nvl(r.rezervisanakol, 0))/ nvl(kolicina_po_povezu, 0))) brojPakovanja, " +
+                "                                                               sum((kolicina_na_jskl-nvl(r.rezervisanakol, 0))) kolPoPakovanju " +
                 "                  from zalihe_jskl, (select p.proizvod, p.kol_po_pakovanju, sum(kolpopakskl) rezervisanakol  " +
                 "                                            from ( select sd.proizvod, p.kol_po_pakovanju, sum(nvl(p.uskladistena_kol, 0)) kolpopakskl " +
                 "                                         from skl_dokument s, stavka_skl_dokumenta sd, pakovanje_koleta_komad p  " +
@@ -79,7 +79,8 @@ import java.util.Date;
                 "and zalihe_jskl.proizvod# = :proizvod " +
                 "and zalihe_jskl.proizvod# = r.proizvod(+) " +
                 "and zalihe_jskl.kolicina_po_povezu = r.kol_po_pakovanju(+) " +
-                "and ceil((kolicina_na_jskl-nvl(r.rezervisanakol, 0))/kolicina_po_povezu) > 0 ", resultSetMapping = "pakovanja")})
+                "and ceil((kolicina_na_jskl-nvl(r.rezervisanakol, 0))/kolicina_po_povezu) > 0 " +
+                "group by kolicina_po_povezu ", resultSetMapping = "pakovanja")})
 
 
 public class UzZaliheJskl implements java.io.Serializable {

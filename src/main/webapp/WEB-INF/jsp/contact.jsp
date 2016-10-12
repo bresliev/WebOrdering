@@ -265,7 +265,7 @@
                 <b>Distributivni Centar Niš</b><br>
                 Bulevar Cara Konstantina 80 - 84<br>
                 18000 Niš<br>
-                tel: 018 207 352,018 207 353<br>
+                tel: 018 208 100<br>
                 fax: 011 20 91 699<br>
                 e-mail: <b><a style="color:#58595b;"
                               href="mailto:distribucija@darex.rs">distribucija@darex.rs</a></b><br>

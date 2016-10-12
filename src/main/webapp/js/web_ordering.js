@@ -140,7 +140,7 @@ $.ajaxSetup({
             $('.waitcursor').hide();
         }
     };
-
+/*
     $.fn.createProductItemDiv = function (item) {
         var tipAkcijeImg = "";
         var raspolozivoPoPak = item.raspolozivo;
@@ -191,6 +191,67 @@ $.ajaxSetup({
 
         //+" ("+ raspolozivoPoPak +")"
         //console.log("radi formiranje pro");
+        product += "<div class='kolicina'>Poruèiti: <input type='number' min='1' step='1' id='orderedQuantity-" + item.proizvod + "' value=''/>" + item.jedinicaMereAltRef.skracenaOznaka.toLowerCase() + "</div>" +
+            "<div class='zalihe ellipsis' id='raspolozivo-" + item.proizvod + "'>Zalihe: " + zalihe + "</div>" +
+            "<div class='potvrda'>" +
+            "<div style='float: left;'><input type='submit' id='dialog-" + item.proizvod + "' class='btn zoom opener'  value='UVEÆAJ' style='background-color:#b2b2b2;'/></div>" +
+            "<div style='float: right;'><input type='submit' id='basket-" + item.proizvod + "' class='btn basket add_to_basket' value='DODAJ U KORPU'/></div>" +
+            "</div>" +
+            "<div class='dialog' id='opener-dialog-" + item.proizvod + "' title='" + item.nazivProizvoda + " " + $(this).trimToEmptyString(item.dodatniNaziv) + "'>" +
+            "<img style='margin:0px;border:none;' width='700px' height='490px' src='/WO/images/large/" + item.proizvod + ".jpg' alt='' />" +
+            "</div>" +
+            "</div>";
+
+        return product;
+    };
+*/
+    $.fn.createProductItemDiv = function (item) {
+        var tipAkcijeImg = "";
+        var raspolozivoPoPak = item.raspolozivo;
+        var zalihe = "";
+        if (item.tipAkcije == 'AKCIJA' || item.tipAkcije == 'IZDVOJENA_AKCIJA') tipAkcijeImg = "<img src='images/Akcije.png' alt='' style='position: absolute;top: 34px;right: 11px;'>";
+        else if (item.tipAkcije == 'NOVO') tipAkcijeImg = "<img src='images/Novo.png' alt='' style='position: absolute;top: 34px;right: 11px;'>";
+        else if (item.tipAkcije == 'AKTUELNO') tipAkcijeImg = "<img src='images/Aktuelno.png' alt='' style='position: absolute;top: 34px;right: 11px;'>";
+        else if (item.tipAkcije == 'RASPRODAJA') tipAkcijeImg = "<img src='images/Rasprodaja.png' alt='' style='position: absolute;top: 34px;right: 11px;'>";
+        else if (item.tipAkcije == 'OSTECENA_ROBA') tipAkcijeImg = "<img src='images/OstecenaRoba.png' alt='' style='position: absolute;top: 34px;right: 11px;'>"
+        console.log('tipa je akcije '+ item.tipAkcije);
+        console.log('prozvod za prikaz je '+item.proizvod);
+        var product = "<div class='product_item' style='display: none;'>" +
+            "<div class='dezen'>" + item.dezenIstruktira + "</div>" +
+            "<img id='dialog-img-" + item.proizvod + "' class='product_item_img opener' src='/WO/images/medium/" + item.proizvod + ".jpg' alt=''/>" + tipAkcijeImg +
+            "<div style='width:220px;padding:0 5px 0 5px;border-bottom: 1px solid #b3b3b3;'>" +
+            "<div class='cena'>" + item.cena + " eur/" + item.jedinicaMere.skracenaOznaka.toLowerCase() + "</div>" +
+            "<div class='proizvodjac ellipsis'>" + item.proizvod + " - " + item.proizvodjac + "</div>" +
+            "<div class='ime multiline'>" + item.nazivProizvoda + " " + $(this).trimToEmptyString(item.dodatniNaziv) + "</div>" +
+            "</div>";
+        if (item.primeniJsklPakovanje) {
+            var pakovanja = "<select id='pakovanje-" + item.proizvod + "' style='border:solid 1px #666666;width:85px;'>";
+            $.each(item.jsklPakovanja, function (i, pak) {
+                console.log("ima vise pakovanja pro=" + item.proizvod + " pak=" + pak);
+                pakovanja += "<option value='" + pak + "'>" + item.brojPakovanja[pak].brojPakovanja + " x " + pak + " " + item.jedinicaMere.skracenaOznaka.toLowerCase() + "</option> "
+            });
+            pakovanja += "</select>";
+            product += "<div class='kol_pak ellipsis'>Kolièina po pakovanju " + pakovanja + "</div>";
+            raspolozivoPoPak = item.raspolozivoPerPak;
+            zalihe = item.raspolozivo + " " + item.jedinicaMere.skracenaOznaka;
+        }
+        /*else if (item.primeniJsklPakovanje && item.jsklPakovanja.length == 1) {
+         //console.log("ima jedno pakovanja pro=" + item.proizvod + " pak=" + item.jsklPakovanja[0]);
+         product += "<div class='kol_pak ellipsis'>Kolièina po pakovanju: " + item.jsklPakovanja[0] + " " + item.jedinicaMere.skracenaOznaka.toLowerCase() + "</div>";
+         zalihe = item.raspolozivo + " " + item.jedinicaMere.skracenaOznaka;
+         } */
+        //
+        else {
+            console.log('prvi '+item.raspolozivo);
+            console.log('drugi '+item.kolicinaPoPakovanj);
+            console.log('treci '+item.jedinicaMereAltRef.skracenaOznaka);
+            console.log('cetvrti '+item.raspolozivo);
+            console.log('peti '+ item.jedinicaMere.skracenaOznaka);
+
+            zalihe = Math.floor(item.raspolozivo/item.kolicinaPoPakovanju) + ' ' + item.jedinicaMereAltRef.skracenaOznaka + ' / ' + item.raspolozivo + ' ' + item.jedinicaMere.skracenaOznaka;
+            product += "<div class='kol_pak ellipsis'>Kolièina po pakovanju: " + item.kolicinaPoPakovanju + " " + item.jedinicaMere.skracenaOznaka.toLowerCase() + "</div>";
+        }
+
         product += "<div class='kolicina'>Poruèiti: <input type='number' min='1' step='1' id='orderedQuantity-" + item.proizvod + "' value=''/>" + item.jedinicaMereAltRef.skracenaOznaka.toLowerCase() + "</div>" +
             "<div class='zalihe ellipsis' id='raspolozivo-" + item.proizvod + "'>Zalihe: " + zalihe + "</div>" +
             "<div class='potvrda'>" +
@@ -723,7 +784,7 @@ $(document).ready(function () {
                                 $('#pakovanje-' + productId).append(pakovanja);
                                 zalihe = result.stanjeZaliha + ' ' + result.jm;
                             } else {
-                                zalihe = Math.ceil(result.stanjeZalihaAlt) + ' ' + result.jmAlt + ' / ' + result.stanjeZaliha + ' ' + result.jm;
+                                zalihe = Math.floor(result.stanjeZalihaAlt) + ' ' + result.jmAlt + ' / ' + result.stanjeZaliha + ' ' + result.jm;
                             }
                             $('#raspolozivo-' + productId).text('Zalihe: ' + zalihe);
                             $('#broj_stavki').text(result.brojStavki);
@@ -732,7 +793,7 @@ $(document).ready(function () {
                             if (result.primeniJsklPakovanje) {
                                 zalihe = result.stanjeZaliha + ' ' + result.jm;
                             } else {
-                                zalihe = Math.ceil(result.stanjeZalihaAlt) + ' ' + result.jmAlt + ' / ' + result.stanjeZaliha + ' ' + result.jm;
+                                zalihe = Math.floor(result.stanjeZalihaAlt) + ' ' + result.jmAlt + ' / ' + result.stanjeZaliha + ' ' + result.jm;
                             }
                             $('#raspolozivo-' + productId).text('Zalihe: ' + zalihe);
                             $(".error-box").text("Odabrani proizvod nije moguæe dodati u korpu. Proverite stanje na zalihama sa Vašom službom prodaje.");
@@ -814,6 +875,7 @@ $(document).ready(function () {
     $("table.korpa tr td:not(:last-child)").live('click', function () {
         if (!$(this).hasClass("not_link")) {
             var productId = $(this).parent('tr').attr('id').replace("korpa_uvecaj_", "");
+            console.log("pocelo je ovo "+productId)
             $('#uvecaj_' + productId).dialog("open");
             return false;
         }
