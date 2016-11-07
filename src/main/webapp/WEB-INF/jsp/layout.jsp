@@ -1,8 +1,8 @@
-<%@page contentType="text/html"%>
-<%@page pageEncoding="Windows-1250"%>
+<%@page contentType="text/html" %>
+<%@page pageEncoding="Windows-1250" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -11,8 +11,12 @@
     <link href="/css/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <c:choose>
-        <c:when test="${oj == 40}"><link rel="stylesheet" type="text/css" href="<c:url value="/css/wo_itison.css"/>"/></c:when>
-        <c:otherwise><link rel="stylesheet" type="text/css" href="<c:url value="/css/wo_darex.css"/>"/></c:otherwise>
+        <c:when test="${oj == 40}">
+            <link rel="stylesheet" type="text/css" href="<c:url value="/css/wo_itison.css"/>"/>
+        </c:when>
+        <c:otherwise>
+            <link rel="stylesheet" type="text/css" href="<c:url value="/css/wo_darex.css"/>"/>
+        </c:otherwise>
     </c:choose>
 
     <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
@@ -21,14 +25,37 @@
     <script type="text/javascript" src="js/web_ordering.js"></script>
     <script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/bootstrap/npm.js"></script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-86540669-1', 'auto');
+        ga('send', 'pageview');
+
+    </script>
+
 
 </head>
-	<!--[if gte IE 9]>
-	   <style type="text/css">
-	        .dark_gray_gradient {filter: none;}
-			.light_gray_gradient {filter: none;}
-       </style>
-    <![endif]-->
+<!--[if gte IE 9]>
+<style type="text/css">
+    .dark_gray_gradient {
+        filter: none;
+    }
+
+    .light_gray_gradient {
+        filter: none;
+    }
+</style>
+<![endif]-->
 <body>
 <div id="header">
     <tiles:insertAttribute name="header"/>
@@ -47,16 +74,20 @@
 <input type="hidden" id="formActionLabelTemp" value=""/>
 <input type="hidden" id="brandId" value=""/>
 <input type="hidden" id="perPage" value="${perPage}"/>
+
 <div id="dialog-message" title="GREŠKA">
     <img src="images/error.png" width="20px" height="20px" style="float: left;margin: 10px;" alt=""/>
+
     <div class="error-box"></div>
 </div>
 <div id="dialog-message-w" title="UPOZORENJE">
     <img src="images/warning.png" width="20px" height="20px" style="float: left;margin: 10px;" alt=""/>
+
     <div class="error-box"></div>
 </div>
 <div id="dialog-message-i" title="INFO">
     <img src="images/info.png" width="20px" height="20px" style="float: left;margin: 10px;" alt=""/>
+
     <div class="error-box"></div>
 </div>
 <div id="toTop"><img src="images/back_to_top.png" alt=""/></div>

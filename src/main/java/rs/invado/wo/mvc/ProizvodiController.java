@@ -29,7 +29,7 @@ public class ProizvodiController {
     private static final String ACTION_AKCIJA = "AKCIJA";
     private static final String ACTION_NOVO = "NOVO";
     private static final String ACTION_RASPRODAJA = "RASPRODAJA";
-    private static final String ACTION_NAJAKTUELNIJE = "NAJAKTUELNIJE";
+    private static final String ACTION_AKTUELNO = "AKTUELNO";
     private static final String ACTION_FILTER = "FILTER";
     private static final String ACTION_SASTAV = "SASTAV";
 
@@ -54,7 +54,7 @@ public class ProizvodiController {
             proizvodi = productService.getProzivodiNaAkcijiSorted(brandId, ProductService.PROIZVODI_NA_AKCIJI, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
         } else if (ACTION_NOVO.equals(formAction)) {
             proizvodi = productService.getProzivodiNaAkcijiSorted(brandId, ProductService.PROIZVODI_NOVO, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
-        } else if (ACTION_NAJAKTUELNIJE.equals(formAction)) {
+        } else if (ACTION_AKTUELNO.equals(formAction)) {
             proizvodi = productService.getProzivodiNaAkcijiSorted(brandId, ProductService.PROIZVODI_AKTUELNO, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
         } else if (ACTION_RASPRODAJA.equals(formAction)) {
             proizvodi = productService.getProzivodiNaAkcijiSorted(brandId, ProductService.PROIZVODI_NA_RASPRODAJI, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);

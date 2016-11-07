@@ -248,7 +248,8 @@ $.ajaxSetup({
             console.log('cetvrti '+item.raspolozivo);
             console.log('peti '+ item.jedinicaMere.skracenaOznaka);
 
-            zalihe = Math.floor(item.raspolozivo/item.kolicinaPoPakovanju) + ' ' + item.jedinicaMereAltRef.skracenaOznaka + ' / ' + item.raspolozivo + ' ' + item.jedinicaMere.skracenaOznaka;
+            //zalihe = Math.floor(item.raspolozivo/item.kolicinaPoPakovanju) + ' ' + item.jedinicaMereAltRef.skracenaOznaka + ' / ' + item.raspolozivo + ' ' + item.jedinicaMere.skracenaOznaka;
+            zalihe = item.raspolozivoPakovanja + ' ' + item.jedinicaMereAltRef.skracenaOznaka + ' / ' + item.raspolozivo + ' ' + item.jedinicaMere.skracenaOznaka;
             product += "<div class='kol_pak ellipsis'>Kolièina po pakovanju: " + item.kolicinaPoPakovanju + " " + item.jedinicaMere.skracenaOznaka.toLowerCase() + "</div>";
         }
 
@@ -491,7 +492,38 @@ $.ajaxSetup({
         });
         timer = setTimeout($(this).showNajprodavanije, 15000);
     };
+
+
+    $.fn.showNovo = function () {
+        $.ajax({
+            cache: false,
+            url: 'getNovo',
+            dataType: 'json',
+            success: function (result) {
+                if (result) {
+                    var resDiv = "<div id='div-najprodavanije' style='display: none;'>";
+                    $.each(result, function (i, item) {
+                        console.log(item.proizvod + "   " + item.cena + "   " + i);
+                        resDiv += "<div id='najprodavanije-" + item.proizvod + "' class='fade najprod'>" +
+                                /*"<img width='120px' height='84px' src='http://slikeproizvoda.darex.rs/slike/" + item.proizvod + ".jpg'  alt=''/>" +*/
+                            "<img width='120px' height='84px' src='/WO/images/small/" + item.proizvod + ".jpg'  alt=''/>" +
+                            "<div class='naziv multiline'>" + item.nazivProizvoda + " " + $(this).trimToEmptyString(item.dodatniNaziv) + "</div>" +
+                            "<div class='cena'>" + item.cena + " EUR</div>" +
+                            "</div>";
+                        if (i < 3) resDiv += "<hr class='thin' style='margin:10px;'>";
+                    });
+                    $("#div-najprodavanije").fadeOut(500);
+                    $("#div-najprodavanije").replaceWith(resDiv);
+                    $("#div-najprodavanije").fadeIn(500);
+
+
+                }
+            }
+        });
+        timer = setTimeout($(this).showNovo, 15000);
+    };
 })(jQuery);
+
 
 
 $(document).ready(function () {
@@ -499,7 +531,7 @@ $(document).ready(function () {
         $("input, select").css('vertical-align', 'middle');
         $("#partnerPretraga").css('margin-top', '8px');
     }
-    setTimeout($(this).showNajprodavanije, 15000);
+    setTimeout($(this).showNovo, 15000);
     $(this).dialogCfg();
     $(this).dialogCfgMSG();
     $(".ellipsis").ellipsis();

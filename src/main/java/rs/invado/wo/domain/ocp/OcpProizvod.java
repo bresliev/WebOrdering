@@ -3,6 +3,7 @@ package rs.invado.wo.domain.ocp;
 
 
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.Formula;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import rs.invado.wo.domain.prod.ProdPoreskaStopa;
@@ -14,6 +15,7 @@ import rs.invado.wo.dto.ZalihaPoPakovanjima;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.Blob;
 import java.util.*;
 
@@ -230,7 +232,7 @@ import java.util.*;
                         "    WoProdCene c, wo_sort_per_object_attribute woa, ocp_vr_atr_proizvod vra " +
                         " where exists (select 1 from wo_artikli_na_akciji w" +
                         "                               where w.proizvod# = p.proizvod#" +
-                        "                               and w.tip_akcije like '%'||:tipakcije||'%'" +
+                        "                               and w.tip_akcije like :tipakcije" +
                         "                               and w.id_kompanije_korisnik = :kompanija" +
                         "                               and ( w.datum_do > sysdate or datum_do is null)) " +
                         " and p.proizvod# = a.proizvod#" +
@@ -281,7 +283,7 @@ import java.util.*;
                         " and km.KLASIFIKACIJA# = sc.WO_KLASIFIKACIJA#" +
                         " and sc.id = co.wo_sort_per_class_id" +
                         " and co.OCP_VRSTA_KLASIFIKACIJE# = k.VRSTA_KLASIFIKACIJE#" +
-                        " and co.OCP_KLASIFIKACIJA# like k.KLASIFIKACIJA#" +
+                        " and k.KLASIFIKACIJA# like co.OCP_KLASIFIKACIJA#||'%'" +
                         " and k.proizvod# = p.proizvod# " +
                         " and c.organizaciona_jedinica# = :ojc " +
                         " and c.id_klasa_cene = :klc" +
@@ -306,7 +308,7 @@ import java.util.*;
                         "    WoProdCene c " +
                         " where exists (select 1 from wo_artikli_na_akciji w" +
                         " where w.proizvod# = p.proizvod#" +
-                        " and w.tip_akcije like '%'||:tipakcije||'%'" +
+                        " and w.tip_akcije like :tipakcije" +
                         " and w.id_kompanije_korisnik = :kompanija" +
                         " and ( w.datum_do > sysdate or datum_do is null)) " +
                         " and p.proizvod# = a.proizvod#" +
@@ -357,7 +359,7 @@ import java.util.*;
                         " and km.KLASIFIKACIJA# = sc.WO_KLASIFIKACIJA#" +
                         " and sc.id = co.wo_sort_per_class_id" +
                         " and co.OCP_VRSTA_KLASIFIKACIJE# = k.VRSTA_KLASIFIKACIJE#" +
-                        " and co.OCP_KLASIFIKACIJA# like k.KLASIFIKACIJA#" +
+                        " and k.KLASIFIKACIJA# like co.OCP_KLASIFIKACIJA#||'%'" +
                         " and k.proizvod# = p.proizvod# " +
                         " and c.organizaciona_jedinica# = :ojc " +
                         " and c.id_klasa_cene = :klc" +
@@ -646,6 +648,7 @@ public class OcpProizvod implements java.io.Serializable {
     private String sortKlasaComposite;
     private String vrednostSortAtributa;
     private BigDecimal maxRabat;
+    private BigDecimal raspolozivoPakovanja;
 
     private transient List<ProdStavkaCenovnika> cene = new ArrayList<ProdStavkaCenovnika>(0);
     public transient List<OcpKlasifikacijaProizvoda> ocpKlasifikacijaProizvoda = new ArrayList<OcpKlasifikacijaProizvoda>(0);
@@ -1058,6 +1061,16 @@ public class OcpProizvod implements java.io.Serializable {
     public void setRaspolozivo(BigDecimal raspolozivo) {
         this.raspolozivo = raspolozivo;
     }
+
+    @Transient
+    public BigDecimal getRaspolozivoPakovanja() {
+        return raspolozivoPakovanja;
+    }
+
+    public void setRaspolozivoPakovanja() {
+        this.raspolozivoPakovanja = raspolozivo.divide(kolicinaPoPakovanju, RoundingMode.HALF_DOWN);
+    }
+
 
     //@Formula(("concat(naziv_proizvoda, dodatni_naziv)"))
     @Transient

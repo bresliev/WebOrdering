@@ -190,6 +190,7 @@
             <scope>provided</scope>
         </dependency>
 
+
         <!-- Import Spring dependencies, these are either from community or versions
             certified in WFK2 -->
         <dependency>

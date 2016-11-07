@@ -58,17 +58,31 @@ public class LogOnService {
 
     private void setListaNajprodavanijih(CompanySetting cs, List<WoPartnerSetting> wpsc, User user) {
         //Map najprodavanijih artikala za menjajuću listu
-        Map<String, Proizvodi> listaNajprodavanijih = new HashMap<String, Proizvodi>();
+        Map<String, Proizvodi> listaNajpdovanijih = new HashMap<String, Proizvodi>();
         Iterator it = cs.getKompanijaKorisnikMap().entrySet().iterator();
         while (it.hasNext()) {
-
             Map.Entry pairs = (Map.Entry) it.next();
             WoKompanijaKorisnik kompanija = (WoKompanijaKorisnik) pairs.getValue();
-            listaNajprodavanijih.put(kompanija.getCorrespondingOJ() + "", productService.getProzivodiNaAkciji(ProductService.NAJPRODAVANIJE,
+            listaNajpdovanijih.put(kompanija.getCorrespondingOJ() + "", productService.getProzivodiNaAkciji(ProductService.NAJPRODAVANIJE,
                     user.getCeneProizvoda(), 0, 10000, woParametriDAO.findActualSetOfParametersPerCompany(kompanija), wpsc,
                     cs.getTrasportnaPakovanja(), kompanija.getCorrespondingOJ()));
         }
-        cs.setListaNajprodavanijih(listaNajprodavanijih);
+        cs.setListaNajprodavanijih(listaNajpdovanijih);
+    }
+
+    private void setListaNovoIzdvojeno(CompanySetting cs, List<WoPartnerSetting> wpsc, User user) {
+        //Map najprodavanijih artikala za menjajuću listu
+        Map<String, Proizvodi> listaNovo = new HashMap<String, Proizvodi>();
+        Iterator it = cs.getKompanijaKorisnikMap().entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pairs = (Map.Entry) it.next();
+            WoKompanijaKorisnik kompanija = (WoKompanijaKorisnik) pairs.getValue();
+            listaNovo.put(kompanija.getCorrespondingOJ() + "", productService.getProzivodiNaAkciji(ProductService.NOVO_IZDVOJENO,
+                    user.getCeneProizvoda(), 0, 10000, woParametriDAO.findActualSetOfParametersPerCompany(kompanija), wpsc,
+                    cs.getTrasportnaPakovanja(), kompanija.getCorrespondingOJ()));
+        }
+        System.out.println("Lista novo ima "+listaNovo.size());
+        cs.setListaNovoIzdvojeno(listaNovo);
     }
 
     public User logOn(String userName, String password, CompanySetting cs, Integer OJ) throws WOException {
@@ -77,7 +91,6 @@ public class LogOnService {
         //WoUser woUser = woUserDAO.findUserByUsername(userName);
 
         WoUser woUser = woUserDAO.findUserByUsernameAndCompany(userName, cs.getKompanijaKorisnikMap().get(OJ).getId());
-
         //WoUser woUser = woUserDAO.autenticate(userName, password);
         if (woUser == null)
             throw new WOException(WOExceptionCodes.WO_UNEXESTING_USER);
@@ -91,8 +104,9 @@ public class LogOnService {
         } else if (woUser.getUserType().equals(WoUser.USER_INTERNAL)) {
 
             if (admUserCinposDAO.findByIdParameters(Integer.valueOf(woUser.getRadnik().getRadbr()),
-                    AdminUserCinpos.OBJEKAT_ANALITIKE, OJ + "") == null)
+                    AdminUserCinpos.OBJEKAT_ANALITIKE, OJ + "") == null) {
                 throw new WOException(WOExceptionCodes.WO_UNAUTHORIZED_USER);
+            }
 
             //slučaj internog korisnika, potrebno je kreritai konekciju
             //if (woUser.getRadnik().getObrJedinica())
@@ -116,8 +130,9 @@ public class LogOnService {
         }
         List<WoPartnerSetting> wpsc = wpscDAO.findByPartnerIdForCurrentCompany(woUser.getOcpPoslovniPartner().getPoslovniPartner(),
                 cs.getKompanijaKorisnikMap().get(OJ));
-        if (wpsc.size() == 0)
+        if (wpsc.size() == 0) {
             throw new WOException(WOExceptionCodes.WO_UNAUTHORIZED_USER);
+        }
         for (int i = 0; i < woUser.getOcpPoslovniPartner().getProdPpRabats().size(); i++) {
 
             if (woUser.getOcpPoslovniPartner().getProdPpRabats().get(i).getDatumOvere() != null && woUser.getOcpPoslovniPartner().getProdPpRabats().get(i).getDatumDo().after(new java.sql.Date(new java.util.Date().getTime())) &&
@@ -133,14 +148,13 @@ public class LogOnService {
         user.setCeneProizvoda(ceneProizvoda);
         user.setProdCenovnik(prodCenovnikDAO.findCenovnikAktuelni(wpsc.get(0)));
         user.setValuta(ocpValutaDAO.findByKlasa(wpsc.get(0), OJ));
-
 //ovde
         Map<String, Boolean> woUserHasRights = new HashMap<String, Boolean>();
         for (WoUserHasRight rights : woUser.getWoUserHasRights())
             woUserHasRights.put(woUserRightsDAO.findById(rights.getId().getRigthId()).getAbbreviation(), rights.getValue());
 
         user.setWoUserHasRights(woUserHasRights);
-        setListaNajprodavanijih(cs, wpsc, user);
+        setListaNovoIzdvojeno(cs, wpsc, user);
         return user;
     }
 
@@ -159,7 +173,7 @@ public class LogOnService {
             user.setValuta(ocpValutaDAO.findByKlasa(wpsc.get(0), OJ));
             user.getWoUser().setOcpPoslovniPartner(wpsc.get(0).getPoslovniPartner());
             user.setWoPartnerSetting(wpsc);
-            setListaNajprodavanijih(cs, wpsc, user);
+            setListaNovoIzdvojeno(cs, wpsc, user);
         }
     }
 }

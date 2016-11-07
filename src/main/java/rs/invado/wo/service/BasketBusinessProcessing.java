@@ -259,7 +259,6 @@ public class BasketBusinessProcessing {
     public void increaseReservation(OcpProizvod ocpProizvod, int currentOJ, BigDecimal narucenaKolicina, String sessionId, User user,
                                     BigDecimal pakovanje)
             throws WOException {
-
         BigDecimal aktuelnoPakovanje;
         if (ocpProizvod.getJedinicaMereRezervacije().equals("ALTERNATIVNA")) {
             aktuelnoPakovanje = pakovanje == null ? ocpProizvod.getKolicinaPoPakovanju() : pakovanje;
@@ -268,7 +267,6 @@ public class BasketBusinessProcessing {
         }
         BigDecimal rabatZaProizvod = new BigDecimal(0);
         String basketIndex = ocpProizvod.getProizvod() + "/" + aktuelnoPakovanje;
-
         WoKompanijaKorisnik woKompanijaKorisnik = woKompanijaKorisnikDAO.findByCoresponingOJ(currentOJ);
         Integer skladisteRezervacije = ocpProizvod.getMaticnoSkladiste();
         //poevećaj rezervaciju u magacinu

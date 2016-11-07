@@ -41,6 +41,8 @@ public class CompanySetting {
     private Map<String, Map<String, List<WoDownloadFiles>>> downloadFilesZaTip = new LinkedHashMap<String, Map<String, List<WoDownloadFiles>>>(0);
     //Map najprodavanijih artikala za menjajuću listu
     private Map<String, Proizvodi> listaNajprodavanijih= new HashMap<String, Proizvodi>();
+    //Map novih artikala za menjajuću listu
+    private Map<String, Proizvodi> listaNovoIzdovojeno= new HashMap<String, Proizvodi>();
 
     public Map<String, List<OcpKlasifikacija>> getMeni() {
         return meni;
@@ -112,5 +114,13 @@ public class CompanySetting {
 
     public void setListaNajprodavanijih(Map<String, Proizvodi> listaNajprodavanijih) {
         this.listaNajprodavanijih = listaNajprodavanijih;
+    }
+
+    public Map<String, Proizvodi> getListaNovoIzdvojeno() {
+        return listaNovoIzdovojeno;
+    }
+
+    public void setListaNovoIzdvojeno(Map<String, Proizvodi> listaNovoIzdvojeno) {
+        this.listaNovoIzdovojeno = listaNovoIzdvojeno;
     }
 }

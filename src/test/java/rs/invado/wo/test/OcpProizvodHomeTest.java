@@ -218,7 +218,7 @@ public class OcpProizvodHomeTest {
     }
 
     @Test
-    public void testProductService() {
+    public void testProductService() throws SQLException {
         Integer oj = new Integer(19);
         CompanySetting cs = null;//appInitService.initApp();
         try {
@@ -230,13 +230,13 @@ public class OcpProizvodHomeTest {
             Map<Integer, BigDecimal> m = prodCenovnikDAO.findCeneMapped(user.getWoPartnerSetting().get(0), cs.getKompanijskiParametri().get(0));
             //Proizvodi proizvodi = ps.getProizvodiZaBrend("0101", m, 0, 10) ;
         /*Proizvodi proizvodi = ps.getProzivodiNaAkcijiSorted("AKTUELNO", m, 0, 100); */
-        /*Proizvodi proizvodi = ocpProizvodDAO.findProizvodiZaBrendSorted("0101", 0, 1050, cs.getKompanijskiParametri().get(19),
-                user.getWoPartnerSetting(), cs);  */
+
+        Proizvodi proizvodi = ocpProizvodDAO.findProizvodiZaBrendSorted("0101", 0, 1050, cs.getKompanijskiParametri().get(19), user.getWoPartnerSetting(), cs);
             List<String> patterns = new ArrayList<String>();
             patterns.add("iver");
             patterns.add("oplem");
             String brand;
-            Proizvodi proizvodi = ocpProizvodDAO.findFilterProizvodiByNamePatternsSorted(null, patterns, 0, 1500, cs.getKompanijskiParametri().get(19),
+            proizvodi = ocpProizvodDAO.findFilterProizvodiByNamePatternsSorted(null, patterns, 0, 1500, cs.getKompanijskiParametri().get(19),
                     user.getWoPartnerSetting());
             for (OcpProizvod item : proizvodi.getProizvodList()) {
                 System.out.println(" Proizvod je " + item.getProizvod() + " Raspolozivo za  "

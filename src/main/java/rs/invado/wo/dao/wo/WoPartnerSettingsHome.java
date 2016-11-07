@@ -103,7 +103,7 @@ public class WoPartnerSettingsHome {
     }
 
     public List<WoPartnerSetting> findByPartnerIdForCurrentCompany(int partnerId, WoKompanijaKorisnik kompanijeKorisnik) {
-        log.debug("getting WoPartnerSetting instance with id: " + partnerId);
+        log.info("getting WoPartnerSetting instance with id: " + partnerId+" "+kompanijeKorisnik.getId());
         try {
             List<WoPartnerSetting> instances = getSession().createCriteria(WoPartnerSetting.class)
                     .add(Restrictions.eq("poslovniPartner.poslovniPartner", partnerId ))
