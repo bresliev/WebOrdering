@@ -81,7 +81,6 @@ public class LogOnService {
                     user.getCeneProizvoda(), 0, 10000, woParametriDAO.findActualSetOfParametersPerCompany(kompanija), wpsc,
                     cs.getTrasportnaPakovanja(), kompanija.getCorrespondingOJ()));
         }
-        System.out.println("Lista novo ima "+listaNovo.size());
         cs.setListaNovoIzdvojeno(listaNovo);
     }
 

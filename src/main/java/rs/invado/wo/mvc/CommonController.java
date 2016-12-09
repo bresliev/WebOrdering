@@ -54,7 +54,6 @@ public class CommonController {
         model.addAttribute("productList", proizvodi.getProizvodList());
         model.addAttribute("url", "/home");
         model.addAttribute("novoIzdvojeno", getNovoIzdvojenoList(session));
-        System.out.println("novo izdvojeno lisata u getHomePage "+getNovoIzdvojenoList(session).size());
         return "naslovnaView";
     }
 
@@ -182,7 +181,6 @@ public class CommonController {
         CompanySetting companySetting = (CompanySetting) ctx.getAttribute(AppInitService.CompanySetting);
         String oj = (String) session.getAttribute("oj");
         List<OcpProizvod> novoIzdvojeno = companySetting.getListaNovoIzdvojeno().get(oj).getProizvodList();
-        System.out.println("lista novo izdvojeno u getNovoIzdvojenoList u kontroleru "+novoIzdvojeno.size());
         List<OcpProizvod> result = new ArrayList<OcpProizvod>();
         if (novoIzdvojeno != null && novoIzdvojeno.size() > 0) {
             int range = novoIzdvojeno.size();

@@ -112,7 +112,7 @@
         </tr>
         <tr>
             <td>
-                Vojvode Ilije Plamenca bb, Zabjelo<br>
+                Branka Miljkoviæa 40<br>
                 81000 Podgorica<br>
                 tel: +382 (0)20 225 289<br>
                 fax: +382 (0)20 225 289<br>

@@ -53,7 +53,7 @@
                     </div>
                     <div class="kol_pak ellipsis">Kolièina po pakovanju4: ${item.kolicinaPoPakovanju} ${item.jedinicaMere.skracenaOznaka}</div>
                     <div class="kolicina">Poruèiti: <input type="number" min="1" step="1" id="orderedQuantity-${item.proizvod}" value=""/>${item.jedinicaMereAltRef.skracenaOznaka}</div>
-                 	<div class="zalihe ellipsis" id="raspolozivo-${item.proizvod}">Zalihe4: ${item.raspolozivo} ${item.jedinicaMere.skracenaOznaka}</div>
+                 	<div class="zalihe ellipsis" id="raspolozivo-${item.proizvod}">Zalihe: ${item.raspolozivo} ${item.jedinicaMere.skracenaOznaka}</div>
                     <div class="potvrda">
 						<div style="float: left;"><input type="submit" id="dialog-${item.proizvod}"  class="btn zoom opener"  value="UVEÆAJ"/></div>
 					    <div style="float: right;"><input type="submit" id="basket-${item.proizvod}" class="btn basket add_to_basket"  value="DODAJ U KORPU"/></div>

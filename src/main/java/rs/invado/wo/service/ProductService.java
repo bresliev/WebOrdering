@@ -276,7 +276,6 @@ public class ProductService {
             , WoParametri woParametri, List<WoPartnerSetting> woPartnerSetting, Map<Integer, BigDecimal> transortnaPakovanjaProizvoda, Integer oj) {
         Proizvodi proizvodi = ocpProizvodDAO.findProizvodiNaAkciji(vrstaAkcije, pageNo, pageSize, woParametri, woPartnerSetting);
         setTransAtrZaPro(proizvodi.getProizvodList(), cenovnik, woPartnerSetting, transortnaPakovanjaProizvoda, woParametri, oj);
-        System.out.println("proizvodi u getProzivodiNaAkciji "+proizvodi.getProizvodList().size()+" za vrstu akcije "+vrstaAkcije);
         return proizvodi;
     }
 

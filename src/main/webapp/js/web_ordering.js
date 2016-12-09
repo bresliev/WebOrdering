@@ -214,8 +214,7 @@ $.ajaxSetup({
         else if (item.tipAkcije == 'AKTUELNO') tipAkcijeImg = "<img src='images/Aktuelno.png' alt='' style='position: absolute;top: 34px;right: 11px;'>";
         else if (item.tipAkcije == 'RASPRODAJA') tipAkcijeImg = "<img src='images/Rasprodaja.png' alt='' style='position: absolute;top: 34px;right: 11px;'>";
         else if (item.tipAkcije == 'OSTECENA_ROBA') tipAkcijeImg = "<img src='images/OstecenaRoba.png' alt='' style='position: absolute;top: 34px;right: 11px;'>"
-        console.log('tipa je akcije '+ item.tipAkcije);
-        console.log('prozvod za prikaz je '+item.proizvod);
+
         var product = "<div class='product_item' style='display: none;'>" +
             "<div class='dezen'>" + item.dezenIstruktira + "</div>" +
             "<img id='dialog-img-" + item.proizvod + "' class='product_item_img opener' src='/WO/images/medium/" + item.proizvod + ".jpg' alt=''/>" + tipAkcijeImg +
@@ -242,11 +241,8 @@ $.ajaxSetup({
          } */
         //
         else {
-            console.log('prvi '+item.raspolozivo);
-            console.log('drugi '+item.kolicinaPoPakovanj);
-            console.log('treci '+item.jedinicaMereAltRef.skracenaOznaka);
-            console.log('cetvrti '+item.raspolozivo);
-            console.log('peti '+ item.jedinicaMere.skracenaOznaka);
+            console.log('nulti'+item.proizvod);
+
 
             //zalihe = Math.floor(item.raspolozivo/item.kolicinaPoPakovanju) + ' ' + item.jedinicaMereAltRef.skracenaOznaka + ' / ' + item.raspolozivo + ' ' + item.jedinicaMere.skracenaOznaka;
             zalihe = item.raspolozivoPakovanja + ' ' + item.jedinicaMereAltRef.skracenaOznaka + ' / ' + item.raspolozivo + ' ' + item.jedinicaMere.skracenaOznaka;
