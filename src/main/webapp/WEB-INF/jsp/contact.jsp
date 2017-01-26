@@ -1,7 +1,7 @@
 <%@page contentType="text/html" %>
 <%@page pageEncoding="Windows-1250" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<div class="content">
+< class="content">
 <c:choose>
     <c:when test="${not empty flashSize}">
         <object width="716px" height="${flashSize}" style="margin:0;padding:0;margin-left:10px;"
@@ -46,13 +46,7 @@
             </td>
         </tr>
         <tr>
-            <td>
-                <b>Ivana Daboviæ</b><br>
-                tel: +381 (0)11 20 91 621<br>
-                fax: +381 (0)11 20 91 699<br>
-                mob: +381 (0)65 31 95 240<br>
-                e-mail: <b><a style="color:#58595b;" href="mailto:ivana.dabovic@darex.rs">ivana.dabovic@darex.rs</a></b>
-            </td>
+
             <td>
                 <b>Radmila Azanjac</b><br>
                 tel: +381 (0)11 20 91 622<br>
@@ -66,6 +60,11 @@
                 fax: +381 (0)11 20 91 699<br>
                 mob: +381 (0)65 31 95 301<br>
                 e-mail: <b><a style="color:#58595b;" href="mailto:vera.maslakovic@darex.rs">vera.maslakovic@darex.rs</a></b>
+            </td>
+            <td>
+                <b>Aleksandar Petkoviæ</b><br>
+                mob: +381 (0)65 31 95 270<br>
+                e-mail: <b><a style="color:#58595b;" href="mailto:aleksandar.petkovic@darex.rs">aleksandar.petkovic@darex.rs</a></b>
             </td>
         </tr>
         <tr>
@@ -155,13 +154,6 @@
         </tr>
         <tr>
             <td>
-                <b>Ivana Daboviæ</b><br>
-                tel: 011 20 91 621<br>
-                fax: 011 20 91 699<br>
-                mob: 065 31 95 240<br>
-                e-mail: <b><a style="color:#58595b;" href="mailto:ivana.dabovic@darex.rs">ivana.dabovic@darex.rs</a></b>
-            </td>
-            <td>
                 <b>Radmila Azanjac</b><br>
                 tel: 011 20 91 622<br>
                 fax: 011 20 91 699<br>
@@ -204,7 +196,10 @@
                               href="mailto:slavisa.petrovic@darex.rs">slavisa.petrovic@darex.rs</a></b>
             </td>
             <td>
-                <br><br><br><br>
+                <b>Aleksandar Petkoviæ</b><br>
+                mob: +381 (0)65 31 95 270<br>
+                e-mail: <b><a style="color:#58595b;" href="mailto:aleksandar.petkovic@darex.rs">aleksandar.petkovic@darex.rs</a></b><br><br>
+
                 <b>Vladimir Beševiæ</b><br>
                 mob: 065 31 95 243<br>
                 e-mail: <b><a style="color:#58595b;"

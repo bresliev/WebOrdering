@@ -360,6 +360,7 @@ import java.util.*;
                         " and sc.id = co.wo_sort_per_class_id" +
                         " and co.OCP_VRSTA_KLASIFIKACIJE# = k.VRSTA_KLASIFIKACIJE#" +
                         " and k.KLASIFIKACIJA# like co.OCP_KLASIFIKACIJA#||'%'" +
+                        " and k.KLASIFIKACIJA# like co.OCP_KLASIFIKACIJA#||'%'" +
                         " and k.proizvod# = p.proizvod# " +
                         " and c.organizaciona_jedinica# = :ojc " +
                         " and c.id_klasa_cene = :klc" +
@@ -587,8 +588,8 @@ import java.util.*;
                         "    and pkvp.poreska_klasa# = pk.poreska_klasa#" +
                         "    and pkvp.datum_do is null" +
                         "    and vp.vrsta_poreza# = pkvp.vrsta_poreza#" +
-                        "    and ps.vrsta_poreza# = vp.vrsta_poreza#  -- uslov koji je dodat 17.10.2012 da ne bi sumirao sve vrste poreza" +
-                        "    and ps.datum_do is null", resultClass = ProdPoreskaStopa.class)})
+                        "    and ps.vrsta_poreza# = vp.vrsta_poreza#  " +
+                        "    and ps.datum_do is null ", resultClass = ProdPoreskaStopa.class)})
 
 
 public class OcpProizvod implements java.io.Serializable {
