@@ -62,16 +62,12 @@
                 e-mail: <b><a style="color:#58595b;" href="mailto:vera.maslakovic@darex.rs">vera.maslakovic@darex.rs</a></b>
             </td>
             <td>
-                <b>Aleksandar Petkoviæ</b><br>
-                mob: +381 (0)65 31 95 270<br>
-                e-mail: <b><a style="color:#58595b;" href="mailto:aleksandar.petkovic@darex.rs">aleksandar.petkovic@darex.rs</a></b>
             </td>
         </tr>
         <tr>
             <td style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;">Direktor prodaje </td>
             <td></td>
-            <td style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;">Izvršni direktor
-            </td>
+            <td > </td>
         </tr>
         <tr>
             <td>
@@ -87,8 +83,7 @@
                 distributivnog centra
             </td>
             <td></td>
-            <td style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;">Izvršni direktor
-            </td>
+            <td ></td>
         </tr>
         <tr>
             <td>
@@ -105,9 +100,7 @@
                 Darexmax d.o.o. Podgorica
             </td>
             <td></td>
-            <td style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;">
-                Distributivni Centar Ivanjica
-            </td>
+            <td > </td>
         </tr>
         <tr>
             <td>
@@ -115,25 +108,15 @@
                 81000 Podgorica<br>
                 tel: +382 (0)20 225 289<br>
                 fax: +382 (0)20 225 289<br>
-                e-mail: <b><a style="color:#58595b;" href="mailto:distribucija@darexmax.me">distribucija@darexmax.me</a></b>
+                e-mail: <b><a style="color:#58595b;" href="mailto:prodaja@darexmax.me">prodaja@darexmax.me</a></b>
             </td>
             <td></td>
-            <td>
-                Bukovica bb<br>
-                32250 Ivanjica<br>
-                tel: +381 (0)32 642 372<br>
-                fax: +381 (0)11 20 91 699<br>
-                e-mail: <b><a style="color:#58595b;" href="mailto:distribucija@darex.rs">distribucija@darex.rs</a></b>
-            </td>
+            <td>            </td>
         </tr>
         <tr>
             <td></td>
             <td></td>
             <td>
-                <b>Radno vreme :</b><br>
-                pon - pet 8:30 - 16:30 h<br>
-                sub 9:00 - 17:00 h<br>
-                ned neradni dan
             </td>
         </tr>
         <tr>
@@ -254,7 +237,7 @@
                 11077 Beograd<br>
                 tel: 011 20 91 620<br>
                 fax: 011 20 91 699<br>
-                e-mail: <b><a style="color:#58595b;" href="mailto:distribucija@darex.rs">distribucija@darex.rs</a></b>
+                e-mail: <b><a style="color:#58595b;" href="mailto:prodaja@darex.rs">prodaja@darex.rs</a></b>
             </td>
             <td>
                 <b>Distributivni Centar Niš</b><br>
@@ -263,7 +246,7 @@
                 tel: 018 208 100<br>
                 fax: 011 20 91 699<br>
                 e-mail: <b><a style="color:#58595b;"
-                              href="mailto:distribucija@darex.rs">distribucija@darex.rs</a></b><br>
+                              href="mailto:prodaja@darex.rs">prodaja@darex.rs</a></b><br>
             </td>
             <td>
                 <b>Distributivni Centar Ivanjica</b><br>
@@ -271,7 +254,7 @@
                 32250 Ivanjica<br>
                 tel: 032 642 372<br>
                 fax: 011 20 91 699<br>
-                e-mail: <b><a style="color:#58595b;" href="mailto:distribucija@darex.rs">distribucija@darex.rs</a></b>
+                e-mail: <b><a style="color:#58595b;" href="mailto:prodaja@darex.rs">prodaja@darex.rs</a></b>
             </td>
         </tr>
         <tr>
