@@ -101,7 +101,6 @@ public class LogOnService {
             user.setWoUser(woUser);
 
         } else if (woUser.getUserType().equals(WoUser.USER_INTERNAL)) {
-
             if (admUserCinposDAO.findByIdParameters(Integer.valueOf(woUser.getRadnik().getRadbr()),
                     AdminUserCinpos.OBJEKAT_ANALITIKE, OJ + "") == null) {
                 throw new WOException(WOExceptionCodes.WO_UNAUTHORIZED_USER);

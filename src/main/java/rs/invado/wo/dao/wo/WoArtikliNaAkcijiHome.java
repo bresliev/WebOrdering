@@ -96,9 +96,11 @@ public class WoArtikliNaAkcijiHome {
     }
 
     public WoArtikliNaAkciji findAkcijiZaArtikal(Date datumDo, WoParametri woParametri, OcpProizvod proizvod) {
+
         WoArtikliNaAkciji wanaa = (WoArtikliNaAkciji)entityManager.unwrap(Session.class).createCriteria(WoArtikliNaAkciji.class, "wana")
                 .add(Restrictions.ge("datumDo", datumDo))
                 .add(Restrictions.eq("idKompanijeKorisnik", woParametri.getWoKompanijaKorisnik().getId()))
+                .add(Restrictions.ne("tipAkcije", ProductService.NOVO_IZDVOJENO))
                 .add(Restrictions.ne("tipAkcije", ProductService.IZDVOJENA_AKCIJA))
                 .add(Restrictions.eq("ocpProizvod", proizvod))
                 .uniqueResult();
