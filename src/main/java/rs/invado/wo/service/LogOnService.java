@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import rs.invado.wo.dao.admin.AdmUserCinposHome;
+import rs.invado.wo.dao.ocp.OcpAdresaIsporukeHome;
 import rs.invado.wo.dao.ocp.OcpProizvodHome;
 import rs.invado.wo.dao.ocp.OcpValutaHome;
 import rs.invado.wo.dao.prod.ProdCenovnikHome;
@@ -12,6 +13,7 @@ import rs.invado.wo.dao.wo.WoPartnerSettingsHome;
 import rs.invado.wo.dao.wo.WoUserHome;
 import rs.invado.wo.dao.wo.WoUserRightsHome;
 import rs.invado.wo.domain.admin.AdminUserCinpos;
+import rs.invado.wo.domain.ocp.OcpAdresaIsporuke;
 import rs.invado.wo.domain.wo.*;
 import rs.invado.wo.dto.CompanySetting;
 import rs.invado.wo.dto.Proizvodi;
@@ -54,6 +56,8 @@ public class LogOnService {
     WoParametriHome woParametriDAO;
     @Autowired
     WoUserRightsHome woUserRightsDAO;
+    @Autowired
+    OcpAdresaIsporukeHome ocpAdresaIsporukeDAO;
 
 
     private void setListaNajprodavanijih(CompanySetting cs, List<WoPartnerSetting> wpsc, User user) {
@@ -131,6 +135,11 @@ public class LogOnService {
         if (wpsc.size() == 0) {
             throw new WOException(WOExceptionCodes.WO_UNAUTHORIZED_USER);
         }
+
+        List<OcpAdresaIsporuke> ocpAdresaIsporukes = ocpAdresaIsporukeDAO.findByPartnerId(woUser.getOcpPoslovniPartner().getPoslovniPartner());
+
+        woUser.getOcpPoslovniPartner().setOcpAdresaIsporukes(ocpAdresaIsporukes);
+
         for (int i = 0; i < woUser.getOcpPoslovniPartner().getProdPpRabats().size(); i++) {
 
             if (woUser.getOcpPoslovniPartner().getProdPpRabats().get(i).getDatumOvere() != null && woUser.getOcpPoslovniPartner().getProdPpRabats().get(i).getDatumDo().after(new java.sql.Date(new java.util.Date().getTime())) &&

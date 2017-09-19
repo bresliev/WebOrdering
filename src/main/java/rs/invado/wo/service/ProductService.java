@@ -306,6 +306,9 @@ public class ProductService {
 
         //OcpProizvod proizvod = ocpProizvodDAO.findById(id);
         OcpProizvod proizvod = ocpProizvodDAO.findFilterProizvodiById(new Integer(id), pageNo, pageSize, woParametri, woPartnerSetting);
+
+
+
         List<OcpProizvod> lp = new ArrayList<OcpProizvod>();
         if (proizvod != null) {
             lp.add(proizvod);

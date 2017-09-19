@@ -143,20 +143,27 @@
                     <h2>${loginUser.orderValueWithTax} &euro;</h2>
                 </div>
                 <hr color="#bbbbbb" class="thin" style="clear:both;margin-bottom:5px;"/>
-            </div>
+                <br></br>
             <c:choose>
                 <c:when test="${loginUser.woUser.userType == 'INTERNI'}">
                     <!--[if lte IE 9]><div style="margin-left:10px;color:#4c4b4b">Napomena</div><![endif]-->
                     <textarea name="napomena" placeholder="Napomena" cols="30" rows="5" spellcheck="false"></textarea>
                 </c:when>
                 <c:otherwise>
+                    <select name="adresaIsporuke" class="adresa_isporuke">
+                        <option value="-1">Adresa Isporuke</option>
+                        <c:forEach items="${loginUser.woUser.ocpPoslovniPartner.ocpAdresaIsporukes}" var="item">
+                            <option value="19/${item.adresa}">${item.adresa}</option>
+                        </c:forEach>
+                    </select>
+                    <br></br>
                     <!--[if lte IE 9]><div style="margin-left:10px;color:#4c4b4b">Adresa Isporuke</div><![endif]-->
                     <textarea name="adresa" placeholder="Adresa Isporuke" cols="30" rows="5"
                               spellcheck="false"></textarea>
                 </c:otherwise>
             </c:choose>
 
-
+            </div>
             <hr color="#bbbbbb" class="thin" style="margin-left:10px;margin-bottom: 10px;"/>
 
             <div style="float: left;margin-left:10px;"><input type="button" class="btn ponisti" value="PONIŠTI"

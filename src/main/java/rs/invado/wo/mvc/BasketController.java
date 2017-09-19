@@ -52,6 +52,7 @@ public class BasketController {
         if (user.getBasket() == null || user.getBasket().size() == 0) req.setAttribute("errorMsg", "Korpa je prazna!");
         req.setAttribute("url", req.getServletPath());
         model.addAttribute("novoIzdvojeno", getNovoListIzdvojeno(session));
+        model.addAttribute("adresaIsporuke", user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes());
         return "korpaView";
     }
 
@@ -150,7 +151,8 @@ public class BasketController {
 
 
     @RequestMapping(value = "/chceckOutBasket", method = RequestMethod.POST)
-    public String chceckOutBasket(HttpSession session, HttpServletRequest req, String nacinPlacanja, Integer nacinTransporta, String adresa, String napomena, String[] dodatniRabat, Model model) {
+    public String chceckOutBasket(HttpSession session, HttpServletRequest req, String nacinPlacanja, Integer nacinTransporta, String adresa, String napomena, String[] dodatniRabat,
+                                  String adresaIsporuke, Model model) {
         try {
             ServletContext ctx = AppInitService.getServletConfig();
             CompanySetting companySetting = (CompanySetting) ctx.getAttribute(AppInitService.CompanySetting);
@@ -167,7 +169,7 @@ public class BasketController {
                 }
             }
 
-            List<ProdFinDokument> fakture = basketService.chceckOutBasket(user, companySetting, nacinPlacanja, nacinTransporta, adresa, napomena, oj, session.getId());
+            List<ProdFinDokument> fakture = basketService.chceckOutBasket(user, companySetting, nacinPlacanja, nacinTransporta, adresa, adresaIsporuke, napomena, oj, session.getId());
             List<String> faktureList = new ArrayList<String>();
             for (ProdFinDokument f : fakture) {
                 faktureList.add(f.getId().getIdFinDokumenta() + "/" + f.getId().getOrganizacionaJedinica() + "/" + f.getId().getGodina() + "/" + f.getId().getIdVd());

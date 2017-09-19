@@ -54,6 +54,7 @@ public class OcpPoslovniPartner implements java.io.Serializable {
     private transient WoKompanijaKorisnik woKompanijaKorisnik;
     private transient List<WoPartnerSetting> woPartnerSetting = new ArrayList<WoPartnerSetting>(0);
     private transient List<ProdPpRabat> prodPpRabats = new ArrayList<ProdPpRabat>(0);
+    private transient List<OcpAdresaIsporuke> ocpAdresaIsporukes = new ArrayList<OcpAdresaIsporuke>(0);
 
 
     public OcpPoslovniPartner() {
@@ -437,6 +438,14 @@ public class OcpPoslovniPartner implements java.io.Serializable {
         this.prodPpRabats = prodPpRabats;
     }
 
+    @OneToMany(targetEntity = OcpAdresaIsporuke.class, fetch = FetchType.LAZY, mappedBy = "poslovniPartner")
+    public List<OcpAdresaIsporuke> getOcpAdresaIsporukes() {
+        return ocpAdresaIsporukes;
+    }
+
+    public void setOcpAdresaIsporukes(List<OcpAdresaIsporuke> ocpAdresaIsporukes) {
+        this.ocpAdresaIsporukes = ocpAdresaIsporukes;
+    }
 }
 
 

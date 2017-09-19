@@ -514,7 +514,10 @@ public class BasketBusinessProcessing {
             uzDokument = new UzDokument();
             //insertuj novi dokument
             if (nacinPlacanja.equals("CAS")) {
-                partner = user.getWoPartnerSetting().get(0).getKfl();
+                for (WoPartnerSetting woPartnerSetting : user.getWoPartnerSetting()) {
+                    if (woPartnerSetting.getIdSkladista() == skl.getIdSkladista())
+                        partner = woPartnerSetting.getKfl();
+                }
                 uzDokument.setIdSkladistaZa(uzSkladisteDAO.findByOjAndPurpose(skl.getOrganizacionaJedinicaJe(), 97).getIdSkladista());
 
             } else {
@@ -740,7 +743,7 @@ public class BasketBusinessProcessing {
     }
 
 
-    public List<ProdFinDokument> chceckOutBasket(User user, CompanySetting cs, String nacinPlacanja, int prevoz, String adresa, String napomena,
+    public List<ProdFinDokument> chceckOutBasket(User user, CompanySetting cs, String nacinPlacanja, int prevoz, String addressEntered, String addressChosed, String napomena,
                                                  Integer OJ, String sessionId) {
 
 
@@ -753,6 +756,9 @@ public class BasketBusinessProcessing {
         Calendar datum = Calendar.getInstance();
         Integer year = Integer.valueOf(datum.get(Calendar.YEAR));
         Date datumPromene = datum.getTime();
+
+        String adresa  = (addressEntered == null || addressEntered.equals("") || addressEntered.equals("")) ? addressChosed : addressEntered;
+
 
 
         UzSkladiste skl = new UzSkladiste();
