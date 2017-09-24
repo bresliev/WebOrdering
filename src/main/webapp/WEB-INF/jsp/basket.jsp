@@ -153,7 +153,7 @@
                     <select name="adresaIsporuke" class="adresa_isporuke">
                         <option value="-1">Adresa Isporuke</option>
                         <c:forEach items="${loginUser.woUser.ocpPoslovniPartner.ocpAdresaIsporukes}" var="item">
-                            <option value="19/${item.adresa}">${item.adresa}</option>
+                            <option value="${item.adresa}">${item.adresa}</option>
                         </c:forEach>
                     </select>
                     <br></br>

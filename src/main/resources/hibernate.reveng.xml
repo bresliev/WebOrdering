@@ -27,6 +27,7 @@
 	<table-filter match-name="OCP_MESTO"></table-filter>
 	<table-filter match-name="OCP_PROIZVOD"></table-filter>
 	<table-filter match-name="OCP_ADRESA_ISPORUKE"></table-filter>
+	<table-filter match-name="OCP_TELEFONSKI_BROJ"></table-filter>
 
 
 	<table name="OCP_ADRESA_ISPORUKE">
@@ -35,6 +36,14 @@
 		<column name="ADRESA"></column>
 		<column name="PRIORITET"></column>
 		<column name="AKTIVNA"></column>
+		<column name="PRIMALAC"></column>
+	</table>
+
+	<table name="OCP_TELEFONSKI_BROJ">
+		<column name="POSLOVNI_PARTNER#" property="poslovniPartner"></column>
+		<column name="TELEFONSKI_BROJ" property="telefonskiBroj"></column>
+		<column name="NAPOMENA" property=""></column>
+		<column name="ID_VRSTE_TELEFONSKOG_BROJ" property="idVrsteTelefonskogBroja"></column>
 	</table>
 
 	<table name="OCP_ATRIBUT">

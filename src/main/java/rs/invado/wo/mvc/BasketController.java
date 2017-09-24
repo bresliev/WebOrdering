@@ -153,6 +153,8 @@ public class BasketController {
     @RequestMapping(value = "/chceckOutBasket", method = RequestMethod.POST)
     public String chceckOutBasket(HttpSession session, HttpServletRequest req, String nacinPlacanja, Integer nacinTransporta, String adresa, String napomena, String[] dodatniRabat,
                                   String adresaIsporuke, Model model) {
+
+
         try {
             ServletContext ctx = AppInitService.getServletConfig();
             CompanySetting companySetting = (CompanySetting) ctx.getAttribute(AppInitService.CompanySetting);

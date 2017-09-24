@@ -18,6 +18,7 @@ public class OcpAdresaIsporuke {
     private String adresa;
     private int prioritet;
     private String aktivna;
+    private String primalac;
 
 
     public OcpAdresaIsporuke() {
@@ -76,5 +77,14 @@ public class OcpAdresaIsporuke {
 
     public void setAktivna(String aktivna) {
         this.aktivna = aktivna;
+    }
+
+    @Column(name = "PRIMALAC", length = 60)
+    public String getPrimalac() {
+        return primalac;
+    }
+
+    public void setPrimalac(String primalac) {
+        this.primalac = primalac;
     }
 }

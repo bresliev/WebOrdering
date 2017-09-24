@@ -5,6 +5,8 @@ package rs.invado.wo.dao.ocp;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,6 +15,7 @@ import rs.invado.wo.domain.ocp.OcpLiceZaKontaktId;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 /**
  * Home object for domain model class OcpLiceZaKontakt.
@@ -28,6 +31,12 @@ public class OcpLiceZaKontaktHome {
 
 	@PersistenceContext
 	private EntityManager entityManager;
+
+
+	public Session getSession() {
+		Session session = entityManager.unwrap(Session.class);
+		return session;
+	}
 
 	public void persist(OcpLiceZaKontakt transientInstance) {
 		log.debug("persisting OcpLiceZaKontakt instance");
@@ -71,6 +80,20 @@ public class OcpLiceZaKontaktHome {
 					OcpLiceZaKontakt.class, id);
 			log.debug("get successful");
 			return instance;
+		} catch (RuntimeException re) {
+			log.error("get failed", re);
+			throw re;
+		}
+	}
+
+	public OcpLiceZaKontakt findByPartnerId(int partnerId) {
+		log.info("getting WoPartnerSetting instance with id: " + partnerId);
+		try {
+			OcpLiceZaKontakt instances = (OcpLiceZaKontakt) getSession().createCriteria(OcpLiceZaKontakt.class)
+					.add(Restrictions.eq("ocpPoslovniPartner.poslovniPartner", partnerId))
+					.uniqueResult();
+			log.debug("get successful");
+			return instances;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
 			throw re;

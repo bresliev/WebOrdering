@@ -8,29 +8,20 @@ import org.hibernate.criterion.CriteriaSpecification;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import rs.invado.wo.domain.wo.WoKompanijaKorisnik;
-
+import rs.invado.wo.domain.ocp.OcpTelefonskiBroj;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.criteria.Order;
-import java.math.BigDecimal;
 import java.util.List;
 
-import rs.invado.wo.domain.ocp.OcpAdresaIsporuke;
-
 /**
- * Created by Nikola on 17/09/2017.
+ * Created by Nikola on 23/09/2017.
  */
 
 @Repository
 @Transactional
-
-public class OcpAdresaIsporukeHome {
-
-
-    private static final Log log = LogFactory
-            .getLog(OcpAdresaIsporukeHome.class);
+public class OcpTelefonskiBrojHome {
+     Log log = LogFactory.getLog(OcpTelefonskiBrojHome.class);
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -40,11 +31,10 @@ public class OcpAdresaIsporukeHome {
         return session;
     }
 
-    public void persist(OcpAdresaIsporuke transientInstance) {
-        log.debug("persisting OcpAdresaIsporuke instance");
+    public void persist(OcpTelefonskiBroj transientInstance) {
+        log.debug("persisting OcpTelefonskiBroj instance");
         try {
-            entityManager.persist(transientInstance);
-            entityManager.flush();
+            entityManager.persist(transientInstance);  entityManager.flush();
             log.debug("persist successful");
         } catch (RuntimeException re) {
             log.error("persist failed", re);
@@ -52,8 +42,8 @@ public class OcpAdresaIsporukeHome {
         }
     }
 
-    public void remove(OcpAdresaIsporuke persistentInstance) {
-        log.debug("removing OcpAdresaIsporuke instance");
+    public void remove(OcpTelefonskiBroj persistentInstance) {
+        log.debug("removing OcpTelefonskiBroj instance");
         try {
             entityManager.remove(persistentInstance);
             log.debug("remove successful");
@@ -63,12 +53,11 @@ public class OcpAdresaIsporukeHome {
         }
     }
 
-    public OcpAdresaIsporuke merge(
-            OcpAdresaIsporuke detachedInstance) {
-        log.debug("merging OcpAdresaIsporuke instance");
+    public OcpTelefonskiBroj merge(OcpTelefonskiBroj detachedInstance) {
+        log.debug("merging OcpTelefonskiBroj instance");
         try {
-            OcpAdresaIsporuke result = entityManager
-                    .merge(detachedInstance);
+            OcpTelefonskiBroj result = entityManager.merge(detachedInstance);
+            entityManager.flush();
             log.debug("merge successful");
             return result;
         } catch (RuntimeException re) {
@@ -77,11 +66,10 @@ public class OcpAdresaIsporukeHome {
         }
     }
 
-    public OcpAdresaIsporuke findById(BigDecimal id) {
-        log.debug("getting OcpAdresaIsporuke instance with id: " + id);
+    public OcpTelefonskiBroj findById(int id) {
+        log.debug("getting OcpTelefonskiBroj instance with id: " + id);
         try {
-            OcpAdresaIsporuke instance = entityManager.find(
-                    OcpAdresaIsporuke.class, id);
+            OcpTelefonskiBroj instance = entityManager.find(OcpTelefonskiBroj.class, id);
             log.debug("get successful");
             return instance;
         } catch (RuntimeException re) {
@@ -90,18 +78,15 @@ public class OcpAdresaIsporukeHome {
         }
     }
 
-
-
-    public List<OcpAdresaIsporuke> findByPartnerId(int partnerId) {
+    public List<OcpTelefonskiBroj> findByPartnerId(int partnerId) {
         log.info("getting OcpAdresaIsporuke instance with id: " + partnerId);
         try {
 
-            Criteria cr = getSession().createCriteria(OcpAdresaIsporuke.class)
+            Criteria cr = getSession().createCriteria(OcpTelefonskiBroj.class)
                     .add(Restrictions.eq("poslovniPartner.poslovniPartner", partnerId))
-                    .add(Restrictions.eq("aktivna", "DA"))
                     .addOrder(org.hibernate.criterion.Order.asc("prioritet"));
             cr.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
-            List<OcpAdresaIsporuke> instances = cr.list();
+            List<OcpTelefonskiBroj> instances = cr.list();
 
             log.debug("get successful");
             return instances;
@@ -111,7 +96,19 @@ public class OcpAdresaIsporukeHome {
         }
     }
 
+    public OcpTelefonskiBroj findFirsByPartnerId(int partnerId) {
+        log.info("getting OcpAdresaIsporuke instance with id: " + partnerId);
+        try {
 
+            Criteria cr = getSession().createCriteria(OcpTelefonskiBroj.class)
+                    .add(Restrictions.eq("poslovniPartner.poslovniPartner", partnerId));
+            List<OcpTelefonskiBroj> instances = cr.list();
+
+            log.debug("get successful");
+            return instances.get(0);
+        } catch (RuntimeException re) {
+            log.error("get failed", re);
+            throw re;
+        }
+    }
 }
-
-

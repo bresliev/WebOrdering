@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import rs.invado.wo.dao.ocp.OcpKlasifikacijaHome;
 import rs.invado.wo.dao.ocp.OcpKlasifikacijaProizvodaHome;
+import rs.invado.wo.dao.ocp.OcpLiceZaKontaktHome;
+import rs.invado.wo.dao.ocp.OcpTelefonskiBrojHome;
 import rs.invado.wo.dao.prod.ProdFinDokumentHome;
 import rs.invado.wo.dao.prod.ProdMaxRabatiHome;
 import rs.invado.wo.dao.prod.ProdNacinPlacanjaHome;
@@ -16,10 +18,7 @@ import rs.invado.wo.dao.wo.WoKompanijaKorisnikHome;
 import rs.invado.wo.dao.wo.WoRezervacijaHome;
 import rs.invado.wo.dao.wo.WoRezervacijaSastavaHome;
 import rs.invado.wo.dao.wo.WoSetPoNacinPlacanjaHome;
-import rs.invado.wo.domain.ocp.OcpKlasifikacija;
-import rs.invado.wo.domain.ocp.OcpKlasifikacijaProizvoda;
-import rs.invado.wo.domain.ocp.OcpProizvod;
-import rs.invado.wo.domain.ocp.OcpSastavProizvoda;
+import rs.invado.wo.domain.ocp.*;
 import rs.invado.wo.domain.prod.ProdFinDokument;
 import rs.invado.wo.domain.prod.ProdPpRabat;
 import rs.invado.wo.domain.uz.*;
@@ -86,6 +85,10 @@ public class BasketBusinessProcessing {
     private ProdMaxRabatiHome prodMaxRabatiDAO;
     @Inject
     private OcpKlasifikacijaProizvodaHome ocpKlasifikacijaProizvodaDAO;
+    @Autowired
+    private OcpLiceZaKontaktHome ocpLiceZaKontaktDAO;
+    @Autowired
+    private OcpTelefonskiBrojHome ocpTelefonskiBrojDAO;
 
 
     private enum ProAkcija {
@@ -568,6 +571,15 @@ public class BasketBusinessProcessing {
             uzDokumentUsloviPlacanja.setId(uzDokumentUsloviPlacanjaId);
             uzDokumentUsloviPlacanja.setProcKassaSkonto(new BigDecimal(0));
             uzDokumentUsloviPlacanja.setIdValute(user.getValuta().getIdValute());
+            OcpLiceZaKontakt ocpLiceZaKontakt = ocpLiceZaKontaktDAO.findByPartnerId(partner);
+            uzDokumentUsloviPlacanja.setNapomenaPr(ocpLiceZaKontakt.getIme()+" "+ocpLiceZaKontakt.getPrezime());
+            uzDokumentUsloviPlacanja.setReklama(user.getWoUser().getIme());
+            uzDokumentUsloviPlacanja.setNacinPor("WO");
+            for(int i = 0; i<user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().size(); i++){
+                if (user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().get(i).getAdresa().equals(adresa))
+                    uzDokumentUsloviPlacanja.setPrimalac(user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().get(i).getPrimalac());
+            }
+            uzDokumentUsloviPlacanja.setBrTelefona(ocpTelefonskiBrojDAO.findFirsByPartnerId(partner).getTelefonskiBroj());
             if (nacinPlacanja.equals("CAS")) {
                 uzDokumentUsloviPlacanja.setBrojDanaValute(0);
             } else {
@@ -698,6 +710,17 @@ public class BasketBusinessProcessing {
                 uzDokumentUsloviPlacanja.setBrojDanaValute(0);
                 uzDokumentUsloviPlacanja.setNacinPlacanja(nacinPlacanja);
                 uzDokumentUsloviPlacanja.setKreiratiFakturu(false);
+                OcpLiceZaKontakt ocpLiceZaKontakt = ocpLiceZaKontaktDAO.findByPartnerId(partner);
+                uzDokumentUsloviPlacanja.setNapomenaPr(ocpLiceZaKontakt.getIme() + " " + ocpLiceZaKontakt.getPrezime());
+                uzDokumentUsloviPlacanja.setReklama(user.getWoUser().getIme());
+                uzDokumentUsloviPlacanja.setNacinPor("WO");
+                uzDokumentUsloviPlacanja.setBrTelefona(ocpTelefonskiBrojDAO.findFirsByPartnerId(partner).getTelefonskiBroj());
+                for(int i = 0; i<user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().size(); i++){
+                if (user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().get(i).getAdresa().equals(adresa))
+                    uzDokumentUsloviPlacanja.setPrimalac(user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().get(i).getPrimalac());
+                }
+
+
                 if (woAkcija == " " && akcija.toString().equals("N") && maxRabat != 1
                         && user.getWoPartnerSetting().get(0).getApproveCassaSconto())
 // kassa sconto u slu?aju avansnog plaćanja i kada nema proizvoda koji su na akciji ili imaju maksimalni rabat
@@ -749,6 +772,7 @@ public class BasketBusinessProcessing {
 
         //kreiraj skladi??na dokumenta
         //kreiraj finansijkka dokumenta
+
 
         SimpleDateFormat formatDatum = new SimpleDateFormat("dd.MM.yyyy");
         SimpleDateFormat formatDatumYear = new SimpleDateFormat("yyyy");

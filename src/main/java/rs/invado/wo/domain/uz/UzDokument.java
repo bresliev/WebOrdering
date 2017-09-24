@@ -106,6 +106,7 @@ public class UzDokument implements java.io.Serializable {
     private Set uzDokumentStavkas = new HashSet(0);
     private UzDokumentUsloviPlacanja uzDokumentUsloviPlacanja;
 
+
     public UzDokument() {
     }
 
@@ -782,6 +783,8 @@ public class UzDokument implements java.io.Serializable {
     public void setUzDokumentUsloviPlacanja(UzDokumentUsloviPlacanja uzDokumentUsloviPlacanja) {
         this.uzDokumentUsloviPlacanja = uzDokumentUsloviPlacanja;
     }
+
+
 
 
 }
