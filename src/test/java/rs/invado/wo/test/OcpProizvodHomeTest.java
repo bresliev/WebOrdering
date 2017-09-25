@@ -2,10 +2,12 @@ package rs.invado.wo.test;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
+import rs.invado.wo.dao.ocp.OcpLiceZaKontaktHome;
 import rs.invado.wo.dao.ocp.OcpProizvodHome;
 import rs.invado.wo.dao.ocp.OcpSastavProizvodaHome;
 import rs.invado.wo.dao.prod.ProdCenovnikHome;
@@ -17,6 +19,7 @@ import rs.invado.wo.dao.wo.WoParametriHome;
 import rs.invado.wo.dao.wo.WoRezervacijaHome;
 import rs.invado.wo.dao.wo.WoSetPoNacinPlacanjaHome;
 import rs.invado.wo.dao.wo.WoSortPerObjectAttributeHome;
+import rs.invado.wo.domain.ocp.OcpLiceZaKontakt;
 import rs.invado.wo.domain.ocp.OcpProizvod;
 import rs.invado.wo.domain.prod.ProdMaxRabati;
 import rs.invado.wo.domain.prod.ProdNacinPlacanja;
@@ -81,6 +84,8 @@ public class OcpProizvodHomeTest {
     private WoSortPerObjectAttributeHome woSortPerObjectAttributeDAO;
     @Inject
     private ProdMaxRabatiHome prodMaxRabatiDAO;
+    @Autowired
+    private OcpLiceZaKontaktHome ocpLiceZaKontaktDAO;
 
 
     /*@PersistenceContext
@@ -108,6 +113,9 @@ public class OcpProizvodHomeTest {
                 + " tipa " + item.getTipAkcije() + " " + item.getDezenIstruktira() + " " + item.getProizvodjac());
         /*for (OcpVrAtrProizvod vra : item.getVrAtrProizvod())
       System.out.println(vra.getId().getAtribut() +" "+vra.getVrednost());*/
+
+
+
     }
 
     @Test

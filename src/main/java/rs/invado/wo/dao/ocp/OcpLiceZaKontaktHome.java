@@ -5,6 +5,7 @@ package rs.invado.wo.dao.ocp;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
@@ -86,14 +87,17 @@ public class OcpLiceZaKontaktHome {
 		}
 	}
 
-	public OcpLiceZaKontakt findByPartnerId(int partnerId) {
+	public List<OcpLiceZaKontakt> findByPartnerId(int partnerId) {
 		log.info("getting WoPartnerSetting instance with id: " + partnerId);
 		try {
-			OcpLiceZaKontakt instances = (OcpLiceZaKontakt) getSession().createCriteria(OcpLiceZaKontakt.class)
-					.add(Restrictions.eq("ocpPoslovniPartner.poslovniPartner", partnerId))
-					.uniqueResult();
+			System.out.println("lice zakontakt "+partnerId);
+			 Criteria cr =  getSession().createCriteria(OcpLiceZaKontakt.class)
+					.add(Restrictions.eq("ocpPoslovniPartner.poslovniPartner", partnerId));
+
+			List<OcpLiceZaKontakt> instance = cr.list();
+			System.out.println("lice zakontakt size "+instance.size());
 			log.debug("get successful");
-			return instances;
+			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
 			throw re;

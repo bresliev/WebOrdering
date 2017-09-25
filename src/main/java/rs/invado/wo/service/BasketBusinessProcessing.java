@@ -1,14 +1,10 @@
 package rs.invado.wo.service;
 
-import org.jfree.util.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import rs.invado.wo.dao.ocp.OcpKlasifikacijaHome;
-import rs.invado.wo.dao.ocp.OcpKlasifikacijaProizvodaHome;
-import rs.invado.wo.dao.ocp.OcpLiceZaKontaktHome;
-import rs.invado.wo.dao.ocp.OcpTelefonskiBrojHome;
+import rs.invado.wo.dao.ocp.*;
 import rs.invado.wo.dao.prod.ProdFinDokumentHome;
 import rs.invado.wo.dao.prod.ProdMaxRabatiHome;
 import rs.invado.wo.dao.prod.ProdNacinPlacanjaHome;
@@ -89,6 +85,8 @@ public class BasketBusinessProcessing {
     private OcpLiceZaKontaktHome ocpLiceZaKontaktDAO;
     @Autowired
     private OcpTelefonskiBrojHome ocpTelefonskiBrojDAO;
+    @Autowired
+    private OcpAdresaIsporukeHome ocpAdresaIsporukeDAO;
 
 
     private enum ProAkcija {
@@ -96,6 +94,18 @@ public class BasketBusinessProcessing {
     }
 
     ;
+
+    public static boolean isInteger(String s) {
+        try {
+            Integer.parseInt(s);
+        } catch (NumberFormatException e) {
+            return false;
+        } catch (NullPointerException e) {
+            return false;
+        }
+        // only got here if we didn't return false
+        return true;
+    }
 
     private WoRezervacija getBasketElement(Map<String, WoRezervacija> basket, String basketIndex) {
         return basket.get(basketIndex);
@@ -541,7 +551,11 @@ public class BasketBusinessProcessing {
             uzDokument.setOrganizacionaJedinicaPk(OJ);
             uzDokument.setPoslovniPartnerKd(partner);
             uzDokument.setPoslovniPartnerOt(user.getWoPartnerSetting().get(0).getPoslovniPartner().getPoslovniPartner());
-            uzDokument.setAdresaIsporukeRobe(adresa);
+            if (isInteger(adresa)) {
+                uzDokument.setAdresaIsporukeRobe(ocpAdresaIsporukeDAO.findById(Integer.parseInt(adresa)).getAdresa());
+            } else {
+                uzDokument.setAdresaIsporukeRobe(adresa);
+            }
             uzDokument.setDatumPromene(datumPromene);
             uzDokument.setSysDatumIVreme(new Timestamp(Calendar.getInstance().getTimeInMillis()));
             uzDokument.setSpoljniBrojDokumenta(sessionId);
@@ -571,15 +585,18 @@ public class BasketBusinessProcessing {
             uzDokumentUsloviPlacanja.setId(uzDokumentUsloviPlacanjaId);
             uzDokumentUsloviPlacanja.setProcKassaSkonto(new BigDecimal(0));
             uzDokumentUsloviPlacanja.setIdValute(user.getValuta().getIdValute());
-            OcpLiceZaKontakt ocpLiceZaKontakt = ocpLiceZaKontaktDAO.findByPartnerId(partner);
-            uzDokumentUsloviPlacanja.setNapomenaPr(ocpLiceZaKontakt.getIme()+" "+ocpLiceZaKontakt.getPrezime());
+            List<OcpLiceZaKontakt> ocpLiceZaKontakt = ocpLiceZaKontaktDAO.findByPartnerId(user.getWoUser().getOcpPoslovniPartner().getPoslovniPartner());
+            if (ocpLiceZaKontakt != null && ocpLiceZaKontakt.size() > 0)
+                uzDokumentUsloviPlacanja.setNapomenaPr(ocpLiceZaKontakt.get(0).getIme() + " " + ocpLiceZaKontakt.get(0).getPrezime());
             uzDokumentUsloviPlacanja.setReklama(user.getWoUser().getIme());
             uzDokumentUsloviPlacanja.setNacinPor("WO");
-            for(int i = 0; i<user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().size(); i++){
-                if (user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().get(i).getAdresa().equals(adresa))
+            for (int i = 0; i < user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().size(); i++) {
+                if (isInteger(adresa) && user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().get(i).getId() == Integer.parseInt(adresa))
                     uzDokumentUsloviPlacanja.setPrimalac(user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().get(i).getPrimalac());
             }
-            uzDokumentUsloviPlacanja.setBrTelefona(ocpTelefonskiBrojDAO.findFirsByPartnerId(partner).getTelefonskiBroj());
+            List<OcpTelefonskiBroj> ocpTelefonskiBroj = ocpTelefonskiBrojDAO.findByPartnerId(user.getWoUser().getOcpPoslovniPartner().getPoslovniPartner());
+            if (ocpTelefonskiBroj != null && ocpTelefonskiBroj.size() > 0)
+                uzDokumentUsloviPlacanja.setBrTelefona(ocpTelefonskiBroj.get(0).getTelefonskiBroj());
             if (nacinPlacanja.equals("CAS")) {
                 uzDokumentUsloviPlacanja.setBrojDanaValute(0);
             } else {
@@ -677,7 +694,11 @@ public class BasketBusinessProcessing {
                 uzDokument.setOrganizacionaJedinicaPk(OJ);
                 uzDokument.setPoslovniPartnerKd(partner);
                 uzDokument.setPoslovniPartnerOt(user.getWoPartnerSetting().get(0).getPoslovniPartner().getPoslovniPartner());
-                uzDokument.setAdresaIsporukeRobe(adresa);
+                if (isInteger(adresa)) {
+                    uzDokument.setAdresaIsporukeRobe(ocpAdresaIsporukeDAO.findById(Integer.parseInt(adresa)).getAdresa());
+                } else {
+                    uzDokument.setAdresaIsporukeRobe(adresa);
+                }
                 uzDokument.setDatumPromene(datumPromene);
                 uzDokument.setSysDatumIVreme(new Timestamp(Calendar.getInstance().getTimeInMillis()));
                 uzDokument.setSpoljniBrojDokumenta(sessionId);
@@ -710,15 +731,18 @@ public class BasketBusinessProcessing {
                 uzDokumentUsloviPlacanja.setBrojDanaValute(0);
                 uzDokumentUsloviPlacanja.setNacinPlacanja(nacinPlacanja);
                 uzDokumentUsloviPlacanja.setKreiratiFakturu(false);
-                OcpLiceZaKontakt ocpLiceZaKontakt = ocpLiceZaKontaktDAO.findByPartnerId(partner);
-                uzDokumentUsloviPlacanja.setNapomenaPr(ocpLiceZaKontakt.getIme() + " " + ocpLiceZaKontakt.getPrezime());
+                List<OcpLiceZaKontakt> ocpLiceZaKontakt = ocpLiceZaKontaktDAO.findByPartnerId(user.getWoUser().getOcpPoslovniPartner().getPoslovniPartner());
+                if (ocpLiceZaKontakt != null && ocpLiceZaKontakt.size() > 0)
+                    uzDokumentUsloviPlacanja.setNapomenaPr(ocpLiceZaKontakt.get(0).getIme() + " " + ocpLiceZaKontakt.get(0).getPrezime());
                 uzDokumentUsloviPlacanja.setReklama(user.getWoUser().getIme());
                 uzDokumentUsloviPlacanja.setNacinPor("WO");
-                uzDokumentUsloviPlacanja.setBrTelefona(ocpTelefonskiBrojDAO.findFirsByPartnerId(partner).getTelefonskiBroj());
-                for(int i = 0; i<user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().size(); i++){
-                if (user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().get(i).getAdresa().equals(adresa))
-                    uzDokumentUsloviPlacanja.setPrimalac(user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().get(i).getPrimalac());
+                for (int i = 0; i < user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().size(); i++) {
+                    if (isInteger(adresa) && user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().get(i).getId() == Integer.parseInt(adresa))
+                        uzDokumentUsloviPlacanja.setPrimalac(user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().get(i).getPrimalac());
                 }
+                List<OcpTelefonskiBroj> ocpTelefonskiBroj = ocpTelefonskiBrojDAO.findByPartnerId(user.getWoUser().getOcpPoslovniPartner().getPoslovniPartner());
+                if (ocpTelefonskiBroj != null && ocpTelefonskiBroj.size() > 0)
+                    uzDokumentUsloviPlacanja.setBrTelefona(ocpTelefonskiBroj.get(0).getTelefonskiBroj());
 
 
                 if (woAkcija == " " && akcija.toString().equals("N") && maxRabat != 1
@@ -781,8 +805,7 @@ public class BasketBusinessProcessing {
         Integer year = Integer.valueOf(datum.get(Calendar.YEAR));
         Date datumPromene = datum.getTime();
 
-        String adresa  = (addressEntered == null || addressEntered.equals("") || addressEntered.equals("")) ? addressChosed : addressEntered;
-
+        String adresa = (addressEntered == null || addressEntered.equals("") || addressEntered.equals("")) ? addressChosed : addressEntered;
 
 
         UzSkladiste skl = new UzSkladiste();

@@ -117,7 +117,7 @@ public class LogOnService {
                 connection = DriverManager.getConnection(
                         "jdbc:oracle:thin:@10.10.10.170:1521:darex", userName, password);
                 /*connection = DriverManager.getConnection(
-                        "jdbc:oracle:thin:@localhost:1521:orcl", userName, password);*/
+                        "jdbc:oracle:thin:@10.10.10.171:1521:test", userName, password);*/
 
                 if (connection == null) {
                     throw new WOException(WOExceptionCodes.WO_UNEXESTING_USER);
@@ -172,6 +172,7 @@ public class LogOnService {
             setting.setMaxRokPlacanja(wpsc.get(0).getPoslovniPartner().getProdPpRabats().get(0).getMaxRokPlacanja());
         }
 
+
         if (wpsc != null && wpsc.size() > 0) {
             user.setWoPartnerSetting(wpsc);
             Map<Integer, BigDecimal> ceneProizvoda = prodCenovnikDAO.findCeneMapped(wpsc.get(0), woParametri);
@@ -179,6 +180,8 @@ public class LogOnService {
             user.setProdCenovnik(prodCenovnikDAO.findCenovnikAktuelni(wpsc.get(0)));
             user.setValuta(ocpValutaDAO.findByKlasa(wpsc.get(0), OJ));
             user.getWoUser().setOcpPoslovniPartner(wpsc.get(0).getPoslovniPartner());
+            List<OcpAdresaIsporuke> ocpAdresaIsporukes = ocpAdresaIsporukeDAO.findByPartnerId(wpsc.get(0).getPoslovniPartner().getPoslovniPartner());
+            user.getWoUser().getOcpPoslovniPartner().setOcpAdresaIsporukes(ocpAdresaIsporukes);
             user.setWoPartnerSetting(wpsc);
             setListaNovoIzdvojeno(cs, wpsc, user);
         }

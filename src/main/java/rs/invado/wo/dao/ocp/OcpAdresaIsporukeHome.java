@@ -77,7 +77,7 @@ public class OcpAdresaIsporukeHome {
         }
     }
 
-    public OcpAdresaIsporuke findById(BigDecimal id) {
+    public OcpAdresaIsporuke findById(int id) {
         log.debug("getting OcpAdresaIsporuke instance with id: " + id);
         try {
             OcpAdresaIsporuke instance = entityManager.find(

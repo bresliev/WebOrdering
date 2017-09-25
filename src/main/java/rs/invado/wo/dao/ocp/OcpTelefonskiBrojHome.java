@@ -79,12 +79,11 @@ public class OcpTelefonskiBrojHome {
     }
 
     public List<OcpTelefonskiBroj> findByPartnerId(int partnerId) {
-        log.info("getting OcpAdresaIsporuke instance with id: " + partnerId);
+        log.info("getting OcpTelefonskiBroj instance with id: " + partnerId);
         try {
 
             Criteria cr = getSession().createCriteria(OcpTelefonskiBroj.class)
-                    .add(Restrictions.eq("poslovniPartner.poslovniPartner", partnerId))
-                    .addOrder(org.hibernate.criterion.Order.asc("prioritet"));
+                    .add(Restrictions.eq("poslovniPartner.poslovniPartner", partnerId));
             cr.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
             List<OcpTelefonskiBroj> instances = cr.list();
 
@@ -97,15 +96,17 @@ public class OcpTelefonskiBrojHome {
     }
 
     public OcpTelefonskiBroj findFirsByPartnerId(int partnerId) {
-        log.info("getting OcpAdresaIsporuke instance with id: " + partnerId);
+        log.info("getting OcpTelefonskiBroj instance with id: " + partnerId);
         try {
 
             Criteria cr = getSession().createCriteria(OcpTelefonskiBroj.class)
-                    .add(Restrictions.eq("poslovniPartner.poslovniPartner", partnerId));
-            List<OcpTelefonskiBroj> instances = cr.list();
+                    .add(Restrictions.eq("poslovniPartner.poslovniPartner", partnerId))
+                    .setFirstResult(0)
+                    .setMaxResults(1);
+            OcpTelefonskiBroj instance = (OcpTelefonskiBroj) cr.list();
 
             log.debug("get successful");
-            return instances.get(0);
+            return instance;
         } catch (RuntimeException re) {
             log.error("get failed", re);
             throw re;
