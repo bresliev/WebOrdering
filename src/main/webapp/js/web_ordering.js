@@ -849,8 +849,14 @@ $(document).ready(function () {
     });
 
     $("#chceckOutBasketBtn").live('click', function () {
-        if (!$("input[name='nacinTransporta']:checked").val() || !$("input[name='nacinPlacanja']:checked").val()) {
-            $(".error-box").text("Obavezan izbor naèina plaæanja i prevoza pre potvrde kupovine!");
+
+
+
+
+        if (!$("input[name='nacinTransporta']:checked").val() || !$("input[name='nacinPlacanja']:checked").val()
+        || ($("[name='adresaIsporuke']").val() ==  "-1" && $("[name='adresa']").val() == "")) {
+
+            $(".error-box").text("Obavezan izbor naèina plaæanja, prevoza i adrese pre potvrde kupovine!");
             $("#dialog-message").dialog("open");
         } else {
             $(".error-box").text("Potvrda korpe u toku. Molimo saèekajte!");

@@ -13,12 +13,12 @@
 
              <jta-data-source>java:jboss/WebOrderingDSProduction</jta-data-source>
 
-<jta-data-source>java:jboss/WebOrderingDSTest</jta-data-source>
+ <jta-data-source>java:jboss/WebOrderingDSTest</jta-data-source>
 
 
 -->
-        <jta-data-source>java:/darex_ds</jta-data-source>
 
+        <jta-data-source>java:/darex_ds</jta-data-source>
 
 
 
