@@ -560,6 +560,7 @@ public class BasketBusinessProcessing {
             uzDokument.setSysDatumIVreme(new Timestamp(Calendar.getInstance().getTimeInMillis()));
             uzDokument.setSpoljniBrojDokumenta(sessionId);
             uzDokument.setDatumOvere(datumPromene);
+            uzDokument.setDatumIVremeNri(new Timestamp(System.currentTimeMillis()));
             uzDokument.setOrganizacionaJedinicaC(user.getWoPartnerSetting().get(0).getOrganizacionaJedinica());
             uzDokument.setIdCenovnik(user.getWoPartnerSetting().get(0).getIdCenovnik());
             uzDokument.setIdKlasaCene(user.getWoPartnerSetting().get(0).getIdKlasaCene());
@@ -567,13 +568,14 @@ public class BasketBusinessProcessing {
             uzDokument.setRadnikTp(Integer.valueOf(user.getWoUser().getRadnik().getRadbr()));
             uzDokument.setRadnikOv(Integer.valueOf(user.getWoUser().getRadnik().getRadbr()));
             uzDokument.setVrstaStavke(woSetPoNacinPlacanja.getVrstastavke());
-            uzDokument.setVrstaPrevoza(prevoz);
+            uzDokument.setVrstaPrevoza((uzDokument.getUzSkladiste().getIdSkladista() == 4) ? 5 : prevoz);
+
+
             uzDokument.setGodina(year);
             if (user.getWoUser().getUserType().equals("INTERNI")) {
                 uzDokument.setInternaNapomena(napomena);
-            } else {
-                uzDokument.setNapomena(adresa);
             }
+
             uzDokumentDAO.persist(uzDokument);
 
             dokumentaMap.put(skl.getIdSkladista() + "", id);
@@ -585,18 +587,35 @@ public class BasketBusinessProcessing {
             uzDokumentUsloviPlacanja.setId(uzDokumentUsloviPlacanjaId);
             uzDokumentUsloviPlacanja.setProcKassaSkonto(new BigDecimal(0));
             uzDokumentUsloviPlacanja.setIdValute(user.getValuta().getIdValute());
-            List<OcpLiceZaKontakt> ocpLiceZaKontakt = ocpLiceZaKontaktDAO.findByPartnerId(user.getWoUser().getOcpPoslovniPartner().getPoslovniPartner());
-            if (ocpLiceZaKontakt != null && ocpLiceZaKontakt.size() > 0)
+
+            List<OcpLiceZaKontakt> ocpLiceZaKontakt = ocpLiceZaKontaktDAO.findByPartnerId(user.getWoPartnerSetting().get(0).getPoslovniPartner().getPoslovniPartner());
+            if (ocpLiceZaKontakt != null && ocpLiceZaKontakt.size() > 0) {
                 uzDokumentUsloviPlacanja.setNapomenaPr(ocpLiceZaKontakt.get(0).getIme() + " " + ocpLiceZaKontakt.get(0).getPrezime());
-            uzDokumentUsloviPlacanja.setReklama(user.getWoUser().getIme());
+            }
+            List<OcpTelefonskiBroj> ocpTelefonskiBroj = ocpTelefonskiBrojDAO.findByPartnerId(user.getWoPartnerSetting().get(0).getPoslovniPartner().getPoslovniPartner());
+            //reklama je lice koje je poručilo
+            if (user.getWoUser().getUserType().equals("INTERNI")) {
+                uzDokumentUsloviPlacanja.setReklama(user.getWoUser().getRadnik().getIme() + " " + user.getWoUser().getRadnik().getPrezime());
+                uzDokumentUsloviPlacanja.setBrTelefona(user.getWoUser().getRadnik().getTelefon());
+                if (ocpTelefonskiBroj != null && ocpTelefonskiBroj.size() > 0) {
+                    uzDokumentUsloviPlacanja.setNapomenaPr(uzDokumentUsloviPlacanja.getNapomenaPr() + " " + ocpTelefonskiBroj.get(0).getTelefonskiBroj());
+                }
+            } else {
+                uzDokumentUsloviPlacanja.setReklama((user.getWoUser().getIme() == null || user.getWoUser().getIme().equals("") || user.getWoUser().getIme().equals(" "))
+                        ? user.getWoUser().getIme() + " " + user.getWoUser().getPrezime() : user.getWoUser().getNickname());
+
+                if (ocpTelefonskiBroj != null && ocpTelefonskiBroj.size() > 0) {
+                    uzDokumentUsloviPlacanja.setBrTelefona(ocpTelefonskiBroj.get(0).getTelefonskiBroj());
+                    uzDokumentUsloviPlacanja.setNapomenaPr(uzDokumentUsloviPlacanja.getNapomenaPr() + " " + ocpTelefonskiBroj.get(0).getTelefonskiBroj());
+                }
+            }
+
             uzDokumentUsloviPlacanja.setNacinPor("WO");
             for (int i = 0; i < user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().size(); i++) {
                 if (isInteger(adresa) && user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().get(i).getId() == Integer.parseInt(adresa))
                     uzDokumentUsloviPlacanja.setPrimalac(user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().get(i).getPrimalac());
             }
-            List<OcpTelefonskiBroj> ocpTelefonskiBroj = ocpTelefonskiBrojDAO.findByPartnerId(user.getWoUser().getOcpPoslovniPartner().getPoslovniPartner());
-            if (ocpTelefonskiBroj != null && ocpTelefonskiBroj.size() > 0)
-                uzDokumentUsloviPlacanja.setBrTelefona(ocpTelefonskiBroj.get(0).getTelefonskiBroj());
+
             if (nacinPlacanja.equals("CAS")) {
                 uzDokumentUsloviPlacanja.setBrojDanaValute(0);
             } else {
@@ -605,6 +624,33 @@ public class BasketBusinessProcessing {
             uzDokumentUsloviPlacanja.setNacinPlacanja(nacinPlacanja);
             uzDokumentUsloviPlacanja.setKreiratiFakturu(true);
 
+            if (prevoz == 2) {
+                switch (skl.getIdSkladista()) {
+                    case 10:
+                        uzDokumentUsloviPlacanja.setNacinIsporuke(2);
+                        break;
+                    case 4:
+                        uzDokumentUsloviPlacanja.setNacinIsporuke(9);
+                        break;
+                    case 6:
+                        uzDokumentUsloviPlacanja.setNacinIsporuke(9);
+                        break;
+                    case 5:
+                        uzDokumentUsloviPlacanja.setNacinIsporuke(7);
+                        break;
+                    case 115:
+                        uzDokumentUsloviPlacanja.setNacinIsporuke(8);
+                        break;
+                    case 145:
+                        uzDokumentUsloviPlacanja.setNacinIsporuke(8);
+                        break;
+                    default:
+                        uzDokumentUsloviPlacanja.setNacinIsporuke(7);
+                        break;
+                }
+            }else{
+                uzDokumentUsloviPlacanja.setNacinIsporuke(3);
+            }
             uzDokumentUsloviPlacanjaDAO.persist(uzDokumentUsloviPlacanja);
         }
 
@@ -703,6 +749,7 @@ public class BasketBusinessProcessing {
                 uzDokument.setSysDatumIVreme(new Timestamp(Calendar.getInstance().getTimeInMillis()));
                 uzDokument.setSpoljniBrojDokumenta(sessionId);
                 uzDokument.setDatumOvere(datumPromene);
+                uzDokument.setDatumIVremeNri(new Timestamp(System.currentTimeMillis()));
                 uzDokument.setOrganizacionaJedinicaC(user.getWoPartnerSetting().get(0).getOrganizacionaJedinica());
                 uzDokument.setIdCenovnik(user.getWoPartnerSetting().get(0).getIdCenovnik());
                 uzDokument.setIdKlasaCene(user.getWoPartnerSetting().get(0).getIdKlasaCene());
@@ -711,17 +758,15 @@ public class BasketBusinessProcessing {
                 uzDokument.setRadnikOv(Integer.valueOf(user.getWoUser().getRadnik().getRadbr()));
                 //uzDokument.setIdSkladistaZa(uzSkladisteDAO.findByOjAndPurpose(skl.getOrganizacionaJedinicaJe(), 97).getIdSkladista());
                 uzDokument.setVrstaStavke(woSetPoNacinPlacanja.getVrstastavke());
-                uzDokument.setVrstaPrevoza(prevoz);
+                uzDokument.setVrstaPrevoza((uzDokument.getUzSkladiste().getIdSkladista() == 4) ? 5 : prevoz);
                 uzDokument.setGodina(year);
                 if (user.getWoUser().getUserType().equals("INTERNI")) {
                     uzDokument.setInternaNapomena(napomena);
                 } else {
                     uzDokument.setNapomena(adresa);
                 }
-
                 uzDokumentDAO.persist(uzDokument);
                 dokumentaMap.put(skl.getIdSkladista() + akcija.toString(), id);
-
                 UzDokumentUsloviPlacanjaId uzDokumentUsloviPlacanjaId = new UzDokumentUsloviPlacanjaId();
                 uzDokumentUsloviPlacanjaId.setIdDokumenta(uzDokument.getId().getIdDokumenta());
                 uzDokumentUsloviPlacanjaId.setIdVd(uzDokument.getId().getIdVd());
@@ -731,19 +776,60 @@ public class BasketBusinessProcessing {
                 uzDokumentUsloviPlacanja.setBrojDanaValute(0);
                 uzDokumentUsloviPlacanja.setNacinPlacanja(nacinPlacanja);
                 uzDokumentUsloviPlacanja.setKreiratiFakturu(false);
-                List<OcpLiceZaKontakt> ocpLiceZaKontakt = ocpLiceZaKontaktDAO.findByPartnerId(user.getWoUser().getOcpPoslovniPartner().getPoslovniPartner());
-                if (ocpLiceZaKontakt != null && ocpLiceZaKontakt.size() > 0)
+
+                if (prevoz == 2) {
+                    switch (skl.getIdSkladista()) {
+                        case 10:
+                            uzDokumentUsloviPlacanja.setNacinIsporuke(2);
+                            break;
+                        case 4:
+                            uzDokumentUsloviPlacanja.setNacinIsporuke(9);
+                            break;
+                        case 6:
+                            uzDokumentUsloviPlacanja.setNacinIsporuke(9);
+                            break;
+                        case 5:
+                            uzDokumentUsloviPlacanja.setNacinIsporuke(7);
+                            break;
+                        case 115:
+                            uzDokumentUsloviPlacanja.setNacinIsporuke(8);
+                            break;
+                        case 145:
+                            uzDokumentUsloviPlacanja.setNacinIsporuke(8);
+                        default:
+                            uzDokumentUsloviPlacanja.setNacinIsporuke(7);
+                            break;
+                    }
+                }else{
+                    uzDokumentUsloviPlacanja.setNacinIsporuke(3);
+                }
+                List<OcpLiceZaKontakt> ocpLiceZaKontakt = ocpLiceZaKontaktDAO.findByPartnerId(partner);
+                if (ocpLiceZaKontakt != null && ocpLiceZaKontakt.size() > 0) {
                     uzDokumentUsloviPlacanja.setNapomenaPr(ocpLiceZaKontakt.get(0).getIme() + " " + ocpLiceZaKontakt.get(0).getPrezime());
-                uzDokumentUsloviPlacanja.setReklama(user.getWoUser().getIme());
+                }
+                List<OcpTelefonskiBroj> ocpTelefonskiBroj = ocpTelefonskiBrojDAO.findByPartnerId(partner);
+                //reklama je lice koje je poručilo
+                if (user.getWoUser().getUserType().equals("INTERNI")) {
+                    uzDokumentUsloviPlacanja.setReklama(user.getWoUser().getRadnik().getIme() + " " + user.getWoUser().getRadnik().getPrezime());
+                    uzDokumentUsloviPlacanja.setBrTelefona(user.getWoUser().getRadnik().getTelefon());
+                    if (ocpTelefonskiBroj != null && ocpTelefonskiBroj.size() > 0) {
+                        uzDokumentUsloviPlacanja.setNapomenaPr(uzDokumentUsloviPlacanja.getNapomenaPr() + " " + ocpTelefonskiBroj.get(0).getTelefonskiBroj());
+                    }
+                } else {
+                    uzDokumentUsloviPlacanja.setReklama(user.getWoUser().getIme() == null || (user.getWoUser().getIme().equals("") || user.getWoUser().getIme().equals(" "))
+                            ? user.getWoUser().getIme() + " " + user.getWoUser().getPrezime() : user.getWoUser().getNickname());
+
+                    if (ocpTelefonskiBroj != null && ocpTelefonskiBroj.size() > 0) {
+                        uzDokumentUsloviPlacanja.setNapomenaPr(uzDokumentUsloviPlacanja.getNapomenaPr() + " " + ocpTelefonskiBroj.get(0).getTelefonskiBroj());
+                    }
+                }
+
+
                 uzDokumentUsloviPlacanja.setNacinPor("WO");
                 for (int i = 0; i < user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().size(); i++) {
                     if (isInteger(adresa) && user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().get(i).getId() == Integer.parseInt(adresa))
                         uzDokumentUsloviPlacanja.setPrimalac(user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes().get(i).getPrimalac());
                 }
-                List<OcpTelefonskiBroj> ocpTelefonskiBroj = ocpTelefonskiBrojDAO.findByPartnerId(user.getWoUser().getOcpPoslovniPartner().getPoslovniPartner());
-                if (ocpTelefonskiBroj != null && ocpTelefonskiBroj.size() > 0)
-                    uzDokumentUsloviPlacanja.setBrTelefona(ocpTelefonskiBroj.get(0).getTelefonskiBroj());
-
 
                 if (woAkcija == " " && akcija.toString().equals("N") && maxRabat != 1
                         && user.getWoPartnerSetting().get(0).getApproveCassaSconto())
@@ -805,7 +891,7 @@ public class BasketBusinessProcessing {
         Integer year = Integer.valueOf(datum.get(Calendar.YEAR));
         Date datumPromene = datum.getTime();
 
-        String adresa = (addressEntered == null || addressEntered.equals("") || addressEntered.equals("")) ? addressChosed : addressEntered;
+        String adresa = (addressChosed == null || addressChosed.equals("") || addressChosed.equals("") || addressChosed.equals("-1")) ? addressEntered : addressChosed;
 
 
         UzSkladiste skl = new UzSkladiste();

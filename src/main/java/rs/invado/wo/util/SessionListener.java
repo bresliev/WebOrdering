@@ -21,7 +21,6 @@ public class SessionListener implements HttpSessionListener {
     public void sessionDestroyed(HttpSessionEvent se) {
 
         HttpSession session = se.getSession();
-        System.out.println("ovo se ipak izvrsava "+session.getId());
         ApplicationContext ctx = WebApplicationContextUtils.getWebApplicationContext(session.getServletContext());
         BasketBusinessProcessing basketService = (BasketBusinessProcessing) ctx.getBean("basketBusinessProcessing");
         basketService.releaseReservation(session.getId());

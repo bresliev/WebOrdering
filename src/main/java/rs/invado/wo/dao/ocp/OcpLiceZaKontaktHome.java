@@ -90,12 +90,10 @@ public class OcpLiceZaKontaktHome {
 	public List<OcpLiceZaKontakt> findByPartnerId(int partnerId) {
 		log.info("getting WoPartnerSetting instance with id: " + partnerId);
 		try {
-			System.out.println("lice zakontakt "+partnerId);
 			 Criteria cr =  getSession().createCriteria(OcpLiceZaKontakt.class)
 					.add(Restrictions.eq("ocpPoslovniPartner.poslovniPartner", partnerId));
 
 			List<OcpLiceZaKontakt> instance = cr.list();
-			System.out.println("lice zakontakt size "+instance.size());
 			log.debug("get successful");
 			return instance;
 		} catch (RuntimeException re) {

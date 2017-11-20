@@ -28,7 +28,7 @@ public class UzDokumentUsloviPlacanja implements java.io.Serializable {
     private String pakovanje;
     private String idKorisnika;
     private String nacinPlacanja;
-    private Short nacinIsporuke;
+    private int nacinIsporuke;
     private Integer procenatRabata;
     private Boolean kreiratiFakturu;
     private BigDecimal avans;
@@ -39,6 +39,7 @@ public class UzDokumentUsloviPlacanja implements java.io.Serializable {
     private String napomenaPr;
     private String primalac;
     private String brTelefona;
+
 
     private UzDokument uzDokument;
 
@@ -51,7 +52,7 @@ public class UzDokumentUsloviPlacanja implements java.io.Serializable {
         this.brojDanaValute = brojDanaValute;
     }
 
-    public UzDokumentUsloviPlacanja(UzDokument uzDokument, BigDecimal procKassaSkonto, String brojIzjave, Date datumIzjave, Byte vrstaKursneListe, Date datumKursneListe, Short idValute, Boolean namenaRobe, int brojDanaValute, String pakovanje, String idKorisnika, String nacinPlacanja, Short nacinIsporuke, Integer procenatRabata, Boolean kreiratiFakturu, BigDecimal avans, String stampaCene, Short vrstaStavke) {
+    public UzDokumentUsloviPlacanja(UzDokument uzDokument, BigDecimal procKassaSkonto, String brojIzjave, Date datumIzjave, Byte vrstaKursneListe, Date datumKursneListe, Short idValute, Boolean namenaRobe, int brojDanaValute, String pakovanje, String idKorisnika, String nacinPlacanja, int nacinIsporuke, Integer procenatRabata, Boolean kreiratiFakturu, BigDecimal avans, String stampaCene, Short vrstaStavke) {
         this.uzDokument = uzDokument;
         this.procKassaSkonto = procKassaSkonto;
         this.brojIzjave = brojIzjave;
@@ -211,11 +212,11 @@ public class UzDokumentUsloviPlacanja implements java.io.Serializable {
 
 
     @Column(name = "NACIN_ISPORUKE", precision = 3, scale = 0)
-    public Short getNacinIsporuke() {
+    public int getNacinIsporuke() {
         return this.nacinIsporuke;
     }
 
-    public void setNacinIsporuke(Short nacinIsporuke) {
+    public void setNacinIsporuke(int nacinIsporuke) {
         this.nacinIsporuke = nacinIsporuke;
     }
 

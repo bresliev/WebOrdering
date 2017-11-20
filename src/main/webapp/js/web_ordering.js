@@ -828,7 +828,7 @@ $(document).ready(function () {
         // mouse-out
         $(this).fadeTo(400, 1);
     });
-
+/*
     $("table.korpa tr td:not(:last-child)").live('click', function () {
         if (!$(this).hasClass("not_link")) {
             var productId = $(this).parent('tr').attr('id').replace("korpa_uvecaj_", "");
@@ -837,7 +837,16 @@ $(document).ready(function () {
             return false;
         }
     });
+*/
 
+    $("table.korpa td:not(:last-child)").live('click', function () {
+        if (!$(this).hasClass("not_link")) {
+            var productId = $(this).parent('tr').attr('id').replace("korpa_uvecaj_", "");
+            console.log("pocelo je ovo "+productId)
+            $('#uvecaj_' + productId).dialog("open");
+            return false;
+        }
+    });
     $("#formFakture a").live('click', function () {
         if ($("#userRight").val() == "true") {
             $("#idDokumenta").val($(this).text());

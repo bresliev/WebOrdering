@@ -83,10 +83,10 @@ public class OcpTelefonskiBrojHome {
         try {
 
             Criteria cr = getSession().createCriteria(OcpTelefonskiBroj.class)
-                    .add(Restrictions.eq("poslovniPartner.poslovniPartner", partnerId));
+                    .add(Restrictions.eq("poslovniPartner.poslovniPartner", partnerId))
+                    .add(Restrictions.eq("idVrsteTelefonskogBroja", 30));
             cr.setResultTransformer(CriteriaSpecification.DISTINCT_ROOT_ENTITY);
             List<OcpTelefonskiBroj> instances = cr.list();
-
             log.debug("get successful");
             return instances;
         } catch (RuntimeException re) {

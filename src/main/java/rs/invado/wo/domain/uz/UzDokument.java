@@ -4,6 +4,7 @@ package rs.invado.wo.domain.uz;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -65,7 +66,7 @@ public class UzDokument implements java.io.Serializable {
     private String nacinOtpreme;
     private Date datumOvere;
     private Date datumIVremeNki;
-    private Date datumIVremeNri;
+    private Timestamp datumIVremeNri;
     private String statusDokumentaPo;
     private Integer organizacionaJedinicaC;
     private Integer idCenovnik;
@@ -118,7 +119,7 @@ public class UzDokument implements java.io.Serializable {
         this.statusDokumenta = statusDokumenta;
     }
 
-    public UzDokument(UzDokumentId id, UzSkladiste uzSkladiste, short brojPoslednjeStavke, int radnikU, String statusDokumenta, Short nivoPrioriteta, Long radniNalog, Integer radnikS, Integer radnikR, Integer poslovniPartnerKd, Integer organizacionaJedinicaKd, Integer organizacionaJedinicaPk, Integer poslovniPartnerPk, String adresaIsporukeRobe, Date datumPromene, Date rokVracanja, String spoljniBrojDokumenta, String nacinOtpreme, Date datumOvere, Date datumIVremeNki, Date datumIVremeNri, String statusDokumentaPo, Integer organizacionaJedinicaC, Integer idCenovnik, Integer idKlasaCene, Integer organizacionaJedinicaReal, Integer radnikTp, Integer radnikOv, Short idVdOt, Integer poslovniPartnerOt, Short godinaOt, Date datumDokumentaOt, Short idVdVrste, Date sysDatumIVreme, Integer proizvod, BigDecimal rbSerije, BigDecimal idCiklusa, BigDecimal idRbRn, Integer idSkladistaZa, String napomena, String radnikZ, Integer brojRnOdr, Short idVdOdr, Integer organizacionaJedinicaOdr, Short godinaOdr, Integer vrstaStavke, Integer vlasnikPp, String idDokumentaUg, Integer organizacionaJedinicaUg, Short idVdUg, Short godinaUg, Integer godina, Integer idDokumentaOld, String internaNapomena, Integer vrstaPrevoza, BigDecimal redosledPakovanja, Date datumRp, BigDecimal proizvodJedOdrRef, Set uzDokumentStavkas, UzDokumentUsloviPlacanja uzDokumentUsloviPlacanja) {
+    public UzDokument(UzDokumentId id, UzSkladiste uzSkladiste, short brojPoslednjeStavke, int radnikU, String statusDokumenta, Short nivoPrioriteta, Long radniNalog, Integer radnikS, Integer radnikR, Integer poslovniPartnerKd, Integer organizacionaJedinicaKd, Integer organizacionaJedinicaPk, Integer poslovniPartnerPk, String adresaIsporukeRobe, Date datumPromene, Date rokVracanja, String spoljniBrojDokumenta, String nacinOtpreme, Date datumOvere, Date datumIVremeNki, Timestamp datumIVremeNri, String statusDokumentaPo, Integer organizacionaJedinicaC, Integer idCenovnik, Integer idKlasaCene, Integer organizacionaJedinicaReal, Integer radnikTp, Integer radnikOv, Short idVdOt, Integer poslovniPartnerOt, Short godinaOt, Date datumDokumentaOt, Short idVdVrste, Date sysDatumIVreme, Integer proizvod, BigDecimal rbSerije, BigDecimal idCiklusa, BigDecimal idRbRn, Integer idSkladistaZa, String napomena, String radnikZ, Integer brojRnOdr, Short idVdOdr, Integer organizacionaJedinicaOdr, Short godinaOdr, Integer vrstaStavke, Integer vlasnikPp, String idDokumentaUg, Integer organizacionaJedinicaUg, Short idVdUg, Short godinaUg, Integer godina, Integer idDokumentaOld, String internaNapomena, Integer vrstaPrevoza, BigDecimal redosledPakovanja, Date datumRp, BigDecimal proizvodJedOdrRef, Set uzDokumentStavkas, UzDokumentUsloviPlacanja uzDokumentUsloviPlacanja) {
         this.id = id;
         this.uzSkladiste = uzSkladiste;
         this.brojPoslednjeStavke = brojPoslednjeStavke;
@@ -385,13 +386,13 @@ public class UzDokument implements java.io.Serializable {
         this.datumIVremeNki = datumIVremeNki;
     }
 
-    @Temporal(TemporalType.DATE)
+
     @Column(name = "DATUM_I_VREME_NRI", length = 7)
-    public Date getDatumIVremeNri() {
+    public Timestamp getDatumIVremeNri() {
         return this.datumIVremeNri;
     }
 
-    public void setDatumIVremeNri(Date datumIVremeNri) {
+    public void setDatumIVremeNri(Timestamp datumIVremeNri) {
         this.datumIVremeNri = datumIVremeNri;
     }
 

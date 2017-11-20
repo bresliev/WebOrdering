@@ -64,6 +64,9 @@ import java.util.Date;
                 "                                           and sd.id_vd = p.id_vd  " +
                 "                                           and sd.id_dokumenta = p.id_dokumenta " +
                 "                                           and sd.rb_stavke = p.rb_stavke  " +
+                "                                           and exists (select 1 from uz_operacije_na_dokumentu o " +
+                "                                                       where nvl(s.ID_VD_VRSTE, s.id_vd) = o.id_vd " +
+                "                                                       and o.vrsta_promene != 'U') " +
                 "                                           group by sd.proizvod, p.kol_po_pakovanju  " +
                 "                                           union " +
                 "                                           select proizvod# proizvodr, kolpopakovanju, sum(kolicina) " +

@@ -74,8 +74,8 @@
                         <td class="underllned" style="text-align:left">${item.value.cena}</td>
                         <td class="underllned" style="text-align:left">${item.value.vrednost}</td>
                         <c:if test="${loginUser.woUser.userType == 'INTERNI'}">
-                            <td class="underllned" style="text-align:left" class="not_link">${item.value.rabat}</td>
-                            <td class="underllned" style="text-align:left" class="not_link"><input type="text" name="dodatniRabat"
+                            <td style="text-align:left" class="not_link">${item.value.rabat}</td>
+                            <td style="text-align:left" class="not_link"><input type="text" name="dodatniRabat"
                                                                                 style="width:40px;border:solid 1px #4c4b4b;color: #4c4b4b;"/>
                             </td>
                         </c:if>
@@ -89,7 +89,6 @@
                                      src="/WO/images/large/${item.value.proizvod.proizvod}.jpg" alt=""/>
                             </div>
                         </td>
-
                     </tr>
                     <tr>
                         <td>
@@ -124,7 +123,6 @@
                 <div class="prevoz_placanje">
                     <input type="radio" name="nacinTransporta" value="1"/><label>Vozilo dobavljaèa</label><br>
                     <input type="radio" name="nacinTransporta" value="2"/><label>Vozilo kupca</label><br>
-                    <input type="radio" name="nacinTransporta" value="5"/><label>Brza pošta</label>
                 </div>
                 <div class="prevoz_placanje">
                     <input type="hidden" name="maxRokPlacanja" value="${loginUser.woPartnerSetting[0].maxRokPlacanja}"/>
