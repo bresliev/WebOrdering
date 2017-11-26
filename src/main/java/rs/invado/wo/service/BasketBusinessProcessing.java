@@ -596,9 +596,16 @@ public class BasketBusinessProcessing {
             //reklama je lice koje je poručilo
             if (user.getWoUser().getUserType().equals("INTERNI")) {
                 uzDokumentUsloviPlacanja.setReklama(user.getWoUser().getRadnik().getIme() + " " + user.getWoUser().getRadnik().getPrezime());
-                uzDokumentUsloviPlacanja.setBrTelefona(user.getWoUser().getRadnik().getTelefon());
+                uzDokumentUsloviPlacanja.setBrTelefona(user.getWoUser().getTelefonMobilni() + ";" +user.getWoUser().getTelefon() );
+
+                if (uzDokumentUsloviPlacanja.getBrTelefona().equals("null;null"))
+                    uzDokumentUsloviPlacanja.setBrTelefona("");
+                if (uzDokumentUsloviPlacanja.getBrTelefona().endsWith(";null"))
+                    uzDokumentUsloviPlacanja.setBrTelefona(user.getWoUser().getTelefonMobilni());
+                if (uzDokumentUsloviPlacanja.getBrTelefona().startsWith("null;"))
+                    uzDokumentUsloviPlacanja.setBrTelefona(user.getWoUser().getTelefon());
                 if (ocpTelefonskiBroj != null && ocpTelefonskiBroj.size() > 0) {
-                    uzDokumentUsloviPlacanja.setNapomenaPr(uzDokumentUsloviPlacanja.getNapomenaPr() + " " + ocpTelefonskiBroj.get(0).getTelefonskiBroj());
+                    uzDokumentUsloviPlacanja.setNapomenaPr(uzDokumentUsloviPlacanja.getNapomenaPr() + " " + uzDokumentUsloviPlacanja.getBrTelefona());
                 }
             } else {
                 uzDokumentUsloviPlacanja.setReklama((user.getWoUser().getIme() == null || user.getWoUser().getIme().equals("") || user.getWoUser().getIme().equals(" "))
@@ -811,9 +818,17 @@ public class BasketBusinessProcessing {
                 //reklama je lice koje je poručilo
                 if (user.getWoUser().getUserType().equals("INTERNI")) {
                     uzDokumentUsloviPlacanja.setReklama(user.getWoUser().getRadnik().getIme() + " " + user.getWoUser().getRadnik().getPrezime());
-                    uzDokumentUsloviPlacanja.setBrTelefona(user.getWoUser().getRadnik().getTelefon());
+                    uzDokumentUsloviPlacanja.setBrTelefona(user.getWoUser().getTelefonMobilni() + ";" + user.getWoUser().getTelefon());
+
+                    if (uzDokumentUsloviPlacanja.getBrTelefona().equals("null;null"))
+                        uzDokumentUsloviPlacanja.setBrTelefona("");
+                    if (uzDokumentUsloviPlacanja.getBrTelefona().endsWith(";null"))
+                        uzDokumentUsloviPlacanja.setBrTelefona(user.getWoUser().getTelefonMobilni());
+                    if (uzDokumentUsloviPlacanja.getBrTelefona().startsWith("null;"))
+                        uzDokumentUsloviPlacanja.setBrTelefona(user.getWoUser().getTelefon());
+
                     if (ocpTelefonskiBroj != null && ocpTelefonskiBroj.size() > 0) {
-                        uzDokumentUsloviPlacanja.setNapomenaPr(uzDokumentUsloviPlacanja.getNapomenaPr() + " " + ocpTelefonskiBroj.get(0).getTelefonskiBroj());
+                        uzDokumentUsloviPlacanja.setNapomenaPr(uzDokumentUsloviPlacanja.getNapomenaPr() + " " + uzDokumentUsloviPlacanja.getBrTelefona());
                     }
                 } else {
                     uzDokumentUsloviPlacanja.setReklama(user.getWoUser().getIme() == null || (user.getWoUser().getIme().equals("") || user.getWoUser().getIme().equals(" "))
