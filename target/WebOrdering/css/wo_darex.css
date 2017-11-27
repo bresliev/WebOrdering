@@ -708,12 +708,10 @@ table.korpa {
     margin-left: 10px;
     margin-bottom: 10px;
     color: #4c4b4b;
+    border: 1px solid #b3b3b3;
+    table-layout: fixed;
 }
 
-/*
-table.korpa tr td img:hover {
-	
-}*/
 table.korpa tr {
     vertical-align: top;
     height: 30px;
@@ -729,6 +727,15 @@ table.korpa tr td {
     line-height: 12px;
 }
 
+.underllned {
+
+    border-bottom: 1px solid #3b3b3b;
+    border-bottom-right-radius: 3px;
+    border-top: 1px solid #3b3b3b;
+    border-bottom-left-radius: 3px;
+
+}
+
 table.korpa tr td > div {
     height: 24px;
     line-height: 12px;
@@ -741,6 +748,7 @@ table.korpa th {
     line-height: 24px;
     font-size: 12px;
     margin-bottom: 5px;
+    border-bottom: 1px solid #b3b3b3;
 }
 
 .korpa_total {
@@ -756,6 +764,37 @@ table.korpa th {
     margin-bottom: 10px;
     margin-top: 60px;
     color: #4c4b4b;
+}
+
+table.sastav {
+    float: left;
+    width: 600px;
+    line-height: 22px;
+    font-weight: 600;
+    text-align: center;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    color: #4c4b4b;
+    border: 1px solid #b3b3b3;
+    table-layout: fixed;
+}
+
+table.sastav tr {
+    vertical-align: top;
+    height: 25px;
+}
+
+table.sastav tr td {
+    height: 15px;
+    line-height: 7px;
+}
+
+table.sastav th {
+    height: 19px;
+    line-height: 19px;
+    font-size: 10px;
+    margin-bottom: 5px;
+    background-color: #D3D3D3;
 }
 
 .korpa_total hr {
@@ -812,11 +851,11 @@ textarea {
     color: #4c4b4b;
     resize: none;
     overflow: auto;
-    width: 704px;
+    width: 639px;
     border: 1px solid #b3b3b3;
     padding: 5px;
     spellcheck: false;
-    margin-left: 10px;
+    margin-left: 0px;
     margin-bottom: 10px;
 }
 
@@ -1086,6 +1125,11 @@ hr.thin {
     color: white;
 }
 
+
+.adresa_isporuke{
+    width:650px;
+    border:2px solid #b3b3b3;
+}
  
 
 

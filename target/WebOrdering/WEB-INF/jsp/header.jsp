@@ -53,7 +53,10 @@
                 <a href='#' class="G2_MENI" id="NOVO">Novo</a>
             </li>
             <li>
-                <a href='#' class="G2_MENI" id="NAJAKTUELNIJE">Najaktuelnije</a>
+                <a href='#' class="G2_MENI" id="AKTUELNO">Aktuelno</a>
+            </li>
+            <li>
+                <a href='#' class="G2_MENI" id="SASTAV">Sastavi</a>
             </li>
             <li>
                 <a href='http://opc.blum.com/?calledFromInternal=false&calledFromPortal=true' target="_blank" class="G2_MENI" id="BLUM">Blum

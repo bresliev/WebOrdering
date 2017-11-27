@@ -1,39 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="363c38ab-6483-4fd0-8de4-d079334c2ed0" name="Default" comment="">
+    <list default="true" id="363c38ab-6483-4fd0-8de4-d079334c2ed0" name="Default" comment="Aderesa isporuke i još ponešto">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/.classpath" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/.project" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_oracle_ojdbc6_11_2_0_3.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_inject_javax_inject_1.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/.settings/org.eclipse.jdt.core.prefs" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.settings/org.eclipse.jpt.core.prefs" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.project.facet.core.prefs.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.project.facet.core.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.settings/org.eclipse.wst.validation.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/.settings/org.eclipse.wst.validation.prefs" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.settings/org.hibernate.eclipse.console.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/.settings/org.hibernate.eclipse.console.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/target/m2e-wtp/web-resources/META-INF/maven/rs.invado.wo/WebOrdering/pom.properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/target/m2e-wtp/web-resources/META-INF/maven/rs.invado.wo/WebOrdering/pom.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/properties/wo-properties" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/resources/META-INF/properties/wo-properties" />
       <change type="DELETED" beforePath="F:\Invado\WebOrdering\WebOrdering\.idea\artifacts\WebOrdering__1__war.xml" afterPath="" />
       <change type="DELETED" beforePath="F:\Invado\WebOrdering\WebOrdering\.idea\artifacts\WebOrdering__1__war_exploded.xml" afterPath="" />
+      <change type="DELETED" beforePath="F:\Invado\WebOrdering\WebOrdering\.idea\libraries\Maven__org_slf4j_slf4j_api_1_6_4.xml" afterPath="" />
       <change type="DELETED" beforePath="F:\Invado\WebOrdering\WebOrdering\.idea\scopes\scope_settings.xml" afterPath="" />
       <change type="DELETED" beforePath="F:\Invado\WebOrdering\WebOrdering\target\WebOrdering\WEB-INF\classes\rs\invado\wo\mvc\BasketControllerN.class" afterPath="" />
       <change type="DELETED" beforePath="F:\Invado\WebOrdering\WebOrdering\target\classes\rs\invado\wo\mvc\BasketControllerN.class" afterPath="" />
       <change type="DELETED" beforePath="F:\Invado\WebOrdering\WebOrdering\target\maven-archiver\pom.properties" afterPath="" />
       <change type="DELETED" beforePath="F:\Invado\WebOrdering\WebOrdering\target\maven-status\maven-compiler-plugin\compile\default-compile\createdFiles.lst" afterPath="" />
       <change type="DELETED" beforePath="F:\Invado\WebOrdering\WebOrdering\target\maven-status\maven-compiler-plugin\compile\default-compile\inputFiles.lst" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/images/Akcije.png" afterPath="$PROJECT_DIR$/target/WebOrdering/images/Akcije.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/images/Aktuelno.png" afterPath="$PROJECT_DIR$/target/WebOrdering/images/Aktuelno.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/AppInitService.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/AppInitService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/AppInitService.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/AppInitService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/BasketBusinessProcessing$ProAkcija.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/BasketBusinessProcessing$ProAkcija.class" />
@@ -46,28 +39,48 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/mvc/CommonController.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/mvc/CommonController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/CommonService.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/CommonService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/CommonService.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/CommonService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dto/CompanySetting.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dto/CompanySetting.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dto/CompanySetting.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dto/CompanySetting.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/LogOnService.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/LogOnService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/LogOnService.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/LogOnService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/mvc/LoginController.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/mvc/LoginController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/mvc/LoginController.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/mvc/LoginController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/images/Novo.png" afterPath="$PROJECT_DIR$/target/WebOrdering/images/Novo.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/ocp/OcpKlasifikacija.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/ocp/OcpKlasifikacija.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/ocp/OcpKlasifikacija.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/ocp/OcpKlasifikacija.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpKlasifikacijaHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpKlasifikacijaHome.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpKlasifikacijaHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpKlasifikacijaHome.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpKlasifikacijaProizvodaHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpKlasifikacijaProizvodaHome.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpKlasifikacijaProizvodaHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpKlasifikacijaProizvodaHome.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/ocp/OcpKlasifikacijaProizvodaId.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/ocp/OcpKlasifikacijaProizvodaId.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/ocp/OcpKlasifikacijaProizvodaId.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/ocp/OcpKlasifikacijaProizvodaId.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpLiceZaKontaktHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpLiceZaKontaktHome.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpLiceZaKontaktHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpLiceZaKontaktHome.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpMestoHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpMestoHome.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpMestoHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpMestoHome.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/ocp/OcpPoslovniPartner.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/ocp/OcpPoslovniPartner.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/ocp/OcpPoslovniPartner.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/ocp/OcpPoslovniPartner.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/ocp/OcpProizvod.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/ocp/OcpProizvod.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/ocp/OcpProizvod.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/ocp/OcpProizvod.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpProizvodHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpProizvodHome.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpProizvodHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpProizvodHome.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/ocp/OcpVrAtrProizvod.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/ocp/OcpVrAtrProizvod.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/ocp/OcpVrAtrProizvod.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/ocp/OcpVrAtrProizvod.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpVrAtrProizvodHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpVrAtrProizvodHome.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpVrAtrProizvodHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpVrAtrProizvodHome.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/prod/ProdCenovnikHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/prod/ProdCenovnikHome.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/prod/ProdCenovnikHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/prod/ProdCenovnikHome.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/ProductService.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/ProductService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/ProductService.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/ProductService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/mvc/ProizvodiController.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/mvc/ProizvodiController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/mvc/ProizvodiController.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/mvc/ProizvodiController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/images/Rasprodaja.png" afterPath="$PROJECT_DIR$/target/WebOrdering/images/Rasprodaja.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/util/SessionListener.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/util/SessionListener.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/util/SessionListener.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/util/SessionListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/util/SessionTimeoutFilter.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/util/SessionTimeoutFilter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/util/SessionTimeoutFilter.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/util/SessionTimeoutFilter.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/uz/UzDokument.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/uz/UzDokument.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzDokument.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzDokument.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/uz/UzDokumentStavka.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/uz/UzDokumentStavka.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzDokumentStavka.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzDokumentStavka.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/uz/UzDokumentStavkaHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/uz/UzDokumentStavkaHome.class" />
@@ -76,52 +89,77 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzDokumentStavkaPakovanje.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzDokumentStavkaPakovanje.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/uz/UzDokumentStavkaPakovanjeHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/uz/UzDokumentStavkaPakovanjeHome.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/uz/UzDokumentStavkaPakovanjeHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/uz/UzDokumentStavkaPakovanjeHome.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/uz/UzDokumentUsloviPlacanja.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/uz/UzDokumentUsloviPlacanja.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzDokumentUsloviPlacanja.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzDokumentUsloviPlacanja.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/uz/UzDozvPakovanjaHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/uz/UzDozvPakovanjaHome.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/uz/UzDozvPakovanjaHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/uz/UzDozvPakovanjaHome.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/uz/UzStanjeZalihaSkladista.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/uz/UzStanjeZalihaSkladista.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzStanjeZalihaSkladista.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzStanjeZalihaSkladista.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/uz/UzStanjeZalihaSkladistaHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/uz/UzStanjeZalihaSkladistaHome.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/uz/UzStanjeZalihaSkladistaHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/uz/UzStanjeZalihaSkladistaHome.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/uz/UzZaliheJskl.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/uz/UzZaliheJskl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzZaliheJskl.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzZaliheJskl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/uz/UzZaliheJsklHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/uz/UzZaliheJsklHome.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/uz/UzZaliheJsklHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/uz/UzZaliheJsklHome.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/util/WOExceptionCodes.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/util/WOExceptionCodes.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/util/WOExceptionCodes.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/util/WOExceptionCodes.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering.war" afterPath="$PROJECT_DIR$/target/WebOrdering.war" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/wo/WoArtikliNaAkcijiHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/wo/WoArtikliNaAkcijiHome.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/wo/WoArtikliNaAkcijiHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/wo/WoArtikliNaAkcijiHome.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/util/WoConfigSingleton.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/util/WoConfigSingleton.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/util/WoConfigSingleton.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/util/WoConfigSingleton.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/wo/WoMapKompanijskaSkladista.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/wo/WoMapKompanijskaSkladista.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/wo/WoMapKompanijskaSkladista.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/wo/WoMapKompanijskaSkladista.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/wo/WoParametri.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/wo/WoParametri.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/wo/WoParametri.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/wo/WoParametri.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/wo/WoParametriHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/wo/WoParametriHome.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/wo/WoParametriHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/wo/WoParametriHome.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/wo/WoPartnerSetting.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/wo/WoPartnerSetting.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/wo/WoPartnerSetting.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/wo/WoPartnerSetting.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/wo/WoPartnerSettingsHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/wo/WoPartnerSettingsHome.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/wo/WoPartnerSettingsHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/wo/WoPartnerSettingsHome.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/wo/WoRezervacija.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/wo/WoRezervacija.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/wo/WoRezervacija.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/wo/WoRezervacija.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/wo/WoRezervacijaHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/wo/WoRezervacijaHome.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/wo/WoRezervacijaHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/wo/WoRezervacijaHome.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/wo/WoUser.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/wo/WoUser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/wo/WoUser.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/wo/WoUser.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/wo/WoUserHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/wo/WoUserHome.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/wo/WoUserHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/wo/WoUserHome.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin" afterPath="$PROJECT_DIR$/bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessing.java" afterPath="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessing.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/LogOnService.java" afterPath="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/LogOnService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpProizvod.java" afterPath="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpProizvod.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpProizvodHome.java" afterPath="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpProizvodHome.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/ProductService.java" afterPath="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/ProductService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebOrdering.iml" afterPath="$PROJECT_DIR$/WebOrdering.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/WebOrdering_war.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/WebOrdering_war.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/WebOrdering_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/WebOrdering_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rs/invado/wo/util/WoConfigSingleton.java" afterPath="$PROJECT_DIR$/src/main/java/rs/invado/wo/util/WoConfigSingleton.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/wo/WoRezervacija.java" afterPath="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/wo/WoRezervacija.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/rs/invado/wo/test/WoWuserHomeTest.java" afterPath="$PROJECT_DIR$/src/test/java/rs/invado/wo/test/WoWuserHomeTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/spring/applicationContext.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/spring/applicationContext.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/META-INF/spring/applicationContext.xml" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/META-INF/spring/applicationContext.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/META-INF/spring/applicationContext.xml" afterPath="$PROJECT_DIR$/target/classes/META-INF/spring/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/basket.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/basket.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/basket.jsp" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/basket.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/contact.jsp" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/contact.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/footer.jsp" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/footer.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/header.jsp" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/header.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jboss-as-spring-mvc-context.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jboss-as-spring-mvc-context.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/hibernate.reveng.xml" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/hibernate.reveng.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/hibernate.reveng.xml" afterPath="$PROJECT_DIR$/target/classes/hibernate.reveng.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/home.jsp" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/home.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/META-INF/spring/infrastructure.xml" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/META-INF/spring/infrastructure.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/META-INF/spring/infrastructure.xml" afterPath="$PROJECT_DIR$/target/classes/META-INF/spring/infrastructure.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jboss-as-spring-mvc-context.xml" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jboss-as-spring-mvc-context.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/layout.jsp" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/layout.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/reports/predracun19.jrxml" afterPath="$PROJECT_DIR$/src/main/webapp/reports/predracun19.jrxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/resources/META-INF/testApplicationContext.xml" afterPath="$PROJECT_DIR$/src/test/resources/META-INF/testApplicationContext.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/META-INF/persistence.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/reports/predracun19.jrxml" afterPath="$PROJECT_DIR$/target/WebOrdering/reports/predracun19.jrxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/right.jsp" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/right.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/support.jsp" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/support.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/js/web_ordering.js" afterPath="$PROJECT_DIR$/target/WebOrdering/js/web_ordering.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/css/wo_darex.css" afterPath="$PROJECT_DIR$/src/main/webapp/css/wo_darex.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/css/wo_darex.css" afterPath="$PROJECT_DIR$/target/WebOrdering/css/wo_darex.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/css/wo_darexhome.css" afterPath="$PROJECT_DIR$/target/WebOrdering/css/wo_darexhome.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/css/wo_darexmax.css" afterPath="$PROJECT_DIR$/target/WebOrdering/css/wo_darexmax.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/css/wo_itison.css" afterPath="$PROJECT_DIR$/target/WebOrdering/css/wo_itison.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WebOrdering.iws" />
@@ -149,6 +187,24 @@
         <option name="myItemId" />
         <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
       </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="Oracle - orcl@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="Oracle - orcl@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="DAREX" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
     </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
@@ -157,54 +213,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="OcpProizvod.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpProizvod.java">
+      <file leaf-file-name="BasketBusinessProcessing.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessing.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.6470585">
+              <caret line="816" column="114" selection-start-line="816" selection-start-column="114" selection-end-line="816" selection-end-column="114" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WoArtikliNaAkcijiHome.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/wo/WoArtikliNaAkcijiHome.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="163" column="77" selection-start-line="163" selection-start-column="77" selection-end-line="163" selection-end-column="77" />
+              <caret line="99" column="35" selection-start-line="99" selection-start-column="35" selection-end-line="104" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KeRadnici.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/hr/KeRadnici.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="359" column="18" selection-start-line="359" selection-start-column="18" selection-end-line="359" selection-end-column="18" />
               <folding>
-                <marker date="1463222940344" expanded="true" signature="3976:7381" placeholder="select p.PRO..Ocp_Proizvod..." />
-                <marker date="1463222940344" expanded="true" signature="5362:5875" placeholder="select 1 fro..wo_partner_settings..." />
-                <marker date="1463222940344" expanded="true" signature="5985:6825" placeholder="select 1 fro..wo_partner_settings..." />
-                <marker date="1463222940344" expanded="true" signature="6955:7265" placeholder="select 1 fro..ocp_klasifikacija_proizvoda..." />
-                <marker date="1463222940344" expanded="true" signature="7504:10863" placeholder="select p.PRO..Ocp_Proizvod..." />
-                <marker date="1463222940344" expanded="true" signature="8777:9290" placeholder="select 1 fro..wo_partner_settings..." />
-                <marker date="1463222940344" expanded="true" signature="9405:10245" placeholder="select 1 fro..wo_partner_settings..." />
-                <marker date="1463222940344" expanded="true" signature="10516:10795" placeholder="select 1 fro..ocp_klasifikacija_proizvoda..." />
-                <marker date="1463222940344" expanded="true" signature="10994:14944" placeholder="select p.PRO..Ocp_Proizvod..." />
-                <marker date="1463222940344" expanded="true" signature="12370:12883" placeholder="select 1 fro..wo_partner_settings..." />
-                <marker date="1463222940344" expanded="true" signature="12998:13838" placeholder="select 1 fro..wo_partner_settings..." />
-                <marker date="1463222940344" expanded="true" signature="14579:14878" placeholder="select 1 fro..ocp_klasifikacija_proizvoda..." />
-                <marker date="1463222940344" expanded="true" signature="15077:19457" placeholder="select p.PRO..Ocp_Proizvod..." />
-                <marker date="1463222940344" expanded="true" signature="16377:16813" placeholder="select 1 fro..wo_artikli_na_akciji..." />
-                <marker date="1463222940344" expanded="true" signature="16986:17499" placeholder="select 1 fro..wo_partner_settings..." />
-                <marker date="1463222940344" expanded="true" signature="17609:18449" placeholder="select 1 fro..wo_partner_settings..." />
-                <marker date="1463222940344" expanded="true" signature="19584:23392" placeholder="select p.PRO..Ocp_Proizvod..." />
-                <marker date="1463222940344" expanded="true" signature="21164:21677" placeholder="select 1 fro..wo_partner_settings..." />
-                <marker date="1463222940344" expanded="true" signature="21787:22627" placeholder="select 1 fro..wo_partner_settings..." />
-                <marker date="1463222940344" expanded="true" signature="23529:27739" placeholder="select p.PRO..Ocp_Proizvod..." />
-                <marker date="1463222940344" expanded="true" signature="25101:25614" placeholder="select 1 fro..wo_partner_settings..." />
-                <marker date="1463222940344" expanded="true" signature="25724:26564" placeholder="select 1 fro..wo_partner_settings..." />
-                <marker date="1463222940344" expanded="true" signature="27306:27614" placeholder="select 1 fro..ocp_klasifikacija_proizvoda..." />
-                <marker date="1463222940344" expanded="true" signature="27878:31423" placeholder="select p.PRO..Ocp_Proizvod..." />
-                <marker date="1463222940344" expanded="true" signature="29404:29917" placeholder="select 1 fro..wo_partner_settings..." />
-                <marker date="1463222940344" expanded="true" signature="30027:30867" placeholder="select 1 fro..wo_partner_settings..." />
-                <marker date="1463222940344" expanded="true" signature="30997:31307" placeholder="select 1 fro..ocp_klasifikacija_proizvoda..." />
-                <marker date="1463222940344" expanded="true" signature="31539:32221" placeholder="select ps.* ..prod_proizvod_pk..." />
-                <marker date="1463222940344" expanded="true" signature="32223:32346" placeholder="-- uslov koj..." />
+                <element signature="e#10298#10299#0" expanded="true" />
+                <element signature="e#10333#10334#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LogOnService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/LogOnService.java">
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dto/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.0">
-              <caret line="99" column="89" selection-start-line="99" selection-start-column="89" selection-end-line="99" selection-end-column="89" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#6064#6081#0" expanded="true" />
+                <element signature="e#1221#1222#0" expanded="true" />
+                <element signature="e#1250#1251#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -214,93 +263,39 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/wo/WoRezervacija.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="230" column="3" selection-start-line="230" selection-start-column="3" selection-end-line="230" selection-end-column="3" />
+              <caret line="43" column="25" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="persistence.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.5">
+              <caret line="22" column="57" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LogOnService.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/LogOnService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.45617172">
+              <caret line="119" column="90" selection-start-line="119" selection-start-column="90" selection-end-line="119" selection-end-column="90" />
               <folding>
-                <element signature="e#4953#4954#0" expanded="true" />
-                <element signature="e#4986#4987#0" expanded="true" />
-                <element signature="e#5032#5033#0" expanded="true" />
-                <element signature="e#5066#5067#0" expanded="true" />
-                <element signature="e#5142#5143#0" expanded="true" />
-                <element signature="e#5176#5177#0" expanded="true" />
-                <element signature="e#5220#5221#0" expanded="true" />
-                <element signature="e#5256#5257#0" expanded="true" />
-                <element signature="e#5360#5361#0" expanded="true" />
-                <element signature="e#5394#5395#0" expanded="true" />
-                <element signature="e#5452#5453#0" expanded="true" />
-                <element signature="e#5498#5499#0" expanded="true" />
-                <element signature="e#5608#5609#0" expanded="true" />
-                <element signature="e#5645#5646#0" expanded="true" />
-                <element signature="e#5709#5710#0" expanded="true" />
-                <element signature="e#5761#5762#0" expanded="true" />
-                <element signature="e#5952#5953#0" expanded="true" />
-                <element signature="e#5981#5982#0" expanded="true" />
-                <element signature="e#6025#6026#0" expanded="true" />
-                <element signature="e#6061#6062#0" expanded="true" />
+                <element signature="e#7445#7462#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BasketBusinessProcessing.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessing.java">
+      <file leaf-file-name="WoUserHome.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/wo/WoUserHome.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="555" column="0" selection-start-line="555" selection-start-column="0" selection-end-line="555" selection-end-column="0" />
-              <folding>
-                <element signature="method#increaseReservationCompositeObject#0;class#BasketBusinessProcessing#0" expanded="false" />
-                <element signature="method#increaseReservation#0;class#BasketBusinessProcessing#0" expanded="false" />
-                <element signature="method#decreaseReservationCompositeObject#0;class#BasketBusinessProcessing#0" expanded="false" />
-                <element signature="method#decreaseReservation#0;class#BasketBusinessProcessing#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jasperCfg.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/jasperCfg.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="insersastavklasifikacija.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Documentation/Sastavi/insersastavklasifikacija.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="insertatrubutproverezalha.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Documentation/Sastavi/insertatrubutproverezalha.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.53125">
-              <caret line="1" column="25" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="wo-properties" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/properties/wo-properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5483871">
-              <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UzDokumentStavkaHome.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/uz/UzDokumentStavkaHome.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+              <caret line="96" column="38" selection-start-line="96" selection-start-column="38" selection-end-line="96" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -318,6 +313,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -327,56 +327,56 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/admin/AdmUserCinposHome.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzStanjeZalihaSkladista.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/wo/WoPartnerSettingsHome.java" />
-        <option value="$PROJECT_DIR$/Documentation/Sastavi/GitHubCredentials" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpSastavProizvodaHome.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/prod/ProdCenovnikHome.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/wo/WoRezervacijaSastavaId.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/wo/WoUser.java" />
-        <option value="$PROJECT_DIR$/src/test/resources/META-INF/test-persistence.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/BasketControllerN.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/BasketControllerDeprecated.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/wo/WoRezervacijaHome.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/BasketController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/wo/WoRezervacijaSastavaHome.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/web_ordering.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/Web-ordering-2.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/layout.jsp" />
-        <option value="$PROJECT_DIR$/src/test/java/rs/invado/wo/test/OcpProizvodHomeTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpKlasifikacijaHome.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/CommonService.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/header.jsp" />
+        <option value="$PROJECT_DIR$/bin/src/main/webapp/WEB-INF/jsp/home.jsp" />
+        <option value="$PROJECT_DIR$/bin/target/WebOrdering/WEB-INF/jsp/home.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/home.jsp" />
+        <option value="$PROJECT_DIR$/bin/target/WebOrdering/WEB-INF/jsp/footer.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/footer.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/CommonController.java" />
         <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/ProizvodiController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/wo/WoRezervacijaSastava.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpSastavProizvoda.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/uz/UzStanjeZalihaSkladistaHome.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessingDepricated.java" />
-        <option value="$PROJECT_DIR$/Documentation/Sastavi/alterSastavWO.sql" />
-        <option value="$PROJECT_DIR$/bin/src/main/webapp/js/web_ordering.js" />
-        <option value="$PROJECT_DIR$/bin/src/main/webapp/WEB-INF/jsp/contact.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/uz/UzDokumentStavkaHome.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/uz/UzDokumentStavkaPakovanjeHome.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzDokumentStavkaPakovanje.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpKlasifikacija.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzDokumentStavka.java" />
-        <option value="$PROJECT_DIR$/src/test/resources/META-INF/testApplicationContext.xml" />
-        <option value="$PROJECT_DIR$/src/test/resources/META-INF/test-context.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jboss-as-spring-mvc-context.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/rs/invado/wo/test/WoWuserHomeTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/util/EtoConf.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/spring/applicationContext.xml" />
-        <option value="$PROJECT_DIR$/src/test/resources/META-INF/properties/wo-properties" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/util/WoConfigSingleton.java" />
         <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpProizvod.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpProizvodHome.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/spring/applicationContext.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jboss-as-spring-mvc-context.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/rest/classificationRestController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/wo/WoArtikliNaAkcijiHome.java" />
+        <option value="$PROJECT_DIR$/bin/src/main/webapp/WEB-INF/jsp/header.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/util/SessionEndedListener.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/bin/src/main/webapp/WEB-INF/jsp/contact.jsp" />
+        <option value="$PROJECT_DIR$/bin/target/WebOrdering/WEB-INF/jsp/contact.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/contact.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/contact_valid.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/ProductService.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/basket.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpPoslovniPartner.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/css/wo_darexhome.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/css/wo_darexmax.css" />
+        <option value="$PROJECT_DIR$/src/main/webapp/css/wo_itison.css" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/BasketControllerDeprecated.java" />
+        <option value="$PROJECT_DIR$/bin/src/main/webapp/WEB-INF/jsp/footer.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/jquery-2.2.1.min.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/jquery-3.2.1.min.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/layout.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/wo_darex.css" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpAdresaIsporuke.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/hibernate.reveng.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpTelefonskiBroj.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/META-INF/properties/wo-properties" />
+        <option value="$PROJECT_DIR$/src/test/resources/META-INF/testApplicationContext.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/rs/invado/wo/test/OcpProizvodHomeTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/BasketController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpAdresaIsporukeHome.java" />
+        <option value="$PROJECT_DIR$/src/test/java/rs/invado/wo/test/KlasifikacijaDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzDokument.java" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzZaliheJskl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpTelefonskiBrojHome.java" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzDokumentUsloviPlacanja.java" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpLiceZaKontaktHome.java" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/uz/UzZaliheJsklHome.java" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/util/SessionListener.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/web_ordering.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/basket.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessing.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/wo/WoRezervacija.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/META-INF/properties/wo-properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
         <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/LogOnService.java" />
       </list>
     </option>
@@ -490,6 +490,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -541,6 +543,88 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -700,14 +784,12 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
+              <option name="myItemId" value="domain" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -716,27 +798,50 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.tabs" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.side.proportion" value="0.4413793" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../crm" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://F:/Invado/WebOrdering/WebOrdering/src/main/java/rs/invado/wo/dao/ocp/OcpProizvodHome.java" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="205" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth1" value="238" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth2" value="238" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth3" value="1146" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_flatOrder3" value="3" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth0" value="217" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder0" value="0" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth1" value="234" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder1" value="1" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth2" value="234" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder2" value="2" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeWidth3" value="1142" />
+    <property name="FileHistory.git4idea.history.GitHistoryProvider_treeOrder3" value="3" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Invado\WebOrdering\WebOrdering\src\main\webapp\css" />
       <recent name="F:\Invado\WebOrdering\WebOrdering\src\test\resources\META-INF" />
       <recent name="F:\Invado\WebOrdering\WebOrdering\Documentation\Sastavi" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Invado\WebOrdering\WebOrdering\src\main\resources" />
+      <recent name="F:\Invado\WebOrdering\WebOrdering\src\main\webapp\WEB-INF\classes" />
       <recent name="F:\Invado\WebOrdering\WebOrdering\src\test\resources\META-INF" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="rs.invado.wo.domain.ocp" />
+    </key>
   </component>
-  <component name="RunManager" selected="JBoss Server.WOJBossDepl">
-    <configuration default="false" name="WoWuserHomeTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JBoss Server.ExplodedJBossDepl">
+    <configuration default="false" name="KlasifikacijaDaoTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="rs.invado.wo.test.*" />
@@ -747,7 +852,7 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="rs.invado.wo.test" />
-      <option name="MAIN_CLASS_NAME" value="rs.invado.wo.test.WoWuserHomeTest" />
+      <option name="MAIN_CLASS_NAME" value="rs.invado.wo.test.KlasifikacijaDaoTest" />
       <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -760,6 +865,115 @@
       </option>
       <envs />
       <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="WoWuserHomeTest.dummy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="rs.invado.wo.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="WebOrdering" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="rs.invado.wo.test" />
+      <option name="MAIN_CLASS_NAME" value="rs.invado.wo.test.WoWuserHomeTest" />
+      <option name="METHOD_NAME" value="dummy" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="OcpProizvodHomeTest.findPoBrandHashCena" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="rs.invado.wo.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="WebOrdering" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="rs.invado.wo.test" />
+      <option name="MAIN_CLASS_NAME" value="rs.invado.wo.test.OcpProizvodHomeTest" />
+      <option name="METHOD_NAME" value="findPoBrandHashCena" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="KlasifikacijaDaoTest.main" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="rs.invado.wo.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="WebOrdering" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="rs.invado.wo.test" />
+      <option name="MAIN_CLASS_NAME" value="rs.invado.wo.test.KlasifikacijaDaoTest" />
+      <option name="METHOD_NAME" value="main" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="KlasifikacijaDaoTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="rs.invado.wo.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="rs.invado.wo.test.KlasifikacijaDaoTest" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="WebOrdering" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
+      <deployment />
+      <server-settings />
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -1105,58 +1319,6 @@
     <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
       <method />
     </configuration>
-    <configuration default="false" name="OcpProizvodHomeTest.btvz" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="rs.invado.wo.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="WebOrdering" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="rs.invado.wo.test" />
-      <option name="MAIN_CLASS_NAME" value="rs.invado.wo.test.OcpProizvodHomeTest" />
-      <option name="METHOD_NAME" value="btvz" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="OcpProizvodHomeTest.testProductServiceSort" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="rs.invado.wo.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="WebOrdering" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="rs.invado.wo.test" />
-      <option name="MAIN_CLASS_NAME" value="rs.invado.wo.test.OcpProizvodHomeTest" />
-      <option name="METHOD_NAME" value="testProductServiceSort" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
     <configuration default="false" name="WOJBossDepl" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss 7.1.1.Final" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/WebOrdering/login" />
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -1225,15 +1387,201 @@
       </ConfigurationWrapper>
       <method />
     </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.OcpProizvodHomeTest.btvz" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.OcpProizvodHomeTest.testProductServiceSort" />
-      <item index="2" class="java.lang.String" itemvalue="JBoss Server.WOJBossDepl" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.WoWuserHomeTest.test" />
+    <configuration default="false" name="ExplodedJBossDepl" type="JBossConfiguration" factoryName="Local" APPLICATION_SERVER_NAME="JBoss 7.1.1.Final" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/WebOrdering/login" />
+      <deployment>
+        <artifact name="WebOrdering:war exploded">
+          <settings />
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="SERVER" />
+        <option name="BINDING_SET_NAME" value="" />
+        <option name="DOMAIN" value="false" />
+        <option name="SERVER_GROUP" />
+        <option name="USERNAME" value="" />
+        <option name="PASSWORD" value="" />
+      </server-settings>
+      <predefined_log_file id="JBoss" enabled="true" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="53305" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="WebOrdering:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration default="false" name="OcpProizvodHomeTest.btvz" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="rs.invado.wo.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="WebOrdering" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="rs.invado.wo.test" />
+      <option name="MAIN_CLASS_NAME" value="rs.invado.wo.test.OcpProizvodHomeTest" />
+      <option name="METHOD_NAME" value="btvz" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="OcpProizvodHomeTest.testProductServiceSort" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="rs.invado.wo.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="WebOrdering" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="rs.invado.wo.test" />
+      <option name="MAIN_CLASS_NAME" value="rs.invado.wo.test.OcpProizvodHomeTest" />
+      <option name="METHOD_NAME" value="testProductServiceSort" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="WoWuserHomeTest.test" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="rs.invado.wo.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="WebOrdering" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="rs.invado.wo.test" />
+      <option name="MAIN_CLASS_NAME" value="rs.invado.wo.test.WoWuserHomeTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="WebOrderingWarPackage" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="package" />
+                <option value="-Dmaven.test.skip=true" />
+              </list>
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method />
+    </configuration>
+    <list size="11">
+      <item index="0" class="java.lang.String" itemvalue="JBoss Server.WOJBossDepl" />
+      <item index="1" class="java.lang.String" itemvalue="JBoss Server.ExplodedJBossDepl" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.OcpProizvodHomeTest.btvz" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.OcpProizvodHomeTest.testProductServiceSort" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.WoWuserHomeTest.test" />
+      <item index="5" class="java.lang.String" itemvalue="Maven.WebOrderingWarPackage" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.KlasifikacijaDaoTest.test" />
+      <item index="7" class="java.lang.String" itemvalue="JUnit.WoWuserHomeTest.dummy" />
+      <item index="8" class="java.lang.String" itemvalue="JUnit.OcpProizvodHomeTest.findPoBrandHashCena" />
+      <item index="9" class="java.lang.String" itemvalue="JUnit.KlasifikacijaDaoTest.main" />
+      <item index="10" class="java.lang.String" itemvalue="Application.KlasifikacijaDaoTest" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.WoWuserHomeTest.test" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Application.KlasifikacijaDaoTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.KlasifikacijaDaoTest.main" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.KlasifikacijaDaoTest.test" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.OcpProizvodHomeTest.findPoBrandHashCena" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.WoWuserHomeTest.dummy" />
       </list>
     </recent_temporary>
   </component>
@@ -1290,7 +1638,158 @@
       <workItem from="1463815380669" duration="1562000" />
       <workItem from="1463854665428" duration="1386000" />
       <workItem from="1463986308807" duration="3467000" />
-      <workItem from="1464284255530" duration="3704000" />
+      <workItem from="1464284255530" duration="6361000" />
+      <workItem from="1464377647050" duration="467000" />
+      <workItem from="1464462571573" duration="3398000" />
+      <workItem from="1464510076461" duration="598000" />
+      <workItem from="1464592711334" duration="16738000" />
+      <workItem from="1464690161463" duration="559000" />
+      <workItem from="1464708341780" duration="1420000" />
+      <workItem from="1464712657654" duration="6379000" />
+      <workItem from="1464768467292" duration="4567000" />
+      <workItem from="1464847673169" duration="885000" />
+      <workItem from="1464973743442" duration="2117000" />
+      <workItem from="1465110338791" duration="5322000" />
+      <workItem from="1465231037186" duration="5080000" />
+      <workItem from="1465284425740" duration="4435000" />
+      <workItem from="1465320845492" duration="4658000" />
+      <workItem from="1465404949554" duration="1115000" />
+      <workItem from="1465491049809" duration="3413000" />
+      <workItem from="1465638790988" duration="6730000" />
+      <workItem from="1465718142191" duration="1799000" />
+      <workItem from="1465846461311" duration="1474000" />
+      <workItem from="1465911787757" duration="20979000" />
+      <workItem from="1466237282989" duration="1055000" />
+      <workItem from="1466247675736" duration="24008000" />
+      <workItem from="1466330097272" duration="7074000" />
+      <workItem from="1466358008702" duration="6892000" />
+      <workItem from="1466531272907" duration="2537000" />
+      <workItem from="1466610698173" duration="1309000" />
+      <workItem from="1466846543315" duration="25565000" />
+      <workItem from="1468877408851" duration="598000" />
+      <workItem from="1469354262476" duration="1215000" />
+      <workItem from="1469879991998" duration="1604000" />
+      <workItem from="1469957040418" duration="1207000" />
+      <workItem from="1470160116868" duration="3477000" />
+      <workItem from="1470504759106" duration="184000" />
+      <workItem from="1470505778869" duration="1695000" />
+      <workItem from="1470596661706" duration="8448000" />
+      <workItem from="1470865637107" duration="599000" />
+      <workItem from="1470938511774" duration="7952000" />
+      <workItem from="1471080600944" duration="1587000" />
+      <workItem from="1471118728111" duration="3278000" />
+      <workItem from="1471164237623" duration="24925000" />
+      <workItem from="1471327160098" duration="10804000" />
+      <workItem from="1471455414536" duration="4493000" />
+      <workItem from="1471688913717" duration="16071000" />
+      <workItem from="1471819497922" duration="16000" />
+      <workItem from="1471863445224" duration="7889000" />
+      <workItem from="1472021192425" duration="3799000" />
+      <workItem from="1472108387472" duration="2653000" />
+      <workItem from="1472193051522" duration="17036000" />
+      <workItem from="1472374910655" duration="11549000" />
+      <workItem from="1472649457501" duration="950000" />
+      <workItem from="1472976879699" duration="2363000" />
+      <workItem from="1473873694098" duration="10309000" />
+      <workItem from="1474015042881" duration="17801000" />
+      <workItem from="1474117400449" duration="18560000" />
+      <workItem from="1474186269115" duration="10520000" />
+      <workItem from="1474285588638" duration="1533000" />
+      <workItem from="1474358797406" duration="613000" />
+      <workItem from="1475087389637" duration="1666000" />
+      <workItem from="1475089084698" duration="3207000" />
+      <workItem from="1475160326473" duration="10774000" />
+      <workItem from="1475260467386" duration="8020000" />
+      <workItem from="1475406990323" duration="982000" />
+      <workItem from="1475519952220" duration="7552000" />
+      <workItem from="1475527646748" duration="78000" />
+      <workItem from="1475599519426" duration="3331000" />
+      <workItem from="1475605341550" duration="6068000" />
+      <workItem from="1475653332135" duration="2318000" />
+      <workItem from="1476295670075" duration="4783000" />
+      <workItem from="1476373546461" duration="10474000" />
+      <workItem from="1476427373983" duration="8882000" />
+      <workItem from="1476533594112" duration="1554000" />
+      <workItem from="1476535268243" duration="7687000" />
+      <workItem from="1476641987929" duration="9705000" />
+      <workItem from="1476732153355" duration="142000" />
+      <workItem from="1477129111570" duration="12166000" />
+      <workItem from="1477245656458" duration="598000" />
+      <workItem from="1477305419521" duration="4654000" />
+      <workItem from="1477514323813" duration="604000" />
+      <workItem from="1477586383909" duration="5348000" />
+      <workItem from="1477593043517" duration="1083000" />
+      <workItem from="1477645346388" duration="2957000" />
+      <workItem from="1477824146021" duration="3967000" />
+      <workItem from="1477902436592" duration="599000" />
+      <workItem from="1478162576433" duration="2752000" />
+      <workItem from="1478203946565" duration="777000" />
+      <workItem from="1478245280130" duration="1119000" />
+      <workItem from="1478345767903" duration="614000" />
+      <workItem from="1478445693496" duration="1199000" />
+      <workItem from="1478548488367" duration="1389000" />
+      <workItem from="1478864988997" duration="2673000" />
+      <workItem from="1478940794582" duration="2070000" />
+      <workItem from="1479225578440" duration="1199000" />
+      <workItem from="1479324533992" duration="2081000" />
+      <workItem from="1480014421281" duration="3560000" />
+      <workItem from="1480761398046" duration="800000" />
+      <workItem from="1481300802797" duration="50000" />
+      <workItem from="1481310819878" duration="1146000" />
+      <workItem from="1481312091393" duration="629000" />
+      <workItem from="1482870338876" duration="739000" />
+      <workItem from="1484406268257" duration="1108000" />
+      <workItem from="1484756380203" duration="5231000" />
+      <workItem from="1485007292575" duration="889000" />
+      <workItem from="1485086306552" duration="3013000" />
+      <workItem from="1485454607867" duration="1688000" />
+      <workItem from="1485598525368" duration="246000" />
+      <workItem from="1485598906824" duration="58000" />
+      <workItem from="1485716798528" duration="1211000" />
+      <workItem from="1485724394673" duration="318000" />
+      <workItem from="1486240472834" duration="1088000" />
+      <workItem from="1486581200296" duration="1401000" />
+      <workItem from="1486729290120" duration="1309000" />
+      <workItem from="1487453356737" duration="599000" />
+      <workItem from="1487613570859" duration="1448000" />
+      <workItem from="1487693312556" duration="486000" />
+      <workItem from="1487791549358" duration="523000" />
+      <workItem from="1487943818898" duration="2766000" />
+      <workItem from="1488220564559" duration="1717000" />
+      <workItem from="1488724047123" duration="598000" />
+      <workItem from="1490032419062" duration="1007000" />
+      <workItem from="1490118155410" duration="4570000" />
+      <workItem from="1490213519357" duration="4462000" />
+      <workItem from="1490223095110" duration="611000" />
+      <workItem from="1491635364836" duration="630000" />
+      <workItem from="1491681499877" duration="1387000" />
+      <workItem from="1492459751294" duration="597000" />
+      <workItem from="1493545398133" duration="1661000" />
+      <workItem from="1501063583238" duration="1998000" />
+      <workItem from="1503230996042" duration="2132000" />
+      <workItem from="1503401162636" duration="6980000" />
+      <workItem from="1503514268026" duration="682000" />
+      <workItem from="1503994275865" duration="736000" />
+      <workItem from="1505638652755" duration="21648000" />
+      <workItem from="1505846434267" duration="6069000" />
+      <workItem from="1506153140176" duration="14012000" />
+      <workItem from="1506244564659" duration="2003000" />
+      <workItem from="1506356193430" duration="12755000" />
+      <workItem from="1506370489914" duration="1458000" />
+      <workItem from="1506443919541" duration="7719000" />
+      <workItem from="1506540849473" duration="3750000" />
+      <workItem from="1506691719673" duration="1215000" />
+      <workItem from="1506760247569" duration="215000" />
+      <workItem from="1506950991641" duration="6605000" />
+      <workItem from="1507053738308" duration="19824000" />
+      <workItem from="1507189071708" duration="6803000" />
+      <workItem from="1508621241376" duration="899000" />
+      <workItem from="1508667042899" duration="4209000" />
+      <workItem from="1509701956085" duration="564000" />
+      <workItem from="1511103374683" duration="2276000" />
+      <workItem from="1511202774637" duration="1435000" />
+      <workItem from="1511687489099" duration="7123000" />
+      <workItem from="1511806354168" duration="4184000" />
     </task>
     <task id="LOCAL-00001" summary="Sastav first">
       <created>1457296637907</created>
@@ -1364,33 +1863,179 @@
       <option name="project" value="LOCAL" />
       <updated>1462822670622</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="sastavi">
+      <created>1464289703276</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1464289703276</updated>
+    </task>
+    <task id="LOCAL-00014" summary="sastavi konačno">
+      <created>1465110873183</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1465110873183</updated>
+    </task>
+    <task id="LOCAL-00015" summary="sastavi konačno">
+      <created>1465655028478</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1465655028478</updated>
+    </task>
+    <task id="LOCAL-00016" summary="wo parametri">
+      <created>1465927319771</created>
+      <option name="number" value="00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1465927319771</updated>
+    </task>
+    <task id="LOCAL-00017" summary="DarexHome: cene i uvid u stanje zaliha za oba magacina...">
+      <created>1466022686949</created>
+      <option name="number" value="00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1466022686949</updated>
+    </task>
+    <task id="LOCAL-00018" summary="sortiranje 1">
+      <created>1470507148903</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1470507148903</updated>
+    </task>
+    <task id="LOCAL-00019" summary="sastavi konačno">
+      <created>1470941078100</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1470941078100</updated>
+    </task>
+    <task id="LOCAL-00020" summary="sort i max rabat....">
+      <created>1474224028971</created>
+      <option name="number" value="00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1474224028971</updated>
+    </task>
+    <task id="LOCAL-00021" summary="sastavi konačno V2">
+      <created>1475407450747</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1475407450747</updated>
+    </task>
+    <task id="LOCAL-00022" summary="sastavi v3 na produkciji">
+      <created>1475527719948</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1475527719948</updated>
+    </task>
+    <task id="LOCAL-00023" summary="sastavi konačno">
+      <created>1476301781763</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1476301781763</updated>
+    </task>
+    <task id="LOCAL-00024" summary="sastavi konačno">
+      <created>1478548648219</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1478548648219</updated>
+    </task>
+    <task id="LOCAL-00025" summary="sastavi konačno">
+      <created>1478950946554</created>
+      <option name="number" value="00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1478950946554</updated>
+    </task>
+    <task id="LOCAL-00026" summary="izveštavanje faza I">
+      <created>1481311057865</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1481311057865</updated>
+    </task>
+    <task id="LOCAL-00027" summary="izveštavanje faza I">
+      <created>1485456829386</created>
+      <option name="number" value="00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1485456829389</updated>
+    </task>
+    <task id="LOCAL-00028" summary="izveštavanje faza I">
+      <created>1486241544286</created>
+      <option name="number" value="00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1486241544286</updated>
+    </task>
+    <task id="LOCAL-00029" summary="IZMENA KONTAKTA">
+      <created>1501065551033</created>
+      <option name="number" value="00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1501065551033</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Aderesa isporuke">
+      <created>1505853333322</created>
+      <option name="number" value="00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1505853333322</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Aderesa isporuke">
+      <created>1506254199992</created>
+      <option name="number" value="00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1506254199992</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Aderesa isporuke+telefon+reklama">
+      <created>1506369043226</created>
+      <option name="number" value="00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1506369043226</updated>
+    </task>
+    <task id="LOCAL-00033" summary="provera null adrese">
+      <created>1506451604083</created>
+      <option name="number" value="00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1506451604083</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Aderesa isporuke i još ponešto">
+      <created>1511215275910</created>
+      <option name="number" value="00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1511215275910</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Sklnjen privatn telefon...">
+      <created>1511727153231</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1511727153231</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="263707000" />
+    <option name="totallyTimeSpent" value="940577000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1050" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32302406" sideWeight="0.50427806" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.325315" sideWeight="0.24010696" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19572192" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32875144" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32302406" sideWeight="0.49572194" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22565866" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.325315" sideWeight="0.75989306" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20427808" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16149732" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19144385" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298969" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1401,7 +2046,8 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298969" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1425,7 +2071,22 @@
     <MESSAGE value="Sastav SQL trans" />
     <MESSAGE value="Sastav SQL rezerv sastav" />
     <MESSAGE value="derezervacija, korpa css" />
-    <option name="LAST_COMMIT_MESSAGE" value="derezervacija, korpa css" />
+    <MESSAGE value="sastavi" />
+    <MESSAGE value="wo parametri" />
+    <MESSAGE value="DarexHome: cene i uvid u stanje zaliha za oba magacina..." />
+    <MESSAGE value="sortiranje 1" />
+    <MESSAGE value="sort i max rabat...." />
+    <MESSAGE value="sastavi konačno V2" />
+    <MESSAGE value="sastavi v3 na produkciji" />
+    <MESSAGE value="sastavi konačno" />
+    <MESSAGE value="izveštavanje faza I" />
+    <MESSAGE value="IZMENA KONTAKTA" />
+    <MESSAGE value="Aderesa isporuke" />
+    <MESSAGE value="Aderesa isporuke+telefon+reklama" />
+    <MESSAGE value="provera null adrese" />
+    <MESSAGE value="Aderesa isporuke i još ponešto" />
+    <MESSAGE value="Sklnjen privatn telefon..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Sklnjen privatn telefon..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1436,22 +2097,10 @@
           <properties />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/ProductService.java</url>
-          <line>232</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpProizvodHome.java</url>
-          <line>160</line>
+          <line>203</line>
           <properties />
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessing.java</url>
-          <line>161</line>
-          <properties />
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/BasketControllerDeprecated.java</url>
@@ -1461,24 +2110,30 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/BasketController.java</url>
-          <line>62</line>
+          <line>63</line>
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessing.java</url>
-          <line>242</line>
+          <url>file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpProizvodHome.java</url>
+          <line>130</line>
           <properties />
-          <option name="timeStamp" value="11" />
+          <option name="timeStamp" value="29" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessing.java</url>
-          <line>150</line>
+          <url>file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpProizvodHome.java</url>
+          <line>464</line>
           <properties />
-          <option name="timeStamp" value="12" />
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/ProductService.java</url>
+          <line>275</line>
+          <properties />
+          <option name="timeStamp" value="50" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="13" />
+      <option name="time" value="51" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1487,131 +2142,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/wo/WoSetPoNacinPlacanjaHome.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpAtributHome.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/wo/WoUserHasRightHome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/wo/WoUserHome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/wo/WoUserRightsHome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/BasketControllerDeprecated.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/CommonController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/ProizvodiController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/ReportingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/uz/UzDokumentStavkaPakovanjeHome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="91" column="66" selection-start-line="91" selection-start-column="66" selection-end-line="91" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzDokumentStavkaPakovanjeId.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="30" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzDokumentStavkaId.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="30" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzDokumentStavkaPakovanje.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="163" selection-start-line="14" selection-start-column="163" selection-end-line="14" selection-end-column="163" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpKlasifikacija.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="112" column="86" selection-start-line="112" selection-start-column="86" selection-end-line="112" selection-end-column="86" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/uz/UzStanjeZalihaSkladistaHome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="74" column="75" selection-start-line="74" selection-start-column="75" selection-end-line="74" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/layout.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzDokumentStavka.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/META-INF/testApplicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1622,98 +2156,219 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.3235295">
-          <caret line="45" column="27" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jboss-deployment-structure.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/import.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
+      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jboss-as-spring-mvc-context.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.reveng.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.78125">
-          <caret line="9" column="54" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="252" column="37" selection-start-line="252" selection-start-column="17" selection-end-line="252" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/CommonService.java">
+    <entry file="file://$PROJECT_DIR$/bin/src/main/resources/hibernate.reveng.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7514231">
-          <caret line="86" column="31" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="31" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="59" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/util/WOUtil.java">
+    <entry file="file://$PROJECT_DIR$/bin/target/classes/hibernate.reveng.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35084426">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="234" column="17" selection-start-line="234" selection-start-column="17" selection-end-line="234" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/target/WebOrdering/WEB-INF/classes/hibernate.reveng.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/wo/WoSortPerObjectAttributeHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/META-INF/testApplicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.2410547">
+          <caret line="18" column="65" selection-start-line="18" selection-start-column="65" selection-end-line="18" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/META-INF/test-persistence.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="26.90625">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/META-INF/test-context.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="65" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/util/EtoConf.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="10" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="10" />
+        <state vertical-scroll-proportion="-0.38418078">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/META-INF/properties/wo-properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.0597014">
-          <caret line="16" column="38" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="38" />
+        <state vertical-scroll-proportion="0.51699466">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/spring/applicationContext.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpKontaktiLicaHome.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.96875">
-          <caret line="15" column="91" selection-start-line="15" selection-start-column="91" selection-end-line="15" selection-end-column="91" />
+        <state vertical-scroll-proportion="-0.85509837">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/rs/invado/wo/test/WoWuserHomeTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/rs/invado/wo/test/OcpProizvodHomeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.78711987">
+          <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpPoslovniPartnerHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14124294">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpAdresaIsporukeHome.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="62" selection-start-line="35" selection-start-column="62" selection-end-line="35" selection-end-column="62" />
+          <caret line="83" column="49" selection-start-line="83" selection-start-column="49" selection-end-line="83" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/util/WoConfigSingleton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.04144144">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpProizvodHome.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpAdresaIsporuke.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="469" column="59" selection-start-line="469" selection-start-column="59" selection-end-line="469" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpPoslovniPartner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="441" column="56" selection-start-line="441" selection-start-column="38" selection-end-line="441" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/3.1.1.RELEASE/spring-test-3.1.1.RELEASE-sources.jar!/org/springframework/test/context/TestContext.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.1581922">
+          <caret line="156" column="0" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/rs/invado/wo/test/KlasifikacijaDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="71" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/ProizvodiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="64" column="91" selection-start-line="64" selection-start-column="82" selection-end-line="64" selection-end-column="91" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/ProductService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="205" column="34" selection-start-line="205" selection-start-column="34" selection-end-line="205" selection-end-column="34" />
+          <caret line="213" column="74" selection-start-line="213" selection-start-column="74" selection-end-line="213" selection-end-column="74" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzZaliheJskl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="62" column="101" selection-start-line="62" selection-start-column="101" selection-end-line="62" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/prod/ProdFinDokument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="495" column="26" selection-start-line="495" selection-start-column="16" selection-end-line="495" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/uz/UzDokumentUsloviPlacanjaHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzDokumentUsloviPlacanja.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="218" column="36" selection-start-line="218" selection-start-column="36" selection-end-line="218" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/uz/UzZaliheJsklHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="126" column="12" selection-start-line="126" selection-start-column="12" selection-end-line="126" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/util/SessionListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45945945">
+          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpLiceZaKontaktHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="89" column="34" selection-start-line="89" selection-start-column="34" selection-end-line="89" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpTelefonskiBrojHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="81" column="77" selection-start-line="81" selection-start-column="77" selection-end-line="81" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/BasketController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1721,122 +2376,542 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/basket.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="81" column="27" selection-start-line="81" selection-start-column="27" selection-end-line="81" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/wo_darex.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="732" column="33" selection-start-line="732" selection-start-column="33" selection-end-line="732" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/BasketController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="108" column="51" selection-start-line="108" selection-start-column="51" selection-end-line="108" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="98" selection-start-line="23" selection-start-column="67" selection-end-line="23" selection-end-column="98" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/admin/AdminUserCinpos.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="31" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1006#1007#0" expanded="false" />
-            <element signature="e#1036#1037#0" expanded="false" />
-            <element signature="e#1083#1084#0" expanded="false" />
-            <element signature="e#1111#1112#0" expanded="false" />
-            <element signature="e#1183#1184#0" expanded="false" />
-            <element signature="e#1216#1217#0" expanded="false" />
-            <element signature="e#1268#1269#0" expanded="false" />
-            <element signature="e#1312#1313#0" expanded="false" />
-            <element signature="e#1389#1390#0" expanded="false" />
-            <element signature="e#1425#1426#0" expanded="false" />
-            <element signature="e#1483#1484#0" expanded="false" />
-            <element signature="e#1533#1534#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/wo/WoUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16129032">
-          <caret line="13" column="20" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/util/WOExceptionCodes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="49" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/admin/AdmUserCinposHome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="66" column="27" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Documentation/Sastavi/alterSastavWO.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="35" selection-end-column="64" />
-          <folding />
+          <caret line="77" column="32" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpProizvod.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="163" column="77" selection-start-line="163" selection-start-column="77" selection-end-line="163" selection-end-column="77" />
+          <caret line="221" column="42" selection-start-line="78" selection-start-column="26" selection-end-line="221" selection-end-column="42" />
           <folding>
-            <marker date="1463222940344" expanded="true" signature="3976:7381" placeholder="select p.PRO..Ocp_Proizvod..." />
-            <marker date="1463222940344" expanded="true" signature="5362:5875" placeholder="select 1 fro..wo_partner_settings..." />
-            <marker date="1463222940344" expanded="true" signature="5985:6825" placeholder="select 1 fro..wo_partner_settings..." />
-            <marker date="1463222940344" expanded="true" signature="6955:7265" placeholder="select 1 fro..ocp_klasifikacija_proizvoda..." />
-            <marker date="1463222940344" expanded="true" signature="7504:10863" placeholder="select p.PRO..Ocp_Proizvod..." />
-            <marker date="1463222940344" expanded="true" signature="8777:9290" placeholder="select 1 fro..wo_partner_settings..." />
-            <marker date="1463222940344" expanded="true" signature="9405:10245" placeholder="select 1 fro..wo_partner_settings..." />
-            <marker date="1463222940344" expanded="true" signature="10516:10795" placeholder="select 1 fro..ocp_klasifikacija_proizvoda..." />
-            <marker date="1463222940344" expanded="true" signature="10994:14944" placeholder="select p.PRO..Ocp_Proizvod..." />
-            <marker date="1463222940344" expanded="true" signature="12370:12883" placeholder="select 1 fro..wo_partner_settings..." />
-            <marker date="1463222940344" expanded="true" signature="12998:13838" placeholder="select 1 fro..wo_partner_settings..." />
-            <marker date="1463222940344" expanded="true" signature="14579:14878" placeholder="select 1 fro..ocp_klasifikacija_proizvoda..." />
-            <marker date="1463222940344" expanded="true" signature="15077:19457" placeholder="select p.PRO..Ocp_Proizvod..." />
-            <marker date="1463222940344" expanded="true" signature="16377:16813" placeholder="select 1 fro..wo_artikli_na_akciji..." />
-            <marker date="1463222940344" expanded="true" signature="16986:17499" placeholder="select 1 fro..wo_partner_settings..." />
-            <marker date="1463222940344" expanded="true" signature="17609:18449" placeholder="select 1 fro..wo_partner_settings..." />
-            <marker date="1463222940344" expanded="true" signature="19584:23392" placeholder="select p.PRO..Ocp_Proizvod..." />
-            <marker date="1463222940344" expanded="true" signature="21164:21677" placeholder="select 1 fro..wo_partner_settings..." />
-            <marker date="1463222940344" expanded="true" signature="21787:22627" placeholder="select 1 fro..wo_partner_settings..." />
-            <marker date="1463222940344" expanded="true" signature="23529:27739" placeholder="select p.PRO..Ocp_Proizvod..." />
-            <marker date="1463222940344" expanded="true" signature="25101:25614" placeholder="select 1 fro..wo_partner_settings..." />
-            <marker date="1463222940344" expanded="true" signature="25724:26564" placeholder="select 1 fro..wo_partner_settings..." />
-            <marker date="1463222940344" expanded="true" signature="27306:27614" placeholder="select 1 fro..ocp_klasifikacija_proizvoda..." />
-            <marker date="1463222940344" expanded="true" signature="27878:31423" placeholder="select p.PRO..Ocp_Proizvod..." />
-            <marker date="1463222940344" expanded="true" signature="29404:29917" placeholder="select 1 fro..wo_partner_settings..." />
-            <marker date="1463222940344" expanded="true" signature="30027:30867" placeholder="select 1 fro..wo_partner_settings..." />
-            <marker date="1463222940344" expanded="true" signature="30997:31307" placeholder="select 1 fro..ocp_klasifikacija_proizvoda..." />
-            <marker date="1463222940344" expanded="true" signature="31539:32221" placeholder="select ps.* ..prod_proizvod_pk..." />
-            <marker date="1463222940344" expanded="true" signature="32223:32346" placeholder="-- uslov koj..." />
+            <element signature="imports" expanded="false" />
+            <element signature="e#51993#52005#0" expanded="false" />
+            <element signature="e#52379#52400#0" expanded="false" />
+            <element signature="e#52499#52526#0" expanded="false" />
+            <element signature="e#52611#52630#0" expanded="false" />
+            <element signature="e#52727#52752#0" expanded="false" />
+            <element signature="e#52829#52844#0" expanded="false" />
+            <element signature="e#52919#52939#0" expanded="false" />
+            <element signature="e#53113#53114#0" expanded="false" />
+            <element signature="e#53149#53150#0" expanded="false" />
+            <element signature="e#53198#53199#0" expanded="false" />
+            <element signature="e#53238#53239#0" expanded="false" />
+            <element signature="e#53331#53332#0" expanded="false" />
+            <element signature="e#53373#53374#0" expanded="false" />
+            <element signature="e#53433#53434#0" expanded="false" />
+            <element signature="e#53485#53486#0" expanded="false" />
+            <element signature="e#53581#53582#0" expanded="false" />
+            <element signature="e#53619#53620#0" expanded="false" />
+            <element signature="e#53669#53670#0" expanded="false" />
+            <element signature="e#53713#53714#0" expanded="false" />
+            <element signature="e#53823#53824#0" expanded="false" />
+            <element signature="e#53859#53860#0" expanded="false" />
+            <element signature="e#53905#53906#0" expanded="false" />
+            <element signature="e#53945#53946#0" expanded="false" />
+            <element signature="e#54039#54040#0" expanded="false" />
+            <element signature="e#54081#54082#0" expanded="false" />
+            <element signature="e#54141#54142#0" expanded="false" />
+            <element signature="e#54193#54194#0" expanded="false" />
+            <element signature="e#54284#54285#0" expanded="false" />
+            <element signature="e#54318#54319#0" expanded="false" />
+            <element signature="e#54363#54364#0" expanded="false" />
+            <element signature="e#54399#54400#0" expanded="false" />
+            <element signature="e#54626#54627#0" expanded="false" />
+            <element signature="e#54661#54662#0" expanded="false" />
+            <element signature="e#54726#54727#0" expanded="false" />
+            <element signature="e#54774#54775#0" expanded="false" />
+            <element signature="e#54850#54851#0" expanded="false" />
+            <element signature="e#54890#54891#0" expanded="false" />
+            <element signature="e#54946#54947#0" expanded="false" />
+            <element signature="e#54994#54995#0" expanded="false" />
+            <element signature="e#55086#55087#0" expanded="false" />
+            <element signature="e#55119#55120#0" expanded="false" />
+            <element signature="e#55161#55162#0" expanded="false" />
+            <element signature="e#55195#55196#0" expanded="false" />
+            <element signature="e#55305#55306#0" expanded="false" />
+            <element signature="e#55346#55347#0" expanded="false" />
+            <element signature="e#55408#55409#0" expanded="false" />
+            <element signature="e#55458#55459#0" expanded="false" />
+            <element signature="e#55568#55569#0" expanded="false" />
+            <element signature="e#55609#55610#0" expanded="false" />
+            <element signature="e#55671#55672#0" expanded="false" />
+            <element signature="e#55721#55722#0" expanded="false" />
+            <element signature="e#55843#55844#0" expanded="false" />
+            <element signature="e#55890#55891#0" expanded="false" />
+            <element signature="e#56127#56128#0" expanded="false" />
+            <element signature="e#56167#56168#0" expanded="false" />
+            <element signature="e#56222#56223#0" expanded="false" />
+            <element signature="e#56270#56271#0" expanded="false" />
+            <element signature="e#56360#56361#0" expanded="false" />
+            <element signature="e#56401#56402#0" expanded="false" />
+            <element signature="e#56459#56460#0" expanded="false" />
+            <element signature="e#56509#56510#0" expanded="false" />
+            <element signature="e#56594#56595#0" expanded="false" />
+            <element signature="e#56633#56634#0" expanded="false" />
+            <element signature="e#56687#56688#0" expanded="false" />
+            <element signature="e#56733#56734#0" expanded="false" />
+            <element signature="e#56821#56822#0" expanded="false" />
+            <element signature="e#56861#56862#0" expanded="false" />
+            <element signature="e#56917#56918#0" expanded="false" />
+            <element signature="e#56965#56966#0" expanded="false" />
+            <element signature="e#57066#57067#0" expanded="false" />
+            <element signature="e#57105#57106#0" expanded="false" />
+            <element signature="e#57160#57161#0" expanded="false" />
+            <element signature="e#57206#57207#0" expanded="false" />
+            <element signature="e#57305#57306#0" expanded="false" />
+            <element signature="e#57349#57350#0" expanded="false" />
+            <element signature="e#57413#57414#0" expanded="false" />
+            <element signature="e#57469#57470#0" expanded="false" />
+            <element signature="e#57570#57571#0" expanded="false" />
+            <element signature="e#57610#57611#0" expanded="false" />
+            <element signature="e#57665#57666#0" expanded="false" />
+            <element signature="e#57713#57714#0" expanded="false" />
+            <element signature="e#57816#57817#0" expanded="false" />
+            <element signature="e#57857#57858#0" expanded="false" />
+            <element signature="e#57914#57915#0" expanded="false" />
+            <element signature="e#57964#57965#0" expanded="false" />
+            <element signature="e#58080#58081#0" expanded="false" />
+            <element signature="e#58124#58125#0" expanded="false" />
+            <element signature="e#58192#58193#0" expanded="false" />
+            <element signature="e#58248#58249#0" expanded="false" />
+            <element signature="e#58364#58365#0" expanded="false" />
+            <element signature="e#58408#58409#0" expanded="false" />
+            <element signature="e#58476#58477#0" expanded="false" />
+            <element signature="e#58532#58533#0" expanded="false" />
+            <element signature="e#58648#58649#0" expanded="false" />
+            <element signature="e#58695#58696#0" expanded="false" />
+            <element signature="e#58764#58765#0" expanded="false" />
+            <element signature="e#58826#58827#0" expanded="false" />
+            <element signature="e#58936#58937#0" expanded="false" />
+            <element signature="e#58980#58981#0" expanded="false" />
+            <element signature="e#59043#59044#0" expanded="false" />
+            <element signature="e#59099#59100#0" expanded="false" />
+            <element signature="e#59207#59208#0" expanded="false" />
+            <element signature="e#59250#59251#0" expanded="false" />
+            <element signature="e#59311#59312#0" expanded="false" />
+            <element signature="e#59365#59366#0" expanded="false" />
+            <element signature="e#59467#59468#0" expanded="false" />
+            <element signature="e#59513#59514#0" expanded="false" />
+            <element signature="e#59581#59582#0" expanded="false" />
+            <element signature="e#59641#59642#0" expanded="false" />
+            <element signature="e#59747#59748#0" expanded="false" />
+            <element signature="e#59788#59789#0" expanded="false" />
+            <element signature="e#59847#59848#0" expanded="false" />
+            <element signature="e#59897#59898#0" expanded="false" />
+            <element signature="e#60017#60018#0" expanded="false" />
+            <element signature="e#60058#60059#0" expanded="false" />
+            <element signature="e#60114#60115#0" expanded="false" />
+            <element signature="e#60164#60165#0" expanded="false" />
+            <element signature="e#60256#60257#0" expanded="false" />
+            <element signature="e#60298#60299#0" expanded="false" />
+            <element signature="e#60358#60359#0" expanded="false" />
+            <element signature="e#60410#60411#0" expanded="false" />
+            <element signature="e#60691#60692#0" expanded="false" />
+            <element signature="e#60732#60733#0" expanded="false" />
+            <element signature="e#60958#60959#0" expanded="false" />
+            <element signature="e#60999#61000#0" expanded="false" />
+            <element signature="e#61057#61058#0" expanded="false" />
+            <element signature="e#61107#61108#0" expanded="false" />
+            <element signature="e#61165#61166#0" expanded="false" />
+            <element signature="e#61193#61194#0" expanded="false" />
+            <element signature="e#61233#61234#0" expanded="false" />
+            <element signature="e#61267#61268#0" expanded="false" />
+            <element signature="e#61394#61395#0" expanded="false" />
+            <element signature="e#61438#61439#0" expanded="false" />
+            <element signature="e#61500#61501#0" expanded="false" />
+            <element signature="e#61556#61557#0" expanded="false" />
+            <element signature="e#61684#61685#0" expanded="false" />
+            <element signature="e#61728#61729#0" expanded="false" />
+            <element signature="e#61790#61791#0" expanded="false" />
+            <element signature="e#61846#61847#0" expanded="false" />
+            <element signature="e#61897#61898#0" expanded="false" />
+            <element signature="e#61924#61925#0" expanded="false" />
+            <element signature="e#61968#61969#0" expanded="false" />
+            <element signature="e#62000#62001#0" expanded="false" />
+            <element signature="e#62051#62052#0" expanded="false" />
+            <element signature="e#62083#62084#0" expanded="false" />
+            <element signature="e#62133#62134#0" expanded="false" />
+            <element signature="e#62175#62176#0" expanded="false" />
+            <element signature="e#62232#62233#0" expanded="false" />
+            <element signature="e#62275#62276#0" expanded="false" />
+            <element signature="e#62446#62447#0" expanded="false" />
+            <element signature="e#62480#62481#0" expanded="false" />
+            <element signature="e#62647#62648#0" expanded="false" />
+            <element signature="e#62689#62690#0" expanded="false" />
+            <element signature="e#62882#62883#0" expanded="false" />
+            <element signature="e#62916#62917#0" expanded="false" />
+            <element signature="e#62974#62975#0" expanded="false" />
+            <element signature="e#63020#63021#0" expanded="false" />
+            <element signature="e#63086#63087#0" expanded="false" />
+            <element signature="e#63129#63130#0" expanded="false" />
+            <element signature="e#63400#63401#0" expanded="false" />
+            <element signature="e#63440#63441#0" expanded="false" />
+            <element signature="e#63506#63507#0" expanded="false" />
+            <element signature="e#63564#63565#0" expanded="false" />
+            <element signature="e#63619#63620#0" expanded="false" />
+            <element signature="e#63658#63659#0" expanded="false" />
+            <element signature="e#63719#63720#0" expanded="false" />
+            <element signature="e#63775#63776#0" expanded="false" />
+            <element signature="e#63827#63828#0" expanded="false" />
+            <element signature="e#63859#63860#0" expanded="false" />
+            <element signature="e#63910#63911#0" expanded="false" />
+            <element signature="e#63952#63953#0" expanded="false" />
+            <element signature="e#64009#64010#0" expanded="false" />
+            <element signature="e#64043#64044#0" expanded="false" />
+            <element signature="e#64101#64102#0" expanded="false" />
+            <element signature="e#64147#64148#0" expanded="false" />
+            <element signature="e#64198#64199#0" expanded="false" />
+            <element signature="e#64230#64231#0" expanded="false" />
+            <element signature="e#64280#64281#0" expanded="false" />
+            <element signature="e#64322#64323#0" expanded="false" />
+            <element signature="e#64387#64388#0" expanded="false" />
+            <element signature="e#64423#64424#0" expanded="false" />
+            <element signature="e#64491#64492#0" expanded="false" />
+            <element signature="e#64541#64542#0" expanded="false" />
+            <element signature="e#64604#64605#0" expanded="false" />
+            <element signature="e#64647#64648#0" expanded="false" />
+            <element signature="e#64839#64840#0" expanded="false" />
+            <element signature="e#64875#64876#0" expanded="false" />
+            <element signature="e#64933#64934#0" expanded="false" />
+            <element signature="e#64983#64984#0" expanded="false" />
+            <element signature="e#65068#65069#0" expanded="false" />
+            <element signature="e#65104#65105#0" expanded="false" />
+            <element signature="e#65307#65308#0" expanded="false" />
+            <element signature="e#65353#65354#0" expanded="false" />
+            <element signature="e#65561#65562#0" expanded="false" />
+            <element signature="e#65602#65603#0" expanded="false" />
+            <element signature="e#65670#65671#0" expanded="false" />
+            <element signature="e#65730#65731#0" expanded="false" />
+            <element signature="e#65792#65793#0" expanded="false" />
+            <element signature="e#65835#65836#0" expanded="false" />
+            <element signature="e#66025#66026#0" expanded="false" />
+            <element signature="e#66056#66057#0" expanded="false" />
+            <element signature="e#66108#66109#0" expanded="false" />
+            <element signature="e#66148#66149#0" expanded="false" />
+            <element signature="e#66305#66306#0" expanded="false" />
+            <element signature="e#66337#66338#0" expanded="false" />
+            <element signature="e#66396#66397#0" expanded="false" />
+            <element signature="e#66428#66429#0" expanded="false" />
+            <element signature="e#66642#66643#0" expanded="false" />
+            <element signature="e#66690#66691#0" expanded="false" />
+            <element signature="e#67039#67040#0" expanded="false" />
+            <element signature="e#67080#67081#0" expanded="false" />
+            <element signature="e#67434#67435#0" expanded="false" />
+            <element signature="e#67481#67482#0" expanded="false" />
+            <element signature="e#67808#67809#0" expanded="false" />
+            <element signature="e#67845#67846#0" expanded="false" />
+            <element signature="e#67918#67919#0" expanded="false" />
+            <element signature="e#67970#67971#0" expanded="false" />
+            <element signature="e#68162#68163#0" expanded="false" />
+            <element signature="e#68200#68201#0" expanded="false" />
+            <element signature="e#68280#68281#0" expanded="false" />
+            <element signature="e#68334#68335#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/properties/wo-properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="40" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzDokument.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="200" column="23" selection-start-line="200" selection-start-column="23" selection-end-line="200" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#9983#9984#0" expanded="false" />
+            <element signature="e#10013#10014#0" expanded="false" />
+            <element signature="e#10055#10056#0" expanded="false" />
+            <element signature="e#10083#10084#0" expanded="false" />
+            <element signature="e#10204#10205#0" expanded="false" />
+            <element signature="e#10243#10244#0" expanded="false" />
+            <element signature="e#10302#10303#0" expanded="false" />
+            <element signature="e#10348#10349#0" expanded="false" />
+            <element signature="e#10482#10483#0" expanded="false" />
+            <element signature="e#10529#10530#0" expanded="false" />
+            <element signature="e#10598#10599#0" expanded="false" />
+            <element signature="e#10660#10661#0" expanded="false" />
+            <element signature="e#10767#10768#0" expanded="false" />
+            <element signature="e#10802#10803#0" expanded="false" />
+            <element signature="e#10845#10846#0" expanded="false" />
+            <element signature="e#10883#10884#0" expanded="false" />
+            <element signature="e#10995#10996#0" expanded="false" />
+            <element signature="e#11038#11039#0" expanded="false" />
+            <element signature="e#11100#11101#0" expanded="false" />
+            <element signature="e#11154#11155#0" expanded="false" />
+            <element signature="e#11259#11260#0" expanded="false" />
+            <element signature="e#11301#11302#0" expanded="false" />
+            <element signature="e#11360#11361#0" expanded="false" />
+            <element signature="e#11412#11413#0" expanded="false" />
+            <element signature="e#11509#11510#0" expanded="false" />
+            <element signature="e#11547#11548#0" expanded="false" />
+            <element signature="e#11597#11598#0" expanded="false" />
+            <element signature="e#11641#11642#0" expanded="false" />
+            <element signature="e#11734#11735#0" expanded="false" />
+            <element signature="e#11769#11770#0" expanded="false" />
+            <element signature="e#11816#11817#0" expanded="false" />
+            <element signature="e#11854#11855#0" expanded="false" />
+            <element signature="e#11947#11948#0" expanded="false" />
+            <element signature="e#11982#11983#0" expanded="false" />
+            <element signature="e#12029#12030#0" expanded="false" />
+            <element signature="e#12067#12068#0" expanded="false" />
+            <element signature="e#12182#12183#0" expanded="false" />
+            <element signature="e#12227#12228#0" expanded="false" />
+            <element signature="e#12294#12295#0" expanded="false" />
+            <element signature="e#12352#12353#0" expanded="false" />
+            <element signature="e#12479#12480#0" expanded="false" />
+            <element signature="e#12530#12531#0" expanded="false" />
+            <element signature="e#12806#12807#0" expanded="false" />
+            <element signature="e#12857#12858#0" expanded="false" />
+            <element signature="e#13121#13122#0" expanded="false" />
+            <element signature="e#13166#13167#0" expanded="false" />
+            <element signature="e#13233#13234#0" expanded="false" />
+            <element signature="e#13291#13292#0" expanded="false" />
+            <element signature="e#13393#13394#0" expanded="false" />
+            <element signature="e#13439#13440#0" expanded="false" />
+            <element signature="e#13507#13508#0" expanded="false" />
+            <element signature="e#13567#13568#0" expanded="false" />
+            <element signature="e#13685#13686#0" expanded="false" />
+            <element signature="e#13725#13726#0" expanded="false" />
+            <element signature="e#13779#13780#0" expanded="false" />
+            <element signature="e#13827#13828#0" expanded="false" />
+            <element signature="e#13943#13944#0" expanded="false" />
+            <element signature="e#13982#13983#0" expanded="false" />
+            <element signature="e#14034#14035#0" expanded="false" />
+            <element signature="e#14080#14081#0" expanded="false" />
+            <element signature="e#14186#14187#0" expanded="false" />
+            <element signature="e#14234#14235#0" expanded="false" />
+            <element signature="e#14446#14447#0" expanded="false" />
+            <element signature="e#14486#14487#0" expanded="false" />
+            <element signature="e#14542#14543#0" expanded="false" />
+            <element signature="e#14590#14591#0" expanded="false" />
+            <element signature="e#14704#14705#0" expanded="false" />
+            <element signature="e#14742#14743#0" expanded="false" />
+            <element signature="e#14792#14793#0" expanded="false" />
+            <element signature="e#14836#14837#0" expanded="false" />
+            <element signature="e#14960#14961#0" expanded="false" />
+            <element signature="e#15002#15003#0" expanded="false" />
+            <element signature="e#15060#15061#0" expanded="false" />
+            <element signature="e#15112#15113#0" expanded="false" />
+            <element signature="e#15209#15210#0" expanded="false" />
+            <element signature="e#15251#15252#0" expanded="false" />
+            <element signature="e#15314#15315#0" expanded="false" />
+            <element signature="e#15366#15367#0" expanded="false" />
+            <element signature="e#15465#15466#0" expanded="false" />
+            <element signature="e#15510#15511#0" expanded="false" />
+            <element signature="e#15576#15577#0" expanded="false" />
+            <element signature="e#15634#15635#0" expanded="false" />
+            <element signature="e#15759#15760#0" expanded="false" />
+            <element signature="e#15809#15810#0" expanded="false" />
+            <element signature="e#16053#16054#0" expanded="false" />
+            <element signature="e#16091#16092#0" expanded="false" />
+            <element signature="e#16144#16145#0" expanded="false" />
+            <element signature="e#16188#16189#0" expanded="false" />
+            <element signature="e#16307#16308#0" expanded="false" />
+            <element signature="e#16346#16347#0" expanded="false" />
+            <element signature="e#16401#16402#0" expanded="false" />
+            <element signature="e#16447#16448#0" expanded="false" />
+            <element signature="e#16578#16579#0" expanded="false" />
+            <element signature="e#16631#16632#0" expanded="false" />
+            <element signature="e#16884#16885#0" expanded="false" />
+            <element signature="e#16920#16921#0" expanded="false" />
+            <element signature="e#16969#16970#0" expanded="false" />
+            <element signature="e#17009#17010#0" expanded="false" />
+            <element signature="e#17105#17106#0" expanded="false" />
+            <element signature="e#17141#17142#0" expanded="false" />
+            <element signature="e#17190#17191#0" expanded="false" />
+            <element signature="e#17230#17231#0" expanded="false" />
+            <element signature="e#17320#17321#0" expanded="false" />
+            <element signature="e#17354#17355#0" expanded="false" />
+            <element signature="e#17397#17398#0" expanded="false" />
+            <element signature="e#17433#17434#0" expanded="false" />
+            <element signature="e#17548#17549#0" expanded="false" />
+            <element signature="e#17593#17594#0" expanded="false" />
+            <element signature="e#17660#17661#0" expanded="false" />
+            <element signature="e#17718#17719#0" expanded="false" />
+            <element signature="e#17811#17812#0" expanded="false" />
+            <element signature="e#17847#17848#0" expanded="false" />
+            <element signature="e#17894#17895#0" expanded="false" />
+            <element signature="e#17934#17935#0" expanded="false" />
+            <element signature="e#18061#18062#0" expanded="false" />
+            <element signature="e#18105#18106#0" expanded="false" />
+            <element signature="e#18167#18168#0" expanded="false" />
+            <element signature="e#18223#18224#0" expanded="false" />
+            <element signature="e#18319#18320#0" expanded="false" />
+            <element signature="e#18356#18357#0" expanded="false" />
+            <element signature="e#18405#18406#0" expanded="false" />
+            <element signature="e#18447#18448#0" expanded="false" />
+            <element signature="e#18571#18572#0" expanded="false" />
+            <element signature="e#18613#18614#0" expanded="false" />
+            <element signature="e#18671#18672#0" expanded="false" />
+            <element signature="e#18723#18724#0" expanded="false" />
+            <element signature="e#18818#18819#0" expanded="false" />
+            <element signature="e#18854#18855#0" expanded="false" />
+            <element signature="e#18903#18904#0" expanded="false" />
+            <element signature="e#18943#18944#0" expanded="false" />
+            <element signature="e#19042#19043#0" expanded="false" />
+            <element signature="e#19078#19079#0" expanded="false" />
+            <element signature="e#19130#19131#0" expanded="false" />
+            <element signature="e#19170#19171#0" expanded="false" />
+            <element signature="e#19271#19272#0" expanded="false" />
+            <element signature="e#19308#19309#0" expanded="false" />
+            <element signature="e#19362#19363#0" expanded="false" />
+            <element signature="e#19404#19405#0" expanded="false" />
+            <element signature="e#19500#19501#0" expanded="false" />
+            <element signature="e#19534#19535#0" expanded="false" />
+            <element signature="e#19582#19583#0" expanded="false" />
+            <element signature="e#19618#19619#0" expanded="false" />
+            <element signature="e#19724#19725#0" expanded="false" />
+            <element signature="e#19765#19766#0" expanded="false" />
+            <element signature="e#19824#19825#0" expanded="false" />
+            <element signature="e#19874#19875#0" expanded="false" />
+            <element signature="e#19956#19957#0" expanded="false" />
+            <element signature="e#19992#19993#0" expanded="false" />
+            <element signature="e#20040#20041#0" expanded="false" />
+            <element signature="e#20080#20081#0" expanded="false" />
+            <element signature="e#20158#20159#0" expanded="false" />
+            <element signature="e#20193#20194#0" expanded="false" />
+            <element signature="e#20239#20240#0" expanded="false" />
+            <element signature="e#20277#20278#0" expanded="false" />
+            <element signature="e#20375#20376#0" expanded="false" />
+            <element signature="e#20412#20413#0" expanded="false" />
+            <element signature="e#20463#20464#0" expanded="false" />
+            <element signature="e#20505#20506#0" expanded="false" />
+            <element signature="e#20597#20598#0" expanded="false" />
+            <element signature="e#20632#20633#0" expanded="false" />
+            <element signature="e#20677#20678#0" expanded="false" />
+            <element signature="e#20715#20716#0" expanded="false" />
+            <element signature="e#20844#20845#0" expanded="false" />
+            <element signature="e#20896#20897#0" expanded="false" />
+            <element signature="e#21144#21145#0" expanded="false" />
+            <element signature="e#21181#21182#0" expanded="false" />
+            <element signature="e#21230#21231#0" expanded="false" />
+            <element signature="e#21272#21273#0" expanded="false" />
+            <element signature="e#21374#21375#0" expanded="false" />
+            <element signature="e#21413#21414#0" expanded="false" />
+            <element signature="e#21468#21469#0" expanded="false" />
+            <element signature="e#21514#21515#0" expanded="false" />
+            <element signature="e#21611#21612#0" expanded="false" />
+            <element signature="e#21648#21649#0" expanded="false" />
+            <element signature="e#21699#21700#0" expanded="false" />
+            <element signature="e#21741#21742#0" expanded="false" />
+            <element signature="e#21833#21834#0" expanded="false" />
+            <element signature="e#21874#21875#0" expanded="false" />
+            <element signature="e#21932#21933#0" expanded="false" />
+            <element signature="e#21982#21983#0" expanded="false" />
+            <element signature="e#22109#22110#0" expanded="false" />
+            <element signature="e#22160#22161#0" expanded="false" />
+            <element signature="e#22399#22400#0" expanded="false" />
+            <element signature="e#22433#22434#0" expanded="false" />
+            <element signature="e#22476#22477#0" expanded="false" />
+            <element signature="e#22512#22513#0" expanded="false" />
+            <element signature="e#22605#22606#0" expanded="false" />
+            <element signature="e#22641#22642#0" expanded="false" />
+            <element signature="e#22688#22689#0" expanded="false" />
+            <element signature="e#22728#22729#0" expanded="false" />
+            <element signature="e#22818#22819#0" expanded="false" />
+            <element signature="e#22852#22853#0" expanded="false" />
+            <element signature="e#22897#22898#0" expanded="false" />
+            <element signature="e#22933#22934#0" expanded="false" />
+            <element signature="e#23041#23042#0" expanded="false" />
+            <element signature="e#23083#23084#0" expanded="false" />
+            <element signature="e#23144#23145#0" expanded="false" />
+            <element signature="e#23196#23197#0" expanded="false" />
+            <element signature="e#23293#23294#0" expanded="false" />
+            <element signature="e#23336#23337#0" expanded="false" />
+            <element signature="e#23398#23399#0" expanded="false" />
+            <element signature="e#23452#23453#0" expanded="false" />
+            <element signature="e#23556#23557#0" expanded="false" />
+            <element signature="e#23596#23597#0" expanded="false" />
+            <element signature="e#23653#23654#0" expanded="false" />
+            <element signature="e#23701#23702#0" expanded="false" />
+            <element signature="e#23818#23819#0" expanded="false" />
+            <element signature="e#23863#23864#0" expanded="false" />
+            <element signature="e#23933#23934#0" expanded="false" />
+            <element signature="e#23991#23992#0" expanded="false" />
+            <element signature="e#24099#24100#0" expanded="false" />
+            <element signature="e#24134#24135#0" expanded="false" />
+            <element signature="e#24178#24179#0" expanded="false" />
+            <element signature="e#24216#24217#0" expanded="false" />
+            <element signature="e#24335#24336#0" expanded="false" />
+            <element signature="e#24380#24381#0" expanded="false" />
+            <element signature="e#24450#24451#0" expanded="false" />
+            <element signature="e#24508#24509#0" expanded="false" />
+            <element signature="e#24630#24631#0" expanded="false" />
+            <element signature="e#24675#24676#0" expanded="false" />
+            <element signature="e#24738#24739#0" expanded="false" />
+            <element signature="e#24796#24797#0" expanded="false" />
+            <element signature="e#24945#24946#0" expanded="false" />
+            <element signature="e#24997#24998#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/web_ordering.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="841" column="19" selection-start-line="841" selection-start-column="19" selection-end-line="841" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/wo_darex.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="714" column="15" selection-start-line="714" selection-start-column="12" selection-end-line="714" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpTelefonskiBroj.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
+          <folding>
+            <element signature="e#949#950#0" expanded="false" />
+            <element signature="e#987#988#0" expanded="false" />
+            <element signature="e#1061#1062#0" expanded="false" />
+            <element signature="e#1115#1116#0" expanded="false" />
+            <element signature="e#1234#1235#0" expanded="false" />
+            <element signature="e#1271#1272#0" expanded="false" />
+            <element signature="e#1331#1332#0" expanded="false" />
+            <element signature="e#1383#1384#0" expanded="false" />
+            <element signature="e#1480#1481#0" expanded="false" />
+            <element signature="e#1511#1512#0" expanded="false" />
+            <element signature="e#1727#1728#0" expanded="false" />
+            <element signature="e#1773#1774#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/hr/KeRadnici.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="359" column="18" selection-start-line="359" selection-start-column="18" selection-end-line="359" selection-end-column="18" />
+          <folding>
+            <element signature="e#10298#10299#0" expanded="true" />
+            <element signature="e#10333#10334#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/rs/invado/wo/test/WoWuserHomeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.62239087">
+          <caret line="97" column="13" selection-start-line="97" selection-start-column="13" selection-end-line="97" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dto/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
+          <folding>
+            <element signature="e#1221#1222#0" expanded="true" />
+            <element signature="e#1250#1251#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1844,101 +2919,76 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/wo/WoRezervacija.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="230" column="3" selection-start-line="230" selection-start-column="3" selection-end-line="230" selection-end-column="3" />
-          <folding>
-            <element signature="e#4953#4954#0" expanded="true" />
-            <element signature="e#4986#4987#0" expanded="true" />
-            <element signature="e#5032#5033#0" expanded="true" />
-            <element signature="e#5066#5067#0" expanded="true" />
-            <element signature="e#5142#5143#0" expanded="true" />
-            <element signature="e#5176#5177#0" expanded="true" />
-            <element signature="e#5220#5221#0" expanded="true" />
-            <element signature="e#5256#5257#0" expanded="true" />
-            <element signature="e#5360#5361#0" expanded="true" />
-            <element signature="e#5394#5395#0" expanded="true" />
-            <element signature="e#5452#5453#0" expanded="true" />
-            <element signature="e#5498#5499#0" expanded="true" />
-            <element signature="e#5608#5609#0" expanded="true" />
-            <element signature="e#5645#5646#0" expanded="true" />
-            <element signature="e#5709#5710#0" expanded="true" />
-            <element signature="e#5761#5762#0" expanded="true" />
-            <element signature="e#5952#5953#0" expanded="true" />
-            <element signature="e#5981#5982#0" expanded="true" />
-            <element signature="e#6025#6026#0" expanded="true" />
-            <element signature="e#6061#6062#0" expanded="true" />
-          </folding>
+          <caret line="43" column="25" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/uz/UzDokumentStavkaHome.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/wo/WoArtikliNaAkcijiHome.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
+          <caret line="99" column="35" selection-start-line="99" selection-start-column="35" selection-end-line="104" selection-end-column="62" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/CommonService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32956687">
+          <caret line="80" column="16" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13559322">
+          <caret line="21" column="11" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/wo/WoUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25904763">
+          <caret line="16" column="16" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="19" />
+          <folding>
+            <element signature="e#2608#2609#0" expanded="true" />
+            <element signature="e#2638#2639#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="555" column="0" selection-start-line="555" selection-start-column="0" selection-end-line="555" selection-end-column="0" />
-          <folding>
-            <element signature="method#increaseReservationCompositeObject#0;class#BasketBusinessProcessing#0" expanded="false" />
-            <element signature="method#increaseReservation#0;class#BasketBusinessProcessing#0" expanded="false" />
-            <element signature="method#decreaseReservationCompositeObject#0;class#BasketBusinessProcessing#0" expanded="false" />
-            <element signature="method#decreaseReservation#0;class#BasketBusinessProcessing#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/jasperCfg.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state vertical-scroll-proportion="-9.6470585">
+          <caret line="816" column="114" selection-start-line="816" selection-start-column="114" selection-end-line="816" selection-end-column="114" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Documentation/Sastavi/insersastavklasifikacija.sql">
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/wo/WoUserHome.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="96" column="38" selection-start-line="96" selection-start-column="38" selection-end-line="96" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Documentation/Sastavi/insertatrubutproverezalha.sql">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.53125">
-          <caret line="1" column="25" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/src/test/resources/test-context.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48080808">
-          <caret line="47" column="41" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="41" />
+        <state vertical-scroll-proportion="-8.5">
+          <caret line="22" column="57" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/LogOnService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.0">
-          <caret line="99" column="89" selection-start-line="99" selection-start-column="89" selection-end-line="99" selection-end-column="89" />
+        <state vertical-scroll-proportion="0.45617172">
+          <caret line="119" column="90" selection-start-line="119" selection-start-column="90" selection-end-line="119" selection-end-column="90" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6064#6081#0" expanded="true" />
+            <element signature="e#7445#7462#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/properties/wo-properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5483871">
-          <caret line="17" column="38" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1952,7 +3002,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.4413793" />
                 <option value="0.5" />
               </list>
             </option>
@@ -1961,11 +3011,11 @@
       </state>
       <state key="FacetStructureConfigurable.UI">
         <settings>
-          <last-edited>Web</last-edited>
+          <last-edited>Web (WebOrdering)|Web</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.4413793" />
               </list>
             </option>
           </splitter-proportions>
@@ -1977,7 +3027,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.4413793" />
               </list>
             </option>
           </splitter-proportions>
@@ -1989,7 +3039,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.4413793" />
               </list>
             </option>
           </splitter-proportions>
@@ -2001,8 +3051,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
-                <option value="0.6" />
+                <option value="0.4413793" />
               </list>
             </option>
           </splitter-proportions>
@@ -2026,7 +3075,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.4413793" />
               </list>
             </option>
           </splitter-proportions>
