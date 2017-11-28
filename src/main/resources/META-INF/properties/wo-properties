@@ -10,6 +10,15 @@ wo.idDocForCash = 163;
 wo.mailServer = smtp.gmail.com;
 wo.woMailAddress = darex.rs@gmail.com;
 wo.mailAddress = webordering@darex.rs;
+#wo.jdbc = jdbc:oracle:thin:@10.10.10.170:1521:darex;
+#wo.fisusr = darex;
+#wo.fisusrpassword = xerad.tigid;
+
+
+wo.jdbc = jdbc:oracle:thin:@10.10.10.171:1521:test;
+wo.fisusr = darex;
+wo.fisusrpassword = test;
+
 # DEZEN
 # STRUKTURA
 # PROIZVODNJA

@@ -20,7 +20,9 @@ import rs.invado.wo.dto.Proizvodi;
 import rs.invado.wo.dto.User;
 import rs.invado.wo.util.WOException;
 import rs.invado.wo.util.WOExceptionCodes;
+import rs.invado.wo.util.WoConfigSingleton;
 
+import javax.inject.Inject;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -49,15 +51,17 @@ public class LogOnService {
     @Autowired
     private OcpValutaHome ocpValutaDAO;
     @Autowired
-    ProductService productService;
+    private ProductService productService;
     @Autowired
-    OcpProizvodHome ocpProizvodDAO;
+    private OcpProizvodHome ocpProizvodDAO;
     @Autowired
-    WoParametriHome woParametriDAO;
+    private WoParametriHome woParametriDAO;
     @Autowired
-    WoUserRightsHome woUserRightsDAO;
+    private WoUserRightsHome woUserRightsDAO;
     @Autowired
-    OcpAdresaIsporukeHome ocpAdresaIsporukeDAO;
+    private OcpAdresaIsporukeHome ocpAdresaIsporukeDAO;
+    @Inject
+    private WoConfigSingleton woConfigSingleton;
 
 
     private void setListaNajprodavanijih(CompanySetting cs, List<WoPartnerSetting> wpsc, User user) {
@@ -116,6 +120,7 @@ public class LogOnService {
             try {
                 connection = DriverManager.getConnection(
                         "jdbc:oracle:thin:@10.10.10.170:1521:darex", userName, password);
+
                 /*connection = DriverManager.getConnection(
                         "jdbc:oracle:thin:@10.10.10.171:1521:test", userName, password);*/
 

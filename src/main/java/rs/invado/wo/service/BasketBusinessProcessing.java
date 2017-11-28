@@ -604,7 +604,9 @@ public class BasketBusinessProcessing {
                 }
             } else {
                 uzDokumentUsloviPlacanja.setReklama((user.getWoUser().getIme() == null || user.getWoUser().getIme().equals("") || user.getWoUser().getIme().equals(" "))
-                        ? user.getWoUser().getIme() + " " + user.getWoUser().getPrezime() : user.getWoUser().getNickname());
+                        ? user.getWoUser().getIme() + " " + user.getWoUser().getPrezime() : user.getWoUser().getNickname()
+                        + " " + (user.getWoUser().getTelefonMobilni()==null ? "" : user.getWoUser().getTelefonMobilni())
+                        + " " + (user.getWoUser().getTelefon() == null ? "" : user.getWoUser().getTelefon()));
 
                 if (ocpTelefonskiBroj != null && ocpTelefonskiBroj.size() > 0) {
                     uzDokumentUsloviPlacanja.setBrTelefona(ocpTelefonskiBroj.get(0).getTelefonskiBroj());
@@ -821,7 +823,9 @@ public class BasketBusinessProcessing {
                     }
                 } else {
                     uzDokumentUsloviPlacanja.setReklama((user.getWoUser().getIme() == null || user.getWoUser().getIme().equals("") || user.getWoUser().getIme().equals(" "))
-                            ? user.getWoUser().getIme() + " " + user.getWoUser().getPrezime() : user.getWoUser().getNickname());
+                            ? user.getWoUser().getIme() + " " + user.getWoUser().getPrezime() : user.getWoUser().getNickname()
+                            + " " + (user.getWoUser().getTelefonMobilni()==null ? "" : user.getWoUser().getTelefonMobilni())
+                            + " " + (user.getWoUser().getTelefon() == null ? "" : user.getWoUser().getTelefon()));
 
                     if (ocpTelefonskiBroj != null && ocpTelefonskiBroj.size() > 0) {
                         uzDokumentUsloviPlacanja.setBrTelefona(ocpTelefonskiBroj.get(0).getTelefonskiBroj());
