@@ -634,7 +634,7 @@ public class BasketBusinessProcessing {
                         uzDokumentUsloviPlacanja.setNacinIsporuke(2);
                         break;
                     case 4:
-                        uzDokumentUsloviPlacanja.setNacinIsporuke(9);
+                        uzDokumentUsloviPlacanja.setNacinIsporuke(3);
                         break;
                     case 6:
                         uzDokumentUsloviPlacanja.setNacinIsporuke(9);
@@ -787,7 +787,7 @@ public class BasketBusinessProcessing {
                             uzDokumentUsloviPlacanja.setNacinIsporuke(2);
                             break;
                         case 4:
-                            uzDokumentUsloviPlacanja.setNacinIsporuke(9);
+                            uzDokumentUsloviPlacanja.setNacinIsporuke(3);
                             break;
                         case 6:
                             uzDokumentUsloviPlacanja.setNacinIsporuke(9);

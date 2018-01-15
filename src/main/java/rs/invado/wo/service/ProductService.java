@@ -243,6 +243,11 @@ public class ProductService {
                     item.setCena(new BigDecimal("0.0"));
                     for (OcpSastavProizvoda proizvodSastav : item.getSastavProizvoda()) {
                         proizvodSastav.getProizvodIzlaz().setCena((BigDecimal) mapaCena.get(proizvodSastav.getProizvodIzlaz().getProizvod()));
+                        System.out.println(item.getProizvod());
+                        System.out.println(item.getCena());
+                        System.out.println(proizvodSastav.getProizvodIzlaz());
+                        System.out.println(proizvodSastav.getProizvodIzlaz().getCena());
+                        System.out.println(proizvodSastav.getKolicinaUgradnje());
                         item.setCena(item.getCena().add(proizvodSastav.getProizvodIzlaz().getCena().multiply(proizvodSastav.getKolicinaUgradnje())));
                     }
 
