@@ -110,6 +110,7 @@ public class ProductService {
             String vrAtr = null;
 
             List<VrAtrProizvod> vatpList = ocpVrAtrProizvodDAO.findByNivoAtributa(item.getProizvod(), woConfigSingleton.getAttributes());
+
             for (OcpKlasifikacijaProizvoda klasifikacijaProizvoda : item.getOcpKlasifikacijaProizvoda()) {
                 for (VrAtrProizvod ocpVrAtrProizvod : vatpList) {
                     if (klasifikacijaProizvoda.getId().getVrstaKlasifikacije() == 1
@@ -145,6 +146,7 @@ public class ProductService {
             }
             //Setuj default pakovanja
             if (transportnaPakovanjaProizvoda != null)
+
                 item.setKolicinaPoPakovanju(transportnaPakovanjaProizvoda.get(item.getProizvod()));
             //izračunaj raspolozivu kolicinu
             BigDecimal raspolozivaKolicina = new BigDecimal(0.0);
@@ -243,11 +245,6 @@ public class ProductService {
                     item.setCena(new BigDecimal("0.0"));
                     for (OcpSastavProizvoda proizvodSastav : item.getSastavProizvoda()) {
                         proizvodSastav.getProizvodIzlaz().setCena((BigDecimal) mapaCena.get(proizvodSastav.getProizvodIzlaz().getProizvod()));
-                        System.out.println(item.getProizvod());
-                        System.out.println(item.getCena());
-                        System.out.println(proizvodSastav.getProizvodIzlaz());
-                        System.out.println(proizvodSastav.getProizvodIzlaz().getCena());
-                        System.out.println(proizvodSastav.getKolicinaUgradnje());
                         item.setCena(item.getCena().add(proizvodSastav.getProizvodIzlaz().getCena().multiply(proizvodSastav.getKolicinaUgradnje())));
                     }
 
@@ -318,6 +315,25 @@ public class ProductService {
         if (proizvod != null) {
             lp.add(proizvod);
             setTransAtrZaPro(lp, cenovnik, woPartnerSetting, transortnaPakovanjaProizvoda, woParametri, OJ);
+
+            return lp.get(0);
+        }
+        return null;
+    }
+
+    public OcpProizvod getProizvodByIdAll(int id, Map<Integer, BigDecimal> cenovnik, WoParametri woParametri, int pageNo, int pageSize,
+                                       List<WoPartnerSetting> woPartnerSetting, Map<Integer, BigDecimal> transortnaPakovanjaProizvoda, Integer OJ) {
+
+        //OcpProizvod proizvod = ocpProizvodDAO.findById(id);
+        OcpProizvod proizvod = ocpProizvodDAO.findFilterProizvodiByIdAll(new Integer(id), pageNo, pageSize, woParametri, woPartnerSetting);
+
+
+
+        List<OcpProizvod> lp = new ArrayList<OcpProizvod>();
+        if (proizvod != null) {
+            lp.add(proizvod);
+            setTransAtrZaPro(lp, cenovnik, woPartnerSetting, transortnaPakovanjaProizvoda, woParametri, OJ);
+
             return lp.get(0);
         }
         return null;

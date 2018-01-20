@@ -279,6 +279,7 @@ public class BasketBusinessProcessing {
             aktuelnoPakovanje = new BigDecimal(1);
         }
         BigDecimal rabatZaProizvod = new BigDecimal(0);
+
         String basketIndex = ocpProizvod.getProizvod() + "/" + aktuelnoPakovanje;
         WoKompanijaKorisnik woKompanijaKorisnik = woKompanijaKorisnikDAO.findByCoresponingOJ(currentOJ);
         Integer skladisteRezervacije = ocpProizvod.getMaticnoSkladiste();
@@ -527,8 +528,10 @@ public class BasketBusinessProcessing {
             uzDokument = new UzDokument();
             //insertuj novi dokument
             if (nacinPlacanja.equals("CAS")) {
+
                 for (WoPartnerSetting woPartnerSetting : user.getWoPartnerSetting()) {
                     if (woPartnerSetting.getIdSkladista() == skl.getIdSkladista())
+
                         partner = woPartnerSetting.getKfl();
                 }
                 uzDokument.setIdSkladistaZa(uzSkladisteDAO.findByOjAndPurpose(skl.getOrganizacionaJedinicaJe(), 97).getIdSkladista());
@@ -764,11 +767,6 @@ public class BasketBusinessProcessing {
                 uzDokument.setVrstaStavke(woSetPoNacinPlacanja.getVrstastavke());
                 uzDokument.setVrstaPrevoza((uzDokument.getUzSkladiste().getIdSkladista() == 4) ? 5 : prevoz);
                 uzDokument.setGodina(year);
-                if (user.getWoUser().getUserType().equals("INTERNI")) {
-                    uzDokument.setInternaNapomena(napomena);
-                } else {
-                    uzDokument.setNapomena(adresa);
-                }
                 uzDokumentDAO.persist(uzDokument);
                 dokumentaMap.put(skl.getIdSkladista() + akcija.toString(), id);
                 UzDokumentUsloviPlacanjaId uzDokumentUsloviPlacanjaId = new UzDokumentUsloviPlacanjaId();
@@ -972,7 +970,7 @@ public class BasketBusinessProcessing {
                             && woKlasifikacijaDAO.findRootKlasifikacijaByProizvod(woRezervacijaMaxRabat.getProizvod(), cs, OJ).getMaxRabat().compareTo(new BigDecimal("0")) != 0) {
                         maxRabat = 1;
                     }*/
-                    OcpProizvod product = productService.getProizvodById(woRezervacijaMaxRabat.getProizvod().getProizvod(), user.getCeneProizvoda(), cs.getKompanijskiParametri().get(OJ),
+                    OcpProizvod product = productService.getProizvodByIdAll(woRezervacijaMaxRabat.getProizvod().getProizvod(), user.getCeneProizvoda(), cs.getKompanijskiParametri().get(OJ),
                             0, 1, user.getWoPartnerSetting(), cs.getTrasportnaPakovanja(), OJ);
                     for (OcpKlasifikacijaProizvoda ocpKlasifikacijaProizvoda : product.getOcpKlasifikacijaProizvoda()) {
                         product.setMaxRabat(prodMaxRabatiDAO.findByKlasa(OJ, ocpKlasifikacijaProizvoda.getId().getVrstaKlasifikacije(), ocpKlasifikacijaProizvoda.getId().getKlasifikacija()).getMaxRabat());
