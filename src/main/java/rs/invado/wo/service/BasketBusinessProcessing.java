@@ -135,7 +135,7 @@ public class BasketBusinessProcessing {
         Integer skladisteRezervacije = ocpProizvod.getMaticnoSkladiste();
 
         BigDecimal operacija = new BigDecimal(1);
-        //insertuj stavku u wo_rezervacija za tekuću sesiju
+        //insertuj stavku u wo_rezervacija za teku?u sesiju
         WoRezervacija woRezervacija = getBasketElement(user.getBasket(), basketIndex);
         if (woRezervacija != null) {
             updateExistingBasketElemnt(woRezervacija, narucenaKolicina.multiply(aktuelnoPakovanje), operacija);
@@ -185,7 +185,7 @@ public class BasketBusinessProcessing {
 
         for (OcpSastavProizvoda ocpSastavProizvoda : ocpProizvod.getSastavProizvoda()) {
             skladisteRezervacije = ocpSastavProizvoda.getMaticnoSkladiste();
-            //poevećaj rezervaciju u magacinu
+            //poeve?aj rezervaciju u magacinu
             UzStanjeZalihaSkladistaId uzStanjeZalihaSkladistaId = new UzStanjeZalihaSkladistaId();
             uzStanjeZalihaSkladistaId.setIdSkladista(ocpSastavProizvoda.getMaticnoSkladiste());
             uzStanjeZalihaSkladistaId.setProizvod(ocpSastavProizvoda.getProizvodIzlaz().getProizvod());
@@ -214,8 +214,8 @@ public class BasketBusinessProcessing {
                     uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.multiply(aktuelnoPakovanje).multiply(ocpSastavProizvoda.getKolicinaUgradnje()).doubleValue(), 1);
                 }
 
-            /*kolciina za rezervaciju se mno??i sa operacijom tako da se koli�?ina u objektu povećava ako je vrednost operacije 1,
-  smanjuje ako je vrednost operacije -1 ??to je slu�?aj kod umanjenja*/
+            /*kolciina za rezervaciju se mno??i sa operacijom tako da se koli??ina u objektu pove?ava ako je vrednost operacije 1,
+  smanjuje ako je vrednost operacije -1 ??to je slu??aj kod umanjenja*/
 
                 //umanjiti kolicinu rasplozivu na objektu.
                 ocpProizvod.setRaspolozivo(ocpProizvod.getRaspolozivo().subtract(narucenaKolicina.multiply(aktuelnoPakovanje)));
@@ -283,7 +283,7 @@ public class BasketBusinessProcessing {
         String basketIndex = ocpProizvod.getProizvod() + "/" + aktuelnoPakovanje;
         WoKompanijaKorisnik woKompanijaKorisnik = woKompanijaKorisnikDAO.findByCoresponingOJ(currentOJ);
         Integer skladisteRezervacije = ocpProizvod.getMaticnoSkladiste();
-        //poevećaj rezervaciju u magacinu
+        //poeve?aj rezervaciju u magacinu
         UzStanjeZalihaSkladistaId uzStanjeZalihaSkladistaId = new UzStanjeZalihaSkladistaId();
         uzStanjeZalihaSkladistaId.setIdSkladista(ocpProizvod.getMaticnoSkladiste());
         uzStanjeZalihaSkladistaId.setProizvod(ocpProizvod.getProizvod());
@@ -315,10 +315,10 @@ public class BasketBusinessProcessing {
                 uzStanjeZalihaSkladistaDAO.azurirajRezervisanuKolicinu(uzStanjeZalihaSkladistaId, narucenaKolicina.multiply(aktuelnoPakovanje).doubleValue(), 1);
             }
 
-            /*kolciina za rezervaciju se mno??i sa operacijom tako da se koli�?ina u objektu povećava ako je vrednost operacije 1,
-  smanjuje ako je vrednost operacije -1 ??to je slu�?aj kod umanjenja*/
+            /*kolciina za rezervaciju se mno??i sa operacijom tako da se koli??ina u objektu pove?ava ako je vrednost operacije 1,
+  smanjuje ako je vrednost operacije -1 ??to je slu??aj kod umanjenja*/
             BigDecimal operacija = new BigDecimal(1);
-            //insertuj stavku u wo_rezervacija za tekuću sesiju
+            //insertuj stavku u wo_rezervacija za teku?u sesiju
             WoRezervacija woRezervacija = getBasketElement(user.getBasket(), basketIndex);
             if (woRezervacija != null) {
                 updateExistingBasketElemnt(woRezervacija, narucenaKolicina.multiply(aktuelnoPakovanje), operacija);
@@ -577,6 +577,8 @@ public class BasketBusinessProcessing {
             uzDokument.setGodina(year);
             if (user.getWoUser().getUserType().equals("INTERNI")) {
                 uzDokument.setInternaNapomena(napomena);
+            }else {
+                uzDokument.setNapomena(napomena);
             }
 
             uzDokumentDAO.persist(uzDokument);
@@ -596,7 +598,7 @@ public class BasketBusinessProcessing {
                 uzDokumentUsloviPlacanja.setNapomenaPr(ocpLiceZaKontakt.get(0).getIme() + " " + ocpLiceZaKontakt.get(0).getPrezime());
             }
             List<OcpTelefonskiBroj> ocpTelefonskiBroj = ocpTelefonskiBrojDAO.findByPartnerId(user.getWoPartnerSetting().get(0).getPoslovniPartner().getPoslovniPartner());
-            //reklama je lice koje je poručilo
+            //reklama je lice koje je poru?ilo
             if (user.getWoUser().getUserType().equals("INTERNI")) {
                 uzDokumentUsloviPlacanja.setReklama(user.getWoUser().getRadnik().getIme() + " " + user.getWoUser().getRadnik().getPrezime()
                         + " " + (user.getWoUser().getTelefonMobilni()==null ? "" : user.getWoUser().getTelefonMobilni())
@@ -689,7 +691,7 @@ public class BasketBusinessProcessing {
             uzDokumentStavka.setVrstaPromene(0);
             uzDokumentStavka.setNavedKol(kolicina);
             if (nacinPlacanja.equals("CAS"))
-// u slu?aju plaćanja ke?? na polazna cena mora biti sa ura?unatim porezom te se na cenu iz cenovnika poreska stopa
+// u slu?aju pla?anja ke?? na polazna cena mora biti sa ura?unatim porezom te se na cenu iz cenovnika poreska stopa
                 uzDokumentStavka.setJedinicnaCena(cena.multiply(prodPoreskaStopaDAO.findPorezPerProizvod(ocpProizvod.getProizvod(), OJ, datumPromene)
                         .divide(new BigDecimal(100.0)).add(new BigDecimal(1.0)).setScale(2, RoundingMode.HALF_EVEN)));
             else
@@ -766,6 +768,11 @@ public class BasketBusinessProcessing {
                 //uzDokument.setIdSkladistaZa(uzSkladisteDAO.findByOjAndPurpose(skl.getOrganizacionaJedinicaJe(), 97).getIdSkladista());
                 uzDokument.setVrstaStavke(woSetPoNacinPlacanja.getVrstastavke());
                 uzDokument.setVrstaPrevoza((uzDokument.getUzSkladiste().getIdSkladista() == 4) ? 5 : prevoz);
+                if (user.getWoUser().getUserType().equals("INTERNI")) {
+                    uzDokument.setInternaNapomena(napomena);
+                }else {
+                    uzDokument.setNapomena(napomena);
+                }
                 uzDokument.setGodina(year);
                 uzDokumentDAO.persist(uzDokument);
                 dokumentaMap.put(skl.getIdSkladista() + akcija.toString(), id);
@@ -810,7 +817,7 @@ public class BasketBusinessProcessing {
                     uzDokumentUsloviPlacanja.setNapomenaPr(ocpLiceZaKontakt.get(0).getIme() + " " + ocpLiceZaKontakt.get(0).getPrezime());
                 }
                 List<OcpTelefonskiBroj> ocpTelefonskiBroj = ocpTelefonskiBrojDAO.findByPartnerId(partner);
-                //reklama je lice koje je poručilo
+                //reklama je lice koje je poru?ilo
                 if (user.getWoUser().getUserType().equals("INTERNI")) {
                     uzDokumentUsloviPlacanja.setReklama(user.getWoUser().getRadnik().getIme() + " " + user.getWoUser().getRadnik().getPrezime()
                             + " " + (user.getWoUser().getTelefonMobilni()==null ? "" : user.getWoUser().getTelefonMobilni())
@@ -840,7 +847,7 @@ public class BasketBusinessProcessing {
 
                 if (woAkcija == " " && akcija.toString().equals("N") && maxRabat != 1
                         && user.getWoPartnerSetting().get(0).getApproveCassaSconto())
-// kassa sconto u slu?aju avansnog plaćanja i kada nema proizvoda koji su na akciji ili imaju maksimalni rabat
+// kassa sconto u slu?aju avansnog pla?anja i kada nema proizvoda koji su na akciji ili imaju maksimalni rabat
                     uzDokumentUsloviPlacanja.setProcKassaSkonto(new BigDecimal(2));
                 uzDokumentUsloviPlacanjaDAO.persist(uzDokumentUsloviPlacanja);
 
@@ -906,7 +913,7 @@ public class BasketBusinessProcessing {
         List<ProdFinDokument> prodFinDokuments = new ArrayList<ProdFinDokument>(0);
         Iterator it = cs.getKompanijskiParametri().get(OJ).getWoSetPoNacinPlacanja().iterator();
         while (it.hasNext()) {
-            //odredi vrstu dokumenta na osnovu na�?in plaćanja
+            //odredi vrstu dokumenta na osnovu na??in pla?anja
             WoSetPoNacinPlacanja woSetPoNacinPlacanja = (WoSetPoNacinPlacanja) it.next();
             if (woSetPoNacinPlacanja.getProdNacinPlacanja().getNacin().equals(nacinPlacanja)) {
                 Integer idVd;
@@ -916,7 +923,7 @@ public class BasketBusinessProcessing {
         it = user.getWoPartnerSetting().get(0).getPoslovniPartner().getProdPpRabats().iterator();
         short datumValute = 0;
         while (it.hasNext()) {
-            //odredi maximalni rok plaćanja
+            //odredi maximalni rok pla?anja
             ProdPpRabat prodPpRabat = (ProdPpRabat) it.next();
             if (prodPpRabat.getDatumOvere() != null && prodPpRabat.getDatumDo().compareTo(datumPromene) == 1 && prodPpRabat.getIdVd() == null
                     && prodPpRabat.getOrganizacionaJedinica().compareTo(OJ) == 0) {
@@ -937,7 +944,7 @@ public class BasketBusinessProcessing {
                 woRezervacijaPersistent.setStatusRezervacije(2);
                 woRezervacijaPersistent.setEkstraRabat(woRezervacija.getEkstraRabat());
                 woRezervacijaDAO.persist(woRezervacijaPersistent);
-                //ako nije na�?in plaćanja AVA onda sve stavke idu  na jednom dokumentu
+                //ako nije na??in pla?anja AVA onda sve stavke idu  na jednom dokumentu
 
                 if (woRezervacija.getWoRezervacijaSastavaList().size() == 0) {
                     uzDokument = createDocument(woRezervacija.getIdSkladista(), dokumentaMap, uzDokument, nacinPlacanja, user, cs, OJ, year, adresa, datumPromene, sessionId, prevoz, napomena,
@@ -965,7 +972,7 @@ public class BasketBusinessProcessing {
 //ukoliko postoji proizvo sa maksimalnim dozvoljenim rabatom kassa sconto se ne dodeljuje
                     Map.Entry mapWoRezervacijaMaxRabat = (Map.Entry) it.next();
                     WoRezervacija woRezervacijaMaxRabat = (WoRezervacija) mapWoRezervacijaMaxRabat.getValue();
-                    /*raniji način odredjivanja da li je dat max rabat ili ne. ovo pobristi posle testiranja
+                    /*raniji na?in odredjivanja da li je dat max rabat ili ne. ovo pobristi posle testiranja
                     if (woRezervacijaMaxRabat.getRabat().add(new BigDecimal("2")).compareTo(woKlasifikacijaDAO.findRootKlasifikacijaByProizvod(woRezervacijaMaxRabat.getProizvod(), cs, OJ).getMaxRabat()) == 1
                             && woKlasifikacijaDAO.findRootKlasifikacijaByProizvod(woRezervacijaMaxRabat.getProizvod(), cs, OJ).getMaxRabat().compareTo(new BigDecimal("0")) != 0) {
                         maxRabat = 1;
@@ -990,7 +997,7 @@ public class BasketBusinessProcessing {
                     woRezervacijaPersistent.setStatusRezervacije(2);
                     woRezervacijaPersistent.setEkstraRabat(woRezervacija.getEkstraRabat());
                     woRezervacijaDAO.persist(woRezervacijaPersistent);
-                    //ako nije na�?in plaćanja AVA onda sve stavke idu  na jednom dokumentu
+                    //ako nije na??in pla?anja AVA onda sve stavke idu  na jednom dokumentu
 
                     if (woRezervacija.getWoRezervacijaSastavaList().size() == 0) {
                         createDocumentAVA(woRezervacija.getIdSkladista(), dokumentaMap, uzDokument, nacinPlacanja, user, cs, OJ, year, adresa, datumPromene, sessionId, prevoz,

@@ -229,7 +229,7 @@
         <tr>
             <td>
                 <b>Distributivni Centar Novi Beograd</b><br>
-                Autoput Beograd - Zagreb bb<br>
+                Autoput za Zagreb 29<br>
                 11077 Beograd<br>
                 tel: 011 20 91 620<br>
                 fax: 011 20 91 699<br>
