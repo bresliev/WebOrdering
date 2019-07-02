@@ -1,165 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="363c38ab-6483-4fd0-8de4-d079334c2ed0" name="Default" comment="Aderesa isporuke i još ponešto">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_oracle_ojdbc6_11_2_0_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_inject_javax_inject_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.settings/org.eclipse.jpt.core.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.project.facet.core.prefs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.settings/org.eclipse.wst.common.project.facet.core.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.settings/org.eclipse.wst.validation.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.settings/org.hibernate.eclipse.console.prefs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="DELETED" beforePath="F:\Invado\WebOrdering\WebOrdering\.idea\artifacts\WebOrdering__1__war.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\Invado\WebOrdering\WebOrdering\.idea\artifacts\WebOrdering__1__war_exploded.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\Invado\WebOrdering\WebOrdering\.idea\libraries\Maven__org_slf4j_slf4j_api_1_6_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\Invado\WebOrdering\WebOrdering\.idea\scopes\scope_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="F:\Invado\WebOrdering\WebOrdering\target\WebOrdering\WEB-INF\classes\rs\invado\wo\mvc\BasketControllerN.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\Invado\WebOrdering\WebOrdering\target\classes\rs\invado\wo\mvc\BasketControllerN.class" afterPath="" />
-      <change type="DELETED" beforePath="F:\Invado\WebOrdering\WebOrdering\target\maven-archiver\pom.properties" afterPath="" />
-      <change type="DELETED" beforePath="F:\Invado\WebOrdering\WebOrdering\target\maven-status\maven-compiler-plugin\compile\default-compile\createdFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="F:\Invado\WebOrdering\WebOrdering\target\maven-status\maven-compiler-plugin\compile\default-compile\inputFiles.lst" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/images/Akcije.png" afterPath="$PROJECT_DIR$/target/WebOrdering/images/Akcije.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/images/Aktuelno.png" afterPath="$PROJECT_DIR$/target/WebOrdering/images/Aktuelno.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/AppInitService.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/AppInitService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/AppInitService.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/AppInitService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/BasketBusinessProcessing$ProAkcija.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/BasketBusinessProcessing$ProAkcija.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/BasketBusinessProcessing$ProAkcija.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/BasketBusinessProcessing$ProAkcija.class" />
+    <list default="true" id="363c38ab-6483-4fd0-8de4-d079334c2ed0" name="Default" comment="jasper 30 izmena PDV stope">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/BasketBusinessProcessing.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/BasketBusinessProcessing.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/BasketBusinessProcessing.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/BasketBusinessProcessing.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/mvc/BasketController.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/mvc/BasketController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/mvc/BasketController.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/mvc/BasketController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/mvc/CommonController.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/mvc/CommonController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/mvc/CommonController.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/mvc/CommonController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/CommonService.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/CommonService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/CommonService.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/CommonService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dto/CompanySetting.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dto/CompanySetting.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dto/CompanySetting.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dto/CompanySetting.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/LogOnService.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/LogOnService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/LogOnService.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/LogOnService.class" />
+      <change type="MODIFICATION" beforePath="C:\Invado\WebOrdering\WebOrdering\target\classes\rs\invado\wo\service\LogOnService.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/LogOnService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/mvc/LoginController.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/mvc/LoginController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/mvc/LoginController.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/mvc/LoginController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/images/Novo.png" afterPath="$PROJECT_DIR$/target/WebOrdering/images/Novo.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/ocp/OcpKlasifikacija.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/ocp/OcpKlasifikacija.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/ocp/OcpKlasifikacija.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/ocp/OcpKlasifikacija.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpKlasifikacijaHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpKlasifikacijaHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpKlasifikacijaHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpKlasifikacijaHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpKlasifikacijaProizvodaHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpKlasifikacijaProizvodaHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpKlasifikacijaProizvodaHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpKlasifikacijaProizvodaHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/ocp/OcpKlasifikacijaProizvodaId.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/ocp/OcpKlasifikacijaProizvodaId.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/ocp/OcpKlasifikacijaProizvodaId.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/ocp/OcpKlasifikacijaProizvodaId.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpLiceZaKontaktHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpLiceZaKontaktHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpLiceZaKontaktHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpLiceZaKontaktHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpMestoHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpMestoHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpMestoHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpMestoHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/ocp/OcpPoslovniPartner.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/ocp/OcpPoslovniPartner.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/ocp/OcpPoslovniPartner.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/ocp/OcpPoslovniPartner.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/ocp/OcpProizvod.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/ocp/OcpProizvod.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/ocp/OcpProizvod.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/ocp/OcpProizvod.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpProizvodHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpProizvodHome.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpProizvodHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpProizvodHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/ocp/OcpVrAtrProizvod.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/ocp/OcpVrAtrProizvod.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/ocp/OcpVrAtrProizvod.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/ocp/OcpVrAtrProizvod.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpVrAtrProizvodHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/ocp/OcpVrAtrProizvodHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpVrAtrProizvodHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/ocp/OcpVrAtrProizvodHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/prod/ProdCenovnikHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/prod/ProdCenovnikHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/prod/ProdCenovnikHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/prod/ProdCenovnikHome.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/prod/ProdFinDokumentHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/prod/ProdFinDokumentHome.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/prod/ProdFinDokumentHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/prod/ProdFinDokumentHome.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/ProductService.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/ProductService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/ProductService.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/ProductService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/mvc/ProizvodiController.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/mvc/ProizvodiController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/mvc/ProizvodiController.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/mvc/ProizvodiController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/images/Rasprodaja.png" afterPath="$PROJECT_DIR$/target/WebOrdering/images/Rasprodaja.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/util/SessionListener.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/util/SessionListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/util/SessionListener.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/util/SessionListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/util/SessionTimeoutFilter.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/util/SessionTimeoutFilter.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/util/SessionTimeoutFilter.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/util/SessionTimeoutFilter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/uz/UzDokument.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/uz/UzDokument.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzDokument.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzDokument.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/uz/UzDokumentStavka.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/uz/UzDokumentStavka.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzDokumentStavka.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzDokumentStavka.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/uz/UzDokumentStavkaHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/uz/UzDokumentStavkaHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/uz/UzDokumentStavkaHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/uz/UzDokumentStavkaHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/uz/UzDokumentStavkaPakovanje.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/uz/UzDokumentStavkaPakovanje.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzDokumentStavkaPakovanje.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzDokumentStavkaPakovanje.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/uz/UzDokumentStavkaPakovanjeHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/uz/UzDokumentStavkaPakovanjeHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/uz/UzDokumentStavkaPakovanjeHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/uz/UzDokumentStavkaPakovanjeHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/uz/UzDokumentUsloviPlacanja.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/uz/UzDokumentUsloviPlacanja.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzDokumentUsloviPlacanja.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzDokumentUsloviPlacanja.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/uz/UzDozvPakovanjaHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/uz/UzDozvPakovanjaHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/uz/UzDozvPakovanjaHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/uz/UzDozvPakovanjaHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/uz/UzStanjeZalihaSkladista.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/uz/UzStanjeZalihaSkladista.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzStanjeZalihaSkladista.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzStanjeZalihaSkladista.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/uz/UzStanjeZalihaSkladistaHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/uz/UzStanjeZalihaSkladistaHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/uz/UzStanjeZalihaSkladistaHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/uz/UzStanjeZalihaSkladistaHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/uz/UzZaliheJskl.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/uz/UzZaliheJskl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzZaliheJskl.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/uz/UzZaliheJskl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/uz/UzZaliheJsklHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/uz/UzZaliheJsklHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/uz/UzZaliheJsklHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/uz/UzZaliheJsklHome.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/util/WOExceptionCodes.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/util/WOExceptionCodes.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/util/WOExceptionCodes.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/util/WOExceptionCodes.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering.war" afterPath="$PROJECT_DIR$/target/WebOrdering.war" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/wo/WoArtikliNaAkcijiHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/wo/WoArtikliNaAkcijiHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/wo/WoArtikliNaAkcijiHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/wo/WoArtikliNaAkcijiHome.class" />
+      <change type="MODIFICATION" beforePath="C:\Invado\WebOrdering\WebOrdering\target\WebOrdering.war" afterPath="$PROJECT_DIR$/target/WebOrdering.war" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/util/WoConfigSingleton.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/util/WoConfigSingleton.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/util/WoConfigSingleton.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/util/WoConfigSingleton.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/wo/WoMapKompanijskaSkladista.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/wo/WoMapKompanijskaSkladista.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/wo/WoMapKompanijskaSkladista.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/wo/WoMapKompanijskaSkladista.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/wo/WoParametri.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/wo/WoParametri.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/wo/WoParametri.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/wo/WoParametri.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/wo/WoParametriHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/wo/WoParametriHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/wo/WoParametriHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/wo/WoParametriHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/wo/WoPartnerSetting.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/wo/WoPartnerSetting.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/wo/WoPartnerSetting.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/wo/WoPartnerSetting.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/wo/WoPartnerSettingsHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/wo/WoPartnerSettingsHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/wo/WoPartnerSettingsHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/wo/WoPartnerSettingsHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/wo/WoRezervacija.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/wo/WoRezervacija.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/wo/WoRezervacija.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/wo/WoRezervacija.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/wo/WoRezervacijaHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/wo/WoRezervacijaHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/wo/WoRezervacijaHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/wo/WoRezervacijaHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/wo/WoUser.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/domain/wo/WoUser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/wo/WoUser.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/domain/wo/WoUser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/wo/WoUserHome.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/dao/wo/WoUserHome.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/wo/WoUserHome.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/dao/wo/WoUserHome.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin" afterPath="$PROJECT_DIR$/bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessing.java" afterPath="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessing.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/WebOrdering_war.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/WebOrdering_war.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/WebOrdering_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/WebOrdering_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/META-INF/spring/applicationContext.xml" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/META-INF/spring/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/META-INF/spring/applicationContext.xml" afterPath="$PROJECT_DIR$/target/classes/META-INF/spring/applicationContext.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/basket.jsp" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/basket.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/contact.jsp" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/contact.jsp" />
+      <change type="MODIFICATION" beforePath="C:\Invado\WebOrdering\WebOrdering\target\WebOrdering\WEB-INF\jsp\contact.jsp" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/contact.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/footer.jsp" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/footer.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/header.jsp" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/header.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/hibernate.reveng.xml" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/hibernate.reveng.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/hibernate.reveng.xml" afterPath="$PROJECT_DIR$/target/classes/hibernate.reveng.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/home.jsp" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/home.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/META-INF/spring/infrastructure.xml" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/META-INF/spring/infrastructure.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/META-INF/spring/infrastructure.xml" afterPath="$PROJECT_DIR$/target/classes/META-INF/spring/infrastructure.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jboss-as-spring-mvc-context.xml" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jboss-as-spring-mvc-context.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/layout.jsp" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/layout.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/META-INF/persistence.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/reports/predracun19.jrxml" afterPath="$PROJECT_DIR$/target/WebOrdering/reports/predracun19.jrxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/right.jsp" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/right.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/support.jsp" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/support.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/reports/predracun30.jrxml" afterPath="$PROJECT_DIR$/target/WebOrdering/reports/predracun30.jrxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/js/web_ordering.js" afterPath="$PROJECT_DIR$/target/WebOrdering/js/web_ordering.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/css/wo_darex.css" afterPath="$PROJECT_DIR$/target/WebOrdering/css/wo_darex.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/css/wo_darexhome.css" afterPath="$PROJECT_DIR$/target/WebOrdering/css/wo_darexhome.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/css/wo_darexmax.css" afterPath="$PROJECT_DIR$/target/WebOrdering/css/wo_darexmax.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/css/wo_itison.css" afterPath="$PROJECT_DIR$/target/WebOrdering/css/wo_itison.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WebOrdering.iws" />
@@ -216,64 +89,28 @@
       <file leaf-file-name="BasketBusinessProcessing.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.6470585">
-              <caret line="816" column="114" selection-start-line="816" selection-start-column="114" selection-end-line="816" selection-end-column="114" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WoArtikliNaAkcijiHome.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/wo/WoArtikliNaAkcijiHome.java">
-          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="99" column="35" selection-start-line="99" selection-start-column="35" selection-end-line="104" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KeRadnici.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/hr/KeRadnici.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="359" column="18" selection-start-line="359" selection-start-column="18" selection-end-line="359" selection-end-column="18" />
-              <folding>
-                <element signature="e#10298#10299#0" expanded="true" />
-                <element signature="e#10333#10334#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dto/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
-              <folding>
-                <element signature="e#1221#1222#0" expanded="true" />
-                <element signature="e#1250#1251#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WoRezervacija.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/wo/WoRezervacija.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="43" column="25" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="25" />
+              <caret line="295" column="159" selection-start-line="295" selection-start-column="159" selection-end-line="295" selection-end-column="159" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="persistence.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
+        <entry file="file://$PROJECT_DIR$/bin/src/main/resources/META-INF/persistence.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.5">
-              <caret line="22" column="57" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
+            <state vertical-scroll-proportion="-5.3125">
+              <caret line="10" column="69" selection-start-line="10" selection-start-column="69" selection-end-line="10" selection-end-column="69" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="infrastructure.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/bin/src/main/resources/META-INF/spring/infrastructure.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -282,20 +119,20 @@
       <file leaf-file-name="LogOnService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/LogOnService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.45617172">
-              <caret line="119" column="90" selection-start-line="119" selection-start-column="90" selection-end-line="119" selection-end-column="90" />
+            <state vertical-scroll-proportion="0.7244389">
+              <caret line="125" column="2" selection-start-line="125" selection-start-column="2" selection-end-line="125" selection-end-column="2" />
               <folding>
-                <element signature="e#7445#7462#0" expanded="true" />
+                <element signature="e#7620#7637#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WoUserHome.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/wo/WoUserHome.java">
+      <file leaf-file-name="contact.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/contact.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="96" column="38" selection-start-line="96" selection-start-column="38" selection-end-line="96" selection-end-column="38" />
+            <state vertical-scroll-proportion="-24.846153">
+              <caret line="230" column="125" selection-start-line="230" selection-start-column="125" selection-end-line="230" selection-end-column="125" />
               <folding />
             </state>
           </provider>
@@ -327,14 +164,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/bin/src/main/webapp/WEB-INF/jsp/home.jsp" />
-        <option value="$PROJECT_DIR$/bin/target/WebOrdering/WEB-INF/jsp/home.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/home.jsp" />
-        <option value="$PROJECT_DIR$/bin/target/WebOrdering/WEB-INF/jsp/footer.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/footer.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/CommonController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/ProizvodiController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpProizvod.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/spring/applicationContext.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jboss-as-spring-mvc-context.xml" />
         <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/rest/classificationRestController.java" />
@@ -342,17 +171,12 @@
         <option value="$PROJECT_DIR$/bin/src/main/webapp/WEB-INF/jsp/header.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/util/SessionEndedListener.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/bin/src/main/webapp/WEB-INF/jsp/contact.jsp" />
         <option value="$PROJECT_DIR$/bin/target/WebOrdering/WEB-INF/jsp/contact.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/contact.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/contact_valid.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/ProductService.java" />
         <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpPoslovniPartner.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/wo_darexhome.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/wo_darexmax.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/wo_itison.css" />
         <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/BasketControllerDeprecated.java" />
-        <option value="$PROJECT_DIR$/bin/src/main/webapp/WEB-INF/jsp/footer.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/jquery-2.2.1.min.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/jquery-3.2.1.min.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/layout.jsp" />
@@ -366,17 +190,30 @@
         <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/BasketController.java" />
         <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpAdresaIsporukeHome.java" />
         <option value="$PROJECT_DIR$/src/test/java/rs/invado/wo/test/KlasifikacijaDaoTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzDokument.java" />
         <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzZaliheJskl.java" />
         <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpTelefonskiBrojHome.java" />
         <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzDokumentUsloviPlacanja.java" />
         <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpLiceZaKontaktHome.java" />
         <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/uz/UzZaliheJsklHome.java" />
         <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/util/SessionListener.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/web_ordering.js" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/util/WoConfigSingleton.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/properties/wo-properties" />
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/spring/infrastructure.xml" />
+        <option value="$PROJECT_DIR$/bin/target/WebOrdering/js/web_ordering.js" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpProizvodHome.java" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/prod/ProdFinDokumentHome.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/basket.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessing.java" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessingDepricated.java" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzDokument.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
+        <option value="$PROJECT_DIR$/bin/src/main/webapp/WEB-INF/jsp/footer.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/contact_valid.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/footer.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/ProductService.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/web_ordering.js" />
+        <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessing.java" />
+        <option value="$PROJECT_DIR$/bin/src/main/webapp/WEB-INF/jsp/contact.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/contact.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/LogOnService.java" />
       </list>
     </option>
@@ -433,6 +270,20 @@
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
         </PATH_ELEMENT>
         <PATH_ELEMENT>
+          <option name="myItemId" value="Plugins" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginsNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="WebOrdering" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
           <option name="myItemId" value="Lifecycle" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
         </PATH_ELEMENT>
@@ -442,11 +293,15 @@
   <component name="NamedScopeManager">
     <order />
   </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1050" />
+    <option name="width" value="2578" />
+    <option name="height" value="1410" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -479,7 +334,7 @@
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
+      <flattenPackages ProjectPane="true" />
       <showMembers />
       <showModules />
       <showLibraryContents />
@@ -490,8 +345,15 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Production" />
+        <subPane subId="Project Files" />
+        <subPane subId="Tests" />
+      </pane>
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
+      <pane id="PackagesPane">
+        <subPane />
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -504,6 +366,86 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="WebOrdering" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="WebOrdering" />
@@ -620,58 +562,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebOrdering" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebOrdering" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebOrdering" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebOrdering" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -691,106 +581,11 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="META-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebOrdering" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebOrdering" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="META-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="properties" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebOrdering" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebOrdering" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebOrdering" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WebOrdering" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="domain" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -798,10 +593,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="FullScreen" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.4413793" />
     <property name="restartRequiresConfirmation" value="true" />
@@ -841,6 +636,26 @@
     </key>
   </component>
   <component name="RunManager" selected="JBoss Server.ExplodedJBossDepl">
+    <configuration default="false" name="KlasifikacijaDaoTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="rs.invado.wo.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="rs.invado.wo.test.KlasifikacijaDaoTest" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="WebOrdering" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="false" name="KlasifikacijaDaoTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -943,26 +758,6 @@
       </option>
       <envs />
       <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="KlasifikacijaDaoTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="rs.invado.wo.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="rs.invado.wo.test.KlasifikacijaDaoTest" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="WebOrdering" />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
@@ -1260,6 +1055,16 @@
           </MavenRunnerParameters>
         </option>
       </MavenSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -1569,11 +1374,11 @@
       <item index="3" class="java.lang.String" itemvalue="JUnit.OcpProizvodHomeTest.testProductServiceSort" />
       <item index="4" class="java.lang.String" itemvalue="JUnit.WoWuserHomeTest.test" />
       <item index="5" class="java.lang.String" itemvalue="Maven.WebOrderingWarPackage" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.KlasifikacijaDaoTest.test" />
-      <item index="7" class="java.lang.String" itemvalue="JUnit.WoWuserHomeTest.dummy" />
-      <item index="8" class="java.lang.String" itemvalue="JUnit.OcpProizvodHomeTest.findPoBrandHashCena" />
-      <item index="9" class="java.lang.String" itemvalue="JUnit.KlasifikacijaDaoTest.main" />
-      <item index="10" class="java.lang.String" itemvalue="Application.KlasifikacijaDaoTest" />
+      <item index="6" class="java.lang.String" itemvalue="Application.KlasifikacijaDaoTest" />
+      <item index="7" class="java.lang.String" itemvalue="JUnit.KlasifikacijaDaoTest.test" />
+      <item index="8" class="java.lang.String" itemvalue="JUnit.WoWuserHomeTest.dummy" />
+      <item index="9" class="java.lang.String" itemvalue="JUnit.OcpProizvodHomeTest.findPoBrandHashCena" />
+      <item index="10" class="java.lang.String" itemvalue="JUnit.KlasifikacijaDaoTest.main" />
     </list>
     <recent_temporary>
       <list size="5">
@@ -1789,7 +1594,51 @@
       <workItem from="1511103374683" duration="2276000" />
       <workItem from="1511202774637" duration="1435000" />
       <workItem from="1511687489099" duration="7123000" />
-      <workItem from="1511806354168" duration="4184000" />
+      <workItem from="1511806354168" duration="7034000" />
+      <workItem from="1511895797985" duration="3036000" />
+      <workItem from="1511989459151" duration="831000" />
+      <workItem from="1512588856046" duration="12000" />
+      <workItem from="1512741038385" duration="653000" />
+      <workItem from="1513368045862" duration="624000" />
+      <workItem from="1513422974878" duration="636000" />
+      <workItem from="1513426067188" duration="173000" />
+      <workItem from="1514033206154" duration="407000" />
+      <workItem from="1514227609560" duration="1065000" />
+      <workItem from="1515506402836" duration="3560000" />
+      <workItem from="1515525005532" duration="1268000" />
+      <workItem from="1516039277078" duration="1789000" />
+      <workItem from="1516386562673" duration="7361000" />
+      <workItem from="1516438850020" duration="14990000" />
+      <workItem from="1517048811997" duration="4206000" />
+      <workItem from="1517695561050" duration="599000" />
+      <workItem from="1519458796994" duration="599000" />
+      <workItem from="1522523319843" duration="1298000" />
+      <workItem from="1523383625849" duration="1513000" />
+      <workItem from="1538674894031" duration="278000" />
+      <workItem from="1538853296449" duration="21000" />
+      <workItem from="1539719975775" duration="192000" />
+      <workItem from="1543697229246" duration="2462000" />
+      <workItem from="1543701107121" duration="50000" />
+      <workItem from="1543701184206" duration="483000" />
+      <workItem from="1543742000022" duration="1141000" />
+      <workItem from="1543856544382" duration="851000" />
+      <workItem from="1549903612494" duration="868000" />
+      <workItem from="1549904505307" duration="1219000" />
+      <workItem from="1550006674651" duration="356000" />
+      <workItem from="1550095325159" duration="592000" />
+      <workItem from="1552255313568" duration="594000" />
+      <workItem from="1554042399041" duration="144000" />
+      <workItem from="1554137580447" duration="916000" />
+      <workItem from="1554998070785" duration="533000" />
+      <workItem from="1555177316464" duration="226000" />
+      <workItem from="1557174363042" duration="604000" />
+      <workItem from="1557174997230" duration="315000" />
+      <workItem from="1559923234596" duration="2833000" />
+      <workItem from="1560064466794" duration="9058000" />
+      <workItem from="1560607467916" duration="880000" />
+      <workItem from="1560706729827" duration="4014000" />
+      <workItem from="1560896258358" duration="136000" />
+      <workItem from="1562096043096" duration="5517000" />
     </task>
     <task id="LOCAL-00001" summary="Sastav first">
       <created>1457296637907</created>
@@ -2001,11 +1850,47 @@
       <option name="project" value="LOCAL" />
       <updated>1511727153231</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="telefon na poručio">
+      <created>1511812401993</created>
+      <option name="number" value="00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1511812401993</updated>
+    </task>
+    <task id="LOCAL-00037" summary="telefon na poručio">
+      <created>1511903184632</created>
+      <option name="number" value="00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1511903184632</updated>
+    </task>
+    <task id="LOCAL-00038" summary="jasper 30 izmena PDV stope">
+      <created>1516040452952</created>
+      <option name="number" value="00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1516040452952</updated>
+    </task>
+    <task id="LOCAL-00039" summary="problem sa posldenjom tablom">
+      <created>1516475340743</created>
+      <option name="number" value="00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1516475340743</updated>
+    </task>
+    <task id="LOCAL-00040" summary="jasper 30 izmena PDV stope">
+      <created>1543742465589</created>
+      <option name="number" value="00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1543742465589</updated>
+    </task>
+    <task id="LOCAL-00041" summary="skl 18">
+      <created>1562104286173</created>
+      <option name="number" value="00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1562104286173</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="940577000" />
+    <option name="totallyTimeSpent" value="1022330000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2017,37 +1902,41 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1050" extended-state="0" />
+    <frame x="-9" y="-9" width="2578" height="1410" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32522303" sideWeight="0.24940239" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18978103" sideWeight="0.6727468" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19521913" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19144385" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973261" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973261" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.325315" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32927817" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32927817" sideWeight="0.49681276" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.325315" sideWeight="0.24010696" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19572192" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22565866" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.325315" sideWeight="0.75989306" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16149732" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22591743" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32522303" sideWeight="0.7505976" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32927817" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17808765" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19144385" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2514193" sideWeight="0.5984064" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="EJB" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="JavaEE:App" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.325315" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -2086,7 +1975,11 @@
     <MESSAGE value="provera null adrese" />
     <MESSAGE value="Aderesa isporuke i još ponešto" />
     <MESSAGE value="Sklnjen privatn telefon..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Sklnjen privatn telefon..." />
+    <MESSAGE value="telefon na poručio" />
+    <MESSAGE value="problem sa posldenjom tablom" />
+    <MESSAGE value="jasper 30 izmena PDV stope" />
+    <MESSAGE value="skl 18" />
+    <option name="LAST_COMMIT_MESSAGE" value="skl 18" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2128,7 +2021,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/ProductService.java</url>
-          <line>275</line>
+          <line>281</line>
           <properties />
           <option name="timeStamp" value="50" />
         </line-breakpoint>
@@ -2142,852 +2035,400 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpAtributHome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="21" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/spring/infrastructure.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/ProductService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/import.sql">
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/prod/ProdMaxRabatiHome.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="88" column="25" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
         </state>
       </provider>
-      <provider editor-type-id="com.intellij.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/hibernate.reveng.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/prod/ProdMaxRabati.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="252" column="37" selection-start-line="252" selection-start-column="17" selection-end-line="252" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/src/main/resources/hibernate.reveng.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="59" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/target/classes/hibernate.reveng.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="234" column="17" selection-start-line="234" selection-start-column="17" selection-end-line="234" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/target/WebOrdering/WEB-INF/classes/hibernate.reveng.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="24" column="30" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/wo/WoSortPerObjectAttributeHome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/META-INF/testApplicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.2410547">
-          <caret line="18" column="65" selection-start-line="18" selection-start-column="65" selection-end-line="18" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/META-INF/test-persistence.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="26.90625">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/META-INF/test-context.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.38418078">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/resources/META-INF/properties/wo-properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51699466">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpKontaktiLicaHome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.85509837">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/rs/invado/wo/test/OcpProizvodHomeTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78711987">
-          <caret line="117" column="0" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpPoslovniPartnerHome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14124294">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpAdresaIsporukeHome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="83" column="49" selection-start-line="83" selection-start-column="49" selection-end-line="83" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpAdresaIsporuke.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpPoslovniPartner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="441" column="56" selection-start-line="441" selection-start-column="38" selection-end-line="441" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/3.1.1.RELEASE/spring-test-3.1.1.RELEASE-sources.jar!/org/springframework/test/context/TestContext.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.1581922">
-          <caret line="156" column="0" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/rs/invado/wo/test/KlasifikacijaDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="71" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/ProizvodiController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="64" column="91" selection-start-line="64" selection-start-column="82" selection-end-line="64" selection-end-column="91" />
+          <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/ProductService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="213" column="74" selection-start-line="213" selection-start-column="74" selection-end-line="213" selection-end-column="74" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzZaliheJskl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="101" selection-start-line="62" selection-start-column="101" selection-end-line="62" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/prod/ProdFinDokument.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="495" column="26" selection-start-line="495" selection-start-column="16" selection-end-line="495" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tiles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/uz/UzDokumentUsloviPlacanjaHome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzDokumentUsloviPlacanja.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="218" column="36" selection-start-line="218" selection-start-column="36" selection-end-line="218" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/uz/UzZaliheJsklHome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="126" column="12" selection-start-line="126" selection-start-column="12" selection-end-line="126" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/util/SessionListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45945945">
-          <caret line="23" column="8" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpLiceZaKontaktHome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="89" column="34" selection-start-line="89" selection-start-column="34" selection-end-line="89" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpTelefonskiBrojHome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="81" column="77" selection-start-line="81" selection-start-column="77" selection-end-line="81" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/BasketController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="173" column="0" selection-start-line="173" selection-start-column="0" selection-end-line="173" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/prod/ProdMaxRabatiHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="88" column="25" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/prod/ProdMaxRabati.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/admin/AdmUserCinposHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/basket.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="32" selection-start-line="77" selection-start-column="32" selection-end-line="77" selection-end-column="32" />
+          <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpProizvod.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/ProductService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="221" column="42" selection-start-line="78" selection-start-column="26" selection-end-line="221" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#51993#52005#0" expanded="false" />
-            <element signature="e#52379#52400#0" expanded="false" />
-            <element signature="e#52499#52526#0" expanded="false" />
-            <element signature="e#52611#52630#0" expanded="false" />
-            <element signature="e#52727#52752#0" expanded="false" />
-            <element signature="e#52829#52844#0" expanded="false" />
-            <element signature="e#52919#52939#0" expanded="false" />
-            <element signature="e#53113#53114#0" expanded="false" />
-            <element signature="e#53149#53150#0" expanded="false" />
-            <element signature="e#53198#53199#0" expanded="false" />
-            <element signature="e#53238#53239#0" expanded="false" />
-            <element signature="e#53331#53332#0" expanded="false" />
-            <element signature="e#53373#53374#0" expanded="false" />
-            <element signature="e#53433#53434#0" expanded="false" />
-            <element signature="e#53485#53486#0" expanded="false" />
-            <element signature="e#53581#53582#0" expanded="false" />
-            <element signature="e#53619#53620#0" expanded="false" />
-            <element signature="e#53669#53670#0" expanded="false" />
-            <element signature="e#53713#53714#0" expanded="false" />
-            <element signature="e#53823#53824#0" expanded="false" />
-            <element signature="e#53859#53860#0" expanded="false" />
-            <element signature="e#53905#53906#0" expanded="false" />
-            <element signature="e#53945#53946#0" expanded="false" />
-            <element signature="e#54039#54040#0" expanded="false" />
-            <element signature="e#54081#54082#0" expanded="false" />
-            <element signature="e#54141#54142#0" expanded="false" />
-            <element signature="e#54193#54194#0" expanded="false" />
-            <element signature="e#54284#54285#0" expanded="false" />
-            <element signature="e#54318#54319#0" expanded="false" />
-            <element signature="e#54363#54364#0" expanded="false" />
-            <element signature="e#54399#54400#0" expanded="false" />
-            <element signature="e#54626#54627#0" expanded="false" />
-            <element signature="e#54661#54662#0" expanded="false" />
-            <element signature="e#54726#54727#0" expanded="false" />
-            <element signature="e#54774#54775#0" expanded="false" />
-            <element signature="e#54850#54851#0" expanded="false" />
-            <element signature="e#54890#54891#0" expanded="false" />
-            <element signature="e#54946#54947#0" expanded="false" />
-            <element signature="e#54994#54995#0" expanded="false" />
-            <element signature="e#55086#55087#0" expanded="false" />
-            <element signature="e#55119#55120#0" expanded="false" />
-            <element signature="e#55161#55162#0" expanded="false" />
-            <element signature="e#55195#55196#0" expanded="false" />
-            <element signature="e#55305#55306#0" expanded="false" />
-            <element signature="e#55346#55347#0" expanded="false" />
-            <element signature="e#55408#55409#0" expanded="false" />
-            <element signature="e#55458#55459#0" expanded="false" />
-            <element signature="e#55568#55569#0" expanded="false" />
-            <element signature="e#55609#55610#0" expanded="false" />
-            <element signature="e#55671#55672#0" expanded="false" />
-            <element signature="e#55721#55722#0" expanded="false" />
-            <element signature="e#55843#55844#0" expanded="false" />
-            <element signature="e#55890#55891#0" expanded="false" />
-            <element signature="e#56127#56128#0" expanded="false" />
-            <element signature="e#56167#56168#0" expanded="false" />
-            <element signature="e#56222#56223#0" expanded="false" />
-            <element signature="e#56270#56271#0" expanded="false" />
-            <element signature="e#56360#56361#0" expanded="false" />
-            <element signature="e#56401#56402#0" expanded="false" />
-            <element signature="e#56459#56460#0" expanded="false" />
-            <element signature="e#56509#56510#0" expanded="false" />
-            <element signature="e#56594#56595#0" expanded="false" />
-            <element signature="e#56633#56634#0" expanded="false" />
-            <element signature="e#56687#56688#0" expanded="false" />
-            <element signature="e#56733#56734#0" expanded="false" />
-            <element signature="e#56821#56822#0" expanded="false" />
-            <element signature="e#56861#56862#0" expanded="false" />
-            <element signature="e#56917#56918#0" expanded="false" />
-            <element signature="e#56965#56966#0" expanded="false" />
-            <element signature="e#57066#57067#0" expanded="false" />
-            <element signature="e#57105#57106#0" expanded="false" />
-            <element signature="e#57160#57161#0" expanded="false" />
-            <element signature="e#57206#57207#0" expanded="false" />
-            <element signature="e#57305#57306#0" expanded="false" />
-            <element signature="e#57349#57350#0" expanded="false" />
-            <element signature="e#57413#57414#0" expanded="false" />
-            <element signature="e#57469#57470#0" expanded="false" />
-            <element signature="e#57570#57571#0" expanded="false" />
-            <element signature="e#57610#57611#0" expanded="false" />
-            <element signature="e#57665#57666#0" expanded="false" />
-            <element signature="e#57713#57714#0" expanded="false" />
-            <element signature="e#57816#57817#0" expanded="false" />
-            <element signature="e#57857#57858#0" expanded="false" />
-            <element signature="e#57914#57915#0" expanded="false" />
-            <element signature="e#57964#57965#0" expanded="false" />
-            <element signature="e#58080#58081#0" expanded="false" />
-            <element signature="e#58124#58125#0" expanded="false" />
-            <element signature="e#58192#58193#0" expanded="false" />
-            <element signature="e#58248#58249#0" expanded="false" />
-            <element signature="e#58364#58365#0" expanded="false" />
-            <element signature="e#58408#58409#0" expanded="false" />
-            <element signature="e#58476#58477#0" expanded="false" />
-            <element signature="e#58532#58533#0" expanded="false" />
-            <element signature="e#58648#58649#0" expanded="false" />
-            <element signature="e#58695#58696#0" expanded="false" />
-            <element signature="e#58764#58765#0" expanded="false" />
-            <element signature="e#58826#58827#0" expanded="false" />
-            <element signature="e#58936#58937#0" expanded="false" />
-            <element signature="e#58980#58981#0" expanded="false" />
-            <element signature="e#59043#59044#0" expanded="false" />
-            <element signature="e#59099#59100#0" expanded="false" />
-            <element signature="e#59207#59208#0" expanded="false" />
-            <element signature="e#59250#59251#0" expanded="false" />
-            <element signature="e#59311#59312#0" expanded="false" />
-            <element signature="e#59365#59366#0" expanded="false" />
-            <element signature="e#59467#59468#0" expanded="false" />
-            <element signature="e#59513#59514#0" expanded="false" />
-            <element signature="e#59581#59582#0" expanded="false" />
-            <element signature="e#59641#59642#0" expanded="false" />
-            <element signature="e#59747#59748#0" expanded="false" />
-            <element signature="e#59788#59789#0" expanded="false" />
-            <element signature="e#59847#59848#0" expanded="false" />
-            <element signature="e#59897#59898#0" expanded="false" />
-            <element signature="e#60017#60018#0" expanded="false" />
-            <element signature="e#60058#60059#0" expanded="false" />
-            <element signature="e#60114#60115#0" expanded="false" />
-            <element signature="e#60164#60165#0" expanded="false" />
-            <element signature="e#60256#60257#0" expanded="false" />
-            <element signature="e#60298#60299#0" expanded="false" />
-            <element signature="e#60358#60359#0" expanded="false" />
-            <element signature="e#60410#60411#0" expanded="false" />
-            <element signature="e#60691#60692#0" expanded="false" />
-            <element signature="e#60732#60733#0" expanded="false" />
-            <element signature="e#60958#60959#0" expanded="false" />
-            <element signature="e#60999#61000#0" expanded="false" />
-            <element signature="e#61057#61058#0" expanded="false" />
-            <element signature="e#61107#61108#0" expanded="false" />
-            <element signature="e#61165#61166#0" expanded="false" />
-            <element signature="e#61193#61194#0" expanded="false" />
-            <element signature="e#61233#61234#0" expanded="false" />
-            <element signature="e#61267#61268#0" expanded="false" />
-            <element signature="e#61394#61395#0" expanded="false" />
-            <element signature="e#61438#61439#0" expanded="false" />
-            <element signature="e#61500#61501#0" expanded="false" />
-            <element signature="e#61556#61557#0" expanded="false" />
-            <element signature="e#61684#61685#0" expanded="false" />
-            <element signature="e#61728#61729#0" expanded="false" />
-            <element signature="e#61790#61791#0" expanded="false" />
-            <element signature="e#61846#61847#0" expanded="false" />
-            <element signature="e#61897#61898#0" expanded="false" />
-            <element signature="e#61924#61925#0" expanded="false" />
-            <element signature="e#61968#61969#0" expanded="false" />
-            <element signature="e#62000#62001#0" expanded="false" />
-            <element signature="e#62051#62052#0" expanded="false" />
-            <element signature="e#62083#62084#0" expanded="false" />
-            <element signature="e#62133#62134#0" expanded="false" />
-            <element signature="e#62175#62176#0" expanded="false" />
-            <element signature="e#62232#62233#0" expanded="false" />
-            <element signature="e#62275#62276#0" expanded="false" />
-            <element signature="e#62446#62447#0" expanded="false" />
-            <element signature="e#62480#62481#0" expanded="false" />
-            <element signature="e#62647#62648#0" expanded="false" />
-            <element signature="e#62689#62690#0" expanded="false" />
-            <element signature="e#62882#62883#0" expanded="false" />
-            <element signature="e#62916#62917#0" expanded="false" />
-            <element signature="e#62974#62975#0" expanded="false" />
-            <element signature="e#63020#63021#0" expanded="false" />
-            <element signature="e#63086#63087#0" expanded="false" />
-            <element signature="e#63129#63130#0" expanded="false" />
-            <element signature="e#63400#63401#0" expanded="false" />
-            <element signature="e#63440#63441#0" expanded="false" />
-            <element signature="e#63506#63507#0" expanded="false" />
-            <element signature="e#63564#63565#0" expanded="false" />
-            <element signature="e#63619#63620#0" expanded="false" />
-            <element signature="e#63658#63659#0" expanded="false" />
-            <element signature="e#63719#63720#0" expanded="false" />
-            <element signature="e#63775#63776#0" expanded="false" />
-            <element signature="e#63827#63828#0" expanded="false" />
-            <element signature="e#63859#63860#0" expanded="false" />
-            <element signature="e#63910#63911#0" expanded="false" />
-            <element signature="e#63952#63953#0" expanded="false" />
-            <element signature="e#64009#64010#0" expanded="false" />
-            <element signature="e#64043#64044#0" expanded="false" />
-            <element signature="e#64101#64102#0" expanded="false" />
-            <element signature="e#64147#64148#0" expanded="false" />
-            <element signature="e#64198#64199#0" expanded="false" />
-            <element signature="e#64230#64231#0" expanded="false" />
-            <element signature="e#64280#64281#0" expanded="false" />
-            <element signature="e#64322#64323#0" expanded="false" />
-            <element signature="e#64387#64388#0" expanded="false" />
-            <element signature="e#64423#64424#0" expanded="false" />
-            <element signature="e#64491#64492#0" expanded="false" />
-            <element signature="e#64541#64542#0" expanded="false" />
-            <element signature="e#64604#64605#0" expanded="false" />
-            <element signature="e#64647#64648#0" expanded="false" />
-            <element signature="e#64839#64840#0" expanded="false" />
-            <element signature="e#64875#64876#0" expanded="false" />
-            <element signature="e#64933#64934#0" expanded="false" />
-            <element signature="e#64983#64984#0" expanded="false" />
-            <element signature="e#65068#65069#0" expanded="false" />
-            <element signature="e#65104#65105#0" expanded="false" />
-            <element signature="e#65307#65308#0" expanded="false" />
-            <element signature="e#65353#65354#0" expanded="false" />
-            <element signature="e#65561#65562#0" expanded="false" />
-            <element signature="e#65602#65603#0" expanded="false" />
-            <element signature="e#65670#65671#0" expanded="false" />
-            <element signature="e#65730#65731#0" expanded="false" />
-            <element signature="e#65792#65793#0" expanded="false" />
-            <element signature="e#65835#65836#0" expanded="false" />
-            <element signature="e#66025#66026#0" expanded="false" />
-            <element signature="e#66056#66057#0" expanded="false" />
-            <element signature="e#66108#66109#0" expanded="false" />
-            <element signature="e#66148#66149#0" expanded="false" />
-            <element signature="e#66305#66306#0" expanded="false" />
-            <element signature="e#66337#66338#0" expanded="false" />
-            <element signature="e#66396#66397#0" expanded="false" />
-            <element signature="e#66428#66429#0" expanded="false" />
-            <element signature="e#66642#66643#0" expanded="false" />
-            <element signature="e#66690#66691#0" expanded="false" />
-            <element signature="e#67039#67040#0" expanded="false" />
-            <element signature="e#67080#67081#0" expanded="false" />
-            <element signature="e#67434#67435#0" expanded="false" />
-            <element signature="e#67481#67482#0" expanded="false" />
-            <element signature="e#67808#67809#0" expanded="false" />
-            <element signature="e#67845#67846#0" expanded="false" />
-            <element signature="e#67918#67919#0" expanded="false" />
-            <element signature="e#67970#67971#0" expanded="false" />
-            <element signature="e#68162#68163#0" expanded="false" />
-            <element signature="e#68200#68201#0" expanded="false" />
-            <element signature="e#68280#68281#0" expanded="false" />
-            <element signature="e#68334#68335#0" expanded="false" />
-          </folding>
+          <caret line="252" column="51" selection-start-line="252" selection-start-column="51" selection-end-line="252" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/artifacts/WebOrdering_war.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/artifacts/WebOrdering_war_exploded.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/copyright/profiles_settings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/admin/AdmUserCinposHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/basket.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/admin/AdmUserCinposHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/basket.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/admin/AdmUserCinposHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/admin/AdmUserCinposHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/basket.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="152" column="0" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/artifacts/WebOrdering_war.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/artifacts/WebOrdering_war_exploded.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/copyright/profiles_settings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/prod/ProdMaxRabati.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/prod/ProdMaxRabatiHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="88" column="25" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/wo/WoUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="50" selection-start-line="28" selection-start-column="50" selection-end-line="28" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/properties/wo-properties">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="40" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="40" />
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzDokument.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpProizvod.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="200" column="23" selection-start-line="200" selection-start-column="23" selection-end-line="200" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.38269988">
+          <caret line="1224" column="41" selection-start-line="1224" selection-start-column="41" selection-end-line="1224" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="false" />
-            <element signature="e#9983#9984#0" expanded="false" />
-            <element signature="e#10013#10014#0" expanded="false" />
-            <element signature="e#10055#10056#0" expanded="false" />
-            <element signature="e#10083#10084#0" expanded="false" />
-            <element signature="e#10204#10205#0" expanded="false" />
-            <element signature="e#10243#10244#0" expanded="false" />
-            <element signature="e#10302#10303#0" expanded="false" />
-            <element signature="e#10348#10349#0" expanded="false" />
-            <element signature="e#10482#10483#0" expanded="false" />
-            <element signature="e#10529#10530#0" expanded="false" />
-            <element signature="e#10598#10599#0" expanded="false" />
-            <element signature="e#10660#10661#0" expanded="false" />
-            <element signature="e#10767#10768#0" expanded="false" />
-            <element signature="e#10802#10803#0" expanded="false" />
-            <element signature="e#10845#10846#0" expanded="false" />
-            <element signature="e#10883#10884#0" expanded="false" />
-            <element signature="e#10995#10996#0" expanded="false" />
-            <element signature="e#11038#11039#0" expanded="false" />
-            <element signature="e#11100#11101#0" expanded="false" />
-            <element signature="e#11154#11155#0" expanded="false" />
-            <element signature="e#11259#11260#0" expanded="false" />
-            <element signature="e#11301#11302#0" expanded="false" />
-            <element signature="e#11360#11361#0" expanded="false" />
-            <element signature="e#11412#11413#0" expanded="false" />
-            <element signature="e#11509#11510#0" expanded="false" />
-            <element signature="e#11547#11548#0" expanded="false" />
-            <element signature="e#11597#11598#0" expanded="false" />
-            <element signature="e#11641#11642#0" expanded="false" />
-            <element signature="e#11734#11735#0" expanded="false" />
-            <element signature="e#11769#11770#0" expanded="false" />
-            <element signature="e#11816#11817#0" expanded="false" />
-            <element signature="e#11854#11855#0" expanded="false" />
-            <element signature="e#11947#11948#0" expanded="false" />
-            <element signature="e#11982#11983#0" expanded="false" />
-            <element signature="e#12029#12030#0" expanded="false" />
-            <element signature="e#12067#12068#0" expanded="false" />
-            <element signature="e#12182#12183#0" expanded="false" />
-            <element signature="e#12227#12228#0" expanded="false" />
-            <element signature="e#12294#12295#0" expanded="false" />
-            <element signature="e#12352#12353#0" expanded="false" />
-            <element signature="e#12479#12480#0" expanded="false" />
-            <element signature="e#12530#12531#0" expanded="false" />
-            <element signature="e#12806#12807#0" expanded="false" />
-            <element signature="e#12857#12858#0" expanded="false" />
-            <element signature="e#13121#13122#0" expanded="false" />
-            <element signature="e#13166#13167#0" expanded="false" />
-            <element signature="e#13233#13234#0" expanded="false" />
-            <element signature="e#13291#13292#0" expanded="false" />
-            <element signature="e#13393#13394#0" expanded="false" />
-            <element signature="e#13439#13440#0" expanded="false" />
-            <element signature="e#13507#13508#0" expanded="false" />
-            <element signature="e#13567#13568#0" expanded="false" />
-            <element signature="e#13685#13686#0" expanded="false" />
-            <element signature="e#13725#13726#0" expanded="false" />
-            <element signature="e#13779#13780#0" expanded="false" />
-            <element signature="e#13827#13828#0" expanded="false" />
-            <element signature="e#13943#13944#0" expanded="false" />
-            <element signature="e#13982#13983#0" expanded="false" />
-            <element signature="e#14034#14035#0" expanded="false" />
-            <element signature="e#14080#14081#0" expanded="false" />
-            <element signature="e#14186#14187#0" expanded="false" />
-            <element signature="e#14234#14235#0" expanded="false" />
-            <element signature="e#14446#14447#0" expanded="false" />
-            <element signature="e#14486#14487#0" expanded="false" />
-            <element signature="e#14542#14543#0" expanded="false" />
-            <element signature="e#14590#14591#0" expanded="false" />
-            <element signature="e#14704#14705#0" expanded="false" />
-            <element signature="e#14742#14743#0" expanded="false" />
-            <element signature="e#14792#14793#0" expanded="false" />
-            <element signature="e#14836#14837#0" expanded="false" />
-            <element signature="e#14960#14961#0" expanded="false" />
-            <element signature="e#15002#15003#0" expanded="false" />
-            <element signature="e#15060#15061#0" expanded="false" />
-            <element signature="e#15112#15113#0" expanded="false" />
-            <element signature="e#15209#15210#0" expanded="false" />
-            <element signature="e#15251#15252#0" expanded="false" />
-            <element signature="e#15314#15315#0" expanded="false" />
-            <element signature="e#15366#15367#0" expanded="false" />
-            <element signature="e#15465#15466#0" expanded="false" />
-            <element signature="e#15510#15511#0" expanded="false" />
-            <element signature="e#15576#15577#0" expanded="false" />
-            <element signature="e#15634#15635#0" expanded="false" />
-            <element signature="e#15759#15760#0" expanded="false" />
-            <element signature="e#15809#15810#0" expanded="false" />
-            <element signature="e#16053#16054#0" expanded="false" />
-            <element signature="e#16091#16092#0" expanded="false" />
-            <element signature="e#16144#16145#0" expanded="false" />
-            <element signature="e#16188#16189#0" expanded="false" />
-            <element signature="e#16307#16308#0" expanded="false" />
-            <element signature="e#16346#16347#0" expanded="false" />
-            <element signature="e#16401#16402#0" expanded="false" />
-            <element signature="e#16447#16448#0" expanded="false" />
-            <element signature="e#16578#16579#0" expanded="false" />
-            <element signature="e#16631#16632#0" expanded="false" />
-            <element signature="e#16884#16885#0" expanded="false" />
-            <element signature="e#16920#16921#0" expanded="false" />
-            <element signature="e#16969#16970#0" expanded="false" />
-            <element signature="e#17009#17010#0" expanded="false" />
-            <element signature="e#17105#17106#0" expanded="false" />
-            <element signature="e#17141#17142#0" expanded="false" />
-            <element signature="e#17190#17191#0" expanded="false" />
-            <element signature="e#17230#17231#0" expanded="false" />
-            <element signature="e#17320#17321#0" expanded="false" />
-            <element signature="e#17354#17355#0" expanded="false" />
-            <element signature="e#17397#17398#0" expanded="false" />
-            <element signature="e#17433#17434#0" expanded="false" />
-            <element signature="e#17548#17549#0" expanded="false" />
-            <element signature="e#17593#17594#0" expanded="false" />
-            <element signature="e#17660#17661#0" expanded="false" />
-            <element signature="e#17718#17719#0" expanded="false" />
-            <element signature="e#17811#17812#0" expanded="false" />
-            <element signature="e#17847#17848#0" expanded="false" />
-            <element signature="e#17894#17895#0" expanded="false" />
-            <element signature="e#17934#17935#0" expanded="false" />
-            <element signature="e#18061#18062#0" expanded="false" />
-            <element signature="e#18105#18106#0" expanded="false" />
-            <element signature="e#18167#18168#0" expanded="false" />
-            <element signature="e#18223#18224#0" expanded="false" />
-            <element signature="e#18319#18320#0" expanded="false" />
-            <element signature="e#18356#18357#0" expanded="false" />
-            <element signature="e#18405#18406#0" expanded="false" />
-            <element signature="e#18447#18448#0" expanded="false" />
-            <element signature="e#18571#18572#0" expanded="false" />
-            <element signature="e#18613#18614#0" expanded="false" />
-            <element signature="e#18671#18672#0" expanded="false" />
-            <element signature="e#18723#18724#0" expanded="false" />
-            <element signature="e#18818#18819#0" expanded="false" />
-            <element signature="e#18854#18855#0" expanded="false" />
-            <element signature="e#18903#18904#0" expanded="false" />
-            <element signature="e#18943#18944#0" expanded="false" />
-            <element signature="e#19042#19043#0" expanded="false" />
-            <element signature="e#19078#19079#0" expanded="false" />
-            <element signature="e#19130#19131#0" expanded="false" />
-            <element signature="e#19170#19171#0" expanded="false" />
-            <element signature="e#19271#19272#0" expanded="false" />
-            <element signature="e#19308#19309#0" expanded="false" />
-            <element signature="e#19362#19363#0" expanded="false" />
-            <element signature="e#19404#19405#0" expanded="false" />
-            <element signature="e#19500#19501#0" expanded="false" />
-            <element signature="e#19534#19535#0" expanded="false" />
-            <element signature="e#19582#19583#0" expanded="false" />
-            <element signature="e#19618#19619#0" expanded="false" />
-            <element signature="e#19724#19725#0" expanded="false" />
-            <element signature="e#19765#19766#0" expanded="false" />
-            <element signature="e#19824#19825#0" expanded="false" />
-            <element signature="e#19874#19875#0" expanded="false" />
-            <element signature="e#19956#19957#0" expanded="false" />
-            <element signature="e#19992#19993#0" expanded="false" />
-            <element signature="e#20040#20041#0" expanded="false" />
-            <element signature="e#20080#20081#0" expanded="false" />
-            <element signature="e#20158#20159#0" expanded="false" />
-            <element signature="e#20193#20194#0" expanded="false" />
-            <element signature="e#20239#20240#0" expanded="false" />
-            <element signature="e#20277#20278#0" expanded="false" />
-            <element signature="e#20375#20376#0" expanded="false" />
-            <element signature="e#20412#20413#0" expanded="false" />
-            <element signature="e#20463#20464#0" expanded="false" />
-            <element signature="e#20505#20506#0" expanded="false" />
-            <element signature="e#20597#20598#0" expanded="false" />
-            <element signature="e#20632#20633#0" expanded="false" />
-            <element signature="e#20677#20678#0" expanded="false" />
-            <element signature="e#20715#20716#0" expanded="false" />
-            <element signature="e#20844#20845#0" expanded="false" />
-            <element signature="e#20896#20897#0" expanded="false" />
-            <element signature="e#21144#21145#0" expanded="false" />
-            <element signature="e#21181#21182#0" expanded="false" />
-            <element signature="e#21230#21231#0" expanded="false" />
-            <element signature="e#21272#21273#0" expanded="false" />
-            <element signature="e#21374#21375#0" expanded="false" />
-            <element signature="e#21413#21414#0" expanded="false" />
-            <element signature="e#21468#21469#0" expanded="false" />
-            <element signature="e#21514#21515#0" expanded="false" />
-            <element signature="e#21611#21612#0" expanded="false" />
-            <element signature="e#21648#21649#0" expanded="false" />
-            <element signature="e#21699#21700#0" expanded="false" />
-            <element signature="e#21741#21742#0" expanded="false" />
-            <element signature="e#21833#21834#0" expanded="false" />
-            <element signature="e#21874#21875#0" expanded="false" />
-            <element signature="e#21932#21933#0" expanded="false" />
-            <element signature="e#21982#21983#0" expanded="false" />
-            <element signature="e#22109#22110#0" expanded="false" />
-            <element signature="e#22160#22161#0" expanded="false" />
-            <element signature="e#22399#22400#0" expanded="false" />
-            <element signature="e#22433#22434#0" expanded="false" />
-            <element signature="e#22476#22477#0" expanded="false" />
-            <element signature="e#22512#22513#0" expanded="false" />
-            <element signature="e#22605#22606#0" expanded="false" />
-            <element signature="e#22641#22642#0" expanded="false" />
-            <element signature="e#22688#22689#0" expanded="false" />
-            <element signature="e#22728#22729#0" expanded="false" />
-            <element signature="e#22818#22819#0" expanded="false" />
-            <element signature="e#22852#22853#0" expanded="false" />
-            <element signature="e#22897#22898#0" expanded="false" />
-            <element signature="e#22933#22934#0" expanded="false" />
-            <element signature="e#23041#23042#0" expanded="false" />
-            <element signature="e#23083#23084#0" expanded="false" />
-            <element signature="e#23144#23145#0" expanded="false" />
-            <element signature="e#23196#23197#0" expanded="false" />
-            <element signature="e#23293#23294#0" expanded="false" />
-            <element signature="e#23336#23337#0" expanded="false" />
-            <element signature="e#23398#23399#0" expanded="false" />
-            <element signature="e#23452#23453#0" expanded="false" />
-            <element signature="e#23556#23557#0" expanded="false" />
-            <element signature="e#23596#23597#0" expanded="false" />
-            <element signature="e#23653#23654#0" expanded="false" />
-            <element signature="e#23701#23702#0" expanded="false" />
-            <element signature="e#23818#23819#0" expanded="false" />
-            <element signature="e#23863#23864#0" expanded="false" />
-            <element signature="e#23933#23934#0" expanded="false" />
-            <element signature="e#23991#23992#0" expanded="false" />
-            <element signature="e#24099#24100#0" expanded="false" />
-            <element signature="e#24134#24135#0" expanded="false" />
-            <element signature="e#24178#24179#0" expanded="false" />
-            <element signature="e#24216#24217#0" expanded="false" />
-            <element signature="e#24335#24336#0" expanded="false" />
-            <element signature="e#24380#24381#0" expanded="false" />
-            <element signature="e#24450#24451#0" expanded="false" />
-            <element signature="e#24508#24509#0" expanded="false" />
-            <element signature="e#24630#24631#0" expanded="false" />
-            <element signature="e#24675#24676#0" expanded="false" />
-            <element signature="e#24738#24739#0" expanded="false" />
-            <element signature="e#24796#24797#0" expanded="false" />
-            <element signature="e#24945#24946#0" expanded="false" />
-            <element signature="e#24997#24998#0" expanded="false" />
+            <element signature="e#67434#67435#0" expanded="false" />
+            <element signature="e#67481#67482#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpProizvodHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="148" column="101" selection-start-line="148" selection-start-column="101" selection-end-line="148" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/uz/UzStanjeZalihaSkladistaHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="113" column="37" selection-start-line="113" selection-start-column="37" selection-end-line="113" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzStanjeZalihaSkladista.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/wo/WoPartnerSettingsHome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="104" column="34" selection-start-line="104" selection-start-column="34" selection-end-line="104" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/src/main/webapp/js/web_ordering.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3329453">
+          <caret line="25" column="22" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/web_ordering.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="841" column="19" selection-start-line="841" selection-start-column="19" selection-end-line="841" selection-end-column="19" />
+          <caret line="376" column="18" selection-start-line="376" selection-start-column="15" selection-end-line="376" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/wo_darex.css">
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/util/WOExceptionCodes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="714" column="15" selection-start-line="714" selection-start-column="12" selection-end-line="714" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpTelefonskiBroj.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="16" selection-start-line="52" selection-start-column="16" selection-end-line="52" selection-end-column="16" />
+          <caret line="27" column="54" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="54" />
           <folding>
-            <element signature="e#949#950#0" expanded="false" />
-            <element signature="e#987#988#0" expanded="false" />
-            <element signature="e#1061#1062#0" expanded="false" />
-            <element signature="e#1115#1116#0" expanded="false" />
-            <element signature="e#1234#1235#0" expanded="false" />
-            <element signature="e#1271#1272#0" expanded="false" />
-            <element signature="e#1331#1332#0" expanded="false" />
-            <element signature="e#1383#1384#0" expanded="false" />
-            <element signature="e#1480#1481#0" expanded="false" />
-            <element signature="e#1511#1512#0" expanded="false" />
-            <element signature="e#1727#1728#0" expanded="false" />
-            <element signature="e#1773#1774#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#874#875#0" expanded="false" />
+            <element signature="e#908#909#0" expanded="false" />
+            <element signature="e#1403#1404#0" expanded="false" />
+            <element signature="e#1454#1455#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/hr/KeRadnici.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/wo/WoMapKompanijskaSkladista.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="359" column="18" selection-start-line="359" selection-start-column="18" selection-end-line="359" selection-end-column="18" />
+          <caret line="54" column="34" selection-start-line="54" selection-start-column="34" selection-end-line="54" selection-end-column="34" />
           <folding>
-            <element signature="e#10298#10299#0" expanded="true" />
-            <element signature="e#10333#10334#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#905#906#0" expanded="false" />
+            <element signature="e#930#931#0" expanded="false" />
+            <element signature="e#967#968#0" expanded="false" />
+            <element signature="e#995#996#0" expanded="false" />
+            <element signature="e#1219#1220#0" expanded="false" />
+            <element signature="e#1261#1262#0" expanded="false" />
+            <element signature="e#1644#1645#0" expanded="false" />
+            <element signature="e#1689#1690#0" expanded="false" />
+            <element signature="e#2076#2077#0" expanded="false" />
+            <element signature="e#2121#2122#0" expanded="false" />
+            <element signature="e#2365#2366#0" expanded="false" />
+            <element signature="e#2409#2410#0" expanded="false" />
+            <element signature="e#2649#2650#0" expanded="false" />
+            <element signature="e#2695#2696#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/rs/invado/wo/test/WoWuserHomeTest.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62239087">
-          <caret line="97" column="13" selection-start-line="97" selection-start-column="13" selection-end-line="97" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dto/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="12" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
-          <folding>
-            <element signature="e#1221#1222#0" expanded="true" />
-            <element signature="e#1250#1251#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/wo/WoRezervacija.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="25" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.39075145">
+          <caret line="422" column="87" selection-start-line="422" selection-start-column="87" selection-end-line="422" selection-end-column="87" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/wo/WoArtikliNaAkcijiHome.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/ProductService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="99" column="35" selection-start-line="99" selection-start-column="35" selection-end-line="104" selection-end-column="62" />
+          <caret line="176" column="0" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/CommonService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.32956687">
-          <caret line="80" column="16" selection-start-line="80" selection-start-column="16" selection-end-line="80" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13559322">
-          <caret line="21" column="11" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/wo/WoUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25904763">
-          <caret line="16" column="16" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="19" />
-          <folding>
-            <element signature="e#2608#2609#0" expanded="true" />
-            <element signature="e#2638#2639#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.6470585">
-          <caret line="816" column="114" selection-start-line="816" selection-start-column="114" selection-end-line="816" selection-end-column="114" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="295" column="159" selection-start-line="295" selection-start-column="159" selection-end-line="295" selection-end-column="159" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/wo/WoUserHome.java">
+    <entry file="file://$PROJECT_DIR$/bin/src/main/resources/META-INF/persistence.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.3125">
+          <caret line="10" column="69" selection-start-line="10" selection-start-column="69" selection-end-line="10" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/spring/infrastructure.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.40625">
+          <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/src/main/webapp/WEB-INF/jsp/contact.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.346154">
+          <caret line="190" column="0" selection-start-line="190" selection-start-column="0" selection-end-line="193" selection-end-column="103" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/target/classes/META-INF/spring/infrastructure.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44513714">
+          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/target/classes/META-INF/persistence.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22077923">
+          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bin/src/main/resources/META-INF/spring/infrastructure.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="96" column="38" selection-start-line="96" selection-start-column="38" selection-end-line="96" selection-end-column="38" />
+          <caret line="21" column="43" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/contact.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.5">
-          <caret line="22" column="57" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
+        <state vertical-scroll-proportion="-24.846153">
+          <caret line="230" column="125" selection-start-line="230" selection-start-column="125" selection-end-line="230" selection-end-column="125" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/LogOnService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45617172">
-          <caret line="119" column="90" selection-start-line="119" selection-start-column="90" selection-end-line="119" selection-end-column="90" />
+        <state vertical-scroll-proportion="0.7244389">
+          <caret line="125" column="2" selection-start-line="125" selection-start-column="2" selection-end-line="125" selection-end-column="2" />
           <folding>
-            <element signature="e#7445#7462#0" expanded="true" />
+            <element signature="e#7620#7637#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3047,7 +2488,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>WebOrdering</last-edited>
+          <last-edited>Spring|WebOrdering</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

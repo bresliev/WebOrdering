@@ -11,7 +11,8 @@
     <file url="file://$PROJECT_DIR$/Documentation/Sastavi/insertsastavproizvoda.sql" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/Documentation/Sastavi/insertvratrprozasastav.sql" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/bin/src/main/webapp/js/web_ordering.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzDokument.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/BasketController.java" charset="windows-1250" />
-    <file url="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessing.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessing.java" charset="windows-1252" />
   </component>
 </project>
