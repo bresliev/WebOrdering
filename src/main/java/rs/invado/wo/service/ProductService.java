@@ -94,11 +94,14 @@ public class ProductService {
         for (WoArtikliNaAkciji o : laa) {
             laaMap.put((Integer) o.getOcpProizvod().getProizvod(), (String) o.getTipAkcije());
         }*/
+
+
         int i = 0;
         int obradjenoSkl = 0;
+
         for (OcpProizvod item : lp) {
             obradjenoSkl = 0;
-            WoArtikliNaAkciji wana = woArtikliNaAkcijiDAO.findAkcijiZaArtikal(DateUtils.truncate(new Date(), Calendar.DATE),  woParametri, item);
+            WoArtikliNaAkciji wana = woArtikliNaAkcijiDAO.findAkcijiZaArtikal(DateUtils.truncate(new Date(), Calendar.DATE), woParametri, item);
             item.setTipAkcije(wana == null ? null : wana.getTipAkcije());
             //Setuj porez
             item.setStopaPoreza(ocpProizvodDAO.findStopaPorezaZaProizvod(woPartnerSetting.get(0).getOrganizacionaJedinica(), item.getProizvod()));
@@ -108,9 +111,7 @@ public class ProductService {
             //setuj atribute
             String dezenIStruktura = "";
             String vrAtr = null;
-
             List<VrAtrProizvod> vatpList = ocpVrAtrProizvodDAO.findByNivoAtributa(item.getProizvod(), woConfigSingleton.getAttributes());
-
             for (OcpKlasifikacijaProizvoda klasifikacijaProizvoda : item.getOcpKlasifikacijaProizvoda()) {
                 for (VrAtrProizvod ocpVrAtrProizvod : vatpList) {
                     if (klasifikacijaProizvoda.getId().getVrstaKlasifikacije() == 1
@@ -128,7 +129,7 @@ public class ProductService {
                                 && ocpVrAtrProizvod.getVrednost().equals("DA")) {
                             item.setPrimeniJsklPakovanje(true);
                         } else if (ocpVrAtrProizvod.getAtribut() == Integer.valueOf(woConfigSingleton.getAttributes()[3]) && ocpVrAtrProizvod.getVrednost() != null
-                                && !ocpVrAtrProizvod.getVrednost().equals("DA")){
+                                && !ocpVrAtrProizvod.getVrednost().equals("DA")) {
                             item.setPrimeniJsklPakovanje(false);
                         }
                         if (ocpVrAtrProizvod.getAtribut() == Integer.valueOf(woConfigSingleton.getAttributes()[4]) && ocpVrAtrProizvod.getVrednost() != null) {
@@ -137,12 +138,15 @@ public class ProductService {
                     }
                 }
             }
+
             item.setDezenIstruktira(dezenIStruktura);
             item.setJedinicaMereRezervacije(woParametri.getJedinicaMereRezervacije());
             for (OcpKlasifikacijaProizvoda ocpKlasifikacija : item.getOcpKlasifikacijaProizvoda()) {
-                item.setMaxRabat(prodMaxRabatiDAO.findByKlasa(OJ, ocpKlasifikacija.getId().getVrstaKlasifikacije(), ocpKlasifikacija.getId().getKlasifikacija()).getMaxRabat());
-                if (item.getMaxRabat().compareTo(new BigDecimal(-1)) != 0)
-                    break;
+                if (ocpKlasifikacija.getId().getVrstaKlasifikacije() != 1) {
+                    item.setMaxRabat(prodMaxRabatiDAO.findByKlasa(OJ, ocpKlasifikacija.getId().getVrstaKlasifikacije(), ocpKlasifikacija.getId().getKlasifikacija()).getMaxRabat());
+                    if (item.getMaxRabat().compareTo(new BigDecimal(-1)) != 0)
+                        break;
+                }
             }
             //Setuj default pakovanja
             if (transportnaPakovanjaProizvoda != null)
@@ -152,7 +156,6 @@ public class ProductService {
             BigDecimal raspolozivaKolicina = new BigDecimal(0.0);
 
             Set<Integer> skladista = new HashSet<Integer>();
-
             for (WoPartnerSetting wps : woPartnerSetting) {
                 skladista.add(new Integer(wps.getIdSkladista()));
                 //skladista.add(new Integer(woMapKompanijskaSkladistaDAO.findActualSklRaspolozivo(wps.getIdSkladista()).getUzSkladisteRezervacija()));
@@ -250,6 +253,7 @@ public class ProductService {
 
                 }
             }
+
             //setuj tip akcije
             /*if (laaMap.containsKey(item.getProizvod())) {
                 item.setTipAkcije(laaMap.get(item.getProizvod()).toString());
@@ -310,10 +314,10 @@ public class ProductService {
         OcpProizvod proizvod = ocpProizvodDAO.findFilterProizvodiById(new Integer(id), pageNo, pageSize, woParametri, woPartnerSetting);
 
 
-
         List<OcpProizvod> lp = new ArrayList<OcpProizvod>();
         if (proizvod != null) {
             lp.add(proizvod);
+
             setTransAtrZaPro(lp, cenovnik, woPartnerSetting, transortnaPakovanjaProizvoda, woParametri, OJ);
 
             return lp.get(0);
@@ -322,11 +326,10 @@ public class ProductService {
     }
 
     public OcpProizvod getProizvodByIdAll(int id, Map<Integer, BigDecimal> cenovnik, WoParametri woParametri, int pageNo, int pageSize,
-                                       List<WoPartnerSetting> woPartnerSetting, Map<Integer, BigDecimal> transortnaPakovanjaProizvoda, Integer OJ) {
+                                          List<WoPartnerSetting> woPartnerSetting, Map<Integer, BigDecimal> transortnaPakovanjaProizvoda, Integer OJ) {
 
         //OcpProizvod proizvod = ocpProizvodDAO.findById(id);
         OcpProizvod proizvod = ocpProizvodDAO.findFilterProizvodiByIdAll(new Integer(id), pageNo, pageSize, woParametri, woPartnerSetting);
-
 
 
         List<OcpProizvod> lp = new ArrayList<OcpProizvod>();
@@ -340,7 +343,7 @@ public class ProductService {
     }
 
     public OcpProizvod getProizvodByIdR(int id, Map<Integer, BigDecimal> cenovnik, WoParametri woParametri, int pageNo, int pageSize,
-                                       List<WoPartnerSetting> woPartnerSetting, Map<Integer, BigDecimal> transortnaPakovanjaProizvoda, Integer OJ) {
+                                        List<WoPartnerSetting> woPartnerSetting, Map<Integer, BigDecimal> transortnaPakovanjaProizvoda, Integer OJ) {
 
         //OcpProizvod proizvod = ocpProizvodDAO.findById(id);
         OcpProizvod proizvod = ocpProizvodDAO.findProizvodiByIdR(new Integer(id), pageNo, pageSize, woParametri, woPartnerSetting);

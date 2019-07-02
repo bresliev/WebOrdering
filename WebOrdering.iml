@@ -16,6 +16,56 @@
         </sourceRoots>
       </configuration>
     </facet>
+    <facet type="javaeeApplication" name="javaEEApplication">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="application.xml" url="file://$MODULE_DIR$/src/main/webapp/images/potvrdi.png" />
+        </descriptors>
+      </configuration>
+    </facet>
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/rs/invado/wo/domain/prod/ProdMaxRabati.java</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp</file>
+          <file>file://$MODULE_DIR$/src/main/resources/META-INF/spring/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/META-INF/spring/infrastructure.xml</file>
+          <file>file://$MODULE_DIR$/bin/src/main/webapp/WEB-INF/jboss-as-spring-mvc-context.xml</file>
+          <file>file://$MODULE_DIR$/bin/src/test/resources/test-context.xml</file>
+          <file>file://$MODULE_DIR$/bin/target/WebOrdering/WEB-INF/jboss-as-spring-mvc-context.xml</file>
+          <file>file://$MODULE_DIR$/bin/target/classes/META-INF/spring/infrastructure.xml</file>
+          <file>file://$MODULE_DIR$/bin/target/classes/META-INF/spring/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/jboss-as-spring-mvc-context.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/jsp/search.jsp</file>
+          <file>file://$MODULE_DIR$/bin/src/main/resources/META-INF/spring/infrastructure.xml</file>
+          <file>file://$MODULE_DIR$/bin/src/main/resources/META-INF/spring/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/bin/target/WebOrdering/WEB-INF/classes/META-INF/spring/infrastructure.xml</file>
+          <file>file://$MODULE_DIR$/bin/target/WebOrdering/WEB-INF/classes/META-INF/spring/applicationContext.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
+    <facet type="jpa" name="JPA">
+      <configuration>
+        <setting name="validation-enabled" value="true" />
+        <setting name="provider-name" value="" />
+        <datasource-mapping>
+          <factory-entry name="entityManagerFactory" value="dataSource" />
+          <factory-entry name="testPU" />
+        </datasource-mapping>
+        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/test/resources/META-INF/test-persistence.xml" />
+      </configuration>
+    </facet>
+    <facet type="ejb" name="EJB">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="ejb-jar.xml" url="file://$MODULE_DIR$/src/main/webapp/css/themes/dark/play.png" />
+        </descriptors>
+        <ejbRoots>
+          <root url="file://$MODULE_DIR$/src/main/java" />
+          <root url="file://$MODULE_DIR$/src/main/resources" />
+        </ejbRoots>
+      </configuration>
+    </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_5" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />

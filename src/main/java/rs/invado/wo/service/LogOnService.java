@@ -123,7 +123,7 @@ public class LogOnService {
 /*
                 connection = DriverManager.getConnection(
                         "jdbc:oracle:thin:@10.10.10.171:1521:test", userName, password);
-                        */
+*/
 
                 if (connection == null) {
                     throw new WOException(WOExceptionCodes.WO_UNEXESTING_USER);

@@ -717,6 +717,7 @@ $(document).ready(function () {
             var pakovanje = $("#pakovanje-" + productId + " :selected").val();
             var orderedQuantity = $("#orderedQuantity-" + productId).val();
             var zalihe = "";
+            console.log(' Poruceno '+orderedQuantity);
             if ($.trim(orderedQuantity) == '' || parseFloat(orderedQuantity) <= 0 || orderedQuantity % Math.floor(orderedQuantity) != 0) {
                 $(".error-box").text("Odabrani proizvod nije moguæe dodati u korpu. Proverite unetu kolièinu!");
                 $("#dialog-message").dialog("open");
@@ -730,6 +731,7 @@ $(document).ready(function () {
                         orderedQuantity: parseFloat(orderedQuantity),
                         pakovanje: pakovanje
                     }, function (result) {
+                        console.log('result je '+result +'  '+result.errorMsg);
                         if (result && !result.errorMsg) {
 
                             if (result.primeniJsklPakovanje) {
@@ -753,6 +755,7 @@ $(document).ready(function () {
                                 zalihe = Math.floor(result.stanjeZalihaAlt) + ' ' + result.jmAlt + ' / ' + result.stanjeZaliha + ' ' + result.jm;
                             }
                             $('#raspolozivo-' + productId).text('Zalihe: ' + zalihe);
+                            console.log('Zalihe: ' + zalihe);
                             $(".error-box").text("Odabrani proizvod nije moguæe dodati u korpu. Proverite stanje na zalihama sa Vašom službom prodaje.");
                             $("#dialog-message").dialog("open");
                         }

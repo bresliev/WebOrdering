@@ -194,10 +194,16 @@
                         mob: 065 31 95 243<br>
                         e-mail: <b><a style="color:#58595b;"
                                       href="mailto:vladimir.besevic@darex.rs">vladimir.besevic@darex.rs</a></b><br><br>
+
                         <b>Radiša Vatazoviæ</b><br>
                         mob: 065 31 95 284<br>
                         e-mail: <b><a style="color:#58595b;"
-                                      href="mailto:radisa.vatazovic@darex.rs">radisa.vatazovic@darex.rs</a></b>
+                                      href="mailto:radisa.vatazovic@darex.rs">radisa.vatazovic@darex.rs</a></b><br><br>
+
+                        <b>Marjan Joviæ</b><br>
+                        mob: 065 31 95 669<br>
+                        e-mail: <b><a style="color:#58595b;"
+                                      href="mailto:marjan.jovic@darex.rs">radisa.vatazovic@darex.rs</a></b>
                     </td>
                     <td>
                         <b>Miodrag Tasiæ</b><br>
@@ -205,10 +211,14 @@
                         e-mail: <b><a style="color:#58595b;"
                                       href="mailto:miodrag.tasic@darex.rs">miodrag.tasic@darex.rs</a></b><br><br>
 
-                        <b>Slaviša Petkoviæ</b><br>
-                        mob: 065 31 95 244<br>
+                        <b>Vladimir Kotarac</b><br>
+                        mob: 065 31 95 668<br>
                         e-mail: <b><a style="color:#58595b;"
-                                      href="mailto:slavisa.petkovic@darex.rs">slavisa.petkovic@darex.rs</a></b>
+                                      href="mailto:vladimir.kotarac@darex.rs">vladimir.kotarac@darex.rs</a></b><br><br><br>
+
+                        <b></b><br>
+                        <br>
+                        <b><a> </a></b>
                     </td>
                     <td>
                         <b>Aleksandar Petkoviæ</b><br>
@@ -218,7 +228,10 @@
                         <b>Nikola Gavriloviæ</b><br>
                         mob: 065 31 95 254<br>
                         e-mail: <b><a style="color:#58595b;"
-                                      href="mailto:nikola.gavrilovic@darex.rs">nikola.gavrilovic@darex.rs</a></b><br>
+                                      href="mailto:nikola.gavrilovic@darex.rs">nikola.gavrilovic@darex.rs</a></b><br><br><br>
+                        <b></b><br>
+                        <br>
+                        <b><a> </a></b>
                     </td>
                 </tr>
                 <tr>
