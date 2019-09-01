@@ -118,12 +118,12 @@ public class LogOnService {
             //if (woUser.getRadnik().getObrJedinica())
             Connection connection = null;
             try {
-                connection = DriverManager.getConnection(
-                        "jdbc:oracle:thin:@10.10.10.170:1521:darex", userName, password);
-/*
-                connection = DriverManager.getConnection(
-                        "jdbc:oracle:thin:@10.10.10.171:1521:test", userName, password);
-*/
+
+// produkcija
+                connection = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.170:1521:darex", userName, password);
+
+// test
+//                connection = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.171:1521:test", userName, password);
 
                 if (connection == null) {
                     throw new WOException(WOExceptionCodes.WO_UNEXESTING_USER);

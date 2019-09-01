@@ -289,19 +289,27 @@ public class BasketBusinessProcessing {
         uzStanjeZalihaSkladistaId.setIdSkladista(ocpProizvod.getMaticnoSkladiste());
         uzStanjeZalihaSkladistaId.setProizvod(ocpProizvod.getProizvod());
         UzStanjeZalihaSkladista uzStanjeZalihaSkladista = uzStanjeZalihaSkladistaDAO.findById(uzStanjeZalihaSkladistaId);
+        BigDecimal kolicinaPoStanjuZ = uzStanjeZalihaSkladista.getKolicinaPoStanjuZ();
+        BigDecimal rezervisanaKol = uzStanjeZalihaSkladista.getRezervisanaKol();
         if (skladisteRezervacije == 10) {
         uzStanjeZalihaSkladistaId18.setIdSkladista(18);
         uzStanjeZalihaSkladistaId18.setProizvod(ocpProizvod.getProizvod());
-        UzStanjeZalihaSkladista uzStanjeZalihaSkladista18 = uzStanjeZalihaSkladistaDAO.findById(uzStanjeZalihaSkladistaId18);
-            uzStanjeZalihaSkladista.setKolicinaPoStanjuZ(uzStanjeZalihaSkladista.getKolicinaPoStanjuZ().add(uzStanjeZalihaSkladista18.getKolicinaPoStanjuZ()));
-            uzStanjeZalihaSkladista.setRezervisanaKol(uzStanjeZalihaSkladista.getRezervisanaKol().add(uzStanjeZalihaSkladista18.getRezervisanaKol()));
+            UzStanjeZalihaSkladista uzStanjeZalihaSkladista18 = new UzStanjeZalihaSkladista();
+            uzStanjeZalihaSkladista18 = uzStanjeZalihaSkladistaDAO.findById(uzStanjeZalihaSkladistaId18);
+            if (uzStanjeZalihaSkladista18 == null){
+                uzStanjeZalihaSkladista18 = new UzStanjeZalihaSkladista();
+                uzStanjeZalihaSkladista18.setKolicinaPoStanjuZ(new java.math.BigDecimal(0));
+                uzStanjeZalihaSkladista18.setRezervisanaKol(new java.math.BigDecimal(0));
+            }
+            kolicinaPoStanjuZ = kolicinaPoStanjuZ.add(uzStanjeZalihaSkladista18.getKolicinaPoStanjuZ());
+            rezervisanaKol = rezervisanaKol.add(uzStanjeZalihaSkladista18.getRezervisanaKol());
         }
         if (ocpProizvod.getPrimeniJsklPakovanje() && narucenaKolicina.compareTo(ocpProizvod.getBrojPakovanja().get(aktuelnoPakovanje).getBrojPakovanja()) == 1) {
             System.out.println("poruceno "+narucenaKolicina + "  " + aktuelnoPakovanje+"  "+ocpProizvod.getBrojPakovanja()+" "+ ocpProizvod.getBrojPakovanja().get(aktuelnoPakovanje).getBrojPakovanja());
             throw new WOException(WOExceptionCodes.WO_INSUFFICIENT_SKU_QUANTITY);
         }
         if (uzStanjeZalihaSkladista == null || narucenaKolicina.multiply(aktuelnoPakovanje)
-                .compareTo(WOUtil.trimToZero(uzStanjeZalihaSkladista.getKolicinaPoStanjuZ()).subtract(WOUtil.trimToZero(uzStanjeZalihaSkladista.getRezervisanaKol()))) == 1) {
+                .compareTo(WOUtil.trimToZero(kolicinaPoStanjuZ).subtract(WOUtil.trimToZero(rezervisanaKol))) == 1) {
 
             /*System.out.println("poruceno drugi "+narucenaKolicina + "  " + aktuelnoPakovanje+"  "+uzStanjeZalihaSkladista.getKolicinaPoStanjuZ()+" "+uzStanjeZalihaSkladista.getRezervisanaKol()
                     +"  "+uzStanjeZalihaSkladista18.getKolicinaPoStanjuZ()+" "+uzStanjeZalihaSkladista18.getRezervisanaKol());*/

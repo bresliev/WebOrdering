@@ -63,6 +63,11 @@
                         e-mail: <b><a style="color:#58595b;" href="mailto:vera.maslakovic@darex.rs">vera.maslakovic@darex.rs</a></b>
                     </td>
                     <td>
+                        <b>Anðela Kremenoviæ</b><br>
+                        tel: +381 (0)11 20 91 621<br>
+                        fax: +381 (0)11 20 91 699<br>
+                        mob: +381 (0)65 31 95 240<br>
+                        e-mail: <b><a style="color:#58595b;" href="mailto:andjela.kremenovic@darex.rs">andjela.kremenovic@darex.rs</a></b>
                     </td>
 
                 </tr>
@@ -178,8 +183,12 @@
                         e-mail: <b><a style="color:#58595b;" href="mailto:vera.maslakovic@darex.rs">vera.maslakovic@darex.rs</a></b>
                     </td>
                     <td>
+                        <b>Anðela Kremenoviæ</b><br>
+                        tel: 011 20 91 621<br>
+                        fax: 011 20 91 699<br>
+                        mob: 065 31 95 240<br>
+                        e-mail: <b><a style="color:#58595b;" href="mailto:andjela.kremenovic@darex.rs">andjela.kremenovic@darex.rs</a></b>
                     </td>
-
                 </tr>
                 <tr>
                     <td colspan="3"

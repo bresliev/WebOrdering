@@ -102,7 +102,11 @@ import java.util.*;
                         "                and ks.id_skladista_rezervacija = u.id_skladista" +
                         "                 and u.proizvod# = p.proizvod#" +
                         "                and u.kolicina_po_stanju_z - u.rezervisana_kol > 0" +
-                        "                and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA')" +
+                        "                and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA'" +
+                        "                UNION" +
+                        "                select 1 from uz_map_skl_carinsko c, uz_stanje_zaliha_skladista u" +
+                        "                where w.id_skladista = c.id_skladista" +
+                        "                and c.id_skl_carinsko = u.ic_skladista )" +
                         "                and a.vrednost = 'DA')" +
                         "        or (exists (select 1" +
                         "                    from wo_partner_settings w, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak" +
@@ -119,6 +123,16 @@ import java.util.*;
                         "                     and w.id_skladista = ks.id_skladista_raspolozivo" +
                         "                     and ks.id_skladista_rezervacija = u.id_skladista" +
                         "                     and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA'" +
+                        "                     and s.proizvod#_ulaz = pak.proizvod_ref" +
+                        "                     and pak.transportno = 'DA'" +
+                        "                     and s.proizvod#_ulaz = p.proizvod#" +
+                        "                     and u.proizvod#  = s.proizvod#_izlaz" +
+                        "                     and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1" +
+                        "                     UNION" +
+                        "                     select 1" +
+                        "                     from wo_partner_settings w, uz_map_skl_carinsko c, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak" +
+                        "                     where c.id_skladista = w.id_skladista" +
+                        "                     and c.id_skl_carinsko = u.id_skladista" +
                         "                     and s.proizvod#_ulaz = pak.proizvod_ref" +
                         "                     and pak.transportno = 'DA'" +
                         "                     and s.proizvod#_ulaz = p.proizvod#" +
@@ -173,7 +187,11 @@ import java.util.*;
                         "                and ks.id_skladista_rezervacija = u.id_skladista" +
                         "                 and u.proizvod# = p.proizvod#" +
                         "                and u.kolicina_po_stanju_z - u.rezervisana_kol > 0" +
-                        "                and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA')" +
+                        "                and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA'" +
+                        "                UNION" +
+                        "                select 1 from uz_map_skl_carinsko c, uz_stanje_zaliha_skladista u" +
+                        "                where w.id_skladista = c.id_skladista" +
+                        "                and c.id_skl_carinsko = u.ic_skladista )" +
                         "                and a.vrednost = 'DA')" +
                         "        or (exists (select 1" +
                         "                    from wo_partner_settings w, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak" +
@@ -190,6 +208,16 @@ import java.util.*;
                         "                     and w.id_skladista = ks.id_skladista_raspolozivo" +
                         "                     and ks.id_skladista_rezervacija = u.id_skladista" +
                         "                     and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA'" +
+                        "                     and s.proizvod#_ulaz = pak.proizvod_ref" +
+                        "                     and pak.transportno = 'DA'" +
+                        "                     and s.proizvod#_ulaz = p.proizvod#" +
+                        "                     and u.proizvod#  = s.proizvod#_izlaz" +
+                        "                     and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1" +
+                        "                     UNION" +
+                        "                     select 1" +
+                        "                     from wo_partner_settings w, uz_map_skl_carinsko c, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak" +
+                        "                     where c.id_skladista = w.id_skladista" +
+                        "                     and c.id_skl_carinsko = u.id_skladista" +
                         "                     and s.proizvod#_ulaz = pak.proizvod_ref" +
                         "                     and pak.transportno = 'DA'" +
                         "                     and s.proizvod#_ulaz = p.proizvod#" +
@@ -252,7 +280,11 @@ import java.util.*;
                         "                and ks.id_skladista_rezervacija = u.id_skladista" +
                         "                 and u.proizvod# = p.proizvod#" +
                         "                and u.kolicina_po_stanju_z - u.rezervisana_kol > 0" +
-                        "                and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA')" +
+                        "                and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA'" +
+                        "                UNION" +
+                        "                select 1 from uz_map_skl_carinsko c, uz_stanje_zaliha_skladista u" +
+                        "                where w.id_skladista = c.id_skladista" +
+                        "                and c.id_skl_carinsko = u.ic_skladista )" +
                         "                and a.vrednost = 'DA')" +
                         "        or (exists (select 1" +
                         "                    from wo_partner_settings w, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak" +
@@ -269,6 +301,16 @@ import java.util.*;
                         "                     and w.id_skladista = ks.id_skladista_raspolozivo" +
                         "                     and ks.id_skladista_rezervacija = u.id_skladista" +
                         "                     and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA'" +
+                        "                     and s.proizvod#_ulaz = pak.proizvod_ref" +
+                        "                     and pak.transportno = 'DA'" +
+                        "                     and s.proizvod#_ulaz = p.proizvod#" +
+                        "                     and u.proizvod#  = s.proizvod#_izlaz" +
+                        "                     and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1" +
+                        "                     UNION" +
+                        "                     select 1" +
+                        "                     from wo_partner_settings w, uz_map_skl_carinsko c, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak" +
+                        "                     where c.id_skladista = w.id_skladista" +
+                        "                     and c.id_skl_carinsko = u.id_skladista" +
                         "                     and s.proizvod#_ulaz = pak.proizvod_ref" +
                         "                     and pak.transportno = 'DA'" +
                         "                     and s.proizvod#_ulaz = p.proizvod#" +
@@ -328,7 +370,11 @@ import java.util.*;
                         "                and ks.id_skladista_rezervacija = u.id_skladista" +
                         "                 and u.proizvod# = p.proizvod#" +
                         "                and u.kolicina_po_stanju_z - u.rezervisana_kol > 0" +
-                        "                and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA')" +
+                        "                and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA'" +
+                        "                UNION" +
+                        "                select 1 from uz_map_skl_carinsko c, uz_stanje_zaliha_skladista u" +
+                        "                where w.id_skladista = c.id_skladista" +
+                        "                and c.id_skl_carinsko = u.ic_skladista )" +
                         "                and a.vrednost = 'DA')" +
                         "        or (exists (select 1" +
                         "                    from wo_partner_settings w, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak" +
@@ -345,6 +391,16 @@ import java.util.*;
                         "                     and w.id_skladista = ks.id_skladista_raspolozivo" +
                         "                     and ks.id_skladista_rezervacija = u.id_skladista" +
                         "                     and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA'" +
+                        "                     and s.proizvod#_ulaz = pak.proizvod_ref" +
+                        "                     and pak.transportno = 'DA'" +
+                        "                     and s.proizvod#_ulaz = p.proizvod#" +
+                        "                     and u.proizvod#  = s.proizvod#_izlaz" +
+                        "                     and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1" +
+                        "                     UNION" +
+                        "                     select 1" +
+                        "                     from wo_partner_settings w, uz_map_skl_carinsko c, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak" +
+                        "                     where c.id_skladista = w.id_skladista" +
+                        "                     and c.id_skl_carinsko = u.id_skladista" +
                         "                     and s.proizvod#_ulaz = pak.proizvod_ref" +
                         "                     and pak.transportno = 'DA'" +
                         "                     and s.proizvod#_ulaz = p.proizvod#" +
@@ -390,50 +446,57 @@ import java.util.*;
                         + "           or lower(dodatni_naziv) like '%'||lower(:namePattern)||'%')"
                         + "    and p.proizvod# = a.proizvod#"
                         + "     and a.atribut# = :proveraZaliha "
-                        + "   and ((exists (select 1 "
-                        + "              from wo_partner_settings w, uz_stanje_zaliha_skladista u"
-                        + "              where w.poslovni_partner# = :partner"
-                        + "              and w.id_kompanija_korisnik = :kompanija"
-                        + "              and w.id_skladista = u.id_skladista"
-                        + "              and u.proizvod# = p.proizvod# "
-                        + "              and u.kolicina_po_stanju_z - u.rezervisana_kol >0 "
-                        + "              UNION "
-                        + "              select 1"
-                        + "              from wo_partner_settings w, wo_map_kompanijska_skladista ks, uz_stanje_zaliha_skladista u"
-                        + "              where w.poslovni_partner# = :partner"
-                        + "              and w.id_kompanija_korisnik = :kompanija"
-                        + "              and w.id_kompanija_korisnik = ks.id_kompanije_korisnik"
-                        + "              and w.id_skladista = ks.id_skladista_raspolozivo "
-                        + "             and ks.id_skladista_rezervacija = u.id_skladista "
-                        + "             and u.proizvod# = p.proizvod# "
-                        + "             and u.kolicina_po_stanju_z - u.rezervisana_kol > 0 "
-                        + "             and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA') "
-                        + "        and a.vrednost = 'DA')"
-                        + "        or (exists (select 1"
-                        + "              from wo_partner_settings w, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak "
-                        + "              where w.poslovni_partner# = :partner"
-                        + "              and w.id_kompanija_korisnik = :kompanija"
-                        + "              and w.id_skladista = u.id_skladista"
-                        + "              and s.proizvod#_ulaz = pak.proizvod_ref"
-                        + "              and pak.transportno = 'DA'"
-                        + "              and s.proizvod#_ulaz = p.proizvod#"
-                        + "              and u.proizvod#  = s.proizvod#_izlaz"
-                        + "              and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1"
-                        + "               UNION "
-                        + "              select 1"
-                        + "              from wo_partner_settings w,  wo_map_kompanijska_skladista ks, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak "
-                        + "              where w.poslovni_partner# = :partner"
-                        + "              and w.id_kompanija_korisnik = :kompanija"
-                        + "              and w.id_kompanija_korisnik = ks.id_kompanije_korisnik "
-                        + "              and w.id_skladista = ks.id_skladista_raspolozivo "
-                        + "              and ks.id_skladista_rezervacija = u.id_skladista "
-                        + "              and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA' "
-                        + "              and s.proizvod#_ulaz = pak.proizvod_ref"
-                        + "              and pak.transportno = 'DA'"
-                        + "              and s.proizvod#_ulaz = p.proizvod#"
-                        + "              and u.proizvod#  = s.proizvod#_izlaz"
-                        + "              and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1) and a.vrednost = 'SASTAV')"
-                        + "       or a.vrednost = 'NE')"
+                        +" and ((exists (select 1"
+                        +"                from uz_stanje_zaliha_skladista u"
+                        +"                where w.id_skladista = u.id_skladista"
+                        +"                and u.proizvod# = p.proizvod#"
+                        +"                and u.kolicina_po_stanju_z - u.rezervisana_kol >0"
+                        +"                UNION"
+                        +"                select 1"
+                        +"                from wo_partner_settings w, wo_map_kompanijska_skladista ks, uz_stanje_zaliha_skladista u"
+                        +"                where  w.id_kompanija_korisnik = ks.id_kompanije_korisnik"
+                        +"                and w.id_skladista = ks.id_skladista_raspolozivo"
+                        +"                and ks.id_skladista_rezervacija = u.id_skladista"
+                        +"                 and u.proizvod# = p.proizvod#"
+                        +"                and u.kolicina_po_stanju_z - u.rezervisana_kol > 0 "
+                        +"                and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA'"
+                        +"                UNION"
+                        +"                select 1 from uz_map_skl_carinsko c, uz_stanje_zaliha_skladista u"
+                        +"                where w.id_skladista = c.id_skladista"
+                        +"                and c.id_skl_carinsko = u.ic_skladista )"
+                        +"                and a.vrednost = 'DA')"
+                        +"        or (exists (select 1"
+                        +"                    from wo_partner_settings w, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak"
+                        +"                    where   w.id_skladista = u.id_skladista"
+                        +"                    and s.proizvod#_ulaz = pak.proizvod_ref"
+                        +"                    and pak.transportno = 'DA'"
+                        +"                     and s.proizvod#_ulaz = p.proizvod#"
+                        +"                     and u.proizvod#  = s.proizvod#_izlaz"
+                        +"                     and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1"
+                        +"                     UNION"
+                        +"                     select 1"
+                        +"                     from wo_partner_settings w,  wo_map_kompanijska_skladista ks, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak"
+                        +"                     where  w.id_kompanija_korisnik = ks.id_kompanije_korisnik"
+                        +"                     and w.id_skladista = ks.id_skladista_raspolozivo"
+                        +"                     and ks.id_skladista_rezervacija = u.id_skladista"
+                        +"                     and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA'"
+                        +"                     and s.proizvod#_ulaz = pak.proizvod_ref"
+                        +"                     and pak.transportno = 'DA'"
+                        +"                     and s.proizvod#_ulaz = p.proizvod#"
+                        +"                     and u.proizvod#  = s.proizvod#_izlaz"
+                        +"                     and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1"
+                        +"                     UNION"
+                        +"                     select 1"
+                        +"                     from wo_partner_settings w, uz_map_skl_carinsko c, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak"
+                        +"                     where c.id_skladista = w.id_skladista"
+                        +"                     and c.id_skl_carinsko = u.id_skladista"
+                        +"                     and s.proizvod#_ulaz = pak.proizvod_ref"
+                        +"                     and pak.transportno = 'DA'"
+                        +"                     and s.proizvod#_ulaz = p.proizvod#"
+                        +"                     and u.proizvod#  = s.proizvod#_izlaz"
+                        +"                     and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1)"
+                        +"                     and a.vrednost = 'SASTAV')"
+                        +"                     or a.vrednost = 'NE')"
                         + "     and c.klasacene = :klasaCene"
                         + "    and c.organizaciona_jedinica# = :ojc "
                         + "     and c.id_klasa_cene = :klc "
@@ -456,50 +519,57 @@ import java.util.*;
                         + "           or lower(dodatni_naziv) like '%'||lower(:namePattern)||'%')"
                         + "  and p.proizvod# = a.proizvod#"
                         + "   and a.atribut# = :proveraZaliha "
-                        + "   and ((exists (select 1 "
-                        + "              from wo_partner_settings w, uz_stanje_zaliha_skladista u"
-                        + "              where w.poslovni_partner# = :partner"
-                        + "              and w.id_kompanija_korisnik = :kompanija"
-                        + "              and w.id_skladista = u.id_skladista"
-                        + "              and u.proizvod# = p.proizvod# "
-                        + "              and u.kolicina_po_stanju_z - u.rezervisana_kol >0 "
-                        + "              UNION "
-                        + "              select 1"
-                        + "              from wo_partner_settings w, wo_map_kompanijska_skladista ks, uz_stanje_zaliha_skladista u"
-                        + "              where w.poslovni_partner# = :partner"
-                        + "              and w.id_kompanija_korisnik = :kompanija"
-                        + "              and w.id_kompanija_korisnik = ks.id_kompanije_korisnik"
-                        + "              and w.id_skladista = ks.id_skladista_raspolozivo "
-                        + "             and ks.id_skladista_rezervacija = u.id_skladista "
-                        + "             and u.proizvod# = p.proizvod# "
-                        + "             and u.kolicina_po_stanju_z - u.rezervisana_kol > 0 "
-                        + "             and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA') "
-                        + "        and a.vrednost = 'DA')"
-                        + "        or (exists (select 1"
-                        + "              from wo_partner_settings w, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak "
-                        + "              where w.poslovni_partner# = :partner"
-                        + "              and w.id_kompanija_korisnik = :kompanija"
-                        + "              and w.id_skladista = u.id_skladista"
-                        + "              and s.proizvod#_ulaz = pak.proizvod_ref"
-                        + "              and pak.transportno = 'DA'"
-                        + "              and s.proizvod#_ulaz = p.proizvod#"
-                        + "              and u.proizvod#  = s.proizvod#_izlaz"
-                        + "              and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1"
-                        + "               UNION "
-                        + "              select 1"
-                        + "              from wo_partner_settings w,  wo_map_kompanijska_skladista ks, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak "
-                        + "              where w.poslovni_partner# = :partner"
-                        + "              and w.id_kompanija_korisnik = :kompanija"
-                        + "              and w.id_kompanija_korisnik = ks.id_kompanije_korisnik "
-                        + "              and w.id_skladista = ks.id_skladista_raspolozivo "
-                        + "              and ks.id_skladista_rezervacija = u.id_skladista "
-                        + "              and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA' "
-                        + "              and s.proizvod#_ulaz = pak.proizvod_ref"
-                        + "              and pak.transportno = 'DA'"
-                        + "              and s.proizvod#_ulaz = p.proizvod#"
-                        + "              and u.proizvod#  = s.proizvod#_izlaz"
-                        + "              and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1) and a.vrednost = 'SASTAV')"
-                        + "       or a.vrednost = 'NE')"
+                        +" and ((exists (select 1"
+                        +"                from uz_stanje_zaliha_skladista u"
+                        +"                where w.id_skladista = u.id_skladista"
+                        +"                and u.proizvod# = p.proizvod#"
+                        +"                and u.kolicina_po_stanju_z - u.rezervisana_kol >0"
+                        +"                UNION"
+                        +"                select 1"
+                        +"                from wo_partner_settings w, wo_map_kompanijska_skladista ks, uz_stanje_zaliha_skladista u "
+                        +"                where  w.id_kompanija_korisnik = ks.id_kompanije_korisnik"
+                        +"                and w.id_skladista = ks.id_skladista_raspolozivo"
+                        +"                and ks.id_skladista_rezervacija = u.id_skladista"
+                        +"                 and u.proizvod# = p.proizvod#"
+                        +"                and u.kolicina_po_stanju_z - u.rezervisana_kol > 0"
+                        +"                and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA'"
+                        +"                UNION"
+                        +"                select 1 from uz_map_skl_carinsko c, uz_stanje_zaliha_skladista u"
+                        +"                where w.id_skladista = c.id_skladista"
+                        +"                and c.id_skl_carinsko = u.ic_skladista )"
+                        +"                and a.vrednost = 'DA')"
+                        +"        or (exists (select 1"
+                        +"                    from wo_partner_settings w, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak"
+                        +"                    where   w.id_skladista = u.id_skladista"
+                        +"                    and s.proizvod#_ulaz = pak.proizvod_ref"
+                        +"                    and pak.transportno = 'DA'"
+                        +"                     and s.proizvod#_ulaz = p.proizvod#"
+                        +"                     and u.proizvod#  = s.proizvod#_izlaz"
+                        +"                     and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1"
+                        +"                     UNION"
+                        +"                     select 1"
+                        +"                     from wo_partner_settings w,  wo_map_kompanijska_skladista ks, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak"
+                        +"                     where  w.id_kompanija_korisnik = ks.id_kompanije_korisnik"
+                        +"                     and w.id_skladista = ks.id_skladista_raspolozivo"
+                        +"                     and ks.id_skladista_rezervacija = u.id_skladista"
+                        +"                     and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA'"
+                        +"                     and s.proizvod#_ulaz = pak.proizvod_ref"
+                        +"                     and pak.transportno = 'DA'"
+                        +"                     and s.proizvod#_ulaz = p.proizvod#"
+                        +"                     and u.proizvod#  = s.proizvod#_izlaz"
+                        +"                     and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1"
+                        +"                     UNION"
+                        +"                     select 1"
+                        +"                     from wo_partner_settings w, uz_map_sk_carinsko c, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak "
+                        +"                     where c.id_skladista = w.id_skladista"
+                        +"                     and c.id_skl_carinsko = u.id_skladista"
+                        +"                     and s.proizvod#_ulaz = pak.proizvod_ref"
+                        +"                     and pak.transportno = 'DA'"
+                        +"                     and s.proizvod#_ulaz = p.proizvod#"
+                        +"                     and u.proizvod#  = s.proizvod#_izlaz"
+                        +"                     and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1)"
+                        +"                     and a.vrednost = 'SASTAV')"
+                        +"                     or a.vrednost = 'NE')"
                         + "    and c.klasacene = :klasaCene"
                         + "    and c.organizaciona_jedinica# = :ojc "
                         + "     and c.id_klasa_cene = :klc "
@@ -528,50 +598,57 @@ import java.util.*;
                         + "           or lower(dodatni_naziv) like '%'||lower(:namePattern)||'%')"
                         + "  and p.proizvod# = a.proizvod#"
                         + "   and a.atribut# = :proveraZaliha "
-                        + "   and ((exists (select 1 "
-                        + "              from wo_partner_settings w, uz_stanje_zaliha_skladista u"
-                        + "              where w.poslovni_partner# = :partner"
-                        + "              and w.id_kompanija_korisnik = :kompanija"
-                        + "              and w.id_skladista = u.id_skladista"
-                        + "              and u.proizvod# = p.proizvod# "
-                        + "              and u.kolicina_po_stanju_z - u.rezervisana_kol >0 "
-                        + "              UNION "
-                        + "              select 1"
-                        + "              from wo_partner_settings w, wo_map_kompanijska_skladista ks, uz_stanje_zaliha_skladista u"
-                        + "              where w.poslovni_partner# = :partner"
-                        + "              and w.id_kompanija_korisnik = :kompanija"
-                        + "              and w.id_kompanija_korisnik = ks.id_kompanije_korisnik"
-                        + "              and w.id_skladista = ks.id_skladista_raspolozivo "
-                        + "             and ks.id_skladista_rezervacija = u.id_skladista "
-                        + "             and u.proizvod# = p.proizvod# "
-                        + "             and u.kolicina_po_stanju_z - u.rezervisana_kol > 0 "
-                        + "             and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA') "
-                        + "        and a.vrednost = 'DA')"
-                        + "        or (exists (select 1"
-                        + "              from wo_partner_settings w, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak "
-                        + "              where w.poslovni_partner# = :partner"
-                        + "              and w.id_kompanija_korisnik = :kompanija"
-                        + "              and w.id_skladista = u.id_skladista"
-                        + "              and s.proizvod#_ulaz = pak.proizvod_ref"
-                        + "              and pak.transportno = 'DA'"
-                        + "              and s.proizvod#_ulaz = p.proizvod#"
-                        + "              and u.proizvod#  = s.proizvod#_izlaz"
-                        + "              and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1"
-                        + "               UNION "
-                        + "              select 1"
-                        + "              from wo_partner_settings w,  wo_map_kompanijska_skladista ks, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak "
-                        + "              where w.poslovni_partner# = :partner"
-                        + "              and w.id_kompanija_korisnik = :kompanija"
-                        + "              and w.id_kompanija_korisnik = ks.id_kompanije_korisnik "
-                        + "              and w.id_skladista = ks.id_skladista_raspolozivo "
-                        + "              and ks.id_skladista_rezervacija = u.id_skladista "
-                        + "              and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA' "
-                        + "              and s.proizvod#_ulaz = pak.proizvod_ref"
-                        + "              and pak.transportno = 'DA'"
-                        + "              and s.proizvod#_ulaz = p.proizvod#"
-                        + "              and u.proizvod#  = s.proizvod#_izlaz"
-                        + "              and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1) and a.vrednost = 'SASTAV')"
-                        + "       or a.vrednost = 'NE')"
+                        +" and ((exists (select 1"
+                        +"                from uz_stanje_zaliha_skladista u"
+                        +"                where w.id_skladista = u.id_skladista"
+                        +"               and u.proizvod# = p.proizvod#"
+                        +"                and u.kolicina_po_stanju_z - u.rezervisana_kol >0"
+                        +"                UNION"
+                        +"                select 1"
+                        +"               from wo_partner_settings w, wo_map_kompanijska_skladista ks, uz_stanje_zaliha_skladista u"
+                        +"               where  w.id_kompanija_korisnik = ks.id_kompanije_korisnik"
+                        +"               and w.id_skladista = ks.id_skladista_raspolozivo"
+                        +"               and ks.id_skladista_rezervacija = u.id_skladista"
+                        +"                and u.proizvod# = p.proizvod#"
+                        +"               and u.kolicina_po_stanju_z - u.rezervisana_kol > 0"
+                        +"               and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA'"
+                        +"               UNION"
+                        +"               select 1 from uz_map_skl_carinsko c, uz_stanje_zaliha_skladista u"
+                        +"               where w.id_skladista = c.id_skladista"
+                        +"               and c.id_skl_carinsko = u.ic_skladista )"
+                        +"               and a.vrednost = 'DA')"
+                        +"       or (exists (select 1"
+                        +"                   from wo_partner_settings w, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak"
+                        +"                   where   w.id_skladista = u.id_skladista"
+                        +"                   and s.proizvod#_ulaz = pak.proizvod_ref"
+                        +"                    and pak.transportno = 'DA'"
+                        +"                    and s.proizvod#_ulaz = p.proizvod#"
+                        +"                    and u.proizvod#  = s.proizvod#_izlaz"
+                        +"                    and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1"
+                        +"                    UNION"
+                        +"                    select 1"
+                        +"                    from wo_partner_settings w,  wo_map_kompanijska_skladista ks, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak"
+                        +"                    where  w.id_kompanija_korisnik = ks.id_kompanije_korisnik"
+                        +"                    and w.id_skladista = ks.id_skladista_raspolozivo "
+                        +"                    and ks.id_skladista_rezervacija = u.id_skladista"
+                        +"                    and ks.raspoloziva_kolicina_u_skl = 'OBASKLADISTA'"
+                        +"                    and s.proizvod#_ulaz = pak.proizvod_ref"
+                        +"                    and pak.transportno = 'DA'"
+                        +"                    and s.proizvod#_ulaz = p.proizvod#"
+                        +"                    and u.proizvod#  = s.proizvod#_izlaz"
+                        +"                    and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1"
+                        +"                    UNION"
+                        +"                    select 1"
+                        +"                    from wo_partner_settings w, uz_map_skl_carinsko c, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak"
+                        +"                    where c.id_skladista = w.id_skladista"
+                        +"                    and c.id_skl_carinsko = u.id_skladista"
+                        +"                    and s.proizvod#_ulaz = pak.proizvod_ref"
+                        +"                    and pak.transportno = 'DA'"
+                        +"                    and s.proizvod#_ulaz = p.proizvod#"
+                        +"                    and u.proizvod#  = s.proizvod#_izlaz"
+                        +"                    and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju > 1)"
+                        +"                    and a.vrednost = 'SASTAV')"
+                        +"                    or a.vrednost = 'NE')"
                         + "  and (exists (select 1 from ocp_klasifikacija_proizvoda km"
                         + "                  where km.vrsta_klasifikacije# = :vrstaKlasifikacijeFilter"
                         + "                   and klasifikacija# like  :brand||'%'"
