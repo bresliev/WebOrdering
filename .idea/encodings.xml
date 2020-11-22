@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+  <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/Documentation/Sastavi/Implemntacija sastava.docx" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/Documentation/Sastavi/Implemntacija sastava_v2.docx" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/Documentation/Sastavi/alterSastavWO.sql" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/Documentation/Sastavi/insersastavklasifikacija.sql" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/Documentation/Sastavi/insertatrubutproverezalha.sql" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/Documentation/Sastavi/insertatrubutzaklasifikaciju.sql" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/Documentation/Sastavi/insertsastavproizvoda.sql" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/Documentation/Sastavi/insertvratrprozasastav.sql" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/bin/src/main/webapp/js/web_ordering.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/uz/UzDokument.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/BasketController.java" charset="windows-1250" />
+    <file url="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessing.java" charset="windows-1252" />
   </component>
 </project>

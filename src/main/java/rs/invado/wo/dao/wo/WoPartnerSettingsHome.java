@@ -103,14 +103,13 @@ public class WoPartnerSettingsHome {
     }
 
     public List<WoPartnerSetting> findByPartnerIdForCurrentCompany(int partnerId, WoKompanijaKorisnik kompanijeKorisnik) {
-        log.debug("getting WoPartnerSetting instance with id: " + partnerId);
+        log.info("getting WoPartnerSetting instance with id: " + partnerId+" "+kompanijeKorisnik.getId());
         try {
             List<WoPartnerSetting> instances = getSession().createCriteria(WoPartnerSetting.class)
                     .add(Restrictions.eq("poslovniPartner.poslovniPartner", partnerId ))
                     .add(Restrictions.eq("woKompanijaKorisnik",kompanijeKorisnik.getId() ))
                     .list();
             log.debug("get successful");
-			System.out.println("iz upita je "+partnerId+" / "+kompanijeKorisnik.getId()+" / "+instances.size());
             return instances;
         } catch (RuntimeException re) {
             log.error("get failed", re);

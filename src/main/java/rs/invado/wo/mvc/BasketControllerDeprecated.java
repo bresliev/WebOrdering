@@ -63,7 +63,7 @@ public class BasketControllerDeprecated {
         User user = (User) session.getAttribute("loginUser");
         Integer oj = Integer.parseInt((String) session.getAttribute("oj"));
 
-        OcpProizvod product = productService.getProizvodById(Integer.parseInt(productId), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
+        OcpProizvod product = productService.getProizvodById(Integer.parseInt(productId), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), 0, 1, user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
         BigDecimal orderedQ = new BigDecimal(orderedQuantity);
         IncreaseReservation increaseReservation = null;
         try {
@@ -73,7 +73,7 @@ public class BasketControllerDeprecated {
             }else{
                 basketService.increaseReservation(product, oj, orderedQ, session.getId(), user, pakovanje);
             }
-            product = productService.getProizvodById(Integer.parseInt(productId), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
+            product = productService.getProizvodById(Integer.parseInt(productId), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), 0, 1, user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
             session.setAttribute("loginUser", user);
             log.info("  korpa posle " + user.getBasket().size() + "  raspolozivo=" + product.getRaspolozivo() + "   session=" + session.getId());
             increaseReservation = new IncreaseReservation(user.getBasket().size(), user.getOrderValueWithTax(), product.getRaspolozivo(), product.getJedinicaMere().getSkracenaOznaka(), product.getKolUAltJM(),
@@ -99,7 +99,7 @@ public class BasketControllerDeprecated {
 
 
         BigDecimal kol = user.getBasket().get(productId).getKolicina();
-        OcpProizvod product = productService.getProizvodById(Integer.parseInt(productId.split("/")[0]), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
+        OcpProizvod product = productService.getProizvodById(Integer.parseInt(productId.split("/")[0]), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), 0, 1, user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
         basketService.decreaseReservation(product, oj, kol, session.getId(), user, productId);
         if (user.getBasket() != null && user.getBasket().size() == 0) {
             user.setBasket(new LinkedHashMap<String, WoRezervacija>());
@@ -134,7 +134,7 @@ public class BasketControllerDeprecated {
 
 
     @RequestMapping(value = "/chceckOutBasket", method = RequestMethod.POST)
-    public String chceckOutBasket(HttpSession session, HttpServletRequest req, String nacinPlacanja, Integer nacinTransporta, String adresa, String napomena, String [] dodatniRabat, Model model) {
+    public String chceckOutBasket(HttpSession session, HttpServletRequest req, String nacinPlacanja, Integer nacinTransporta, String adresa, String adresaIsporuke, String napomena, String [] dodatniRabat, Model model) {
         try {
             ServletContext ctx = AppInitService.getServletConfig();
             CompanySetting companySetting = (CompanySetting) ctx.getAttribute(AppInitService.CompanySetting);
@@ -151,7 +151,7 @@ public class BasketControllerDeprecated {
                 }
             }
 
-            List<ProdFinDokument> fakture = basketService.chceckOutBasket(user, companySetting, nacinPlacanja, nacinTransporta, adresa, napomena, oj, session.getId());
+            List<ProdFinDokument> fakture = basketService.chceckOutBasket(user, companySetting, nacinPlacanja, nacinTransporta, adresa, adresaIsporuke, napomena, oj, session.getId());
             List<String> faktureList = new ArrayList<String>();
             for (ProdFinDokument f : fakture) {
                 faktureList.add(f.getId().getIdFinDokumenta() + "/" + f.getId().getOrganizacionaJedinica() + "/" + f.getId().getGodina() + "/" + f.getId().getIdVd());

@@ -851,11 +851,11 @@ textarea {
     color: #4c4b4b;
     resize: none;
     overflow: auto;
-    width: 704px;
+    width: 639px;
     border: 1px solid #b3b3b3;
     padding: 5px;
     spellcheck: false;
-    margin-left: 10px;
+    margin-left: 0px;
     margin-bottom: 10px;
 }
 
@@ -1125,6 +1125,11 @@ hr.thin {
     color: white;
 }
 
+
+.adresa_isporuke{
+    width:650px;
+    border:2px solid #b3b3b3;
+}
  
 
 

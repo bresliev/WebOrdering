@@ -76,7 +76,7 @@ public class UzStanjeZalihaSkladistaHome {
         log.debug("getting UzStanjeZalihaSkladista instance with id: " + id);
         try {
             UzStanjeZalihaSkladista instance = entityManager.find(
-                    UzStanjeZalihaSkladista.class, id, LockModeType.PESSIMISTIC_WRITE);
+                    UzStanjeZalihaSkladista.class, id, LockModeType.NONE);
             log.debug("get successful");
             return instance;
         } catch (RuntimeException re) {

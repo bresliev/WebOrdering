@@ -5,15 +5,20 @@ package rs.invado.wo.dao.ocp;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import rs.invado.wo.domain.ocp.OcpKlasifikacija;
 import rs.invado.wo.domain.ocp.OcpVrAtrProizvod;
 import rs.invado.wo.domain.ocp.OcpVrAtrProizvodId;
+import rs.invado.wo.dto.VrAtrProizvod;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -98,10 +103,30 @@ public class OcpVrAtrProizvodHome {
                 .add(Restrictions.eq("id.vrstaKlasifikacije", vrstaKlasifikacija))
                 .add(Restrictions.eq("id.atribut", atribut))
                 .add(Restrictions.eq("id.proizvod", proizvod))
-                //.add(Restrictions.in("id.klasifikacija", klase))
+                        //.add(Restrictions.in("id.klasifikacija", klase))
                 .uniqueResult();
         return vap;
+    }
 
+    public List<VrAtrProizvod> findByNivoAtributa(int proizvod, String[] atributs) {
+
+        String nativeQ = " select distinct a.vrsta_klasifikacije#, a.klasifikacija#, a.proizvod#, a.atribut#, nvl(a.vrednost, '*') "
+                + "        from ocp_vr_atr_proizvod a "
+                + "        where a.proizvod# = :proizvod";
+        List<VrAtrProizvod> vrAtrProizvods = new ArrayList<VrAtrProizvod>();
+        Query q = entityManager.createNativeQuery(nativeQ)
+                .setParameter("proizvod", proizvod);
+
+        List<Object[]> rows = q.getResultList();
+        for (Object[] row : rows) {
+            vrAtrProizvods.add(new VrAtrProizvod(Integer.valueOf(((BigDecimal) row[0]).intValue()),
+                    (String) row[1],
+                    Integer.valueOf(((BigDecimal)row[2]).intValue()),
+                    Integer.valueOf(((BigDecimal)row[3]).intValue()),
+                    (String) row[4]));
+        }
+
+        return vrAtrProizvods;
 
     }
 }

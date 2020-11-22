@@ -122,6 +122,7 @@ public class UzZaliheJsklHome {
         Map<BigDecimal, ZalihaPoPakovanjima> brojPakovanja = new HashMap<BigDecimal, ZalihaPoPakovanjima>();
         Iterator i = q.getResultList().iterator();
         while (i.hasNext()) {
+
             Object[] parovi = (Object[]) i.next();
             ZalihaPoPakovanjima zalihaPoPakovanjima = new ZalihaPoPakovanjima();
             zalihaPoPakovanjima.setKolPoPakovanju((BigDecimal) parovi[0]);

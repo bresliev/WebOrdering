@@ -10,9 +10,18 @@ wo.idDocForCash = 163;
 wo.mailServer = smtp.gmail.com;
 wo.woMailAddress = darex.rs@gmail.com;
 wo.mailAddress = webordering@darex.rs;
+#wo.jdbc = jdbc:oracle:thin:@10.10.10.170:1521:darex;
+#wo.fisusr = darex;
+#wo.fisusrpassword = xerad.tigid;
+
+
+wo.jdbc = jdbc:oracle:thin:@10.10.10.171:1521:test;
+wo.fisusr = darex;
+wo.fisusrpassword = test;
+
 # DEZEN
 # STRUKTURA
-# PROIZVODJA?
-#PRIMENIJSKLPAK
-# PROVERA ZALIHA ZA POTREBE SASTAVA (1840 u lokalu 1841 na DarexTest 1820 na produkciji)
-wo.attributes = 1600,1601,1541,1740,1841
+# PROIZVODNJA
+# PRIMENIJSKLPAK
+# PROVERA ZALIHA ZA POTREBE SASTAVA (1840 u lokalu; 1820 na DarexTest; 1820 na produkciji)
+wo.attributes = 1600,1601,1541,1740,1820

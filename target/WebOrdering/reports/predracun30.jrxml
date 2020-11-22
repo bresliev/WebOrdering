@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="wopdvfakturaNN30" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="687"/>
+	<property name="ireport.y" value="534"/>
 	<style name="table">
 		<box>
 			<pen lineWidth="1.0" lineColor="#000000"/>
@@ -226,7 +226,7 @@ order  by sv.Skraceni_Naziv]]>
 		</parameter>
 		<queryString>
 			<![CDATA[select decode(vs.vrsta_stavke# , 20,'UKUPNA VRIJEDNOST:', 6,  'PDV ZA STOPU 17%:',
-2, 'VRIJEDNOST BEZ PDV:', 3, 'IZNOS RABATA:',  8,  'OSNOVICA ZA STOPU 17%:', vs.opis||':') opis,
+2, 'VRIJEDNOST BEZ PDV:', 3, 'IZNOS RABATA:',  8,  'OSNOVICA ZA STOPU 21%:', vs.opis||':') opis,
  decode( pvd.ino_dom, 'D', VREDNOST, DEVIZNA_VREDNOST) vrednost_suma
  from prod_STAVKA_FIN_DOKUMENTA   sfd, prod_vrsta_dokumenta pvd, ocp_vrsta_stavke vs
  where  to_char(sfd.id_vd) = to_char('$P!{idvdIN}')

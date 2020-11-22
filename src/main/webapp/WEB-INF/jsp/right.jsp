@@ -18,11 +18,11 @@
           <h5>${loginUser.woUser.ocpPoslovniPartner.intNapomena}</h5>
       </div>
     </c:if>
-    <c:if test="${not empty najprodavanije}">
+    <c:if test="${not empty novoIzdvojeno}">
     <div class="D1 najprodavanije">
-        <h3 class="light_gray_gradient">NAJPRODAVANIJE</h3>
+        <h3 class="light_gray_gradient">IZDVAJAMO NOVO</h3>
         <div id="div-najprodavanije">
-        <c:forEach items="${najprodavanije}" var="item" varStatus="status">
+        <c:forEach items="${novoIzdvojeno}" var="item" varStatus="status">
             <c:if test="${status.index < 4}">
                 <div id="najprodavanije-${item.proizvod}" class="fade najprod">
                     <img width="120px" height="84px" src="/WO/images/small/${item.proizvod}.jpg"  alt=""/>

@@ -1,5 +1,5 @@
-<%@page contentType="text/html"%>
-<%@page pageEncoding="Windows-1250"%>
+<%@page contentType="text/html" %>
+<%@page pageEncoding="Windows-1250" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <div class="content">
@@ -30,39 +30,69 @@
             <h3 class="dark_gray_gradient" style="margin-bottom: 5px;font-size:15px;color:#fff;">VESTI / AKTUELNO</h3>
             <c:forEach items="${vesti}" var="item">
                 <div class="download">${item.naziv}</div>
-                <div style="float: right;"><input type="button" value="DOWNLOAD" class="btn light_gray_gradient" onclick="window.open('/${item.fajlUrl}')"/></div>
+                <div style="float: right;"><input type="button" value="DOWNLOAD" class="btn light_gray_gradient"
+                                                  onclick="window.open('/${item.fajlUrl}')"/></div>
                 <div style="clear:both"></div>
             </c:forEach>
 
         </div>
     </c:if>
     <c:if test="${not empty productList}">
-    <div class="title_div light_gray_gradient" style="width:714px;height:35px;border:1px solid #b3b3b3;border-radius:5px;margin-top: 0;margin-bottom: 0;">
-        <h3 style="color: #4c4b4b;">IZDVAJAMO IZ AKCIJE</h3>
-    </div>
-    <div style="width:736px;">
-    <c:forEach items="${productList}" var="item">
-            	<div class="product_item">
+        <div class="title_div light_gray_gradient"
+             style="width:714px;height:35px;border:1px solid #b3b3b3;border-radius:5px;margin-top: 0;margin-bottom: 0;">
+            <h3 style="color: #4c4b4b;">IZDVAJAMO IZ PONUDE</h3>
+        </div>
+        <div style="width:736px;">
+            <c:forEach items="${productList}" var="item">
+                <div class="product_item">
                     <div class="dezen">${item.dezenIstruktira}</div>
-                    <img id="dialog-img-${item.proizvod}" class="product_item_img opener" src="/WO/images/medium/${item.proizvod}.jpg" alt=""/>
-                    <img src="images/Akcije.png" alt="" style="position: absolute;top: 34px;right: 11px;" />
+                    <img id="dialog-img-${item.proizvod}" class="product_item_img opener"
+                         src="/WO/images/medium/${item.proizvod}.jpg" alt=""/>
+                    <c:choose>
+                        <c:when test="${item.tipAkcije == 'AKCIJA'}">
+                            <img src="images/Akcije.png" alt="" style="position: absolute;top: 34px;right: 11px;"/>
+                        </c:when>
+                        <c:when test="${item.tipAkcije == 'RASPRODAJA'}">
+                            <img src="images/Rasprodaja.png" alt=""
+                                 style="position: absolute;top: 34px;right: 11px;"/>
+                        </c:when>
+                        <c:when test="${item.tipAkcije == 'NOVO'}">
+                            <img src="images/Novo.png" alt="" style="position: absolute;top: 34px;right: 11px;"/>
+                        </c:when>
+                        <c:when test="${item.tipAkcije == 'AKTUELNO'}">
+                            <img src="images/Akcije.png" alt="" style="position: absolute;top: 34px;right: 11px;"/>
+                        </c:when>
+                        <c:when test="${item.tipAkcije == 'OSTECENA_ROBA'}">
+                            <img src="images/OstecenaRoba.png" alt=""
+                                 style="position: absolute;top: 34px;right: 11px;"/>
+                        </c:when>
+                    </c:choose>
+                    <!--                    <img src="images/Akcije.png" alt="" style="position: absolute;top: 34px;right: 11px;" /> -->
                     <div style="width:220px;padding:0 5px 0 5px;border-bottom: 1px solid #b3b3b3;">
                         <div class="cena">${item.cena} eur/${item.jedinicaMere.skracenaOznaka}</div>
                         <div class="proizvodjac ellipsis">${item.proizvod} - ${item.proizvodjac}</div>
                         <div class="ime multiline">${item.nazivProizvoda} ${item.dodatniNaziv}</div>
                     </div>
-                    <div class="kol_pak ellipsis">Kolièina po pakovanju4: ${item.kolicinaPoPakovanju} ${item.jedinicaMere.skracenaOznaka}</div>
-                    <div class="kolicina">Poruèiti: <input type="number" min="1" step="1" id="orderedQuantity-${item.proizvod}" value=""/>${item.jedinicaMereAltRef.skracenaOznaka}</div>
-                 	<div class="zalihe ellipsis" id="raspolozivo-${item.proizvod}">Zalihe4: ${item.raspolozivo} ${item.jedinicaMere.skracenaOznaka}</div>
+                    <div class="kol_pak ellipsis">Kolièina po
+                        pakovanju4: ${item.kolicinaPoPakovanju} ${item.jedinicaMere.skracenaOznaka}</div>
+                    <div class="kolicina">Poruèiti: <input type="number" min="1" step="1"
+                                                           id="orderedQuantity-${item.proizvod}"
+                                                           value=""/>${item.jedinicaMereAltRef.skracenaOznaka}</div>
+                    <div class="zalihe ellipsis" id="raspolozivo-${item.proizvod}">
+                        Zalihe: ${item.raspolozivo} ${item.jedinicaMere.skracenaOznaka}</div>
                     <div class="potvrda">
-						<div style="float: left;"><input type="submit" id="dialog-${item.proizvod}"  class="btn zoom opener"  value="UVEÆAJ"/></div>
-					    <div style="float: right;"><input type="submit" id="basket-${item.proizvod}" class="btn basket add_to_basket"  value="DODAJ U KORPU"/></div>
-					</div>
-                    <div class="dialog" id="opener-dialog-${item.proizvod}" title="${item.nazivProizvoda} ${item.dodatniNaziv}">
-                        <img style="margin:0px;border:none;" width="700px" height="490px" src="/WO/images/large/${item.proizvod}.jpg" alt="" />
+                        <div style="float: left;"><input type="submit" id="dialog-${item.proizvod}"
+                                                         class="btn zoom opener" value="UVEÆAJ"/></div>
+                        <div style="float: right;"><input type="submit" id="basket-${item.proizvod}"
+                                                          class="btn basket add_to_basket" value="DODAJ U KORPU"/></div>
                     </div>
-                 </div>
-    </c:forEach>
-    </div>
+                    <div class="dialog" id="opener-dialog-${item.proizvod}"
+                         title="${item.nazivProizvoda} ${item.dodatniNaziv}">
+                        <img style="margin:0px;border:none;" width="700px" height="490px"
+                             src="/WO/images/large/${item.proizvod}.jpg" alt=""/>
+                    </div>
+                </div>
+            </c:forEach>
+        </div>
     </c:if>
 </div>

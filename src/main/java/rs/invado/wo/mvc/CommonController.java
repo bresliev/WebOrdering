@@ -48,12 +48,12 @@ public class CommonController {
         CompanySetting companySetting = (CompanySetting) ctx.getAttribute(AppInitService.CompanySetting);
         User user = (User) session.getAttribute("loginUser");
         Integer oj = Integer.parseInt((String) session.getAttribute("oj"));
-        Proizvodi proizvodi = productService.getProzivodiNaAkciji(ProductService.IZDVOJENA_AKCIJA, user.getCeneProizvoda(), 0, 3, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
+        Proizvodi proizvodi = productService.getProzivodiNaAkciji(ProductService.IZDVOJENA_AKCIJA, user.getCeneProizvoda(), 0, 3, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
         model.addAttribute("vesti", commonService.getVestiAktuelno(oj));
         model.addAttribute("flashSize", commonService.getFlashSize(oj).getNaslovnaflash());
         model.addAttribute("productList", proizvodi.getProizvodList());
         model.addAttribute("url", "/home");
-        model.addAttribute("najprodavanije", getNajprodavanijeList(session));
+        model.addAttribute("novoIzdvojeno", getNovoIzdvojenoList(session));
         return "naslovnaView";
     }
 
@@ -62,7 +62,7 @@ public class CommonController {
         Integer oj = Integer.parseInt((String) session.getAttribute("oj"));
         model.addAttribute("url", "/contact");
         model.addAttribute("flashSize", commonService.getFlashSize(oj).getKontaktflash());
-        model.addAttribute("najprodavanije", getNajprodavanijeList(session));
+        model.addAttribute("novoIzdvojeno", getNovoIzdvojenoList(session));
         return "contactView";
     }
 
@@ -71,7 +71,7 @@ public class CommonController {
         Integer oj = Integer.parseInt((String) session.getAttribute("oj"));
         model.addAttribute("url", "/support");
         model.addAttribute("flashSize", commonService.getFlashSize(oj).getPodrskaflash());
-        model.addAttribute("najprodavanije", getNajprodavanijeList(session));
+        model.addAttribute("novoIzdvojeno", getNovoIzdvojenoList(session));
         return "supportView";
     }
  /*
@@ -122,7 +122,7 @@ public class CommonController {
         model.addAttribute("groupList", listaKlasa);
         model.addAttribute("url", "/akcija");
         model.addAttribute("flashSize", commonService.getFlashSize(oj).getPodrskaflash());
-        model.addAttribute("najprodavanije", getNajprodavanijeList(session));
+        model.addAttribute("novoIzdvojeno", getNovoIzdvojenoList(session));
         Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT, Modifier.STATIC, Modifier.PROTECTED).create();
         return gson.toJson(listaKlasa);
     }
@@ -151,14 +151,14 @@ public class CommonController {
             model.addAttribute("naziv", naziv);
         }
         model.addAttribute("url", "/download");
-        model.addAttribute("najprodavanije", getNajprodavanijeList(session));
+        model.addAttribute("novoIzdvojeno", getNovoIzdvojenoList(session));
         return "downloadView";
     }
 
     @RequestMapping(value = "oprema")
     public String getOpremaIVozila(HttpSession session, Model model) {
         model.addAttribute("url", "/oprema");
-        model.addAttribute("najprodavanije", getNajprodavanijeList(session));
+        model.addAttribute("novoIzdvojeno", getNovoIzdvojenoList(session));
         return "opremaView";
     }
 
@@ -169,33 +169,35 @@ public class CommonController {
     }
 
 
-    @RequestMapping(value = "/getNajprodavanije", method = RequestMethod.GET, produces = "application/json")
-    public @ResponseBody String getNajprodavanije(HttpSession session) {
+    @RequestMapping(value = "/getNovo", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody String getnovo(HttpSession session) {
         Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT, Modifier.STATIC, Modifier.PROTECTED).create();
-        return gson.toJson(getNajprodavanijeList(session));
+        return gson.toJson(getNovoIzdvojenoList(session));
     }
 
-    private List<OcpProizvod> getNajprodavanijeList(HttpSession session) {
+    private List<OcpProizvod> getNovoIzdvojenoList(HttpSession session) {
         Random rn = new Random();
         ServletContext ctx = AppInitService.getServletConfig();
         CompanySetting companySetting = (CompanySetting) ctx.getAttribute(AppInitService.CompanySetting);
         String oj = (String) session.getAttribute("oj");
-        List<OcpProizvod> najprodavanije = companySetting.getListaNajprodavanijih().get(oj).getProizvodList();
+        List<OcpProizvod> novoIzdvojeno = companySetting.getListaNovoIzdvojeno().get(oj).getProizvodList();
         List<OcpProizvod> result = new ArrayList<OcpProizvod>();
-        if (najprodavanije != null && najprodavanije.size() > 0) {
-            int range = najprodavanije.size();
+        if (novoIzdvojeno != null && novoIzdvojeno.size() > 0) {
+            int range = novoIzdvojeno.size();
             OcpProizvod pro=null;
             int index=0;
             if (range>4) index=4;
             else index=range;
             for (int i = 0; i < index; i++) {
-                while (pro==null || result.contains(pro)) pro = najprodavanije.get(rn.nextInt(range));
+                while (pro==null || result.contains(pro)) pro = novoIzdvojeno.get(rn.nextInt(range));
                 result.add(pro);
             }
         }
         return result;
 
     }
+
+
 
 
 }

@@ -23,14 +23,11 @@ public class SessionTimeoutFilter implements Filter {
             //HttpServletResponse httpServletResponse = (HttpServletResponse) response;
             String timeoutUrl = httpServletRequest.getContextPath() + "/" + TIMEOUT_PAGE;
             String ajaxHeader = httpServletRequest.getHeader("X-Requested-With");
-            //System.out.println(((HttpServletRequest) request).getRequestURL());
 
             // is session expire control required for this request?
             if (isSessionControlRequiredForThisResource(httpServletRequest)) {
                 if (isSessionInvalid(httpServletRequest)) {
-                    //System.out.println("session is invalid! redirecting to timeoutpage : " + timeoutUrl);
                     if ("XMLHttpRequest".equals(ajaxHeader)) {
-                        //System.out.println("Ajax call detected, send {} error code " + customSessionExpiredErrorCode);
                         HttpServletResponse resp = (HttpServletResponse) response;
                         resp.sendError(customSessionExpiredErrorCode);
                         return;

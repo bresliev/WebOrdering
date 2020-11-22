@@ -60,6 +60,10 @@
         <class>rs.invado.wo.domain.ocp.OcpProizvod</class>
         <class>rs.invado.wo.domain.wo.WoMapKompanijskaSkladista</class>
         <class>rs.invado.wo.domain.wo.WoRezervacijaSastava</class>
+        <class>rs.invado.wo.domain.wo.WoProdCene</class>
+        <class>rs.invado.wo.domain.wo.WoSortPerObjectAttribute</class>
+        <class>rs.invado.wo.domain.prod.ProdMaxRabati</class>
+        <class>rs.invado.wo.domain.prod.ProdMaxRabatiId</class>
 
 
         <properties>

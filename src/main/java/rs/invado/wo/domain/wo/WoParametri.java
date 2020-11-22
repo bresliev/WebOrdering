@@ -3,6 +3,8 @@ package rs.invado.wo.domain.wo;
 // Generated Dec 11, 2012 10:59:44 PM by Hibernate Tools 3.4.0.CR1
 
 import org.hibernate.annotations.IndexColumn;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -16,7 +18,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "WO_PARAMETRI", schema = "DAREX")
-@SequenceGenerator(   name = "woparametri_seq",
+@SequenceGenerator(name = "woparametri_seq",
         sequenceName = "WO_ID_SEQ", allocationSize = 1)
 public class WoParametri implements java.io.Serializable {
 
@@ -24,6 +26,7 @@ public class WoParametri implements java.io.Serializable {
     private Integer id;
     private int vrstaKlasifikacijeMeni;
     private int vrstaKlasifikacijeFilter;
+    private int vrstaKlasifikacijeMaxRabat;
     private int drugiNivoFiltera;
     private Short idVdGen;
     private BigDecimal vrstaStavke;
@@ -37,21 +40,24 @@ public class WoParametri implements java.io.Serializable {
     private Integer mailServerPort;
     private String confirmMailContent;
     private Integer skladisteRezervacije;
-    private WoKompanijaKorisnik woKompanijaKorisnik;
+    public WoKompanijaKorisnik woKompanijaKorisnik;
+    private String jedinicaMereRezervacije;
+    private String klasaCene;
     private List<WoSetPoNacinPlacanja> woSetPoNacinPlacanja = new ArrayList<WoSetPoNacinPlacanja>(0);
 
     public WoParametri() {
     }
 
     public WoParametri(Integer id, int vrstaKlasifikacijeMeni,
-                         int vrstaKlasifikacijeFilter, int drugiNivoFiltera,
-                         Short idVdGen, BigDecimal vrstaStavke, BigDecimal virmanIdVd,
-                         BigDecimal gotovinaIdVd, String mailserver, String womailaddress,
-                         String mailaddress, String password, Date datumOd, Date datumDo,
-                         WoKompanijaKorisnik woKompanijaKorisnik) {
+                       int vrstaKlasifikacijeFilter, int vrstaKlasifikacijeMaxRabat, int drugiNivoFiltera,
+                       Short idVdGen, BigDecimal vrstaStavke, BigDecimal virmanIdVd,
+                       BigDecimal gotovinaIdVd, String mailserver, String womailaddress,
+                       String mailaddress, String password, Date datumOd, Date datumDo,
+                       WoKompanijaKorisnik woKompanijaKorisnik) {
         this.id = id;
         this.vrstaKlasifikacijeMeni = vrstaKlasifikacijeMeni;
         this.vrstaKlasifikacijeFilter = vrstaKlasifikacijeFilter;
+        this.vrstaKlasifikacijeMaxRabat = vrstaKlasifikacijeMaxRabat;
         this.drugiNivoFiltera = drugiNivoFiltera;
         this.idVdGen = idVdGen;
         this.vrstaStavke = vrstaStavke;
@@ -66,7 +72,7 @@ public class WoParametri implements java.io.Serializable {
     }
 
     @Id
-    @Column(name="ID", nullable=false, unique=true)
+    @Column(name = "ID", nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.SEQUENCE,
             generator = "woparametri_seq")
     public Integer getId() {
@@ -94,6 +100,16 @@ public class WoParametri implements java.io.Serializable {
     public void setVrstaKlasifikacijeFilter(int vrstaKlasifikacijeFilter) {
         this.vrstaKlasifikacijeFilter = vrstaKlasifikacijeFilter;
     }
+
+    @Column(name = "VRSTA_KLASIFIKACIJE_MAXRABAT", precision = 22, scale = 0)
+    public int getVrstaKlasifikacijeMaxRabat() {
+        return vrstaKlasifikacijeMaxRabat;
+    }
+
+    public void setVrstaKlasifikacijeMaxRabat(int vrstaKlasifikacijeMaxRabat) {
+        this.vrstaKlasifikacijeMaxRabat = vrstaKlasifikacijeMaxRabat;
+    }
+
 
     @Column(name = "DRUGI_NIVO_FILTERA", precision = 22, scale = 0)
     public int getDrugiNivoFiltera() {
@@ -203,9 +219,17 @@ public class WoParametri implements java.io.Serializable {
         this.confirmMailContent = confirmMailContent;
     }
 
+    @Column(name = "JEDINICA_MERE_REZERVACIJE")
+    public String getJedinicaMereRezervacije() {
+        return jedinicaMereRezervacije;
+    }
+
+    public void setJedinicaMereRezervacije(String jedinicaMereRezervacije) {
+        this.jedinicaMereRezervacije = jedinicaMereRezervacije;
+    }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name =  "ID_KOMPANIJA_KORISNIK", referencedColumnName = "ID", insertable = true, updatable = true)
+    @JoinColumn(name = "ID_KOMPANIJA_KORISNIK", referencedColumnName = "ID", insertable = true, updatable = true)
     public WoKompanijaKorisnik getWoKompanijaKorisnik() {
         return woKompanijaKorisnik;
     }
@@ -225,5 +249,12 @@ public class WoParametri implements java.io.Serializable {
         this.woSetPoNacinPlacanja = woSetPoNacinPlacanja;
     }
 
+    @Column(name = "KLASA_CENE")
+    public String getKlasaCene() {
+        return klasaCene;
+    }
 
+    public void setKlasaCene(String klasaCene) {
+        this.klasaCene = klasaCene;
+    }
 }

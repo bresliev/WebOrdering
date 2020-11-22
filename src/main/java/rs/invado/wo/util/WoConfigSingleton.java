@@ -44,6 +44,12 @@ public class WoConfigSingleton {
     @Value("#{'${wo.attributes}'.split(',')}")
     private String[] attributes = new String[5];
     private String neki;
+    @Value("${wo.jdbc}")
+    private String jdbc;
+    @Value("${wo.fisusr}")
+    private String fisusr;
+    @Value("${wo.fisusrpassword}")
+    private String fisusrpassword;
 
     public static WoConfigSingleton getInstance() {
         return ourInstance;
@@ -125,5 +131,29 @@ public class WoConfigSingleton {
 
     public void setNeki(String neki) {
         this.neki = neki;
+    }
+
+    public String getJdbc() {
+        return jdbc;
+    }
+
+    public void setJdbc(String jdbc) {
+        this.jdbc = jdbc;
+    }
+
+    public String getFisusr() {
+        return fisusr;
+    }
+
+    public void setFisusr(String fisusr) {
+        this.fisusr = fisusr;
+    }
+
+    public String getFisusrpassword() {
+        return fisusrpassword;
+    }
+
+    public void setFisusrpassword(String fisusrpassword) {
+        this.fisusrpassword = fisusrpassword;
     }
 }

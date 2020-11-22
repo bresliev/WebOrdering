@@ -1,27 +1,37 @@
 package rs.invado.wo.test;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import rs.invado.wo.dao.ocp.OcpKlasifikacijaHome;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:META-INF/test-context.xml",
-        "classpath:/META-INF/spring/applicationContext.xml"})
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class KlasifikacijaDaoTest {
-    @Autowired
-    private OcpKlasifikacijaHome klasifikacijaHome;
-    /*
-    @Test
-    public void testFindById() {
-        List<OcpKlasifikacija> menu = klasifikacijaHome.findHierarchy(7, null);
-        for (OcpKlasifikacija k : menu) {
-            System.out.println(k.getNivo() + " " + k.getNaziv());
 
-        }
+    private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
 
-        return;
+
+    public static void main(String[] args) {
+
+        //method 1
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        System.out.println(timestamp);
+
+        //method 2 - via Date
+        Date date = new Date();
+        System.out.println(new Timestamp(date.getTime()));
+
+        //return number of milliseconds since January 1, 1970, 00:00:00 GMT
+        System.out.println(timestamp.getTime());
+
+        //format timestamp
+        System.out.println(sdf.format(timestamp));
+
     }
-        */
 }
+

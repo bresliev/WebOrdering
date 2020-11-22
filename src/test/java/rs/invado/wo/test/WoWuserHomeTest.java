@@ -20,6 +20,8 @@ import rs.invado.wo.util.WoConfigSingleton;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Date;
 
 import static org.junit.Assert.fail;
@@ -33,8 +35,10 @@ import static org.junit.Assert.fail;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
+
 @ContextConfiguration(locations = {"classpath:META-INF/test-context.xml",
         "classpath:/META-INF/spring/applicationContext.xml" })
+
 @Transactional
 @TransactionConfiguration(defaultRollback = false)
 public class WoWuserHomeTest {
@@ -99,6 +103,33 @@ public class WoWuserHomeTest {
         //transaction.commit();
 
 
+
+    }
+
+    @Test
+    public void dummy(){
+        BigDecimal a = new BigDecimal("4.15");
+        BigDecimal b = new BigDecimal("344.45");
+        BigDecimal b1 = new BigDecimal(344.00);
+        System.out.println(b.divide(a, RoundingMode.HALF_DOWN));
+        System.out.println(b.divide(a, 0, RoundingMode.HALF_UP));
+        System.out.println(b1.divide(a, 0, RoundingMode.HALF_UP));
+        System.out.println(b.divide(a, 0, RoundingMode.HALF_EVEN));
+        System.out.println(b1.divide(a, 0, RoundingMode.HALF_EVEN));
+        System.out.println(b.divide(a, 0, RoundingMode.CEILING));
+        System.out.println(b1.divide(a, 0, RoundingMode.CEILING));
+        System.out.println(b.divide(a, 0, RoundingMode.DOWN));
+        System.out.println(b1.divide(a, 0, RoundingMode.DOWN));
+        System.out.println(b.divide(a, 0, RoundingMode.FLOOR));
+        System.out.println(b1.divide(a, 0, RoundingMode.FLOOR));
+        System.out.println(b.divide(a, 0, RoundingMode.HALF_DOWN));
+        System.out.println(b1.divide(a, 0, RoundingMode.HALF_DOWN));
+        System.out.println(b.divide(a, 0, RoundingMode.UP));
+        System.out.println(b1.divide(a, 0, RoundingMode.UP));
+
+        double ad = 4.15;
+        double bd = 344.45;
+        System.out.println("Double "+bd/ad);
 
     }
 }

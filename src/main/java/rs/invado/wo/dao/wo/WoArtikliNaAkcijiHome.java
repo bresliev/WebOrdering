@@ -6,8 +6,12 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import rs.invado.wo.domain.ocp.OcpProizvod;
 import rs.invado.wo.domain.wo.WoArtikliNaAkciji;
 import rs.invado.wo.domain.wo.WoParametri;
+import rs.invado.wo.mvc.CommonController;
+import rs.invado.wo.service.ProductService;
+import rs.invado.wo.util.WoConfigSingleton;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -91,4 +95,15 @@ public class WoArtikliNaAkcijiHome {
         return lanaa;
     }
 
+    public WoArtikliNaAkciji findAkcijiZaArtikal(Date datumDo, WoParametri woParametri, OcpProizvod proizvod) {
+
+        WoArtikliNaAkciji wanaa = (WoArtikliNaAkciji)entityManager.unwrap(Session.class).createCriteria(WoArtikliNaAkciji.class, "wana")
+                .add(Restrictions.ge("datumDo", datumDo))
+                .add(Restrictions.eq("idKompanijeKorisnik", woParametri.getWoKompanijaKorisnik().getId()))
+                .add(Restrictions.ne("tipAkcije", ProductService.NOVO_IZDVOJENO))
+                .add(Restrictions.ne("tipAkcije", ProductService.IZDVOJENA_AKCIJA))
+                .add(Restrictions.eq("ocpProizvod", proizvod))
+                .uniqueResult();
+        return wanaa;
+    }
 }

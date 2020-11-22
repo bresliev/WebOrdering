@@ -51,7 +51,8 @@ public class BasketController {
         User user = (User) req.getSession().getAttribute("loginUser");
         if (user.getBasket() == null || user.getBasket().size() == 0) req.setAttribute("errorMsg", "Korpa je prazna!");
         req.setAttribute("url", req.getServletPath());
-        model.addAttribute("najprodavanije", getNajprodavanijeList(session));
+        model.addAttribute("novoIzdvojeno", getNovoListIzdvojeno(session));
+        model.addAttribute("adresaIsporuke", user.getWoUser().getOcpPoslovniPartner().getOcpAdresaIsporukes());
         return "korpaView";
     }
 
@@ -66,7 +67,7 @@ public class BasketController {
         User user = (User) session.getAttribute("loginUser");
         Integer oj = Integer.parseInt((String) session.getAttribute("oj"));
 
-        OcpProizvod product = productService.getProizvodById(Integer.parseInt(productId), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
+        OcpProizvod product = productService.getProizvodByIdR(Integer.parseInt(productId), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), 0, 1, user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
         BigDecimal orderedQ = new BigDecimal(orderedQuantity);
         IncreaseReservation increaseReservation = null;
 
@@ -78,7 +79,7 @@ public class BasketController {
                 log.info("korpa pre redovne rezervacije " + user.getBasket().size() + "  raspolozivo=" + product.getRaspolozivo() + "   session=" + session.getId() + " sa pakovanjem " + pakovanje);
                 basketService.increaseReservation(product, oj, orderedQ, session.getId(), user, pakovanje);
             }
-            product = productService.getProizvodById(Integer.parseInt(productId), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
+            product = productService.getProizvodByIdR(Integer.parseInt(productId), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), 0, 1, user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
             session.setAttribute("loginUser", user);
             log.info("  korpa posle " + user.getBasket().size() + "  raspolozivo=" + product.getRaspolozivo() + "   session=" + session.getId());
             increaseReservation = new IncreaseReservation(user.getBasket().size(), user.getOrderValueWithTax(), product.getRaspolozivo(), product.getJedinicaMere().getSkracenaOznaka(), product.getKolUAltJM(),
@@ -104,7 +105,7 @@ public class BasketController {
 
 
         BigDecimal kol = user.getBasket().get(productId).getKolicina();
-        OcpProizvod product = productService.getProizvodById(Integer.parseInt(productId.split("/")[0]), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
+        OcpProizvod product = productService.getProizvodByIdR(Integer.parseInt(productId.split("/")[0]), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), 0, 1, user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
         if (product.getProveraZaliha().equals("SASTAV")) {
 
             basketService.decreaseReservationCompositeObject(product, oj, kol, session.getId(), user, productId);
@@ -150,7 +151,10 @@ public class BasketController {
 
 
     @RequestMapping(value = "/chceckOutBasket", method = RequestMethod.POST)
-    public String chceckOutBasket(HttpSession session, HttpServletRequest req, String nacinPlacanja, Integer nacinTransporta, String adresa, String napomena, String[] dodatniRabat, Model model) {
+    public String chceckOutBasket(HttpSession session, HttpServletRequest req, String nacinPlacanja, Integer nacinTransporta, String adresa, String napomena, String[] dodatniRabat,
+                                  String adresaIsporuke, Model model) {
+
+
         try {
             ServletContext ctx = AppInitService.getServletConfig();
             CompanySetting companySetting = (CompanySetting) ctx.getAttribute(AppInitService.CompanySetting);
@@ -158,6 +162,7 @@ public class BasketController {
             Integer oj = Integer.parseInt((String) session.getAttribute("oj"));
 
             if ("INTERNI".equals(user.getWoUser().getUserType()) && dodatniRabat != null && dodatniRabat.length > 0) {
+                log.info("Start of process 3 ");
                 int index = 0;
                 Set<String> items = user.getBasket().keySet();
                 for (String itemKey : items) {
@@ -167,12 +172,14 @@ public class BasketController {
                 }
             }
 
-            List<ProdFinDokument> fakture = basketService.chceckOutBasket(user, companySetting, nacinPlacanja, nacinTransporta, adresa, napomena, oj, session.getId());
+            List<ProdFinDokument> fakture = basketService.chceckOutBasket(user, companySetting, nacinPlacanja, nacinTransporta, adresa, adresaIsporuke, napomena, oj, session.getId());
             List<String> faktureList = new ArrayList<String>();
             for (ProdFinDokument f : fakture) {
+                log.info("Start of process 7");
                 faktureList.add(f.getId().getIdFinDokumenta() + "/" + f.getId().getOrganizacionaJedinica() + "/" + f.getId().getGodina() + "/" + f.getId().getIdVd());
                 log.info(f.getId().getIdFinDokumenta() + "/" + f.getId().getOrganizacionaJedinica() + "/" + f.getId().getGodina() + "/" + f.getId().getIdVd());
             }
+            log.info("Start of process 8");
             session.setAttribute("fakture", fakture);
             req.setAttribute("protvrdaKorpe", "success");
             user.setBasket(new LinkedHashMap<String, WoRezervacija>());
@@ -184,7 +191,7 @@ public class BasketController {
         } catch (Exception e) {
             log.error("nacinPlacanja=" + nacinPlacanja + " nacinTransporta=" + nacinTransporta + " adresa=" + adresa + " sessionId=" + session.getId() + "\n" + e.getMessage(), e);
         }
-        model.addAttribute("najprodavanije", getNajprodavanijeList(session));
+        model.addAttribute("novoIzdvojeno", getNovoListIzdvojeno(session));
         return "korpaView";
     }
 
@@ -203,6 +210,28 @@ public class BasketController {
             else index = range;
             for (int i = 0; i < index; i++) {
                 while (pro == null || result.contains(pro)) pro = najprodavanije.get(rn.nextInt(range));
+                result.add(pro);
+            }
+        }
+        return result;
+
+    }
+
+    private List<OcpProizvod> getNovoListIzdvojeno(HttpSession session) {
+        Random rn = new Random();
+        ServletContext ctx = AppInitService.getServletConfig();
+        CompanySetting companySetting = (CompanySetting) ctx.getAttribute(AppInitService.CompanySetting);
+        String oj = (String) session.getAttribute("oj");
+        List<OcpProizvod> novo = companySetting.getListaNovoIzdvojeno().get(oj).getProizvodList();
+        List<OcpProizvod> result = new ArrayList<OcpProizvod>();
+        if (novo != null && novo.size() > 0) {
+            int range = novo.size();
+            OcpProizvod pro = null;
+            int index = 0;
+            if (range > 4) index = 4;
+            else index = range;
+            for (int i = 0; i < index; i++) {
+                while (pro == null || result.contains(pro)) pro = novo.get(rn.nextInt(range));
                 result.add(pro);
             }
         }

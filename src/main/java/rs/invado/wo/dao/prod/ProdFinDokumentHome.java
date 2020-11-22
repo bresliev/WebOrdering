@@ -78,6 +78,7 @@ public class ProdFinDokumentHome {
     private Session getSession(){
         return entityManager.unwrap(Session.class);
     }
+
     public ProdFinDokument insertFinDOkumentByStoredProcedure(Integer idVd, String idSklDokumenta ){
 
         return (ProdFinDokument) getSession().getNamedQuery("insertFinDokument")

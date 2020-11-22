@@ -71,7 +71,7 @@ public class OcpSastavProizvodaHome {
 
 
     @Transactional(readOnly = true)
-    public List<OcpSastavProizvoda> findByProizvod(Integer proizvod) {
+    public List<OcpSastavProizvoda> findByProizvod(OcpProizvod proizvod) {
         log.debug("getting UzStanjeZalihaSkladista instance with id: " + proizvod);
         try {
             List<OcpSastavProizvoda> list = entityManager.createNamedQuery(

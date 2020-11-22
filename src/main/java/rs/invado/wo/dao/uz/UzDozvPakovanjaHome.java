@@ -109,7 +109,6 @@ public class UzDozvPakovanjaHome {
     }
 
     public Map<Integer, BigDecimal> findTransportnaPakovanja() {
-
         Map<Integer, BigDecimal> uzDozvPakovanjaMap = new HashMap<Integer, BigDecimal>();
 
         List<Object[]> lo = getSession().createCriteria(UzDozvPakovanja.class)
@@ -117,8 +116,6 @@ public class UzDozvPakovanjaHome {
                 .setProjection(Projections.projectionList()
                         .add(Property.forName("id.proizvodRef"))
                         .add(Property.forName("id.kolPoPakovanju"))).list();
-
-
         Iterator i = lo.iterator();
         while (i.hasNext())
         {

@@ -12,11 +12,19 @@
 		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
 
-    <context:component-scan base-package="rs.invado.wo.domain"/>
+
+	<context:property-placeholder location="classpath:/META-INF/properties/wo-properties"/>
+
+	<context:component-scan base-package="rs.invado.wo.domain"/>
 
     <context:component-scan base-package="rs.invado.wo.dao"/>
 
     <context:component-scan base-package="rs.invado.wo.service"/>
+
+	<context:component-scan base-package="rs.invado.wo.util"/>
+
+
+
 
     <tx:annotation-driven/>
     <!--

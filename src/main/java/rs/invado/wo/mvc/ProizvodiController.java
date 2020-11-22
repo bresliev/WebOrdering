@@ -29,7 +29,7 @@ public class ProizvodiController {
     private static final String ACTION_AKCIJA = "AKCIJA";
     private static final String ACTION_NOVO = "NOVO";
     private static final String ACTION_RASPRODAJA = "RASPRODAJA";
-    private static final String ACTION_NAJAKTUELNIJE = "NAJAKTUELNIJE";
+    private static final String ACTION_AKTUELNO = "AKTUELNO";
     private static final String ACTION_FILTER = "FILTER";
     private static final String ACTION_SASTAV = "SASTAV";
 
@@ -51,25 +51,25 @@ public class ProizvodiController {
         if (ACTION_MENI.equals(formAction)) {
             proizvodi = productService.getProizvodiZaBrendSorted(brandId, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), companySetting, oj);
         } else if (ACTION_AKCIJA.equals(formAction)) {
-            proizvodi = productService.getProzivodiNaAkcijiSorted(brandId, ProductService.PROIZVODI_NA_AKCIJI, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
+            proizvodi = productService.getProzivodiNaAkcijiSorted(brandId, ProductService.PROIZVODI_NA_AKCIJI, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
         } else if (ACTION_NOVO.equals(formAction)) {
-            proizvodi = productService.getProzivodiNaAkcijiSorted(brandId, ProductService.PROIZVODI_NOVO, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
-        } else if (ACTION_NAJAKTUELNIJE.equals(formAction)) {
-            proizvodi = productService.getProzivodiNaAkcijiSorted(brandId, ProductService.PROIZVODI_AKTUELNO, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
+            proizvodi = productService.getProzivodiNaAkcijiSorted(brandId, ProductService.PROIZVODI_NOVO, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
+        } else if (ACTION_AKTUELNO.equals(formAction)) {
+            proizvodi = productService.getProzivodiNaAkcijiSorted(brandId, ProductService.PROIZVODI_AKTUELNO, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
         } else if (ACTION_RASPRODAJA.equals(formAction)) {
-            proizvodi = productService.getProzivodiNaAkcijiSorted(brandId, ProductService.PROIZVODI_NA_RASPRODAJI, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
+            proizvodi = productService.getProzivodiNaAkcijiSorted(brandId, ProductService.PROIZVODI_NA_RASPRODAJI, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
         }else if (ACTION_SASTAV.equals(formAction)){
             proizvodi = productService.getProizvodiZaBrendSorted(brandId, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), companySetting, oj );
         } else { //if (ACTION_FILTER.equals(formAction))
             if (productId != null && !"".equals(productId)) {
-                OcpProizvod pro = productService.getProizvodById(Integer.parseInt(productId), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
+                OcpProizvod pro = productService.getProizvodById(Integer.parseInt(productId), user.getCeneProizvoda(), companySetting.getKompanijskiParametri().get(oj), pageNo, perPage, user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
                 if (pro != null) {
                     List lp = new ArrayList<OcpProizvod>();
                     lp.add(pro);
                     proizvodi = new Proizvodi(lp, 0, 1);
                 }
             } else
-                proizvodi = productService.getFilterProizvodiSorted(brandId, namePattern, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja());
+                proizvodi = productService.getFilterProizvodiSorted(brandId, namePattern, user.getCeneProizvoda(), pageNo, perPage, companySetting.getKompanijskiParametri().get(oj), user.getWoPartnerSetting(), companySetting.getTrasportnaPakovanja(), oj);
         }
         Gson gson = new GsonBuilder().excludeFieldsWithModifiers(Modifier.TRANSIENT, Modifier.STATIC, Modifier.PROTECTED).create();
         return gson.toJson(proizvodi).replace("undefined","");

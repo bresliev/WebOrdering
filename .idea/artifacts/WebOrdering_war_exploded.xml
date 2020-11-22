@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="WebOrdering:war exploded">
+  <artifact type="exploded-war" build-on-make="true" name="WebOrdering:war exploded">
     <output-path>$PROJECT_DIR$/target/WebOrdering</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
@@ -54,10 +54,12 @@
           <element id="library" level="project" name="Maven: org.apache.commons:commons-email:1.3" />
           <element id="library" level="project" name="Maven: javax.mail:mail:1.4.4" />
           <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
+          <element id="library" level="project" name="Maven: javax.inject:javax.inject:1" />
+          <element id="library" level="project" name="Maven: com.oracle:ojdbc6:11.2.0.3" />
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/WebOrdering/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target2/WebOrdering/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="WebOrdering/web/Web" />
     </root>

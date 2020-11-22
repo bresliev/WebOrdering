@@ -74,8 +74,8 @@
                         <td class="underllned" style="text-align:left">${item.value.cena}</td>
                         <td class="underllned" style="text-align:left">${item.value.vrednost}</td>
                         <c:if test="${loginUser.woUser.userType == 'INTERNI'}">
-                            <td class="underllned" style="text-align:left" class="not_link">${item.value.rabat}</td>
-                            <td class="underllned" style="text-align:left" class="not_link"><input type="text" name="dodatniRabat"
+                            <td style="text-align:left" class="not_link">${item.value.rabat}</td>
+                            <td style="text-align:left" class="not_link"><input type="text" name="dodatniRabat"
                                                                                 style="width:40px;border:solid 1px #4c4b4b;color: #4c4b4b;"/>
                             </td>
                         </c:if>
@@ -89,7 +89,6 @@
                                      src="/WO/images/large/${item.value.proizvod.proizvod}.jpg" alt=""/>
                             </div>
                         </td>
-
                     </tr>
                     <tr>
                         <td>
@@ -99,12 +98,17 @@
                                 <th style="width: 15%">Cena</th>
                                 <c:forEach items="${item.value.woRezervacijaSastavaList}" var="compositeItem"
                                            varStatus="i">
-                                    <tr>
+                                    <tr id="korpa_uvecaj_${compositeItem.proizvod.proizvod}" style="border-bottom: 1px solid #b3b3b3">
                                         <td style="text-align:left">
                                             <div class="multiline">${compositeItem.proizvod.proizvod} ${compositeItem.proizvod.nazivProizvoda} ${compositeItem.proizvod.dodatniNaziv}</div>
                                         </td>
                                         <td>${compositeItem.kolicina}</td>
                                         <td>${compositeItem.cena}</td>
+                                        <div class="dialog" id="uvecaj_${compositeItem.proizvod.proizvod}"
+                                             title="${compositeItem.proizvod.proizvod}  ${compositeItem.proizvod.nazivProizvoda} ${compositeItem.proizvod.dodatniNaziv}">
+                                            <img style="margin:0px;border:none;" width="700px" height="490px"
+                                                 src="/WO/images/large/${compositeItem.proizvod.proizvod}.jpg" alt=""/>
+                                        </div>
                                     </tr>
                                 </c:forEach>
                             </table>
@@ -119,7 +123,6 @@
                 <div class="prevoz_placanje">
                     <input type="radio" name="nacinTransporta" value="1"/><label>Vozilo dobavljaèa</label><br>
                     <input type="radio" name="nacinTransporta" value="2"/><label>Vozilo kupca</label><br>
-                    <input type="radio" name="nacinTransporta" value="5"/><label>Brza pošta</label>
                 </div>
                 <div class="prevoz_placanje">
                     <input type="hidden" name="maxRokPlacanja" value="${loginUser.woPartnerSetting[0].maxRokPlacanja}"/>
@@ -138,27 +141,37 @@
                     <h2>${loginUser.orderValueWithTax} &euro;</h2>
                 </div>
                 <hr color="#bbbbbb" class="thin" style="clear:both;margin-bottom:5px;"/>
-            </div>
-            <c:choose>
+                <br></br>
+                    <%--
+                <c:choose>
                 <c:when test="${loginUser.woUser.userType == 'INTERNI'}">
+                --%>
                     <!--[if lte IE 9]><div style="margin-left:10px;color:#4c4b4b">Napomena</div><![endif]-->
                     <textarea name="napomena" placeholder="Napomena" cols="30" rows="5" spellcheck="false"></textarea>
-                </c:when>
-                <c:otherwise>
-                    <!--[if lte IE 9]><div style="margin-left:10px;color:#4c4b4b">Adresa Isporuke</div><![endif]-->
-                    <textarea name="adresa" placeholder="Adresa Isporuke" cols="30" rows="5"
-                              spellcheck="false"></textarea>
-                </c:otherwise>
-            </c:choose>
+        <%--
+        </c:when>
 
+    </c:choose>
+--%>
+        <select name="adresaIsporuke" class="adresa_isporuke">
+            <option value="-1">Adresa Isporuke</option>
+            <c:forEach items="${loginUser.woUser.ocpPoslovniPartner.ocpAdresaIsporukes}" var="item">
+                <option value="${item.id}">${item.adresa}</option>
+            </c:forEach>
+        </select>
+        <br></br>
+        <!--[if lte IE 9]><div style="margin-left:10px;color:#4c4b4b">Adresa Isporuke</div><![endif]-->
+            <textarea name="adresa" placeholder="Adresa Isporuke" cols="30" rows="5"
+                      spellcheck="false"></textarea>
 
-            <hr color="#bbbbbb" class="thin" style="margin-left:10px;margin-bottom: 10px;"/>
+    </div>
+    <hr color="#bbbbbb" class="thin" style="margin-left:10px;margin-bottom: 10px;"/>
 
-            <div style="float: left;margin-left:10px;"><input type="button" class="btn ponisti" value="PONIŠTI"
-                                                              onClick="location.href='removeBasket'"/></div>
-            <div style="float: right;margin-left:10px;"><input type="button" id="chceckOutBasketBtn" class="btn potvrdi"
-                                                               value="POTVRDI"/></div>
-        </form>
-    </c:if>
+    <div style="float: left;margin-left:10px;"><input type="button" class="btn ponisti" value="PONIŠTI"
+                                                      onClick="location.href='removeBasket'"/></div>
+    <div style="float: right;margin-left:10px;"><input type="button" id="chceckOutBasketBtn" class="btn potvrdi"
+                                                       value="POTVRDI"/></div>
+</form>
+</c:if>
 
 </div>
