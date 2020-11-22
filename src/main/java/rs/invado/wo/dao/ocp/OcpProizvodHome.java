@@ -626,12 +626,13 @@ public class OcpProizvodHome {
         int rowCount = 0;
         int vrstaKlasifikacijeSort = 0;
         OcpProizvod ocpProizvod = null;
-        StringBuffer q = new StringBuffer("  select p.*  from Ocp_Proizvod p, ocp_vr_atr_proizvod a, WoProdCene c  where ( ");
+        StringBuffer q = new StringBuffer("  select p.*  from Ocp_Proizvod p, WoProdCene c  where ( ");
         String predicate = "";
         predicate = predicate + " p.proizvod# = " + id.intValue() + " and ";
 
         q.append(predicate.substring(0, predicate.length() - 4));
-        q.append(") and a.atribut# = :proveraZaliha "
+        q.append(")"
+                /*" and a.atribut# = :proveraZaliha "
                 + "  and a.proizvod# = p.proizvod# "
                 + "   and ((exists (select 1 "
                 + "              from wo_partner_settings w, uz_stanje_zaliha_skladista u"
@@ -651,7 +652,7 @@ public class OcpProizvodHome {
                 + "              and s.proizvod#_ulaz = p.proizvod#"
                 + "              and u.proizvod#  = s.proizvod#_izlaz"
                 + "              and ((u.kolicina_po_stanju_z - u.rezervisana_kol)/s.kolicina_ugradnje)/pak.kol_po_pakovanju >= 1 ) and a.vrednost = 'SASTAV')"
-                + "       or a.vrednost = 'NE') "
+                + "       or a.vrednost = 'NE') "*/
                 + "     and c.klasaCene = :klasaCene"
                 + "     and c.organizaciona_jedinica# = :ojc "
                 + "     and c.id_klasa_cene = :klc "
@@ -664,12 +665,12 @@ public class OcpProizvodHome {
         String query = q.toString();
         Query qNative = entityManager.createNativeQuery(query, OcpProizvod.class)
                 .setParameter("klasaCene", woParametri.getKlasaCene())
-                .setParameter("partner", woPartnerSettings.get(0).getPoslovniPartner().getPoslovniPartner())
-                .setParameter("kompanija", woParametri.getWoKompanijaKorisnik().getId())
+//              .setParameter("partner", woPartnerSettings.get(0).getPoslovniPartner().getPoslovniPartner())
+//                .setParameter("kompanija", woParametri.getWoKompanijaKorisnik().getId())
                 .setParameter("ojc", woPartnerSettings.get(0).getOrganizacionaJedinica())
                 .setParameter("klc", woPartnerSettings.get(0).getIdKlasaCene())
-                .setParameter("cenovnik", woPartnerSettings.get(0).getIdCenovnik())
-                .setParameter("proveraZaliha", woConfigSingleton.getAttributes()[4]);
+                .setParameter("cenovnik", woPartnerSettings.get(0).getIdCenovnik());
+//                .setParameter("proveraZaliha", woConfigSingleton.getAttributes()[4]);
 
         if (pageNo == 0) rowCount = qNative.getResultList().size();
         qNative.setFirstResult(pageNo * pageSize);

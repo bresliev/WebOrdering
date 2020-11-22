@@ -43,6 +43,8 @@ public class CompanySetting {
     private Map<String, Proizvodi> listaNajprodavanijih= new HashMap<String, Proizvodi>();
     //Map novih artikala za menjajuću listu
     private Map<String, Proizvodi> listaNovoIzdovojeno= new HashMap<String, Proizvodi>();
+    //Map izdvojenih artikala koji su na akciji i pri tome su izdvojeni
+    private Map<String, Proizvodi> listaAkcijaIzdvojeno= new HashMap<String, Proizvodi>();
 
     public Map<String, List<OcpKlasifikacija>> getMeni() {
         return meni;
@@ -122,5 +124,14 @@ public class CompanySetting {
 
     public void setListaNovoIzdvojeno(Map<String, Proizvodi> listaNovoIzdvojeno) {
         this.listaNovoIzdovojeno = listaNovoIzdvojeno;
+    }
+
+
+    public Map<String, Proizvodi> getListaAkcijaIzdvojeno() {
+        return listaAkcijaIzdvojeno;
+    }
+
+    public void setListaAkcijaIzdvojeno(Map<String, Proizvodi> listaAkcijaIzdvojeno) {
+        this.listaAkcijaIzdvojeno = listaAkcijaIzdvojeno;
     }
 }

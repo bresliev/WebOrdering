@@ -32,6 +32,10 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 /**
  * Created by IntelliJ IDEA.
  * User:
@@ -43,6 +47,7 @@ import java.util.*;
 @Transactional
 @Service
 public class BasketBusinessProcessing {
+    private static final Log log = LogFactory.getLog(BasketBusinessProcessing.class);
 
 
     @Autowired
@@ -172,6 +177,12 @@ public class BasketBusinessProcessing {
                     || ocpProizvod.getTipAkcije().equals(ProductService.PROIZVODI_NA_RASPRODAJI))))
                 woRezervacija.setRabat(new BigDecimal(0));
             woRezervacija.setVrednost(woRezervacija.getKolicina().multiply(woRezervacija.getCena()).setScale(3, RoundingMode.HALF_EVEN));
+            System.out.println(woRezervacija.getKolicina());
+            System.out.println(woRezervacija.getCena());
+            System.out.println(woRezervacija.getProizvod().getProizvod());
+            System.out.println(ocpProizvod.getProizvod());
+            System.out.println(woRezervacija.getVrednost());
+            System.out.println(ocpProizvod.getStopaPoreza());
             woRezervacija.setVrednostSaPorezom(woRezervacija.getVrednost()
                     .add(ocpProizvod.getStopaPoreza().multiply(woRezervacija.getVrednost().divide(new BigDecimal("100")))).setScale(3, RoundingMode.HALF_EVEN));
             user.setOrderValue(user.getOrderValue().add(woRezervacija.getCena().multiply(woRezervacija.getKolicina())).setScale(3, RoundingMode.HALF_EVEN));
@@ -999,6 +1010,8 @@ public class BasketBusinessProcessing {
                     }*/
                     OcpProizvod product = productService.getProizvodByIdAll(woRezervacijaMaxRabat.getProizvod().getProizvod(), user.getCeneProizvoda(), cs.getKompanijskiParametri().get(OJ),
                             0, 1, user.getWoPartnerSetting(), cs.getTrasportnaPakovanja(), OJ);
+                    System.out.println(product.getOcpKlasifikacijaProizvoda());
+                    System.out.println(OJ);
                     for (OcpKlasifikacijaProizvoda ocpKlasifikacijaProizvoda : product.getOcpKlasifikacijaProizvoda()) {
                         product.setMaxRabat(prodMaxRabatiDAO.findByKlasa(OJ, ocpKlasifikacijaProizvoda.getId().getVrstaKlasifikacije(), ocpKlasifikacijaProizvoda.getId().getKlasifikacija()).getMaxRabat());
                         if (product.getMaxRabat().compareTo(new BigDecimal(-1)) != 0)

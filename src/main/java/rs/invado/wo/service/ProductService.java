@@ -167,7 +167,12 @@ public class ProductService {
                                 wps.intValue() != obradjenoSkl &&
                                 uzskl.getKolicinaPoStanjuZ().compareTo(new BigDecimal(0.0)) == 1) {
                             raspolozivaKolicina = raspolozivaKolicina.add(uzskl.getKolicinaPoStanjuZ().subtract(uzskl.getRezervisanaKol()));
-                            item.setMaticnoSkladiste(uzskl.getId().getIdSkladista());
+                            if (uzskl.getId().getIdSkladista() == 18) {
+                                item.setMaticnoSkladiste(10);
+                            }else{
+                                item.setMaticnoSkladiste(uzskl.getId().getIdSkladista());
+                            }
+
                             obradjenoSkl = wps.intValue();
                             WoMapKompanijskaSkladista woMapKompanijskaSkladista = woMapKompanijskaSkladistaDAO.findActualSklRaspolozivo(uzSkladisteDAO.findById(wps.intValue()));
                             if (!(woMapKompanijskaSkladista == null) && woMapKompanijskaSkladista.getRaspolozivaKolicinaUSkl().equals("OBASKLADISTA")) {
@@ -284,6 +289,7 @@ public class ProductService {
         setTransAtrZaPro(proizvodi.getProizvodList(), cenovnik, woPartnerSetting, transortnaPakovanjaProizvoda, woParametri, oj);
         return proizvodi;
     }
+
 
     public Proizvodi getProzivodiNaAkcijiSorted(String brandId, String vrstaAkcije, Map<Integer, BigDecimal> cenovnik, int pageNo, int pageSize
             , WoParametri woParametri, List<WoPartnerSetting> woPartnerSetting, Map<Integer, BigDecimal> transortnaPakovanjaProizvoda, Integer OJ) {

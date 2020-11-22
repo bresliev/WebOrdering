@@ -162,6 +162,7 @@ public class BasketController {
             Integer oj = Integer.parseInt((String) session.getAttribute("oj"));
 
             if ("INTERNI".equals(user.getWoUser().getUserType()) && dodatniRabat != null && dodatniRabat.length > 0) {
+                log.info("Start of process 3 ");
                 int index = 0;
                 Set<String> items = user.getBasket().keySet();
                 for (String itemKey : items) {
@@ -174,9 +175,11 @@ public class BasketController {
             List<ProdFinDokument> fakture = basketService.chceckOutBasket(user, companySetting, nacinPlacanja, nacinTransporta, adresa, adresaIsporuke, napomena, oj, session.getId());
             List<String> faktureList = new ArrayList<String>();
             for (ProdFinDokument f : fakture) {
+                log.info("Start of process 7");
                 faktureList.add(f.getId().getIdFinDokumenta() + "/" + f.getId().getOrganizacionaJedinica() + "/" + f.getId().getGodina() + "/" + f.getId().getIdVd());
                 log.info(f.getId().getIdFinDokumenta() + "/" + f.getId().getOrganizacionaJedinica() + "/" + f.getId().getGodina() + "/" + f.getId().getIdVd());
             }
+            log.info("Start of process 8");
             session.setAttribute("fakture", fakture);
             req.setAttribute("protvrdaKorpe", "success");
             user.setBasket(new LinkedHashMap<String, WoRezervacija>());

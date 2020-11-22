@@ -92,6 +92,7 @@ public class LogOnService {
         cs.setListaNovoIzdvojeno(listaNovo);
     }
 
+
     public User logOn(String userName, String password, CompanySetting cs, Integer OJ) throws WOException {
         User user = new User();
         //cs.getKompanijaKorisnikMap().get(OJ).getId()
@@ -120,7 +121,7 @@ public class LogOnService {
             try {
 
 // produkcija
-                connection = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.170:1521:darex", userName, password);
+            connection = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.170:1521:darex", userName, password);
 
 // test
 //                connection = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.171:1521:test", userName, password);

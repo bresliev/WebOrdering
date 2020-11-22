@@ -106,7 +106,7 @@ import java.util.*;
                         "                UNION" +
                         "                select 1 from uz_map_skl_carinsko c, uz_stanje_zaliha_skladista u" +
                         "                where w.id_skladista = c.id_skladista" +
-                        "                and c.id_skl_carinsko = u.ic_skladista )" +
+                        "                and c.id_skl_carinsko = u.id_skladista )" +
                         "                and a.vrednost = 'DA')" +
                         "        or (exists (select 1" +
                         "                    from wo_partner_settings w, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak" +
@@ -191,7 +191,7 @@ import java.util.*;
                         "                UNION" +
                         "                select 1 from uz_map_skl_carinsko c, uz_stanje_zaliha_skladista u" +
                         "                where w.id_skladista = c.id_skladista" +
-                        "                and c.id_skl_carinsko = u.ic_skladista )" +
+                        "                and c.id_skl_carinsko = u.id_skladista )" +
                         "                and a.vrednost = 'DA')" +
                         "        or (exists (select 1" +
                         "                    from wo_partner_settings w, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak" +
@@ -284,7 +284,7 @@ import java.util.*;
                         "                UNION" +
                         "                select 1 from uz_map_skl_carinsko c, uz_stanje_zaliha_skladista u" +
                         "                where w.id_skladista = c.id_skladista" +
-                        "                and c.id_skl_carinsko = u.ic_skladista )" +
+                        "                and c.id_skl_carinsko = u.id_skladista )" +
                         "                and a.vrednost = 'DA')" +
                         "        or (exists (select 1" +
                         "                    from wo_partner_settings w, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak" +
@@ -374,7 +374,7 @@ import java.util.*;
                         "                UNION" +
                         "                select 1 from uz_map_skl_carinsko c, uz_stanje_zaliha_skladista u" +
                         "                where w.id_skladista = c.id_skladista" +
-                        "                and c.id_skl_carinsko = u.ic_skladista )" +
+                        "                and c.id_skl_carinsko = u.id_skladista )" +
                         "                and a.vrednost = 'DA')" +
                         "        or (exists (select 1" +
                         "                    from wo_partner_settings w, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak" +
@@ -463,7 +463,7 @@ import java.util.*;
                         +"                UNION"
                         +"                select 1 from uz_map_skl_carinsko c, uz_stanje_zaliha_skladista u"
                         +"                where w.id_skladista = c.id_skladista"
-                        +"                and c.id_skl_carinsko = u.ic_skladista )"
+                        +"                and c.id_skl_carinsko = u.id_skladista )"
                         +"                and a.vrednost = 'DA')"
                         +"        or (exists (select 1"
                         +"                    from wo_partner_settings w, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak"
@@ -536,7 +536,7 @@ import java.util.*;
                         +"                UNION"
                         +"                select 1 from uz_map_skl_carinsko c, uz_stanje_zaliha_skladista u"
                         +"                where w.id_skladista = c.id_skladista"
-                        +"                and c.id_skl_carinsko = u.ic_skladista )"
+                        +"                and c.id_skl_carinsko = u.id_skladista )"
                         +"                and a.vrednost = 'DA')"
                         +"        or (exists (select 1"
                         +"                    from wo_partner_settings w, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak"
@@ -615,7 +615,7 @@ import java.util.*;
                         +"               UNION"
                         +"               select 1 from uz_map_skl_carinsko c, uz_stanje_zaliha_skladista u"
                         +"               where w.id_skladista = c.id_skladista"
-                        +"               and c.id_skl_carinsko = u.ic_skladista )"
+                        +"               and c.id_skl_carinsko = u.id_skladista )"
                         +"               and a.vrednost = 'DA')"
                         +"       or (exists (select 1"
                         +"                   from wo_partner_settings w, uz_stanje_zaliha_skladista u, ocp_sastav_proizvoda s, uz_dozv_pakovanja pak"

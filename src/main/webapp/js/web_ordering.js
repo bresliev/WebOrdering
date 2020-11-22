@@ -140,6 +140,9 @@ $.ajaxSetup({
         var tipAkcijeImg = "";
         var raspolozivoPoPak = item.raspolozivo;
         var zalihe = "";
+        console.log(item.proizvod);
+        console.log(item.tipAkcije);
+//         if (item.tipAkcije == 'AKCIJA' || item.tipAkcije == 'IZDVOJENA_AKCIJA') tipAkcijeImg = "<img src='images/Akcije.png' alt='' style='position: absolute;top: 34px;right: 11px;'>";
         if (item.tipAkcije == 'AKCIJA' || item.tipAkcije == 'IZDVOJENA_AKCIJA') tipAkcijeImg = "<img src='images/Akcije.png' alt='' style='position: absolute;top: 34px;right: 11px;'>";
         else if (item.tipAkcije == 'NOVO') tipAkcijeImg = "<img src='images/Novo.png' alt='' style='position: absolute;top: 34px;right: 11px;'>";
         else if (item.tipAkcije == 'AKTUELNO') tipAkcijeImg = "<img src='images/Aktuelno.png' alt='' style='position: absolute;top: 34px;right: 11px;'>";
@@ -155,7 +158,7 @@ $.ajaxSetup({
             "<div class='ime multiline'>" + item.nazivProizvoda + " " + $(this).trimToEmptyString(item.dodatniNaziv) + "</div>" +
             "</div>";
         if (item.primeniJsklPakovanje) {
-            var pakovanja = "<select id='pakovanje-" + item.proizvod + "' style='border:solid 1px #666666;width:85px;'>";
+            var pakovanja = "<select id='pakovanje-" + item.proizvod + "' style='border:solid 1px #666666;width:107px;'>";
             $.each(item.jsklPakovanja, function (i, pak) {
                 pakovanja += "<option value='" + pak + "'>" + item.brojPakovanja[pak].brojPakovanja + " x " + pak + " " + item.jedinicaMere.skracenaOznaka.toLowerCase() + "</option> "
             });

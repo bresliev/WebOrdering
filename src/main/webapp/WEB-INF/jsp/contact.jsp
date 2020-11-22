@@ -194,58 +194,98 @@
                     <td colspan="3"
                         style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;">
                         Regionalni
-                        menadžeri
+                        menadžeri prodaje - ploèe
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <b>Vladimir Beševiæ</b><br>
-                        mob: 065 31 95 243<br>
-                        e-mail: <b><a style="color:#58595b;"
-                                      href="mailto:vladimir.besevic@darex.rs">vladimir.besevic@darex.rs</a></b><br><br>
-
                         <b>Radiša Vatazoviæ</b><br>
-                        mob: 065 31 95 284<br>
+                        mob: 065 3195 284<br>
                         e-mail: <b><a style="color:#58595b;"
                                       href="mailto:radisa.vatazovic@darex.rs">radisa.vatazovic@darex.rs</a></b><br><br>
-
-                        <b>Marjan Joviæ</b><br>
-                        mob: 065 31 95 669<br>
-                        e-mail: <b><a style="color:#58595b;"
-                                      href="mailto:marjan.jovic@darex.rs">radisa.vatazovic@darex.rs</a></b>
-                    </td>
-                    <td>
-                        <b>Miodrag Tasiæ</b><br>
-                        mob: 065 31 95 242<br>
-                        e-mail: <b><a style="color:#58595b;"
-                                      href="mailto:miodrag.tasic@darex.rs">miodrag.tasic@darex.rs</a></b><br><br>
-
-                        <b>Vladimir Kotarac</b><br>
-                        mob: 065 31 95 668<br>
-                        e-mail: <b><a style="color:#58595b;"
-                                      href="mailto:vladimir.kotarac@darex.rs">vladimir.kotarac@darex.rs</a></b><br><br><br>
-
-                        <b></b><br>
-                        <br>
-                        <b><a> </a></b>
                     </td>
                     <td>
                         <b>Aleksandar Petkoviæ</b><br>
-                        mob: 065 31 95 270<br>
+                        mob: 065 3195 270<br>
                         e-mail: <b><a style="color:#58595b;"
                                       href="mailto:aleksandar.petkovic@darex.rs">aleksandar.petkovic@darex.rs</a></b><br><br>
+                    </td>
+                    <td>
                         <b>Nikola Gavriloviæ</b><br>
-                        mob: 065 31 95 254<br>
+                        mob: 065 3195 254<br>
                         e-mail: <b><a style="color:#58595b;"
-                                      href="mailto:nikola.gavrilovic@darex.rs">nikola.gavrilovic@darex.rs</a></b><br><br><br>
-                        <b></b><br>
-                        <br>
-                        <b><a> </a></b>
+                                      href="mailto:nikola.gavrilovic@darex.rs">nikola.gavrilovic@darex.rs</a></b><br><br>
                     </td>
                 </tr>
                 <tr>
+                    <td>
+                        <b>Marjan Joviæ</b><br>
+                        mob: 065 3195 669<br>
+                        e-mail: <b><a style="color:#58595b;"
+                                      href="mailto:marjan.jovic@darex.rs">marjan.jovic@darex.rs</a></b><br><br><br>
+                    </td>
+                    <td>
+                        <b>Vladimir Kotarac</b><br>
+                        mob: 065 3195 243<br>
+                        e-mail: <b><a style="color:#58595b;"
+                                      href="mailto:vladimir.kotarac@darex.rs">vladimir.kotarac@darex.rs</a></b><br><br>
+                    </td>
+                    <td>
+                        <b>Nikola Krstiæ</b><br>
+                        mob: 065 3195 242<br>
+                        e-mail: <b><a style="color:#58595b;"
+                                      href="mailto:nikola.krstic@darex.rs">nikola.krstic@darex.rs</a></b><br><br>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"
+                        style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;">
+                        Regionalni
+                        menadžeri prodaje - okov
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Nemanja Raškoviæ</b><br>
+                        mob: 065 3195 244<br>
+                        e-mail: <b><a style="color:#58595b;"
+                                      href="mailto:nemanja.raskovic@darex.rs">nemanja.raskovic@darex.rs</a></b><br><br>
+                    </td>
+                    <td>
+                        <b>Marko Todoroviæ</b><br>
+                        mob: 065 3195 283<br>
+                        e-mail: <b><a style="color:#58595b;"
+                                      href="mailto:marko.todorovic@darex.rs">marko.todorovic@darex.rs</a></b><br><br>
+                    </td>
+                    <td>
+                        <b>Slaðana Beciæ</b><br>
+                        mob: 065 3195 302<br>
+                        e-mail: <b><a style="color:#58595b;"
+                                      href="mailto:sladjana.becic@darex.rs">sladjana.becic@darex.rs</a></b><br><br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Boško Raciæ</b><br>
+                        mob: 065 3195 668<br>
+                        e-mail: <b><a style="color:#58595b;"
+                                      href="mailto:bosko.racic@darex.rs">bosko.racic@darex.rs</a></b><br><br>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
                     <td style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;">
-                        Direktor prodaje
+                        Direktor prodaje okov:
                     </td>
                     <td></td>
                     <td style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;"><!--Direktor
@@ -254,10 +294,10 @@
                 </tr>
                 <tr>
                     <td>
-                        <b>Bojan Periæ</b><br>
-                        mob: 065 31 95 278<br>
+                        <b>Željko Rankoviæ</b><br>
+                        mob: 065 3195 298<br>
                         e-mail: <b><a style="color:#58595b;"
-                                      href="mailto:dusko.curcic@darex.rs">bojan.peric@darex.rs</a></b>
+                                      href="mailto:zeljko.rankovic@darex.rs">zeljko.rankovic@darex.rs</a></b>
                     </td>
                     <td></td>
                     <td></td>
