@@ -2,27 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="363c38ab-6483-4fd0-8de4-d079334c2ed0" name="Default" comment="jasper 30 izmena PDV stope">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Documentation/Prelazak na e-store/LABNET - Info u vezi integracije sa ERP-om.docx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Documentation/Prelazak na e-store/NB Soft - Info u vezi integracije sa ERP-om.docx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Documentation/Username&amp;Password/Skriptzaizmenupassworda.rtf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Documentation/Sortiranje/Uputstvo za set sort.docx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Documentation/Sortiranje/WO - ZAHTEV - SORTIRANJE PRIKAZ PROIZVODA.doc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Documentation/EA Project/WebOrdering.eap" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Documentation/Sortiranje/izgledalikacije.docx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/images/logo19.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/images/logo30.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Documentation/Responsive/predlogresponsiveUI.docx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessingDepricated.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/rs/invado/wo/util/EtoConf.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/IzemnaIzdvojenaAkcija.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Documentation/Sortiranje/Untitled2.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Documentation/Sortiranje/Untitled3.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Documentation/Sortiranje/Untitled4.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Documentation/Sortiranje/Untitled6.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Documentation/Sortiranje/Untitled8.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Documentation/Sortiranje/Untitled9.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Documentation/Sortiranje/alt_za_sort.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/reports/predracun19_v1.jrxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/BasketBusinessProcessing$ProAkcija.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/BasketBusinessProcessing$ProAkcija.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/BasketBusinessProcessing$ProAkcija.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/service/BasketBusinessProcessing$ProAkcija.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/BasketBusinessProcessing.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/service/BasketBusinessProcessing.class" />
@@ -51,21 +30,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/util/WoConfigSingleton.class" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/rs/invado/wo/util/WoConfigSingleton.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/rs/invado/wo/util/WoConfigSingleton.class" afterPath="$PROJECT_DIR$/target/classes/rs/invado/wo/util/WoConfigSingleton.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin" afterPath="$PROJECT_DIR$/bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessing.java" afterPath="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessing.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/BasketController.java" afterPath="$PROJECT_DIR$/src/main/java/rs/invado/wo/mvc/BasketController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rs/invado/wo/dto/CompanySetting.java" afterPath="$PROJECT_DIR$/src/main/java/rs/invado/wo/dto/CompanySetting.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/LogOnService.java" afterPath="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/LogOnService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpProizvod.java" afterPath="$PROJECT_DIR$/src/main/java/rs/invado/wo/domain/ocp/OcpProizvod.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpProizvodHome.java" afterPath="$PROJECT_DIR$/src/main/java/rs/invado/wo/dao/ocp/OcpProizvodHome.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/ProductService.java" afterPath="$PROJECT_DIR$/src/main/java/rs/invado/wo/service/ProductService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/Web-ordering-2.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/Web-ordering-2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebOrdering.iml" afterPath="$PROJECT_DIR$/WebOrdering.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/WebOrdering_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/WebOrdering_war_exploded.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/basket.jsp" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/basket.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/contact.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/contact.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/contact.jsp" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/contact.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/footer.jsp" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/footer.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/home.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/home.jsp" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/jsp/home.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/META-INF/spring/infrastructure.xml" afterPath="$PROJECT_DIR$/target/WebOrdering/WEB-INF/classes/META-INF/spring/infrastructure.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/META-INF/spring/infrastructure.xml" afterPath="$PROJECT_DIR$/target/classes/META-INF/spring/infrastructure.xml" />
@@ -73,8 +40,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/target/classes/META-INF/persistence.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/reports/predracun19.jrxml" afterPath="$PROJECT_DIR$/target/WebOrdering/reports/predracun19.jrxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/reports/predracun30.jrxml" afterPath="$PROJECT_DIR$/target/WebOrdering/reports/predracun30.jrxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/web_ordering.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/web_ordering.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/WebOrdering/js/web_ordering.js" afterPath="$PROJECT_DIR$/target/WebOrdering/js/web_ordering.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="WebOrdering.iws" />
@@ -134,7 +99,6 @@
             <state vertical-scroll-proportion="0.0">
               <caret line="175" column="89" selection-start-line="175" selection-start-column="89" selection-end-line="175" selection-end-column="89" />
               <folding>
-                <element signature="imports" expanded="false" />
                 <element signature="method#decreaseReservationCompositeObject#0;class#BasketBusinessProcessing#0" expanded="false" />
                 <element signature="method#decreaseReservation#0;class#BasketBusinessProcessing#0" expanded="false" />
                 <element signature="method#releaseReservation#0;class#BasketBusinessProcessing#0" expanded="false" />
@@ -153,11 +117,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LogOnService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LogOnService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/LogOnService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4069264">
+            <state vertical-scroll-proportion="0.0">
               <caret line="152" column="122" selection-start-line="152" selection-start-column="122" selection-end-line="152" selection-end-column="122" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="contact.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/contact.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="303" column="21" selection-start-line="303" selection-start-column="21" selection-end-line="303" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -174,6 +148,7 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -428,6 +403,110 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WebOrdering" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -448,7 +527,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.4413793" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="C:/Program Files/Git/cmd/git.exe" />
     <property name="full.screen.before.presentation.mode" value="false" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://F:/Invado/WebOrdering/WebOrdering/src/main/java/rs/invado/wo/dao/ocp/OcpProizvodHome.java" />
     <property name="FileHistory.git4idea.history.GitHistoryProvider_flatWidth0" value="365" />
@@ -1700,7 +1779,8 @@
       <workItem from="1603733197224" duration="33000" />
       <workItem from="1604227717639" duration="47000" />
       <workItem from="1605696542721" duration="424000" />
-      <workItem from="1605954343384" duration="1568000" />
+      <workItem from="1605954343384" duration="4833000" />
+      <workItem from="1606041568360" duration="93000" />
     </task>
     <task id="LOCAL-00001" summary="Sastav first">
       <created>1457296637907</created>
@@ -1966,11 +2046,23 @@
       <option name="project" value="LOCAL" />
       <updated>1567332558925</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="jasper 30 izmena PDV stope">
+      <created>1606036864498</created>
+      <option name="number" value="00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1606036864498</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Long array of chnages, after github logon">
+      <created>1606038012850</created>
+      <option name="number" value="00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1606038012850</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1092248000" />
+    <option name="totallyTimeSpent" value="1095606000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1992,13 +2084,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32522303" sideWeight="0.24940239" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18978103" sideWeight="0.6727468" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30115512" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2250203" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31762794" sideWeight="0.7505976" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2250203" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32927817" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18007968" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18007968" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19144385" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -2008,13 +2099,14 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24973261" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.325315" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.325315" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32927817" sideWeight="0.49681276" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31762794" sideWeight="0.7505976" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298969" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2672624" sideWeight="0.5984064" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -2034,7 +2126,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/bin" />
     </ignored-roots>
-    <MESSAGE value="Sastav first" />
     <MESSAGE value="Sastav SQL and doc" />
     <MESSAGE value="Sastav SQL second" />
     <MESSAGE value="Sastav SQL trans" />
@@ -2059,7 +2150,8 @@
     <MESSAGE value="problem sa posldenjom tablom" />
     <MESSAGE value="skl 18" />
     <MESSAGE value="jasper 30 izmena PDV stope" />
-    <option name="LAST_COMMIT_MESSAGE" value="jasper 30 izmena PDV stope" />
+    <MESSAGE value="Long array of chnages, after github logon" />
+    <option name="LAST_COMMIT_MESSAGE" value="Long array of chnages, after github logon" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2456,19 +2548,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/contact.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="303" column="21" selection-start-line="303" selection-start-column="21" selection-end-line="303" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/BasketBusinessProcessing.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="175" column="89" selection-start-line="175" selection-start-column="89" selection-end-line="175" selection-end-column="89" />
           <folding>
-            <element signature="imports" expanded="false" />
             <element signature="method#decreaseReservationCompositeObject#0;class#BasketBusinessProcessing#0" expanded="false" />
             <element signature="method#decreaseReservation#0;class#BasketBusinessProcessing#0" expanded="false" />
             <element signature="method#releaseReservation#0;class#BasketBusinessProcessing#0" expanded="false" />
@@ -2478,8 +2562,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/rs/invado/wo/service/LogOnService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4069264">
+        <state vertical-scroll-proportion="0.0">
           <caret line="152" column="122" selection-start-line="152" selection-start-column="122" selection-end-line="152" selection-end-column="122" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/contact.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="303" column="21" selection-start-line="303" selection-start-column="21" selection-end-line="303" selection-end-column="21" />
           <folding />
         </state>
       </provider>
