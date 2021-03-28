@@ -7,10 +7,13 @@
             <object width="716px" height="${flashSize}" style="margin:0;padding:0;margin-left:10px;"
                     classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
                     codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0">
+                <!--
                 <param name="SRC" value="/WO/flash/${oj}/kontakt.swf"/>
                 <param name="scale" value="exactfit"/>
                 <param name="wmode" value="transparent"/>
                 <embed src="/WO/flash/${oj}/kontakt.swf" width="716px" height="${flashSize}" wmode="transparent"/>
+                -->
+                <embed src="/WO/flash/${oj}/kontakt.gif" width="716px" height="${flashSize}" wmode="transparent"/>
             </object>
         </c:when>
         <c:otherwise>
@@ -248,16 +251,16 @@
                 </tr>
                 <tr>
                     <td>
-                        <b>Nemanja Raškoviæ</b><br>
+                        <b>Vladan Virijeviæ</b><br>
                         mob: 065 3195 244<br>
                         e-mail: <b><a style="color:#58595b;"
-                                      href="mailto:nemanja.raskovic@darex.rs">nemanja.raskovic@darex.rs</a></b><br><br>
+                                      href="mailto:vladan.virijevic@darex.rs">vladan.virijevic@darex.rs</a></b><br><br>
                     </td>
                     <td>
-                        <b>Marko Todoroviæ</b><br>
+                        <b>Miodrag Pešiæ</b><br>
                         mob: 065 3195 283<br>
                         e-mail: <b><a style="color:#58595b;"
-                                      href="mailto:marko.todorovic@darex.rs">marko.todorovic@darex.rs</a></b><br><br>
+                                      href="mailto:miodrag.pesic@darex.rs">miodrag.pesic@darex.rs</a></b><br><br>
                     </td>
                     <td>
                         <b>Slaðana Beciæ</b><br>
@@ -280,6 +283,25 @@
                 </tr>
                 <tr>
                     <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;">
+                        Direktor prodaje ploèe:
+                    </td>
+                    <td></td>
+                    <td style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;"><!--Direktor
+                prodaje-->
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <b>Vladimir Beševiæ</b><br>
+                        mob: 065 3195 278<br>
+                        e-mail: <b><a style="color:#58595b;"
+                                      href="mailto:vladimir.besevic@darex.rs">vladimir.besevic@darex.rs</a></b>
+                    </td>
                     <td></td>
                     <td></td>
                 </tr>
@@ -314,11 +336,11 @@
                 </tr>
                 <tr>
                     <td>
-                        <b>Duško Èuræiæ</b><br>
-                        tel: 011 20 91 650<br>
+                        <b>Dušan Šoškiæ</b><br>
+                        tel: 011 20 91 600<br>
                         mob: 065 31 95 255<br>
                         e-mail: <b><a style="color:#58595b;"
-                                      href="mailto:dusko.curcic@darex.rs">dusko.curcic@darex.rs</a></b>
+                                      href="mailto:dusan.soskic@darex.rs">dusan.soskic@darex.rs</a></b>
                     </td>
                     <td></td>
                     <td></td>
@@ -337,7 +359,7 @@
                         tel: 011 20 91 620<br>
                         fax: 011 20 91 699<br>
                         e-mail: <b><a style="color:#58595b;"
-                                      href="mailto:distribucija@darex.rs">distribucija@darex.rs</a></b>
+                                      href="mailto:prodaja@darex.rs">distribucija@darex.rs</a></b>
                     </td>
                     <td>
                         <b>Distributivni Centar Niš</b><br>
@@ -346,7 +368,7 @@
                         tel: 018 208 100<br>
                         fax: 011 20 91 699<br>
                         e-mail: <b><a style="color:#58595b;"
-                                      href="mailto:distribucija@darex.rs">distribucija@darex.rs</a></b><br>
+                                      href="mailto:prodaja@darex.rs">distribucija@darex.rs</a></b><br>
                     </td>
                     <td>
                         <b> Distributivni Centar Ivanjica</b><br>
@@ -355,26 +377,26 @@
                         tel: 032 642 372<br>
                         fax: 011 20 91 699<br>
                         e-mail: <b><a style="color:#58595b;"
-                                      href="mailto:distribucija@darex.rs">distribucija@darex.rs</a></b>
+                                      href="mailto:prodaja@darex.rs">distribucija@darex.rs</a></b>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <b>Radno vreme :</b><br>
                         pon - pet 8:30 - 16:30 h<br>
-                        sub 9:00 - 17:00 h<br>
+                        sub 9:00 - 15:00 h<br>
                         ned neradni dan
                     </td>
                     <td>
                         <b>Radno vreme :</b><br>
                         pon - pet 8:30 - 16:30 h<br>
-                        sub 9:00 - 17:00 h<br>
+                        sub 9:00 - 15:00 h<br>
                         ned neradni dan
                     </td>
                     <td>
                         <b>Radno vreme :</b><br>
                         pon - pet 8:30 - 16:30 h<br>
-                        sub 9:00 - 17:00 h<br>
+                        sub 9:00 - 15:00 h<br>
                         ned neradni dan
                     </td>
                 </tr>
