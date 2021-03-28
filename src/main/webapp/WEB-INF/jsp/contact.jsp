@@ -31,26 +31,30 @@
             <table style="float:left;width:716px;color:#58595b;margin-left:10px;font-size:12px;line-height:16px;">
                 <tr>
                     <td colspan="3"
-                        style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;">
-                        Regionalni
+                        style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;">Regionalni
                         menadžer
                     </td>
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <b>Boris Tomiæ</b><br>
+                        <b>Aleksandar Bujišiæ</b><br>
                         tel: +382 (0)20 225 289<br>
-                        mob: +382 (0)68 044 554<br>
-                        e-mail: <b><a style="color:#58595b;" href="mailto:boris.tomic@darexmax.me">boris.tomic@darexmax.me</a></b><br><br>
+                        mob: +382 (0)68 044 5543<br>
+                        e-mail: <b><a style="color:#58595b;" href="mailto:aleksandar.bujisic@darexmax.me">aleksandar.bujisic@darexmax.me</a></b><br><br>
                     </td>
                 </tr>
                 <tr>
                     <td colspan="3"
-                        style="font-size:16px;color:#faa635;font-weight: 600;padding-top:25px;padding-bottom: 10px;">
-                        Prodaja
+                        style="font-size:16px;color:#faa635;font-weight: 600;padding-top:25px;padding-bottom: 10px;">Prodaja
                     </td>
                 </tr>
                 <tr>
+                    <td>
+                        <b>Stojan Draškoviæ</b><br>
+                        tel: +382 (0)20 225 289<br>
+                        mob: +382 (0)68 045 888<br>
+                        e-mail: <b><a style="color:#58595b;" href="mailto:ivana.dabovic@darex.rs">ivana.dabovic@darex.rs</a></b>
+                    </td>
                     <td>
                         <b>Radmila Azanjac</b><br>
                         tel: +381 (0)11 20 91 622<br>
@@ -65,98 +69,39 @@
                         mob: +381 (0)65 31 95 301<br>
                         e-mail: <b><a style="color:#58595b;" href="mailto:vera.maslakovic@darex.rs">vera.maslakovic@darex.rs</a></b>
                     </td>
-                    <td>
-                        <b>Anðela Kremenoviæ</b><br>
-                        tel: +381 (0)11 20 91 621<br>
-                        fax: +381 (0)11 20 91 699<br>
-                        mob: +381 (0)65 31 95 240<br>
-                        e-mail: <b><a style="color:#58595b;" href="mailto:andjela.kremenovic@darex.rs">andjela.kremenovic@darex.rs</a></b>
-                    </td>
-
-                </tr>
-                <tr>
-                    <td style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;">
-                        Direktor prodaje
-                    </td>
-                    <td></td>
-                    <td style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;">
-                        Izvršni direktor
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Bojan Periæ</b><br>
-                        mob: +381 (0)65 31 95 278<br>
-                        e-mail: <b><a style="color:#58595b;"
-                                      href="mailto:dusko.curcic@darex.rs">bojan.peric@darex.rs</a></b>
-                    </td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;">
-                        Šef
-                        distributivnog centra
-                    </td>
-                    <td></td>
-                    <td style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;">
-                        Izvršni direktor
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <b>Duško Curciæ</b><br>
-                        tel: +381 (0)11 20 91 650<br>
-                        mob: +381 (0)65 31 95 255<br>
-                        e-mail: <b><a style="color:#58595b;"
-                                      href="mailto:dusko.curcic@darex.rs">dusko.curcic@darex.rs</a></b>
-                    </td>
-                    <td></td>
-                    <td></td>
                 </tr>
                 <tr>
                     <td style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;">
                         Darexmax d.o.o. Podgorica
                     </td>
                     <td></td>
-                    <td style="font-size:16px;color:#faa635;font-weight: 600;padding-top: 25px;padding-bottom: 10px;">
-                        Distributivni Centar Ivanjica
-                    </td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>
-                        Vojvode Ilije Plamenca bb, Zabjelo<br>
+                        Branka Miljkoviæa 40<br>
                         81000 Podgorica<br>
                         tel: +382 (0)20 225 289<br>
                         fax: +382 (0)20 225 289<br>
                         e-mail: <b><a style="color:#58595b;" href="mailto:distribucija@darexmax.me">distribucija@darexmax.me</a></b>
                     </td>
                     <td></td>
-                    <td>
-                        Bukovica bb<br>
-                        32250 Ivanjica<br>
-                        tel: +381 (0)32 642 372<br>
-                        fax: +381 (0)11 20 91 699<br>
-                        e-mail: <b><a style="color:#58595b;"
-                                      href="mailto:distribucija@darex.rs">distribucija@darex.rs</a></b>
-                    </td>
+                    <td></td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
                     <td>
                         <b>Radno vreme :</b><br>
                         pon - pet 8:30 - 16:30 h<br>
-                        sub 9:00 - 17:00 h<br>
-                        ned neradni dan
-                    </td>
+                        sub 9:00 - 15:00 h<br>
+                        ned neradni dan</td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td colspan="3" style="text-align: center;padding-top: 50px;padding-bottom: 25px;">
                         Sve primedbe i sugestije poslati na e-mail: <b><a style="color:#58595b;"
                                                                           href="mailto:primedbe.sugestije@darexmax.me">primedbe.sugestije@darexmax.me</a></b><br>
-                        Reklamacije možete poslati na e-mail: <b><a style="color:#58595b;"
-                                                                    href="mailto:reklamacije@darexmax.me">reklamacije@darexmax.me</a></b><br>
+                        Reklamacije možete poslati na e-mail: <b><a style="color:#58595b;" href="mailto:reklamacije@darexmax.me">reklamacije@darexmax.me</a></b><br>
                     </td>
                 </tr>
             </table>
@@ -359,7 +304,7 @@
                         tel: 011 20 91 620<br>
                         fax: 011 20 91 699<br>
                         e-mail: <b><a style="color:#58595b;"
-                                      href="mailto:prodaja@darex.rs">distribucija@darex.rs</a></b>
+                                      href="mailto:prodaja@darex.rs">prodaja@darex.rs</a></b>
                     </td>
                     <td>
                         <b>Distributivni Centar Niš</b><br>
@@ -368,7 +313,7 @@
                         tel: 018 208 100<br>
                         fax: 011 20 91 699<br>
                         e-mail: <b><a style="color:#58595b;"
-                                      href="mailto:prodaja@darex.rs">distribucija@darex.rs</a></b><br>
+                                      href="mailto:prodaja@darex.rs">prodaja@darex.rs</a></b><br>
                     </td>
                     <td>
                         <b> Distributivni Centar Ivanjica</b><br>
@@ -377,7 +322,7 @@
                         tel: 032 642 372<br>
                         fax: 011 20 91 699<br>
                         e-mail: <b><a style="color:#58595b;"
-                                      href="mailto:prodaja@darex.rs">distribucija@darex.rs</a></b>
+                                      href="mailto:prodaja@darex.rs">prodaja@darex.rs</a></b>
                     </td>
                 </tr>
                 <tr>

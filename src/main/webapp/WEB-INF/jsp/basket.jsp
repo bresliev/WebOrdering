@@ -159,7 +159,7 @@
                 <option value="${item.id}">${item.adresa}</option>
             </c:forEach>
         </select>
-        <br></br>
+        <br>
         <!--[if lte IE 9]><div style="margin-left:10px;color:#4c4b4b">Adresa Isporuke</div><![endif]-->
             <textarea name="adresa" placeholder="Adresa Isporuke" cols="30" rows="5"
                       spellcheck="false"></textarea>

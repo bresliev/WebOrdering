@@ -8,13 +8,14 @@
             <object width="716px" height="${flashSize}" style="margin:0;padding:0;margin-left:10px;"
                     classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
                     codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0">
+                <!--
                 <param name="SRC" value="/WO/flash/${oj}/naslovna.swf"/>
 
                 <img src="/WO/images/naslovna.jpg" alt=""/>
 
                 <param name="scale" value="exactfit"/>
                 <param name="wmode" value="transparent"/>
-            <!--
+
             <embed src="/WO/flash/${oj}/naslovna.swf" width="716px" height="${flashSize}" wmode="transparent"/>
 
                 <img id="dialog-img-${item.proizvod}" class="product_item_img opener"

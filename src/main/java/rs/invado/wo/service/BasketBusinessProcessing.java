@@ -586,7 +586,8 @@ public class BasketBusinessProcessing {
             uzDokument.setPoslovniPartnerKd(partner);
             uzDokument.setPoslovniPartnerOt(user.getWoPartnerSetting().get(0).getPoslovniPartner().getPoslovniPartner());
             if (isInteger(adresa)) {
-                uzDokument.setAdresaIsporukeRobe(ocpAdresaIsporukeDAO.findById(Integer.parseInt(adresa)).getAdresa());
+                OcpAdresaIsporuke ocpAdresaIsporuke = ocpAdresaIsporukeDAO.findById(Integer.parseInt(adresa));
+                uzDokument.setAdresaIsporukeRobe(ocpAdresaIsporuke.getAdresa()+" ; "+ocpAdresaIsporuke.getNazivMesta());
             } else {
                 uzDokument.setAdresaIsporukeRobe(adresa);
             }

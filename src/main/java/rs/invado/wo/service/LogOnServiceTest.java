@@ -1,33 +1,36 @@
 package rs.invado.wo.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-import rs.invado.wo.dao.admin.AdmUserCinposHome;
-import rs.invado.wo.dao.ocp.OcpAdresaIsporukeHome;
-import rs.invado.wo.dao.ocp.OcpProizvodHome;
-import rs.invado.wo.dao.ocp.OcpValutaHome;
-import rs.invado.wo.dao.prod.ProdCenovnikHome;
-import rs.invado.wo.dao.wo.WoParametriHome;
-import rs.invado.wo.dao.wo.WoPartnerSettingsHome;
-import rs.invado.wo.dao.wo.WoUserHome;
-import rs.invado.wo.dao.wo.WoUserRightsHome;
-import rs.invado.wo.domain.admin.AdminUserCinpos;
-import rs.invado.wo.domain.ocp.OcpAdresaIsporuke;
-import rs.invado.wo.domain.wo.*;
-import rs.invado.wo.dto.CompanySetting;
-import rs.invado.wo.dto.Proizvodi;
-import rs.invado.wo.dto.User;
-import rs.invado.wo.util.WOException;
-import rs.invado.wo.util.WOExceptionCodes;
-import rs.invado.wo.util.WoConfigSingleton;
+/**
+ * Created by Nikola on 04/03/2021.
+ */
+       import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.stereotype.Repository;
+        import org.springframework.transaction.annotation.Transactional;
+        import rs.invado.wo.dao.admin.AdmUserCinposHome;
+        import rs.invado.wo.dao.ocp.OcpAdresaIsporukeHome;
+        import rs.invado.wo.dao.ocp.OcpProizvodHome;
+        import rs.invado.wo.dao.ocp.OcpValutaHome;
+        import rs.invado.wo.dao.prod.ProdCenovnikHome;
+        import rs.invado.wo.dao.wo.WoParametriHome;
+        import rs.invado.wo.dao.wo.WoPartnerSettingsHome;
+        import rs.invado.wo.dao.wo.WoUserHome;
+        import rs.invado.wo.dao.wo.WoUserRightsHome;
+        import rs.invado.wo.domain.admin.AdminUserCinpos;
+        import rs.invado.wo.domain.ocp.OcpAdresaIsporuke;
+        import rs.invado.wo.domain.wo.*;
+        import rs.invado.wo.dto.CompanySetting;
+        import rs.invado.wo.dto.Proizvodi;
+        import rs.invado.wo.dto.User;
+        import rs.invado.wo.util.WOException;
+        import rs.invado.wo.util.WOExceptionCodes;
+        import rs.invado.wo.util.WoConfigSingleton;
 
-import javax.inject.Inject;
-import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.*;
+        import javax.inject.Inject;
+        import java.math.BigDecimal;
+        import java.sql.Connection;
+        import java.sql.DriverManager;
+        import java.sql.SQLException;
+        import java.util.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -38,7 +41,7 @@ import java.util.*;
  */
 @Repository
 @Transactional
-public class LogOnService {
+public class LogOnServiceTest {
 
     @Autowired
     private WoUserHome woUserDAO;
@@ -92,19 +95,17 @@ public class LogOnService {
         cs.setListaNovoIzdvojeno(listaNovo);
     }
 
-
     public User logOn(String userName, String password, CompanySetting cs, Integer OJ) throws WOException {
         User user = new User();
         //cs.getKompanijaKorisnikMap().get(OJ).getId()
         //WoUser woUser = woUserDAO.findUserByUsername(userName);
 
         WoUser woUser = woUserDAO.findUserByUsernameAndCompany(userName, cs.getKompanijaKorisnikMap().get(OJ).getId());
-
         //WoUser woUser = woUserDAO.autenticate(userName, password);
         if (woUser == null)
             throw new WOException(WOExceptionCodes.WO_UNEXESTING_USER);
         if (woUser.getUserType().equals(WoUser.USER_EXTERNAL)) {
-            //sluƒçaj eksternog korisnika
+            //sluƒ?aj eksternog korisnika
             if (!woUser.getPassword().equals(password)) {
                 throw new WOException(WOExceptionCodes.WO_UNEXESTING_USER);
             }
@@ -116,15 +117,16 @@ public class LogOnService {
                 throw new WOException(WOExceptionCodes.WO_UNAUTHORIZED_USER);
             }
 
-            //sluƒçaj internog korisnika, potrebno je kreritai konekciju
+            //sluƒ?aj internog korisnika, potrebno je kreritai konekciju
             //if (woUser.getRadnik().getObrJedinica())
             Connection connection = null;
             try {
-// produkcija
-            connection = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.170:1521:darex", userName, password);
-
-// test
-//             connection = DriverManager.getConnection("jdbc:oracle:thin:@10.10.10.171:1521:test", userName, password);
+                connection = DriverManager.getConnection(
+                        "jdbc:oracle:thin:@10.10.10.170:1521:darex", userName, password);
+/*
+                connection = DriverManager.getConnection(
+                        "jdbc:oracle:thin:@10.10.10.171:1521:test", userName, password);
+                        */
 
                 if (connection == null) {
                     throw new WOException(WOExceptionCodes.WO_UNEXESTING_USER);
@@ -144,7 +146,8 @@ public class LogOnService {
         }
 
         List<OcpAdresaIsporuke> ocpAdresaIsporukes = ocpAdresaIsporukeDAO.findByPartnerId(woUser.getOcpPoslovniPartner().getPoslovniPartner());
-         woUser.getOcpPoslovniPartner().setOcpAdresaIsporukes(ocpAdresaIsporukes);
+
+        woUser.getOcpPoslovniPartner().setOcpAdresaIsporukes(ocpAdresaIsporukes);
 
         for (int i = 0; i < woUser.getOcpPoslovniPartner().getProdPpRabats().size(); i++) {
 
@@ -193,3 +196,4 @@ public class LogOnService {
         }
     }
 }
+
